@@ -1,0 +1,82 @@
+---
+title: "学习如何创建 Mono 实例 - bigroc"
+date: 2025-11-11T02:41:00.000Z
+slug: -mono---bigroc
+categories: []
+tags: []
+summary: "学习如何创建 Mono 实例 Flux 描述 AMono&lt;T&gt;是一个响应式流 Publisher，还增强了许多可用于生成、转换、编排 Mono 序列的操作符。 它是最多 Flux 可以发出 1 个&lt;T&gt;元素的特例：Mono 要么有值（包含元素），要么为空（不包含元素），要么失败（错误）。 AMono&lt;Void&gt;可用于仅对完成信号感兴趣的情况（相当于 Reacti..."
+originUrl: "https://www.cnblogs.com/bigroc/p/19209371"
+---
+
+# 学习如何创建 Mono 实例
+
+## Flux
+
+### 描述
+
+A`Mono<T>`是一个响应式流 `Publisher`，还增强了许多可用于生成、转换、编排 Mono 序列的操作符。  
+它是最多 `Flux` 可以发出 1 个`<T>`元素的特例：Mono 要么有值（包含元素），要么为空（不包含元素），要么失败（错误）。  
+A`Mono<Void>`可用于仅对完成信号感兴趣的情况（相当于 Reactive Streams 中的 `Runnable` 任务完成）。  
+与 类似 `Flux`，运算符可用于定义异步管道，该管道将为每个 重新实例化 `Subscription`。  
+请注意，某些更改序列基数的 API 将返回一个Flux（反之亦然，将基数减少到 1 的 API 将 `Flux` 返回一个 `Mono`）。
+
+请参阅此处的 [javadoc](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html)  
+![mono](/images/posts/-mono---bigroc-1764042097825.png)  
+`Mono` 实际操作：
+
+```java
+Mono.firstWithValue(
+        Mono.just(1).map(integer -> "foo" + integer),
+        Mono.delay(Duration.ofMillis(100)).thenReturn("bar")
+    )
+    .subscribe(System.out::println);
+```
+
+## 实践
+
+```java
+public class Part02Mono {
+    //========================================================================================
+
+    // TODO 返回一个空的Mono
+    public Mono<@NonNull String> emptyMono() {
+        return Mono.empty();
+    }
+
+//========================================================================================
+
+    // TODO Return a Mono that never emits any signal
+    public Mono<@NonNull String> monoWithNoSignal() {
+        return Mono.never();
+    }
+
+//========================================================================================
+
+    // TODO 返回一个包含“foo”值的Mono
+    public Mono<@NonNull String> fooMono() {
+        return Mono.just("foo");
+    }
+
+//========================================================================================
+
+    // TODO 创建一个发出IllegalStateException的Mono
+    public Mono<@NonNull String> errorMono() {
+        return Mono.error(new IllegalStateException());
+    }
+}
+```
+
+```java
+public class MonoTest {
+    @Test
+    public void TestMono() {
+        Part02Mono pt2 = new Part02Mono();
+        pt2.emptyMono().subscribe(System.out::println);
+        pt2.monoWithNoSignal().subscribe(System.out::println);
+        pt2.fooMono().subscribe(System.out::println);
+        pt2.errorMono().subscribe(System.out::println);
+    }
+}
+```
+
+原文:[https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Mono](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Mono)

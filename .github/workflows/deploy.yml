@@ -1,0 +1,46 @@
+name: Sync Blog & Deploy
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # 每天凌晨2点执行
+  workflow_dispatch:  # 允许手动触发
+  push:
+    branches: [main]
+
+jobs:
+  sync-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Sync blog posts
+        run: npm run sync
+      
+      - name: Commit new posts
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add src/content/posts/ public/images/ data/
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: sync blog posts [skip ci]"
+          git push
+        continue-on-error: true
+      
+      - name: Build site
+        run: npm run build
+      
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: blog_v2
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

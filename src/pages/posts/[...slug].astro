@@ -1,0 +1,84 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '@layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map(post => ({
+    params: { slug: post.id.replace('.md', '') },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<MainLayout title={post.data.title} description={post.data.summary}>
+  <article class="prose prose-lg dark:prose-invert mx-auto max-w-none">
+    <header class="mb-8 pb-8 border-b border-gray-200 dark:border-gray-800">
+      <h1 class="text-4xl font-bold mb-4">{post.data.title}</h1>
+      <div class="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
+        <time datetime={post.data.date.toISOString()}>
+          {post.data.date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+        {post.data.categories.length > 0 && (
+          <span>分类：{post.data.categories.join(', ')}</span>
+        )}
+        <a href={post.data.originUrl} target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">
+          查看原文 ↗
+        </a>
+      </div>
+      {post.data.tags.length > 0 && (
+        <div class="flex gap-2 mt-4">
+          {post.data.tags.map(tag => (
+            <a href={`/tags/${tag}`} class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded hover:bg-primary-200 dark:hover:bg-primary-900/50 transition text-sm">
+              {tag}
+            </a>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <Content />
+
+    <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+      <div class="text-center">
+        <a href="/" class="text-primary-600 dark:text-primary-400 hover:underline">← 返回首页</a>
+      </div>
+    </footer>
+  </article>
+
+  <!-- Giscus 评论系统 -->
+  <!-- 配置步骤：
+    1. 访问 https://giscus.app/ 获取你的配置参数
+    2. 替换下方的 data-repo, data-repo-id, data-category, data-category-id
+    3. 确保 GitHub 仓库已启用 Discussions 功能
+  -->
+  <div class="max-w-4xl mx-auto mt-12">
+    <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">💬 评论</h2>
+    <div class="giscus-container">
+      <script src="https://giscus.app/client.js"
+        data-repo="onlybigroc/blog_v2"
+        data-repo-id="YOUR_REPO_ID"
+        data-category="General"
+        data-category-id="YOUR_CATEGORY_ID"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </div>
+  </div>
+
+  <style>
+    .giscus-container {
+      border-radius: 0.5rem;
+    }
+  </style>
+</MainLayout>

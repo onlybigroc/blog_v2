@@ -1,0 +1,22 @@
+{
+  "name": "blog_v2",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "sync": "node scripts/sync-cnblogs.mjs"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.12",
+    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "@tailwindcss/typography": "^0.5.19",
+    "astro": "^5.16.0",
+    "jsdom": "^27.2.0",
+    "rss-parser": "^3.13.0",
+    "tailwindcss": "^3.4.18",
+    "turndown": "^7.2.2"
+  }
+}
