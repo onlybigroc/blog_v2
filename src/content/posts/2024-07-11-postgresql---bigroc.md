@@ -88,7 +88,7 @@ WHERE
 ```
 
 结果  
-![image](/images/posts/postgresql---bigroc-1764042145465.png)
+![image](/images/posts/postgresql---bigroc-1764048273876.png)
 
 ## 问题
 

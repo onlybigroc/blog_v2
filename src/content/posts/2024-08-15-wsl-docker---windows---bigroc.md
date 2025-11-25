@@ -12,7 +12,7 @@ originUrl: "https://www.cnblogs.com/bigroc/p/18361112"
 
 Windows WSL Docker 默认安装路径在C盘的，导致岌岌可危的C盘空间😱更加吃紧，一不小心就要出现👇这种情况了
 
-![image](/images/posts/wsl-docker---windows---bigroc-1764042141786.png)
+![image](/images/posts/wsl-docker---windows---bigroc-1764048268482.png)
 
 接下来我们一起迁移它们吧
 
@@ -23,7 +23,7 @@ WSL2 默认安装在 C 盘，我们可以通过以下步骤迁移安装位置
 
 `wsl -l -v`
 
-![image](/images/posts/wsl-docker---windows---bigroc-1764042141862.png)  
+![image](/images/posts/wsl-docker---windows---bigroc-1764048268688.png)  
 可以看到已安装了 Ubuntu，其运行状态为：Stopped
 
 ### 导出分发版
@@ -36,7 +36,7 @@ WSL2 默认安装在 C 盘，我们可以通过以下步骤迁移安装位置
 
 `wsl --export Ubuntu d:\wsl\Ubuntu.tar`
 
-![image](/images/posts/wsl-docker---windows---bigroc-1764042141960.png)
+![image](/images/posts/wsl-docker---windows---bigroc-1764048268896.png)
 
 > ⚠️  
 > wsl --export <Distribution Name> <FileName>  
@@ -53,9 +53,9 @@ WSL2 默认安装在 C 盘，我们可以通过以下步骤迁移安装位置
 这时候可以执行验证是否完成注销并卸载  
 `wsl -l -v`
 
-![image](/images/posts/wsl-docker---windows---bigroc-1764042142031.png)
+![image](/images/posts/wsl-docker---windows---bigroc-1764048269166.png)
 
-![image](/images/posts/wsl-docker---windows---bigroc-1764042142110.png)
+![image](/images/posts/wsl-docker---windows---bigroc-1764048269369.png)
 
 👍完美，符合预期！！！
 
@@ -65,7 +65,7 @@ WSL2 默认安装在 C 盘，我们可以通过以下步骤迁移安装位置
 `wsl --import Ubuntu d:\wsl\Ubuntu d:\wsl\Ubuntu.tar`  
 再次查看已安装的 Linux 发行版  
 `wsl -l -v`  
-![image](/images/posts/wsl-docker---windows---bigroc-1764042142219.png)
+![image](/images/posts/wsl-docker---windows---bigroc-1764048269580.png)
 
 设置默认用户  
 `Ubuntu config --default-user bigroc`
@@ -98,7 +98,7 @@ Docker Desktop 会创建两个发行版：`docker-desktop-data` 和 `docker-desk
 `wsl --import docker-desktop d:\wsl\docker-desktop d:\wsl\docker-desktop.tar`
 
 至此 公司的电脑又一次成功复活  
-![image](/images/posts/wsl-docker---windows---bigroc-1764042142295.png)
+![image](/images/posts/wsl-docker---windows---bigroc-1764048269782.png)
 
 ## 参考
 
