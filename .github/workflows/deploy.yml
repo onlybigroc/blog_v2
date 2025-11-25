@@ -1,56 +1,56 @@
-name: Sync Blog & Deploy to Cloudflare Pages
+# name: Sync Blog & Deploy to Cloudflare Pages
 
-on:
-  schedule:
-    - cron: '0 2 * * *'  # 每天凌晨2点执行
-  workflow_dispatch:  # 允许手动触发
-  push:
-    branches: [main, master]
+# on:
+#   schedule:
+#     - cron: '0 2 * * *'  # 每天凌晨2点执行
+#   workflow_dispatch:  # 允许手动触发
+#   push:
+#     branches: [main, master]
 
-jobs:
-  sync-and-deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+# jobs:
+#   sync-and-deploy:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: write
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0
       
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: '20'
+#           cache: 'npm'
       
-      - name: Install dependencies
-        run: npm ci
+#       - name: Install dependencies
+#         run: npm ci
       
-      - name: Sync blog posts
-        run: npm run sync
-        continue-on-error: true
+#       - name: Sync blog posts
+#         run: npm run sync
+#         continue-on-error: true
       
-      - name: Commit new posts
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add -A
-          git diff --quiet && git diff --staged --quiet || (
-            git commit -m "chore: sync blog posts [skip ci]" &&
-            git push
-          )
-        continue-on-error: true
+#       - name: Commit new posts
+#         run: |
+#           git config --local user.email "github-actions[bot]@users.noreply.github.com"
+#           git config --local user.name "github-actions[bot]"
+#           git add -A
+#           git diff --quiet && git diff --staged --quiet || (
+#             git commit -m "chore: sync blog posts [skip ci]" &&
+#             git push
+#           )
+#         continue-on-error: true
       
-      - name: Build site
-        run: npm run build
+#       - name: Build site
+#         run: npm run build
       
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: blog-v2
-          directory: dist
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+#       - name: Deploy to Cloudflare Pages
+#         uses: cloudflare/pages-action@v1
+#         with:
+#           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+#           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+#           projectName: blog-v2
+#           directory: dist
+#           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+#           branch: main
