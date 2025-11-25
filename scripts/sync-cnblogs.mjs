@@ -96,6 +96,17 @@ function extractSummary(content, maxLength = 200) {
   return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
 }
 
+// 转义 YAML 字符串
+function escapeYamlString(str) {
+  if (!str) return '';
+  return str
+    .replace(/\\/g, '\\\\')  // 反斜杠
+    .replace(/"/g, '\\"')    // 双引号
+    .replace(/\n/g, ' ')      // 换行
+    .replace(/\r/g, '')       // 回车
+    .replace(/\t/g, ' ');     // 制表符
+}
+
 // 抓取文章详情页完整内容
 async function fetchFullArticle(url) {
   try {
@@ -165,12 +176,12 @@ async function fetchAndProcessPost(item, cache) {
   
   // 6. 生成 frontmatter
   const frontmatter = `---
-title: "${item.title.replace(/"/g, '\\"')}"
+title: "${escapeYamlString(item.title)}"
 date: ${pubDate.toISOString()}
 slug: ${slug}
-categories: [${categories.length > 0 ? `"${categories[0]}"` : ''}]
-tags: [${tags.map(t => `"${t}"`).join(', ')}]
-summary: "${extractSummary(content).replace(/"/g, '\\"')}"
+categories: [${categories.length > 0 ? `"${escapeYamlString(categories[0])}"` : ''}]
+tags: [${tags.map(t => `"${escapeYamlString(t)}"`).join(', ')}]
+summary: "${escapeYamlString(extractSummary(content))}"
 originUrl: "${item.link}"
 ---
 

@@ -4,7 +4,7 @@ date: 2018-08-20T16:00:00.000Z
 slug: credssporacle
 categories: []
 tags: []
-summary: "家庭版解决方案&nbsp; 在进行远程桌面时会遇到这种情况。对于Windows 10家庭版用户，是不支持组策略功能的。本文根据官方文档采用修改注册表的方式达到相同的目的。 1.打开注册表&nbsp;&nbsp; win + R&nbsp; 键入&nbsp; regedit&nbsp; 打开注册表 2.找到目录 HKEY_LOCAL_MACHINE\Software\Microsoft\Window..."
+summary: "家庭版解决方案&nbsp; 在进行远程桌面时会遇到这种情况。对于Windows 10家庭版用户，是不支持组策略功能的。本文根据官方文档采用修改注册表的方式达到相同的目的。 1.打开注册表&nbsp;&nbsp; win + R&nbsp; 键入&nbsp; regedit&nbsp; 打开注册表 2.找到目录 HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Window..."
 originUrl: "https://www.cnblogs.com/bigroc/p/9512324.html"
 ---
 
