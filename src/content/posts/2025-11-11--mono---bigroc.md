@@ -21,7 +21,7 @@ A`Mono<Void>`可用于仅对完成信号感兴趣的情况（相当于 Reactive 
 请注意，某些更改序列基数的 API 将返回一个Flux（反之亦然，将基数减少到 1 的 API 将 `Flux` 返回一个 `Mono`）。
 
 请参阅此处的 [javadoc](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html)  
-![mono](/images/posts/-mono---bigroc-1764048212665.png)  
+![mono](/images/posts/-mono---bigroc-1764048820113.png)  
 `Mono` 实际操作：
 
 ```java
