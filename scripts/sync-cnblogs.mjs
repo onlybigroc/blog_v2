@@ -104,7 +104,8 @@ function escapeYamlString(str) {
     .replace(/"/g, '\\"')    // 双引号
     .replace(/\n/g, ' ')      // 换行
     .replace(/\r/g, '')       // 回车
-    .replace(/\t/g, ' ');     // 制表符
+    .replace(/\t/g, ' ')      // 制表符
+    .replace(/[\[\]]/g, '');  // 移除方括号（避免 YAML 解析问题）
 }
 
 // 抓取文章详情页完整内容
