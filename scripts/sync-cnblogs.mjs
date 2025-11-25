@@ -6,7 +6,9 @@ import TurndownService from 'turndown';
 import { JSDOM } from 'jsdom';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const RSS_URL = 'https://www.cnblogs.com/bigroc/rss';
+const BLOG_USERNAME = 'bigroc'; // 博客园用户名
+const RSS_URL = `https://www.cnblogs.com/${BLOG_USERNAME}/rss`;
+const ARCHIVE_URL = `https://www.cnblogs.com/${BLOG_USERNAME}/default.html`; // 文章归档页
 const POSTS_DIR = path.join(__dirname, '../src/content/posts');
 const IMAGES_DIR = path.join(__dirname, '../public/images/posts');
 const SYNC_CACHE = path.join(__dirname, '../data/sync-cache.json');
@@ -184,21 +186,115 @@ originUrl: "${item.link}"
   return guid;
 }
 
+// 抓取历史文章列表（从归档页）
+async function fetchHistoricalPosts(maxPages = 10) {
+  const posts = [];
+  console.log('正在抓取历史文章列表...\n');
+
+  for (let page = 1; page <= maxPages; page++) {
+    try {
+      const url = page === 1 
+        ? ARCHIVE_URL 
+        : `https://www.cnblogs.com/${BLOG_USERNAME}/default.html?page=${page}`;
+      
+      console.log(`  正在抓取第 ${page} 页...`);
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        console.log(`  第 ${page} 页不存在，停止抓取`);
+        break;
+      }
+      
+      const html = await response.text();
+      const dom = new JSDOM(html);
+      const doc = dom.window.document;
+      
+      // 博客园文章列表结构
+      const articleElements = doc.querySelectorAll('.day .postTitle, .postTitle2');
+      
+      if (articleElements.length === 0) {
+        console.log(`  第 ${page} 页没有更多文章`);
+        break;
+      }
+      
+      articleElements.forEach(element => {
+        const link = element.querySelector('a');
+        if (link) {
+          const title = link.textContent.trim();
+          const url = link.href;
+          
+          // 提取发布日期（如果有）
+          const dateElement = element.closest('.day')?.querySelector('.dayTitle');
+          let date = new Date();
+          if (dateElement) {
+            const dateText = dateElement.textContent.trim();
+            const dateMatch = dateText.match(/(\d{4})\u5e74(\d{1,2})\u6708(\d{1,2})\u65e5/);
+            if (dateMatch) {
+              date = new Date(dateMatch[1], dateMatch[2] - 1, dateMatch[3]);
+            }
+          }
+          
+          posts.push({
+            title,
+            link: url,
+            guid: url,
+            pubDate: date.toISOString(),
+            categories: [],
+          });
+        }
+      });
+      
+      console.log(`  ✓ 发现 ${articleElements.length} 篇文章`);
+      
+      // 限速
+      await new Promise(resolve => setTimeout(resolve, 2000));
+    } catch (error) {
+      console.error(`  抓取第 ${page} 页失败:`, error.message);
+      break;
+    }
+  }
+  
+  console.log(`\n总计发现 ${posts.length} 篇历史文章\n`);
+  return posts;
+}
+
 // 主同步函数
-async function syncBlog() {
+async function syncBlog(options = {}) {
+  const { includeHistory = false, maxHistoryPages = 10 } = options;
+  
   console.log('开始同步博客文章...\n');
 
   await ensureDir(POSTS_DIR);
   await ensureDir(IMAGES_DIR);
 
   const cache = await loadCache();
+  let allPosts = [];
+
+  // 1. 从 RSS 获取最新文章
+  console.log('📡 正在从 RSS 获取最新文章...\n');
   const feed = await parser.parseURL(RSS_URL);
+  console.log(`发现 ${feed.items.length} 篇最新文章\n`);
+  allPosts = [...feed.items];
 
-  console.log(`发现 ${feed.items.length} 篇文章\n`);
+  // 2. 如果需要，抓取历史文章
+  if (includeHistory) {
+    console.log('\n📚 开始抓取历史文章...\n');
+    const historicalPosts = await fetchHistoricalPosts(maxHistoryPages);
+    
+    // 去重（使用 guid/link 去重）
+    const existingLinks = new Set(allPosts.map(p => p.link || p.guid));
+    const newHistoricalPosts = historicalPosts.filter(
+      p => !existingLinks.has(p.link || p.guid)
+    );
+    
+    console.log(`去重后新增 ${newHistoricalPosts.length} 篇历史文章\n`);
+    allPosts = [...allPosts, ...newHistoricalPosts];
+  }
 
+  console.log(`\n🚀 开始同步 ${allPosts.length} 篇文章...\n`);
   let syncedCount = 0;
 
-  for (const item of feed.items) {
+  for (const item of allPosts) {
     try {
       const guid = await fetchAndProcessPost(item, cache);
       if (guid) {
@@ -214,7 +310,39 @@ async function syncBlog() {
 
   await saveCache(cache);
 
-  console.log(`\n同步完成！新增 ${syncedCount} 篇文章`);
+  console.log(`\n✅ 同步完成！新增 ${syncedCount} 篇文章`);
+  console.log(`📊 缓存中已有 ${cache.synced.length} 篇文章`);
 }
 
-syncBlog().catch(console.error);
+// 命令行参数解析
+const args = process.argv.slice(2);
+const includeHistory = args.includes('--history') || args.includes('-h');
+const maxPagesArg = args.find(arg => arg.startsWith('--pages='));
+const maxHistoryPages = maxPagesArg ? parseInt(maxPagesArg.split('=')[1]) : 10;
+
+if (args.includes('--help')) {
+  console.log(`
+博客文章同步脚本
+
+用法:
+  npm run sync                    # 只同步 RSS 中的最新文章
+  npm run sync -- --history       # 同步所有历史文章（默认 10 页）
+  npm run sync -- -h              # 同 --history
+  npm run sync -- --history --pages=20  # 指定抓取页数
+
+选项:
+  --history, -h         同步历史文章
+  --pages=<number>      指定抓取的最大页数（默认 10）
+  --help                显示帮助信息
+  `);
+  process.exit(0);
+}
+
+console.log(`
+配置信息:
+  博客用户: ${BLOG_USERNAME}
+  同步模式: ${includeHistory ? '完整历史同步' : '仅 RSS 最新文章'}
+  ${includeHistory ? `最大页数: ${maxHistoryPages}` : ''}
+`);
+
+syncBlog({ includeHistory, maxHistoryPages }).catch(console.error);
