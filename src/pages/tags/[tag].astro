@@ -12,9 +12,9 @@ export async function getStaticPaths() {
     post.data.tags.forEach(tag => tags.add(tag));
   });
 
-  // 为每个标签生成路径
+  // 为每个标签生成路径（Astro 会自动处理 URL 编码）
   return Array.from(tags).map(tag => ({
-    params: { tag: encodeURIComponent(tag) },
+    params: { tag },
     props: {
       tag,
       posts: allPosts
