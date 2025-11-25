@@ -4,3 +4,7 @@ dist/
 .env
 .DS_Store
 data/sync-cache.json
+
+# Cloudflare
+.wrangler/
+wrangler.toml.bak
