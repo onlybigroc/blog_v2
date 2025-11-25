@@ -19,11 +19,11 @@ A`Flux<T>`是一个响应式流`Publisher`，它增强了许多操作符，可�
 *   实例方法（即运算符）允许您构建异步处理管道，该管道将生成异步序列。
 *   每个`Flux#subscribe()`或多播操作（例如`Flux#publish`）`Flux#publishNext` 都会创建一个专用的管道实例，并触发其中的数据流。  
     请参阅此处的 [javadoc](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html)  
-    ![image](/images/posts/-flux---bigroc-1764042101043.png)
+    ![image](/images/posts/-flux---bigroc-1764048217642.png)
 
 ## 实践
 
-> ![tip](/images/posts/-flux---bigroc-1764042101144.png)  
+> ![tip](/images/posts/-flux---bigroc-1764048217876.png)  
 > 提示：如果您想了解某个操作内部正在发生什么`Flux`，或者`Mono`在练习过程中即将返回某个操作，您可以`.log()`在返回之前随时向该操作添加参数。第 6 部分就用到了这一点。
 
 ```java

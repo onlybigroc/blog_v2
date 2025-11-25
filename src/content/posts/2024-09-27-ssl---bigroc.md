@@ -12,18 +12,18 @@ originUrl: "https://www.cnblogs.com/bigroc/p/18435895"
 
 打开 [https://httpsok.com‍/?p=4f1h](https://httpsok.com/?p=4f1h) （这里夹带私货 `4f1h` 是我的邀请码！），登录后，点击【申请证书】
 
-![image](/images/posts/ssl---bigroc-1764042130089.png)
+![image](/images/posts/ssl---bigroc-1764048250222.png)
 
 输入自己的域名（这里演示是 httpsok.xzy ）并且回车  
-![image](/images/posts/ssl---bigroc-1764042130194.png)  
+![image](/images/posts/ssl---bigroc-1764048250577.png)  
 此时，会提示检测中，我们需要再到DNS添加一条 CNAME 类型的解析记录。  
-![image](/images/posts/ssl---bigroc-1764042130321.png)  
+![image](/images/posts/ssl---bigroc-1764048250933.png)  
 添加成功后，如下图所示。  
-![image](/images/posts/ssl---bigroc-1764042130429.png)  
+![image](/images/posts/ssl---bigroc-1764048251288.png)  
 此时，再回到页面控制台，发现域名已经检测通过了。  
-![image](/images/posts/ssl---bigroc-1764042130556.png)  
+![image](/images/posts/ssl---bigroc-1764048251660.png)  
 点击【提交申请】，证书进入申请中，等待1分钟左右，即可申请成功。  
-![image](/images/posts/ssl---bigroc-1764042130678.png)
+![image](/images/posts/ssl---bigroc-1764048251954.png)
 
 ## 部署SSL证书
 
@@ -64,23 +64,23 @@ vim /etc/nginx/conf.d/httpsok.xyz.conf
 ## 安装 httpsok.sh并部署证书
 
 回到控制台首页，点击按钮复制安装命令。  
-![image](/images/posts/ssl---bigroc-1764042130848.png)  
+![image](/images/posts/ssl---bigroc-1764048252411.png)  
 到服务器，粘贴并执行刚刚复制的命令，此时 自动更新SSL证书，并且自动重载nginx。  
-![image](/images/posts/ssl---bigroc-1764042131026.png)
+![image](/images/posts/ssl---bigroc-1764048252847.png)
 
 ## 通过HTTPS访问网站
 
 点击小锁，可以看到证书详情。（提示：网站404是因为没有部署页面文件，部署之后就不会了）  
-![image](/images/posts/ssl---bigroc-1764042131185.png)  
+![image](/images/posts/ssl---bigroc-1764048253179.png)  
 下面是谷歌浏览器查看证书方式  
-![image](/images/posts/ssl---bigroc-1764042131306.png)
+![image](/images/posts/ssl---bigroc-1764048253518.png)
 
 > 恭喜您，nginx安装完成，并且SSL证书也部署成功。是不是很简单、也很方便呢。
 > 
 > 如果遇到nginx部署或者SSL证书相关的问题，也欢迎随时咨询我们。
 > 
 > 觉得好用的话，也希望大家推荐我们的产品给好友。  
-> ![image](/images/posts/ssl---bigroc-1764042131433.png)
+> ![image](/images/posts/ssl---bigroc-1764048253847.png)
 
 文档：[https://httpsok.com‍/doc/](https://httpsok.com/doc/)  
 原文：[【微信公众号】Nginx快速安装并部署SSL证书](https://mp.weixin.qq.com/s/EY3ARrUaSkANoxdveEiKMw)
