@@ -1,5 +1,5 @@
 # Cloudflare Pages 部署配置
-name = "blog_v2"
+name = "blog"
 compatibility_date = "2025-11-25"
 
 [assets]
