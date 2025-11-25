@@ -16,6 +16,12 @@ const STORAGE_KEY = 'blog_post_stats';
 const API_BASE_URL = import.meta.env.PUBLIC_STATS_API_URL || '';
 const USE_CLOUD_SYNC = !!API_BASE_URL; // 是否启用云端同步
 
+// 调试信息（仅开发环境）
+if (typeof window !== 'undefined' && import.meta.env.DEV) {
+  console.log('[Stats] API_BASE_URL:', API_BASE_URL);
+  console.log('[Stats] USE_CLOUD_SYNC:', USE_CLOUD_SYNC);
+}
+
 // 获取所有统计数据
 export function getAllStats(): AllStats {
   if (typeof window === 'undefined') return {};
@@ -48,20 +54,31 @@ export async function recordView(postId: string): Promise<PostStats> {
   // 如果启用云端同步，优先使用 API
   if (USE_CLOUD_SYNC) {
     try {
-      const response = await fetch(`${API_BASE_URL}/stats/${encodeURIComponent(postId)}/view`, {
+      const url = `${API_BASE_URL}/stats/${encodeURIComponent(postId)}/view`;
+      console.log('[Stats] Recording view:', url);
+      
+      const response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       });
       
+      console.log('[Stats] Response status:', response.status);
+      
       if (response.ok) {
         const stats = await response.json();
+        console.log('[Stats] Cloud stats:', stats);
         // 同步到本地
         updateLocalStats(postId, stats);
         return stats;
+      } else {
+        const error = await response.text();
+        console.error('[Stats] API error:', error);
       }
     } catch (error) {
       console.warn('云端记录阅读失败，使用本地存储:', error);
     }
+  } else {
+    console.log('[Stats] Using localStorage (no API configured)');
   }
   
   // 降级到本地存储
@@ -74,6 +91,7 @@ export async function recordView(postId: string): Promise<PostStats> {
   allStats[postId] = stats;
   saveStats(allStats);
   
+  console.log('[Stats] Local stats:', stats);
   return stats;
 }
 
@@ -82,20 +100,31 @@ export async function toggleLike(postId: string): Promise<PostStats> {
   // 如果启用云端同步，优先使用 API
   if (USE_CLOUD_SYNC) {
     try {
-      const response = await fetch(`${API_BASE_URL}/stats/${encodeURIComponent(postId)}/like`, {
+      const url = `${API_BASE_URL}/stats/${encodeURIComponent(postId)}/like`;
+      console.log('[Stats] Toggling like:', url);
+      
+      const response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       });
       
+      console.log('[Stats] Response status:', response.status);
+      
       if (response.ok) {
         const stats = await response.json();
+        console.log('[Stats] Cloud stats:', stats);
         // 同步到本地
         updateLocalStats(postId, stats);
         return stats;
+      } else {
+        const error = await response.text();
+        console.error('[Stats] API error:', error);
       }
     } catch (error) {
       console.warn('云端点赞失败，使用本地存储:', error);
     }
+  } else {
+    console.log('[Stats] Using localStorage (no API configured)');
   }
   
   // 降级到本地存储
@@ -113,6 +142,7 @@ export async function toggleLike(postId: string): Promise<PostStats> {
   allStats[postId] = stats;
   saveStats(allStats);
   
+  console.log('[Stats] Local stats:', stats);
   return stats;
 }
 

@@ -6,8 +6,8 @@ compatibility_date = "2025-11-25"
 [[d1_databases]]
 binding = "DB"
 database_name = "blog_stats"
-database_id = "c17b3001-356d-417e-8a60-3d6e6a92e13e"
+database_id = "c17b3001-356d-417e-8a60-3d6e6a92e13e"  # 公开安全：需要 Cloudflare 认证才能访问
 
 # 环境变量
 [vars]
-ALLOWED_ORIGINS = "https://blog.onlybigroc.workers.dev,http://localhost:4323"
+ALLOWED_ORIGINS = "https://blog.onlybigroc.workers.dev,https://qinrenjihe.com,https://bigroc.cn,http://localhost:4321,http://localhost:4322,http://localhost:4323"
