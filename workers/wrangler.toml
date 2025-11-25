@@ -1,0 +1,13 @@
+name = "blog-stats-api"
+main = "stats-api.ts"
+compatibility_date = "2025-11-25"
+
+# D1 数据库绑定
+[[d1_databases]]
+binding = "DB"
+database_name = "blog_stats"
+database_id = "c17b3001-356d-417e-8a60-3d6e6a92e13e"
+
+# 环境变量
+[vars]
+ALLOWED_ORIGINS = "https://blog.onlybigroc.workers.dev,http://localhost:4323"

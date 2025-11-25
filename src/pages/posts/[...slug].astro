@@ -18,13 +18,23 @@ const { Content } = await post.render();
   <article class="prose prose-lg dark:prose-invert mx-auto max-w-none">
     <header class="mb-8 pb-8 border-b border-gray-200 dark:border-gray-800">
       <h1 class="text-4xl font-bold mb-4">{post.data.title}</h1>
-      <div class="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
+      <div class="flex flex-wrap gap-4 items-center text-sm text-gray-600 dark:text-gray-400">
         <time datetime={post.data.date.toISOString()}>
           {post.data.date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
         </time>
         {post.data.categories.length > 0 && (
           <span>分类：{post.data.categories.join(', ')}</span>
         )}
+        
+        <!-- 阅读量 -->
+        <span class="flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+          </svg>
+          <span id="view-count">0</span>
+        </span>
+        
         <a href={post.data.originUrl} target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">
           查看原文 ↗
         </a>
@@ -43,6 +53,26 @@ const { Content } = await post.render();
     <Content />
 
     <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+      <!-- 点赞按钮 -->
+      <div class="flex justify-center mb-8">
+        <button
+          id="like-button"
+          class="group flex items-center gap-3 px-6 py-3 rounded-full transition-all duration-300 hover:scale-110 bg-gray-100 dark:bg-gray-800 hover:bg-red-50 dark:hover:bg-red-900/20"
+          aria-label="点赞"
+        >
+          <svg 
+            class="w-6 h-6 transition-colors duration-300 text-gray-400 group-hover:text-red-500" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+            id="like-icon"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+          </svg>
+          <span id="like-count" class="font-medium text-gray-700 dark:text-gray-300">0</span>
+        </button>
+      </div>
+      
       <div class="text-center">
         <a href="/" class="text-primary-600 dark:text-primary-400 hover:underline">← 返回首页</a>
       </div>
@@ -80,5 +110,67 @@ const { Content } = await post.render();
     .giscus-container {
       border-radius: 0.5rem;
     }
+    
+    .liked {
+      fill: currentColor !important;
+      color: #ef4444 !important;
+    }
   </style>
+
+  <script>
+    import { recordView, toggleLike, getPostStats, formatCount } from '@utils/stats';
+
+    // 获取文章 ID（使用 URL 路径）
+    const postId = window.location.pathname.replace('/posts/', '').replace(/\/$/, '');
+
+    // 页面加载时记录阅读并显示统计数据
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 记录阅读（异步）
+      const stats = await recordView(postId);
+      
+      // 显示阅读量
+      const viewCountEl = document.getElementById('view-count');
+      if (viewCountEl) {
+        viewCountEl.textContent = formatCount(stats.views);
+      }
+      
+      // 显示点赞数
+      const likeCountEl = document.getElementById('like-count');
+      const likeIcon = document.getElementById('like-icon');
+      const likeButton = document.getElementById('like-button');
+      
+      if (likeCountEl) {
+        likeCountEl.textContent = formatCount(stats.likes);
+      }
+      
+      // 如果已点赞，显示点赞状态
+      if (stats.liked && likeIcon) {
+        likeIcon.classList.add('liked');
+      }
+      
+      // 点赞按钮事件
+      if (likeButton) {
+        likeButton.addEventListener('click', async () => {
+          const newStats = await toggleLike(postId);
+          
+          // 更新显示
+          if (likeCountEl) {
+            likeCountEl.textContent = formatCount(newStats.likes);
+          }
+          
+          // 更新图标状态
+          if (likeIcon) {
+            if (newStats.liked) {
+              likeIcon.classList.add('liked');
+              // 点赞动画
+              likeButton.classList.add('scale-125');
+              setTimeout(() => likeButton.classList.remove('scale-125'), 200);
+            } else {
+              likeIcon.classList.remove('liked');
+            }
+          }
+        });
+      }
+    });
+  </script>
 </MainLayout>
