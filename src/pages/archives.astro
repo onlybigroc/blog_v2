@@ -1,0 +1,142 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+
+const title = '归档 | 个人技术博客';
+const description = '按时间归档的所有文章';
+
+// 获取所有文章
+const allPosts = (await getCollection('posts'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// 按年月分组
+interface GroupedPosts {
+  year: number;
+  months: {
+    month: number;
+    posts: typeof allPosts;
+  }[];
+}
+
+const grouped = new Map<number, Map<number, typeof allPosts>>();
+
+allPosts.forEach(post => {
+  const date = post.data.date;
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+
+  if (!grouped.has(year)) {
+    grouped.set(year, new Map());
+  }
+  
+  const yearMap = grouped.get(year)!;
+  if (!yearMap.has(month)) {
+    yearMap.set(month, []);
+  }
+  
+  yearMap.get(month)!.push(post);
+});
+
+// 转换为数组格式
+const archives: GroupedPosts[] = Array.from(grouped.entries())
+  .map(([year, monthMap]) => ({
+    year,
+    months: Array.from(monthMap.entries())
+      .map(([month, posts]) => ({ month, posts }))
+      .sort((a, b) => b.month - a.month), // 月份降序
+  }))
+  .sort((a, b) => b.year - a.year); // 年份降序
+
+// 统计信息
+const totalPosts = allPosts.length;
+const years = archives.length;
+---
+
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <h1 class="text-4xl font-bold mb-2">归档</h1>
+    <p class="text-gray-600 dark:text-gray-400">
+      共 {totalPosts} 篇文章，跨越 {years} 年
+    </p>
+  </div>
+
+  <!-- 时间轴样式归档 -->
+  <div class="space-y-12">
+    {archives.map(({ year, months }) => (
+      <section>
+        <h2 class="text-3xl font-bold mb-8 text-primary-600 dark:text-primary-400 sticky top-4 bg-white dark:bg-gray-900 py-2 z-10">
+          {year}
+          <span class="text-lg font-normal text-gray-500 dark:text-gray-400 ml-3">
+            ({months.reduce((sum, m) => sum + m.posts.length, 0)} 篇)
+          </span>
+        </h2>
+
+        <div class="space-y-8">
+          {months.map(({ month, posts }) => (
+            <div class="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700">
+              <!-- 月份标记 -->
+              <div class="absolute -left-3 top-0 w-6 h-6 bg-primary-600 dark:bg-primary-500 rounded-full flex items-center justify-center">
+                <span class="text-xs text-white font-bold">{month}</span>
+              </div>
+
+              <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-300">
+                {month}月
+                <span class="text-sm font-normal text-gray-500 dark:text-gray-400 ml-2">
+                  ({posts.length} 篇)
+                </span>
+              </h3>
+
+              <div class="space-y-4">
+                {posts.map((post) => (
+                  <article class="group">
+                    <div class="flex gap-4 items-baseline">
+                      <time 
+                        datetime={post.data.date.toISOString()}
+                        class="text-sm text-gray-500 dark:text-gray-500 font-mono shrink-0"
+                      >
+                        {post.data.date.getDate().toString().padStart(2, '0')}日
+                      </time>
+                      <div class="flex-1">
+                        <h4 class="text-lg font-medium mb-1">
+                          <a 
+                            href={`/posts/${post.id.replace('.md', '')}`}
+                            class="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                          >
+                            {post.data.title}
+                          </a>
+                        </h4>
+                        {post.data.tags.length > 0 && (
+                          <div class="flex flex-wrap gap-2 mt-2">
+                            {post.data.tags.slice(0, 5).map(tag => (
+                              <a 
+                                href={`/tags/${encodeURIComponent(tag)}`}
+                                class="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                              >
+                                {tag}
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <!-- 返回顶部 -->
+  <div class="mt-12 text-center">
+    <a 
+      href="#top"
+      class="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded hover:bg-primary-700 transition-colors"
+    >
+      ↑ 返回顶部
+    </a>
+  </div>
+</MainLayout>

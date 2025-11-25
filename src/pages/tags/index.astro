@@ -1,0 +1,78 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+
+const title = '标签 | 个人技术博客';
+const description = '所有文章标签';
+
+// 获取所有文章
+const allPosts = (await getCollection('posts'))
+  .filter(post => !post.data.draft);
+
+// 统计标签
+const tagCount = new Map<string, number>();
+allPosts.forEach(post => {
+  post.data.tags.forEach(tag => {
+    tagCount.set(tag, (tagCount.get(tag) || 0) + 1);
+  });
+});
+
+// 按文章数量排序
+const tags = Array.from(tagCount.entries())
+  .sort((a, b) => b[1] - a[1])
+  .map(([tag, count]) => ({ tag, count }));
+
+// 计算最大和最小文章数，用于标签云大小
+const maxCount = Math.max(...tags.map(t => t.count));
+const minCount = Math.min(...tags.map(t => t.count));
+
+// 计算标签字体大小（14px - 32px）
+function getTagSize(count: number): number {
+  if (maxCount === minCount) return 18;
+  const ratio = (count - minCount) / (maxCount - minCount);
+  return 14 + ratio * 18;
+}
+---
+
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <h1 class="text-4xl font-bold mb-2">标签</h1>
+    <p class="text-gray-600 dark:text-gray-400">共 {tags.length} 个标签</p>
+  </div>
+
+  <!-- 标签云 -->
+  <div class="mb-12 p-8 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+    <div class="flex flex-wrap gap-4 justify-center items-center">
+      {tags.map(({ tag, count }) => (
+        <a
+          href={`/tags/${encodeURIComponent(tag)}`}
+          class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+          style={`font-size: ${getTagSize(count)}px;`}
+          title={`${tag} (${count} 篇)`}
+        >
+          {tag}
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <!-- 标签列表 -->
+  <div class="space-y-4">
+    <h2 class="text-2xl font-bold mb-6">标签列表</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {tags.map(({ tag, count }) => (
+        <a
+          href={`/tags/${encodeURIComponent(tag)}`}
+          class="flex items-center justify-between p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 dark:hover:border-primary-500 transition-colors group"
+        >
+          <span class="text-lg font-medium text-gray-900 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-400">
+            {tag}
+          </span>
+          <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium">
+            {count}
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</MainLayout>

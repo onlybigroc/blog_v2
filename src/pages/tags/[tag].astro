@@ -1,0 +1,91 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allPosts = (await getCollection('posts'))
+    .filter(post => !post.data.draft);
+
+  // 收集所有标签
+  const tags = new Set<string>();
+  allPosts.forEach(post => {
+    post.data.tags.forEach(tag => tags.add(tag));
+  });
+
+  // 为每个标签生成路径
+  return Array.from(tags).map(tag => ({
+    params: { tag: encodeURIComponent(tag) },
+    props: {
+      tag,
+      posts: allPosts
+        .filter(post => post.data.tags.includes(tag))
+        .sort((a, b) => b.data.date.getTime() - a.data.date.getTime()),
+    },
+  }));
+}
+
+const { tag, posts } = Astro.props;
+const title = `标签: ${tag} | 个人技术博客`;
+const description = `包含标签 ${tag} 的所有文章`;
+---
+
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <nav class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+      <a href="/" class="hover:text-primary-600 dark:hover:text-primary-400">首页</a>
+      <span class="mx-2">/</span>
+      <a href="/tags" class="hover:text-primary-600 dark:hover:text-primary-400">标签</a>
+      <span class="mx-2">/</span>
+      <span class="text-gray-900 dark:text-gray-100">{tag}</span>
+    </nav>
+    <h1 class="text-4xl font-bold mb-2">标签: {tag}</h1>
+    <p class="text-gray-600 dark:text-gray-400">共 {posts.length} 篇文章</p>
+  </div>
+
+  <div class="space-y-8">
+    {posts.map((post) => (
+      <article class="border-b border-gray-200 dark:border-gray-800 pb-8 last:border-0">
+        <h2 class="text-2xl font-bold mb-2">
+          <a href={`/posts/${post.id.replace('.md', '')}`} class="text-primary-600 dark:text-primary-400 hover:underline">
+            {post.data.title}
+          </a>
+        </h2>
+        <div class="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400 mb-3">
+          <time datetime={post.data.date.toISOString()}>
+            {post.data.date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          {post.data.categories.length > 0 && (
+            <div class="flex gap-2">
+              分类：
+              {post.data.categories.map(cat => (
+                <span class="text-primary-600 dark:text-primary-400">{cat}</span>
+              ))}
+            </div>
+          )}
+          {post.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-2">
+              {post.data.tags.map(t => (
+                <a 
+                  href={`/tags/${encodeURIComponent(t)}`}
+                  class={`px-2 py-1 rounded text-xs hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors ${
+                    t === tag 
+                      ? 'bg-primary-600 text-white' 
+                      : 'bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300'
+                  }`}
+                >
+                  {t}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+        {post.data.summary && (
+          <p class="text-gray-700 dark:text-gray-300 mb-3 line-clamp-2">{post.data.summary}</p>
+        )}
+        <a href={`/posts/${post.id.replace('.md', '')}`} class="text-primary-600 dark:text-primary-400 hover:underline text-sm">
+          阅读全文 →
+        </a>
+      </article>
+    ))}
+  </div>
+</MainLayout>

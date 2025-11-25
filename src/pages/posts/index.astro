@@ -1,0 +1,85 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+
+const title = '文章列表 | 个人技术博客';
+const description = '所有博客文章';
+
+// 获取所有文章并排序
+const allPosts = (await getCollection('posts'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// 获取页码参数
+const currentPage = 1;
+const pageSize = 20;
+const totalPosts = allPosts.length;
+const totalPages = Math.ceil(totalPosts / pageSize);
+
+// 分页
+const posts = allPosts.slice(0, pageSize);
+---
+
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <h1 class="text-4xl font-bold mb-2">文章列表</h1>
+    <p class="text-gray-600 dark:text-gray-400">共 {totalPosts} 篇文章</p>
+  </div>
+
+  <div class="space-y-8">
+    {posts.map((post) => (
+      <article class="border-b border-gray-200 dark:border-gray-800 pb-8 last:border-0">
+        <h2 class="text-2xl font-bold mb-2">
+          <a href={`/posts/${post.id.replace('.md', '')}`} class="text-primary-600 dark:text-primary-400 hover:underline">
+            {post.data.title}
+          </a>
+        </h2>
+        <div class="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400 mb-3">
+          <time datetime={post.data.date.toISOString()}>
+            {post.data.date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          {post.data.categories.length > 0 && (
+            <div class="flex gap-2">
+              分类：
+              {post.data.categories.map(cat => (
+                <span class="text-primary-600 dark:text-primary-400">{cat}</span>
+              ))}
+            </div>
+          )}
+          {post.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-2">
+              {post.data.tags.map(tag => (
+                <a 
+                  href={`/tags/${encodeURIComponent(tag)}`}
+                  class="px-2 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded text-xs hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors"
+                >
+                  {tag}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+        {post.data.summary && (
+          <p class="text-gray-700 dark:text-gray-300 mb-3 line-clamp-2">{post.data.summary}</p>
+        )}
+        <a href={`/posts/${post.id.replace('.md', '')}`} class="text-primary-600 dark:text-primary-400 hover:underline text-sm">
+          阅读全文 →
+        </a>
+      </article>
+    ))}
+  </div>
+
+  {totalPages > 1 && (
+    <div class="mt-12 flex justify-center gap-2">
+      <span class="px-4 py-2 bg-primary-600 text-white rounded">1</span>
+      {Array.from({ length: Math.min(totalPages - 1, 9) }, (_, i) => (
+        <a
+          href={`/posts/page/${i + 2}`}
+          class="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+        >
+          {i + 2}
+        </a>
+      ))}
+    </div>
+  )}
+</MainLayout>

@@ -1,6 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { createHash } from 'crypto';
 import Parser from 'rss-parser';
 import TurndownService from 'turndown';
 import { JSDOM } from 'jsdom';
@@ -47,29 +48,49 @@ async function saveCache(cache) {
 // 生成 slug
 function generateSlug(title) {
   return title
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .substring(0, 50);
+    .replace(/\s+/g, '-')           // 空格转短横线
+    .replace(/[/\\:*?"<>|]/g, '') // 移除文件名非法字符
+    .replace(/-+/g, '-')            // 多个短横线合并为一个
+    .replace(/^-|-$/g, '')          // 移除首尾短横线
+    .substring(0, 100);             // 限制长度
+}
+
+// 生成图片文件名（基于 URL 哈希，确保同一图片不重复下载）
+function getImageFilename(url, ext) {
+  const hash = createHash('md5').update(url).digest('hex');
+  return `${hash}${ext}`;
 }
 
 // 下载图片
 async function downloadImage(url, postSlug) {
   try {
+    const urlObj = new URL(url);
+    const ext = path.extname(urlObj.pathname) || '.jpg';
+    const filename = getImageFilename(url, ext);
+    const filepath = path.join(IMAGES_DIR, filename);
+    const localPath = `/images/posts/${filename}`;
+
+    // 检查文件是否已存在
+    try {
+      await fs.access(filepath);
+      console.log(`  ↓ 图片已存在，跳过下载: ${filename}`);
+      return localPath;
+    } catch {
+      // 文件不存在，继续下载
+    }
+
+    console.log(`  ↓ 下载图片: ${url}`);
     const response = await fetch(url);
     if (!response.ok) return url;
 
     const buffer = await response.arrayBuffer();
-    const ext = path.extname(new URL(url).pathname) || '.jpg';
-    const filename = `${postSlug}-${Date.now()}${ext}`;
-    const filepath = path.join(IMAGES_DIR, filename);
-
     await ensureDir(IMAGES_DIR);
     await fs.writeFile(filepath, Buffer.from(buffer));
 
-    return `/images/posts/${filename}`;
+    console.log(`  ✓ 图片已保存: ${filename}`);
+    return localPath;
   } catch (error) {
-    console.warn(`图片下载失败: ${url}`, error.message);
+    console.warn(`  ✗ 图片下载失败: ${url}`, error.message);
     return url;
   }
 }
@@ -96,6 +117,55 @@ function extractSummary(content, maxLength = 200) {
   return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
 }
 
+// 从标题和内容提取关键词作为标签
+function extractKeywords(title, content) {
+  const keywords = new Set();
+  
+  // 常见技术关键词
+  const techKeywords = [
+    'Docker', 'Kubernetes', 'K8s', 'Linux', 'Windows', 'Ubuntu', 'Debian',
+    'MySQL', 'PostgreSQL', 'Oracle', 'MongoDB', 'Redis',
+    'Java', 'JavaScript', 'Python', 'Go', 'Golang', 'Rust', 'TypeScript',
+    'Spring', 'SpringBoot', 'React', 'Vue', 'Angular',
+    'Git', 'GitHub', 'GitLab', 'Jenkins', 'CI/CD',
+    'WSL', 'SSL', 'HTTPS', 'Nginx', 'Apache',
+    'MQTT', 'RabbitMQ', 'Kafka',
+    'Nacos', 'Eureka', 'Dubbo',
+    'JDK', 'JVM', 'Maven', 'Gradle', 'npm',
+    'API', 'REST', 'GraphQL',
+    'SQL', 'NoSQL',
+    '数据结构', '算法', '设计模式',
+    '微服务', '容器', '虚拟化',
+  ];
+  
+  const text = title + ' ' + content.replace(/<[^>]*>/g, '');
+  
+  // 匹配技术关键词（不区分大小写）
+  techKeywords.forEach(keyword => {
+    const regex = new RegExp(`\\b${keyword}\\b`, 'i');
+    if (regex.test(text)) {
+      keywords.add(keyword);
+    }
+  });
+  
+  // 从标题提取（移除常见停用词）
+  const stopWords = ['如何', '使用', '学习', '笔记', '教程', '简介', '入门', '-', 'bigroc'];
+  const titleWords = title.split(/[\s\-\u3001\uff0c\u3002\uff01\uff1f\uff1b\uff1a\u300a\u300b\u300c\u300d\u201c\u201d\u2018\u2019\uff08\uff09\u3010\u3011『\u300f]+/);
+  
+  titleWords.forEach(word => {
+    const cleaned = word.trim();
+    if (cleaned.length >= 2 && !stopWords.includes(cleaned.toLowerCase())) {
+      // 检查是否是技术词汇或中文词汇
+      if (/[\u4e00-\u9fa5]{2,}/.test(cleaned) || /^[a-zA-Z]{2,}$/.test(cleaned)) {
+        keywords.add(cleaned);
+      }
+    }
+  });
+  
+  // 限制标签数量
+  return Array.from(keywords).slice(0, 8);
+}
+
 // 转义 YAML 字符串
 function escapeYamlString(str) {
   if (!str) return '';
@@ -108,7 +178,7 @@ function escapeYamlString(str) {
     .replace(/[\[\]]/g, '');  // 移除方括号（避免 YAML 解析问题）
 }
 
-// 抓取文章详情页完整内容
+// 抓取文章详情页完整内容和元数据
 async function fetchFullArticle(url) {
   try {
     console.log(`  正在抓取完整内容: ${url}`);
@@ -129,13 +199,39 @@ async function fetchFullArticle(url) {
     
     if (!contentElement) {
       console.warn('  ⚠ 未找到文章主体，使用 RSS 内容');
-      return null;
+      return { content: null, tags: [], categories: [] };
     }
     
-    return contentElement.innerHTML;
+    // 提取标签和分类
+    const tags = [];
+    const categories = [];
+    
+    // 尝试从文章底部的标签区域提取
+    const tagElements = doc.querySelectorAll('#BlogPostCategory a, .postTagList a, [id^="EntryTag"] a');
+    tagElements.forEach(tag => {
+      const text = tag.textContent.trim();
+      if (text) tags.push(text);
+    });
+    
+    // 尝试从分类区域提取
+    const categoryElements = doc.querySelectorAll('#BlogPostCategory a');
+    categoryElements.forEach(cat => {
+      const text = cat.textContent.trim();
+      if (text && !categories.includes(text)) {
+        categories.push(text);
+      }
+    });
+    
+    console.log(`  找到 ${tags.length} 个标签, ${categories.length} 个分类`);
+    
+    return { 
+      content: contentElement.innerHTML,
+      tags,
+      categories
+    };
   } catch (error) {
     console.error(`  ✗ 抓取失败: ${error.message}`);
-    return null;
+    return { content: null, tags: [], categories: [] };
   }
 }
 
@@ -149,40 +245,54 @@ async function fetchAndProcessPost(item, cache) {
     return null;
   }
 
-  console.log(`\n正在处理: ${item.title}`);
+  // 清理标题：移除博客园 RSS 自动添加的 " - 用户名" 后缀
+  let cleanTitle = item.title;
+  const suffixPattern = new RegExp(` - ${BLOG_USERNAME}$`, 'i');
+  if (suffixPattern.test(cleanTitle)) {
+    cleanTitle = cleanTitle.replace(suffixPattern, '').trim();
+  }
 
-  const slug = generateSlug(item.title);
+  console.log(`\n正在处理: ${cleanTitle}`);
+
+  const slug = generateSlug(cleanTitle);
   const pubDate = new Date(item.pubDate);
   
-  // 1. 先尝试抓取完整内容
-  let content = await fetchFullArticle(item.link);
+  // 1. 先尝试抓取完整内容和标签
+  const { content, tags: extractedTags, categories: extractedCategories } = await fetchFullArticle(item.link);
   
   // 2. 如果抓取失败，降级使用 RSS 内容
-  if (!content) {
+  let finalContent = content;
+  if (!finalContent) {
     console.log('  使用 RSS 摘要内容');
-    content = item.content || item['content:encoded'] || item.contentSnippet || '';
+    finalContent = item.content || item['content:encoded'] || item.contentSnippet || '';
   }
   
   // 3. 处理图片（下载并本地化）
   console.log('  处理图片资源...');
-  content = await processImages(content, slug);
+  finalContent = await processImages(finalContent, slug);
   
   // 4. 转换为 Markdown
   console.log('  转换为 Markdown...');
-  const markdown = turndownService.turndown(content);
+  const markdown = turndownService.turndown(finalContent);
   
-  // 5. 提取分类和标签
-  const categories = item.categories || [];
-  const tags = categories.slice(0, 5);
+  // 5. 提取分类和标签（优先使用从页面提取的，其次使用 RSS 的，最后使用关键词提取）
+  const categories = extractedCategories.length > 0 ? extractedCategories : (item.categories || []);
+  let tags = extractedTags.length > 0 ? extractedTags : [];
+  
+  // 如果没有标签，从标题和内容自动提取
+  if (tags.length === 0) {
+    tags = extractKeywords(cleanTitle, finalContent);
+    console.log(`  自动提取标签: ${tags.join(', ')}`);
+  }
   
   // 6. 生成 frontmatter
   const frontmatter = `---
-title: "${escapeYamlString(item.title)}"
+title: "${escapeYamlString(cleanTitle)}"
 date: ${pubDate.toISOString()}
 slug: ${slug}
-categories: [${categories.length > 0 ? `"${escapeYamlString(categories[0])}"` : ''}]
+categories: [${categories.map(c => `"${escapeYamlString(c)}"`).join(', ')}]
 tags: [${tags.map(t => `"${escapeYamlString(t)}"`).join(', ')}]
-summary: "${escapeYamlString(extractSummary(content))}"
+summary: "${escapeYamlString(extractSummary(finalContent))}"
 originUrl: "${item.link}"
 ---
 
