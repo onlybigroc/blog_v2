@@ -15,3 +15,11 @@ NODE_VERSION = "20"
 from = "/*"
 to = "/index.html"
 status = 200
+
+[[routes]]
+pattern = "qinrenjihe.com"
+custom_domain = true
+
+[[routes]]
+pattern = "bigroc.cn"
+custom_domain = true
