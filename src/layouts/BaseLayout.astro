@@ -20,6 +20,7 @@ const siteURL = Astro.site || 'https://yourdomain.pages.dev';
     
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="baidu-site-verification" content="codeva-vGum9maaI9" />
     {canonicalURL && <link rel="canonical" href={canonicalURL} />}
     
     <!-- Open Graph / Facebook -->
@@ -35,6 +36,7 @@ const siteURL = Astro.site || 'https://yourdomain.pages.dev';
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, siteURL)} />
+    
     
     <link rel="sitemap" href="/sitemap-index.xml" />
     
