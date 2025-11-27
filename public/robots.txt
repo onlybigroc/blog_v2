@@ -1,0 +1,18 @@
+# robots.txt for bigroc.cn
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://bigroc.cn/sitemap-index.xml
+
+# 禁止抓取特定路径
+Disallow: /api/
+Disallow: /_astro/
+
+# 允许搜索引擎抓取静态资源
+Allow: /images/
+Allow: /*.css
+Allow: /*.js
+
+# 抓取延迟（可选）
+Crawl-delay: 1

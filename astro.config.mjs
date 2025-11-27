@@ -4,15 +4,31 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  // 动态获取站点 URL：优先使用环境变量，如未设置则 sitemap 会使用构建时的 URL
-  site: process.env.SITE_URL || process.env.CF_PAGES_URL || undefined,
+  // 动态获取站点 URL：优先使用环境变量，如未设置则使用默认域名
+  site: process.env.SITE_URL || process.env.CF_PAGES_URL || 'https://bigroc.cn',
   integrations: [
     tailwind(),
     mdx(),
     sitemap({
-      // 自定义 sitemap 配置
+      // sitemap 优化配置
+      changefreq: 'daily',
+      priority: 0.7,
+      lastmod: new Date(),
+      // 过滤掉不需要的页面
+      filter: (page) => {
+        // 排除特定路径
+        const excludePaths = ['/404', '/search'];
+        return !excludePaths.some(path => page.includes(path));
+      },
+      // 自定义页面优先级
       customPages: [],
-      // 如果 site 未定义，sitemap 将跳过生成或使用相对路径
+      // 启用多语言支持（如需要）
+      i18n: {
+        defaultLocale: 'zh-CN',
+        locales: {
+          'zh-CN': 'zh-CN',
+        },
+      },
     }),
   ],
   markdown: {
