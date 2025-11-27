@@ -38,6 +38,10 @@ const siteURL = Astro.site || 'https://yourdomain.pages.dev';
     
     <link rel="sitemap" href="/sitemap-index.xml" />
     
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6550916586984251"
+      crossorigin="anonymous"></script>
+    
     <script is:inline>
       const theme = localStorage.getItem('theme') || 'dark';
       document.documentElement.classList.toggle('dark', theme === 'dark');
