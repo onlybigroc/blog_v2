@@ -4,12 +4,16 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  // 使用环境变量动态设置站点 URL，支持多域名部署
-  site: process.env.SITE_URL || 'https://blog.onlybigroc.workers.dev',
+  // 动态获取站点 URL：优先使用环境变量，如未设置则 sitemap 会使用构建时的 URL
+  site: process.env.SITE_URL || process.env.CF_PAGES_URL || undefined,
   integrations: [
     tailwind(),
     mdx(),
-    sitemap(),
+    sitemap({
+      // 自定义 sitemap 配置
+      customPages: [],
+      // 如果 site 未定义，sitemap 将跳过生成或使用相对路径
+    }),
   ],
   markdown: {
     shikiConfig: {
