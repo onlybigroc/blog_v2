@@ -23,3 +23,11 @@ custom_domain = true
 [[routes]]
 pattern = "bigroc.cn"
 custom_domain = true
+
+[[routes]]
+pattern = "www.qinrenjihe.com"
+custom_domain = true
+
+[[routes]]
+pattern = "www.bigroc.cn"
+custom_domain = true
