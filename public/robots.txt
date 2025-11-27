@@ -1,9 +1,9 @@
-# robots.txt for bigroc.cn
+# robots.txt
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://bigroc.cn/sitemap-index.xml
+# Sitemap - 使用相对路径，自动适配当前域名
+Sitemap: /sitemap-index.xml
 
 # 禁止抓取特定路径
 Disallow: /api/
