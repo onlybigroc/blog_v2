@@ -1,6 +1,1 @@
-# ads.txt file for blog.onlybigroc.workers.dev
-# Please replace with your actual advertising network information
-
-# Example format:
-# <domain>, <publisher_id>, <account_type>, <certification_authority_id>
-# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+google.com, pub-6550916586984251, DIRECT, f08c47fec0942fa0
