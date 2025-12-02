@@ -1,0 +1,148 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+
+const title = '联系方式 | 个人技术博客-bigroc';
+const description = '联系我，欢迎交流技术问题和建议';
+---
+
+<MainLayout title={title} description={description}>
+  <article class="prose prose-lg dark:prose-invert max-w-none">
+    <h1>联系方式</h1>
+    
+    <p class="text-xl text-gray-600 dark:text-gray-400">
+      欢迎与我交流技术问题、分享想法或提供建议！
+    </p>
+
+    <section class="mt-8">
+      <h2>在线联系</h2>
+      
+      <div class="not-prose space-y-6">
+        <div class="flex items-start gap-4 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2">GitHub</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-3">
+              查看我的开源项目和代码仓库
+            </p>
+            <a href="https://github.com/bigroc" class="text-primary-600 dark:text-primary-400 hover:underline" target="_blank" rel="noopener">
+              @bigroc
+            </a>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M21.927 0h-19.854c-1.143 0-2.073.93-2.073 2.073v19.854c0 1.143.93 2.073 2.073 2.073h19.854c1.143 0 2.073-.93 2.073-2.073v-19.854c0-1.143-.93-2.073-2.073-2.073zm-15.927 20.452h-3.5v-11.452h3.5v11.452zm-1.75-13.012c-1.118 0-2.025-.907-2.025-2.025s.907-2.025 2.025-2.025 2.025.907 2.025 2.025-.907 2.025-2.025 2.025zm15.75 13.012h-3.5v-5.569c0-1.328-.024-3.037-1.852-3.037-1.852 0-2.136 1.445-2.136 2.939v5.667h-3.5v-11.452h3.36v1.561h.048c.467-.884 1.608-1.815 3.31-1.815 3.54 0 4.195 2.329 4.195 5.359v6.347h-.001z"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2">博客园</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-3">
+              我的原博客地址，记录了从2017年至今的技术文章
+            </p>
+            <a href="https://www.cnblogs.com/bigroc" class="text-primary-600 dark:text-primary-400 hover:underline" target="_blank" rel="noopener">
+              www.cnblogs.com/bigroc
+            </a>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2">电子邮件</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-3">
+              如有商务合作或重要事项，可通过邮件联系
+            </p>
+            <a href="mailto:contact@bigroc.cn" class="text-primary-600 dark:text-primary-400 hover:underline">
+              contact@bigroc.cn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2>留言与讨论</h2>
+      <p>
+        对于技术问题的讨论，推荐使用以下方式：
+      </p>
+      <ul>
+        <li>
+          <strong>文章评论：</strong>在具体文章页面下方使用 Giscus 评论系统直接留言讨论
+        </li>
+        <li>
+          <strong>GitHub Issues：</strong>如果发现博客中的技术错误或有改进建议，欢迎在 
+          <a href="https://github.com/bigroc/blog" class="text-primary-600 dark:text-primary-400 hover:underline" target="_blank" rel="noopener">GitHub 仓库</a>
+          提 Issue
+        </li>
+        <li>
+          <strong>GitHub Discussions：</strong>对于开放性的技术讨论，可以在 
+          <a href="https://github.com/bigroc/blog/discussions" class="text-primary-600 dark:text-primary-400 hover:underline" target="_blank" rel="noopener">Discussions</a>
+          发起话题
+        </li>
+      </ul>
+    </section>
+
+    <section class="mt-12">
+      <h2>社交媒体</h2>
+      <p>
+        虽然我不经常更新社交媒体，但你也可以通过以下平台找到我：
+      </p>
+      <ul>
+        <li><strong>Twitter/X：</strong> <a href="https://twitter.com/bigroc" class="text-primary-600 dark:text-primary-400 hover:underline" target="_blank" rel="noopener">@bigroc</a></li>
+        <li><strong>知乎：</strong> 不定期分享技术见解</li>
+        <li><strong>掘金：</strong> 同步部分技术文章</li>
+      </ul>
+    </section>
+
+    <section class="mt-12">
+      <h2>回复时间</h2>
+      <p>
+        我会尽量在 <strong>48 小时内</strong>回复邮件和留言。由于工作原因，可能无法立即回复，
+        请您理解。对于技术问题，我会认真阅读并尽力提供帮助。
+      </p>
+    </section>
+
+    <section class="mt-12">
+      <h2>商务合作</h2>
+      <p>
+        如果您有以下合作意向，欢迎通过邮件联系：
+      </p>
+      <ul>
+        <li>技术文章投稿或转载授权</li>
+        <li>技术咨询或顾问服务</li>
+        <li>开源项目合作</li>
+        <li>技术培训或演讲邀请</li>
+        <li>其他商务合作事宜</li>
+      </ul>
+      <p>
+        请在邮件中详细说明合作内容和需求，我会认真评估并及时回复。
+      </p>
+    </section>
+
+    <div class="mt-12 p-6 bg-primary-50 dark:bg-primary-900/20 rounded-lg">
+      <h3 class="text-xl font-bold mb-3">温馨提示</h3>
+      <ul class="space-y-2 text-sm">
+        <li>✉️ 发送邮件时请使用清晰的主题，方便快速识别</li>
+        <li>💬 提问时请提供足够的上下文信息，有助于更好地解答</li>
+        <li>🙏 请保持礼貌和尊重，营造良好的交流氛围</li>
+        <li>⏰ 我会认真对待每一条消息，但可能无法回复所有内容</li>
+      </ul>
+    </div>
+
+    <div class="mt-8 text-center">
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        期待与你的交流！🎉
+      </p>
+    </div>
+  </article>
+</MainLayout>

@@ -6,7 +6,7 @@ interface Props {
   canonicalURL?: string;
 }
 
-const { title, description = '个人技术博客，分享编程、开发和技术经验', image = '/og-image.png', canonicalURL } = Astro.props;
+const { title, description = '个人技术博客，分享编程、开发和技术经验，涵盖Java、JavaScript、Go、Docker、数据库等领域。原创技术文章，持续更新。', image = '/og-image.png', canonicalURL } = Astro.props;
 const siteURL = Astro.site?.toString() || 'https://bigroc.cn';
 const currentURL = canonicalURL || new URL(Astro.url.pathname, siteURL).toString();
 ---
@@ -21,9 +21,11 @@ const currentURL = canonicalURL || new URL(Astro.url.pathname, siteURL).toString
     
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="技术博客,编程,开发,Java,JavaScript,Go,Docker,数据库,前端,后端" />
+    <meta name="keywords" content="技术博客,编程,开发,Java,JavaScript,Go,Docker,数据库,前端,后端,Spring Boot,Vue,React,Astro,PostgreSQL,MySQL,算法,数据结构,软件设计" />
     <meta name="author" content="bigroc" />
     <meta name="robots" content="index, follow" />
+    <meta name="language" content="zh-CN" />
+    <meta name="revisit-after" content="7 days" />
     <meta name="baidu-site-verification" content="codeva-vGum9maaI9" />
     <link rel="canonical" href={currentURL} />
     

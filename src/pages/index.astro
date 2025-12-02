@@ -3,7 +3,7 @@ import MainLayout from '@layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
 
 const title = '首页 | 个人技术博客-bigroc';
-const description = '分享技术文章与开发心得';
+const description = '分享技术文章与开发心得，涵盖Java、JavaScript、Go、数据库、Docker等领域。原创技术博客，持续更新，有价值的内容。';
 
 const posts = (await getCollection('posts'))
   .filter(post => !post.data.draft)
@@ -14,7 +14,12 @@ const posts = (await getCollection('posts'))
 <MainLayout title={title} description={description}>
   <section class="text-center mb-16">
     <h1 class="text-5xl font-bold mb-4">欢迎来到我的博客</h1>
-    <p class="text-xl text-gray-600 dark:text-gray-400">分享技术、记录成长</p>
+    <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">分享技术、记录成长</p>
+    <p class="text-base text-gray-500 dark:text-gray-500 max-w-2xl mx-auto">
+      这里有关于 Java、JavaScript、Go、数据库、Docker 等技术领域的原创文章，
+      记录了我从 2017 年至今的技术学习和实践经验。
+      希望这些内容能帮助到你！
+    </p>
   </section>
 
   <section>

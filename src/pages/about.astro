@@ -1,0 +1,111 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+
+const title = '关于 | 个人技术博客-bigroc';
+const description = '关于本博客和作者的介绍';
+---
+
+<MainLayout title={title} description={description}>
+  <article class="prose prose-lg dark:prose-invert max-w-none">
+    <h1>关于本站</h1>
+    
+    <section class="mt-8">
+      <h2>博客简介</h2>
+      <p>
+        欢迎来到我的个人技术博客！这是一个专注于分享技术知识、开发经验和编程心得的平台。
+        我希望通过这个博客，记录自己的技术成长历程，同时也能帮助到更多的技术爱好者。
+      </p>
+      <p>
+        本站内容涵盖多个技术领域，包括但不限于：
+      </p>
+      <ul>
+        <li><strong>后端开发：</strong>Java、Spring Boot、Go、Node.js 等</li>
+        <li><strong>前端开发：</strong>JavaScript、Vue、React、Astro 等</li>
+        <li><strong>数据库：</strong>MySQL、PostgreSQL、Oracle 等</li>
+        <li><strong>容器化：</strong>Docker、Kubernetes 等</li>
+        <li><strong>数据结构与算法：</strong>基础算法、LeetCode 刷题心得</li>
+        <li><strong>开发工具：</strong>Git、IDE、Linux 命令等</li>
+        <li><strong>技术思考：</strong>软件设计、代码规范、项目管理等</li>
+      </ul>
+    </section>
+
+    <section class="mt-8">
+      <h2>关于作者</h2>
+      <p>
+        我是 <strong>bigroc</strong>，一名热爱技术的开发者。多年来一直从事软件开发工作，
+        积累了丰富的项目经验。我相信技术的价值在于分享和传播，因此创建了这个博客，
+        希望能与更多志同道合的朋友交流学习。
+      </p>
+      <p>
+        我的技术理念：
+      </p>
+      <ul>
+        <li>持续学习，保持对新技术的好奇心</li>
+        <li>注重代码质量，追求优雅的解决方案</li>
+        <li>乐于分享，帮助他人成长</li>
+        <li>实践出真知，理论与实践相结合</li>
+      </ul>
+    </section>
+
+    <section class="mt-8">
+      <h2>博客历程</h2>
+      <p>
+        本博客最初创建于博客园（<a href="https://www.cnblogs.com/bigroc" class="text-primary-600 dark:text-primary-400 hover:underline" target="_blank" rel="noopener">www.cnblogs.com/bigroc</a>），
+        记录了我从2017年至今的技术学习和成长轨迹。为了更好地管理和展示内容，
+        我使用 Astro 框架重新构建了这个静态博客站点，并部署在 Cloudflare Pages 上。
+      </p>
+      <p>
+        新站点不仅保留了原有的所有文章内容，还实现了自动同步、响应式设计、
+        暗黑模式、标签分类、全文搜索等功能，为读者提供更好的阅读体验。
+      </p>
+    </section>
+
+    <section class="mt-8">
+      <h2>技术栈</h2>
+      <p>本博客使用的主要技术：</p>
+      <ul>
+        <li><strong>框架：</strong>Astro - 现代化的静态站点生成器</li>
+        <li><strong>样式：</strong>Tailwind CSS - 实用优先的 CSS 框架</li>
+        <li><strong>部署：</strong>Cloudflare Pages - 边缘网络加速</li>
+        <li><strong>内容：</strong>Markdown/MDX - 支持丰富的内容格式</li>
+        <li><strong>评论：</strong>Giscus - 基于 GitHub Discussions 的评论系统</li>
+        <li><strong>统计：</strong>Cloudflare Workers + D1 - 自建统计服务</li>
+      </ul>
+    </section>
+
+    <section class="mt-8">
+      <h2>版权声明</h2>
+      <p>
+        本站所有原创文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="text-primary-600 dark:text-primary-400 hover:underline" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 
+        协议进行许可。这意味着您可以自由地：
+      </p>
+      <ul>
+        <li><strong>分享：</strong>复制、发行本站内容</li>
+        <li><strong>演绎：</strong>修改、转换或以本站内容为基础进行创作</li>
+      </ul>
+      <p>但需要遵守以下条件：</p>
+      <ul>
+        <li><strong>署名：</strong>必须给出适当的署名，提供指向本许可协议的链接</li>
+        <li><strong>非商业性使用：</strong>不得将本站内容用于商业目的</li>
+        <li><strong>相同方式共享：</strong>如果基于本站内容进行演绎，必须采用相同的许可协议</li>
+      </ul>
+    </section>
+
+    <section class="mt-8">
+      <h2>友情提示</h2>
+      <p>
+        文章中的观点和代码仅供参考，在实际应用中请根据具体情况进行调整。
+        如果文章中存在错误或不准确的地方，欢迎指正。技术在不断发展，
+        某些内容可能会随着时间推移而过时，请注意文章的发布日期。
+      </p>
+    </section>
+
+    <div class="mt-12 p-6 bg-primary-50 dark:bg-primary-900/20 rounded-lg">
+      <p class="text-center text-lg">
+        感谢您的访问！如有任何问题或建议，欢迎通过
+        <a href="/contact" class="text-primary-600 dark:text-primary-400 hover:underline font-semibold">联系方式</a>
+        与我交流。
+      </p>
+    </div>
+  </article>
+</MainLayout>
