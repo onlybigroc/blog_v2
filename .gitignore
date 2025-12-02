@@ -4,6 +4,7 @@ dist/
 .env
 .DS_Store
 data/sync-cache.json
+.idea/
 
 # Cloudflare
 .wrangler/
