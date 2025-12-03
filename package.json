@@ -8,7 +8,8 @@
     "preview": "astro preview",
     "sync": "node scripts/sync-cnblogs.mjs",
     "sync:history": "node scripts/sync-cnblogs.mjs --history",
-    "sync:all": "node scripts/sync-cnblogs.mjs --history --pages=50"
+    "sync:all": "node scripts/sync-cnblogs.mjs --history --pages=50",
+    "diagnose": "node scripts/diagnose-d1.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.12",

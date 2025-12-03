@@ -13,7 +13,44 @@ export interface AllStats {
 }
 
 const STORAGE_KEY = 'blog_post_stats';
-const API_BASE_URL = import.meta.env.PUBLIC_STATS_API_URL || '';
+
+// 动态获取 API 地址（根据当前域名自动匹配）
+function getApiBaseUrl(): string {
+  // 优先使用环境变量配置
+  if (import.meta.env.PUBLIC_STATS_API_URL) {
+    return import.meta.env.PUBLIC_STATS_API_URL;
+  }
+  
+  // 在浏览器环境中根据当前域名动态匹配
+  if (typeof window !== 'undefined') {
+    const hostname = window.location.hostname;
+    
+    // 域名映射规则
+    const domainMap: Record<string, string> = {
+      'qinrenjihe.com': 'https://blog-stats-api.qinrenjihe.com',
+      'www.qinrenjihe.com': 'https://blog-stats-api.qinrenjihe.com',
+      'bigroc.cn': 'https://blog-stats-api.bigroc.cn',
+      'www.bigroc.cn': 'https://blog-stats-api.bigroc.cn',
+    };
+    
+    // 精确匹配
+    if (domainMap[hostname]) {
+      return domainMap[hostname];
+    }
+    
+    // 模糊匹配（检查是否包含域名）
+    for (const [domain, apiUrl] of Object.entries(domainMap)) {
+      if (hostname.includes(domain)) {
+        return apiUrl;
+      }
+    }
+  }
+  
+  // 默认返回空（使用本地存储）
+  return '';
+}
+
+const API_BASE_URL = getApiBaseUrl();
 const USE_CLOUD_SYNC = !!API_BASE_URL; // 是否启用云端同步
 
 // 调试信息（仅开发环境）
