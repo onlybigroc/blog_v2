@@ -1,0 +1,58 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+
+const title = '页面未找到 | 个人技术博客-bigroc';
+const description = '抱歉，您访问的页面不存在。';
+---
+
+<MainLayout title={title} description={description}>
+  <div class="min-h-[60vh] flex flex-col items-center justify-center text-center py-12">
+    <div class="max-w-2xl px-4">
+      <div class="mb-8">
+        <svg class="w-32 h-32 mx-auto text-primary-500 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.291-1.1-5.291-2.709M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+        </svg>
+      </div>
+      
+      <h1 class="text-4xl font-bold mb-4">404 - 页面未找到</h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
+        抱歉，您访问的页面不存在或已被移除。
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="/" 
+          class="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 dark:hover:bg-primary-500 transition-colors font-medium"
+        >
+          返回首页
+        </a>
+        <a 
+          href="/posts" 
+          class="px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors font-medium"
+        >
+          浏览文章
+        </a>
+      </div>
+      
+      <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <h2 class="text-2xl font-bold mb-6">您可能感兴趣的文章</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <a 
+            href="/posts/2025-04-10-语义化版本-2.0.0" 
+            class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:border-primary-500 dark:hover:border-primary-500 transition-colors text-left"
+          >
+            <h3 class="font-bold mb-2">语义化版本 2.0.0</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">了解软件版本控制的最佳实践</p>
+          </a>
+          <a 
+            href="/posts/2025-11-10-响应式编程简介" 
+            class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:border-primary-500 dark:hover:border-primary-500 transition-colors text-left"
+          >
+            <h3 class="font-bold mb-2">响应式编程简介</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">探索现代编程范式的核心概念</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>
