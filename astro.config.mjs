@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import { remarkImagePath } from './src/plugins/remark-image-path.mjs';
 
 export default defineConfig({
   // 动态获取站点 URL：优先使用环境变量，如未设置则使用默认域名
@@ -32,6 +33,7 @@ export default defineConfig({
     }),
   ],
   markdown: {
+    remarkPlugins: [remarkImagePath],
     shikiConfig: {
       theme: 'github-dark-dimmed',
       wrap: true,
