@@ -1,0 +1,80 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import { promotions } from '@/data/promotions';
+
+const title = '推广 | 个人技术博客-bigroc';
+const description = '推广内容与合作入口，后续会持续补充。';
+
+const readyPromotions = promotions.filter((item) => item.status !== 'draft');
+const draftPromotions = promotions.filter((item) => item.status === 'draft');
+---
+
+<MainLayout title={title} description={description}>
+  <!-- <div class="mb-10">
+    <h1 class="text-4xl font-bold mb-3">推广</h1>
+    <p class="text-gray-600 dark:text-gray-400">
+      这里统一展示推广内容和合作入口，收口到 <code class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">/promotions</code> 模块。
+    </p>
+  </div> -->
+
+  {readyPromotions.length === 0 ? (
+    <section class="rounded-xl border border-dashed border-gray-300 dark:border-gray-700 p-8">
+      <h2 class="text-xl font-semibold mb-2">暂无已发布推广内容</h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-4">
+        你可以先在 <code class="mx-1 px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">src/data/promotions.ts</code> 增加入口配置，
+        再补充对应页面。
+      </p>
+      <div class="text-sm text-gray-500 dark:text-gray-500">
+        示例路径：<code class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">src/pages/promotions/brand-cooperation.astro</code>
+      </div>
+    </section>
+  ) : (
+    <section>
+      <h2 class="text-2xl font-bold mb-6">推广列表</h2>
+      <div class="space-y-8">
+        {readyPromotions.map((item) => (
+          <article class="border-b border-gray-200 dark:border-gray-800 pb-8 last:border-0">
+            <h3 class="text-2xl font-bold mb-2">
+              <a
+                href={item.path}
+                target={item.external === true ? '_blank' : undefined}
+                rel={item.external === true ? 'noopener noreferrer' : undefined}
+                class="text-primary-600 dark:text-primary-400 hover:underline"
+              >
+                {item.name}
+              </a>
+            </h3>
+            <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-3">
+              <span class="px-2 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded text-xs">
+                推广内容
+              </span>
+            </div>
+            <p class="text-gray-700 dark:text-gray-300 mb-3">{item.description}</p>
+            <a
+              href={item.path}
+              target={item.external === true ? '_blank' : undefined}
+              rel={item.external === true ? 'noopener noreferrer' : undefined}
+              class="text-primary-600 dark:text-primary-400 hover:underline text-sm"
+            >
+              查看详情 →
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {draftPromotions.length > 0 && (
+    <section class="mt-10">
+      <h2 class="text-2xl font-bold mb-4">筹备中</h2>
+      <ul class="space-y-3">
+        {draftPromotions.map((item) => (
+          <li class="rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+            <p class="font-medium">{item.name}</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">{item.description}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</MainLayout>
