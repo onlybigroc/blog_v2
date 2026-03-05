@@ -1,0 +1,603 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+
+const title = '时间戳转换 | 工具 | 个人技术博客-bigroc';
+const description = '秒/毫秒时间戳和日期时间的单个/批量双向转换工具。';
+---
+
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <h1 class="text-4xl font-bold mb-3">时间戳转换</h1>
+    <p class="text-gray-600 dark:text-gray-400">支持当前时间戳控制、单个转换和批量转换，支持常用时区。</p>
+  </div>
+
+  <section class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6">
+    <h2 class="text-2xl font-semibold mb-4">当前时间戳</h2>
+    <div class="rounded-lg bg-gray-50 dark:bg-gray-800 p-4 mb-4">
+      <span id="current-timestamp-value" class="font-mono text-4xl font-semibold break-all"></span>
+      <span id="current-timestamp-unit" class="ml-2 text-gray-600 dark:text-gray-400">毫秒</span>
+    </div>
+
+    <div class="flex flex-wrap gap-3">
+      <button
+        id="current-toggle-unit"
+        type="button"
+        class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+      >
+        切换单位
+      </button>
+      <button
+        id="current-copy"
+        type="button"
+        class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+      >
+        复制
+      </button>
+      <button
+        id="current-toggle-running"
+        type="button"
+        class="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition-colors"
+      >
+        停止
+      </button>
+    </div>
+
+    <p id="current-copy-feedback" class="mt-3 text-sm text-gray-600 dark:text-gray-400"></p>
+  </section>
+
+  <section class="rounded-xl border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+    <div class="grid grid-cols-2 gap-2 rounded-lg bg-gray-100 dark:bg-gray-800 p-1 mb-6">
+      <button
+        id="tab-single"
+        type="button"
+        data-tab="single"
+        class="tab-button rounded-md px-4 py-2 bg-white dark:bg-gray-700 font-medium"
+      >
+        单个转换
+      </button>
+      <button
+        id="tab-batch"
+        type="button"
+        data-tab="batch"
+        class="tab-button rounded-md px-4 py-2 text-gray-600 dark:text-gray-300"
+      >
+        批量转换
+      </button>
+    </div>
+
+    <div id="panel-single" class="tab-panel space-y-8">
+      <section>
+        <h3 class="text-2xl font-semibold mb-4">时间戳转日期时间</h3>
+        <div class="grid gap-3 md:grid-cols-[1.4fr_140px_auto_1.4fr_170px]">
+          <input
+            id="single-ts-input"
+            type="text"
+            placeholder="输入时间戳"
+            class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800"
+          />
+          <select id="single-ts-unit" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+            <option value="ms">毫秒(ms)</option>
+            <option value="s">秒(s)</option>
+          </select>
+          <button
+            id="single-ts-convert"
+            type="button"
+            class="px-4 py-2 rounded-lg bg-primary-700 text-white hover:bg-primary-800 transition-colors"
+          >
+            转换
+          </button>
+          <input
+            id="single-ts-output"
+            type="text"
+            placeholder="转换结果"
+            readonly
+            class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-900"
+          />
+          <select id="single-ts-timezone" data-timezone-select class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800"></select>
+        </div>
+        <p id="single-ts-error" class="mt-2 text-sm text-red-600 dark:text-red-400"></p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-4">日期时间转时间戳</h3>
+        <div class="grid gap-3 md:grid-cols-[1.4fr_170px_auto_1.4fr_120px]">
+          <input
+            id="single-dt-input"
+            type="text"
+            placeholder="YYYY-MM-DD HH:mm:ss"
+            class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800"
+          />
+          <select id="single-dt-timezone" data-timezone-select class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800"></select>
+          <button
+            id="single-dt-convert"
+            type="button"
+            class="px-4 py-2 rounded-lg bg-primary-700 text-white hover:bg-primary-800 transition-colors"
+          >
+            转换
+          </button>
+          <input
+            id="single-dt-output"
+            type="text"
+            placeholder="转换结果"
+            readonly
+            class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-900"
+          />
+          <select id="single-dt-output-unit" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+            <option value="s">秒(s)</option>
+            <option value="ms">毫秒(ms)</option>
+          </select>
+        </div>
+        <p id="single-dt-error" class="mt-2 text-sm text-red-600 dark:text-red-400"></p>
+      </section>
+    </div>
+
+    <div id="panel-batch" class="tab-panel hidden space-y-8">
+      <section>
+        <h3 class="text-2xl font-semibold mb-4">批量时间戳转日期时间</h3>
+        <div class="grid gap-3 md:grid-cols-[140px_170px_auto] mb-3">
+          <select id="batch-ts-unit" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+            <option value="ms">毫秒(ms)</option>
+            <option value="s">秒(s)</option>
+          </select>
+          <select id="batch-ts-timezone" data-timezone-select class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800"></select>
+          <button
+            id="batch-ts-convert"
+            type="button"
+            class="px-4 py-2 rounded-lg bg-primary-700 text-white hover:bg-primary-800 transition-colors"
+          >
+            批量转换
+          </button>
+        </div>
+        <div class="grid gap-3 md:grid-cols-2">
+          <textarea
+            id="batch-ts-input"
+            rows="8"
+            placeholder="每行一个时间戳"
+            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800"
+          ></textarea>
+          <textarea
+            id="batch-ts-output"
+            rows="8"
+            placeholder="转换结果（每行一个）"
+            readonly
+            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-900"
+          ></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-4">批量日期时间转时间戳</h3>
+        <div class="grid gap-3 md:grid-cols-[170px_120px_auto] mb-3">
+          <select id="batch-dt-timezone" data-timezone-select class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800"></select>
+          <select id="batch-dt-output-unit" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+            <option value="s">秒(s)</option>
+            <option value="ms">毫秒(ms)</option>
+          </select>
+          <button
+            id="batch-dt-convert"
+            type="button"
+            class="px-4 py-2 rounded-lg bg-primary-700 text-white hover:bg-primary-800 transition-colors"
+          >
+            批量转换
+          </button>
+        </div>
+        <div class="grid gap-3 md:grid-cols-2">
+          <textarea
+            id="batch-dt-input"
+            rows="8"
+            placeholder="每行一个日期时间，格式 YYYY-MM-DD HH:mm:ss"
+            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800"
+          ></textarea>
+          <textarea
+            id="batch-dt-output"
+            rows="8"
+            placeholder="转换结果（每行一个）"
+            readonly
+            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-900"
+          ></textarea>
+        </div>
+      </section>
+    </div>
+  </section>
+</MainLayout>
+
+<script>
+  const TIMEZONES = [
+    'Asia/Shanghai',
+    'UTC',
+    'Asia/Tokyo',
+    'Asia/Singapore',
+    'Europe/London',
+    'Europe/Berlin',
+    'America/New_York',
+    'America/Los_Angeles',
+  ];
+
+  const currentValueEl = document.getElementById('current-timestamp-value');
+  const currentUnitEl = document.getElementById('current-timestamp-unit');
+  const currentToggleUnitBtn = document.getElementById('current-toggle-unit');
+  const currentCopyBtn = document.getElementById('current-copy');
+  const currentToggleRunningBtn = document.getElementById('current-toggle-running');
+  const currentCopyFeedbackEl = document.getElementById('current-copy-feedback');
+
+  let currentUnit = 'ms';
+  let currentRunning = true;
+  let currentInterval = null;
+
+  let lastSingleDateTimeToTsMs = null;
+
+  function pad2(value) {
+    return String(value).padStart(2, '0');
+  }
+
+  function formatDateTimeParts(parts) {
+    return `${parts.year}-${pad2(parts.month)}-${pad2(parts.day)} ${pad2(parts.hour)}:${pad2(parts.minute)}:${pad2(parts.second)}`;
+  }
+
+  function getTimeZoneParts(date, timeZone) {
+    const formatter = new Intl.DateTimeFormat('en-US', {
+      timeZone,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hourCycle: 'h23',
+    });
+
+    const parts = formatter.formatToParts(date);
+    const map = {};
+    for (const item of parts) {
+      if (item.type !== 'literal') {
+        map[item.type] = item.value;
+      }
+    }
+
+    return {
+      year: Number(map.year),
+      month: Number(map.month),
+      day: Number(map.day),
+      hour: Number(map.hour),
+      minute: Number(map.minute),
+      second: Number(map.second),
+    };
+  }
+
+  function getTimeZoneOffsetMinutes(timeZone, date) {
+    const p = getTimeZoneParts(date, timeZone);
+    const asUtcMs = Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second);
+    return (asUtcMs - date.getTime()) / 60000;
+  }
+
+  function timestampToDateTimeText(timestampMs, timeZone) {
+    const date = new Date(timestampMs);
+    if (Number.isNaN(date.getTime())) return null;
+    const p = getTimeZoneParts(date, timeZone);
+    return formatDateTimeParts(p);
+  }
+
+  function parseDateTimeText(input) {
+    const normalized = String(input || '').trim();
+    const match = normalized.match(/^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})(?::(\d{2}))?$/);
+    if (!match) return null;
+
+    const year = Number(match[1]);
+    const month = Number(match[2]);
+    const day = Number(match[3]);
+    const hour = Number(match[4]);
+    const minute = Number(match[5]);
+    const second = Number(match[6] || '0');
+
+    if (month < 1 || month > 12) return null;
+    if (day < 1 || day > 31) return null;
+    if (hour < 0 || hour > 23) return null;
+    if (minute < 0 || minute > 59) return null;
+    if (second < 0 || second > 59) return null;
+
+    const check = new Date(Date.UTC(year, month - 1, day, hour, minute, second));
+    if (
+      check.getUTCFullYear() !== year ||
+      check.getUTCMonth() + 1 !== month ||
+      check.getUTCDate() !== day
+    ) {
+      return null;
+    }
+
+    return { year, month, day, hour, minute, second };
+  }
+
+  function dateTimeTextToTimestampMs(text, timeZone) {
+    const p = parseDateTimeText(text);
+    if (!p) return NaN;
+
+    const wallClockUtcMs = Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second);
+    let candidateMs = wallClockUtcMs;
+
+    for (let i = 0; i < 4; i += 1) {
+      const offset = getTimeZoneOffsetMinutes(timeZone, new Date(candidateMs));
+      const next = wallClockUtcMs - offset * 60000;
+      if (next === candidateMs) break;
+      candidateMs = next;
+    }
+
+    const verifyText = timestampToDateTimeText(candidateMs, timeZone);
+    if (verifyText !== formatDateTimeParts(p)) {
+      return NaN;
+    }
+
+    return candidateMs;
+  }
+
+  function setCopyFeedback(message) {
+    currentCopyFeedbackEl.textContent = message;
+    if (!message) return;
+    setTimeout(() => {
+      if (currentCopyFeedbackEl.textContent === message) {
+        currentCopyFeedbackEl.textContent = '';
+      }
+    }, 1800);
+  }
+
+  function getCurrentDisplayValue() {
+    const nowMs = Date.now();
+    return currentUnit === 's' ? String(Math.floor(nowMs / 1000)) : String(nowMs);
+  }
+
+  function renderCurrentTimestamp() {
+    currentValueEl.textContent = getCurrentDisplayValue();
+    currentUnitEl.textContent = currentUnit === 's' ? '秒' : '毫秒';
+    currentToggleRunningBtn.textContent = currentRunning ? '停止' : '开始';
+    currentToggleRunningBtn.classList.toggle('bg-red-600', currentRunning);
+    currentToggleRunningBtn.classList.toggle('hover:bg-red-700', currentRunning);
+    currentToggleRunningBtn.classList.toggle('bg-green-600', !currentRunning);
+    currentToggleRunningBtn.classList.toggle('hover:bg-green-700', !currentRunning);
+  }
+
+  function stopCurrentTimer() {
+    if (currentInterval !== null) {
+      clearInterval(currentInterval);
+      currentInterval = null;
+    }
+  }
+
+  function startCurrentTimer() {
+    stopCurrentTimer();
+    currentInterval = setInterval(() => {
+      if (currentRunning) {
+        renderCurrentTimestamp();
+      }
+    }, 200);
+  }
+
+  async function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    const ok = document.execCommand('copy');
+    document.body.removeChild(textarea);
+    if (!ok) {
+      throw new Error('copy failed');
+    }
+  }
+
+  function setupTimezoneSelects() {
+    const selects = document.querySelectorAll('[data-timezone-select]');
+    for (const select of selects) {
+      select.innerHTML = '';
+      for (const tz of TIMEZONES) {
+        const option = document.createElement('option');
+        option.value = tz;
+        option.textContent = tz;
+        if (tz === 'Asia/Shanghai') option.selected = true;
+        select.appendChild(option);
+      }
+    }
+  }
+
+  function setupTabs() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const panelSingle = document.getElementById('panel-single');
+    const panelBatch = document.getElementById('panel-batch');
+
+    function activate(name) {
+      panelSingle.classList.toggle('hidden', name !== 'single');
+      panelBatch.classList.toggle('hidden', name !== 'batch');
+
+      for (const btn of tabButtons) {
+        const active = btn.dataset.tab === name;
+        btn.classList.toggle('bg-white', active);
+        btn.classList.toggle('dark:bg-gray-700', active);
+        btn.classList.toggle('text-gray-600', !active);
+        btn.classList.toggle('dark:text-gray-300', !active);
+      }
+    }
+
+    for (const btn of tabButtons) {
+      btn.addEventListener('click', () => activate(btn.dataset.tab));
+    }
+
+    activate('single');
+  }
+
+  function setupCurrentControls() {
+    currentToggleUnitBtn.addEventListener('click', () => {
+      currentUnit = currentUnit === 'ms' ? 's' : 'ms';
+      renderCurrentTimestamp();
+    });
+
+    currentCopyBtn.addEventListener('click', async () => {
+      try {
+        await copyText(currentValueEl.textContent || '');
+        setCopyFeedback('已复制');
+      } catch {
+        setCopyFeedback('复制失败');
+      }
+    });
+
+    currentToggleRunningBtn.addEventListener('click', () => {
+      currentRunning = !currentRunning;
+      renderCurrentTimestamp();
+    });
+
+    renderCurrentTimestamp();
+    startCurrentTimer();
+  }
+
+  function setupSingleConverters() {
+    const tsInput = document.getElementById('single-ts-input');
+    const tsUnit = document.getElementById('single-ts-unit');
+    const tsTimezone = document.getElementById('single-ts-timezone');
+    const tsConvert = document.getElementById('single-ts-convert');
+    const tsOutput = document.getElementById('single-ts-output');
+    const tsError = document.getElementById('single-ts-error');
+
+    const dtInput = document.getElementById('single-dt-input');
+    const dtTimezone = document.getElementById('single-dt-timezone');
+    const dtConvert = document.getElementById('single-dt-convert');
+    const dtOutput = document.getElementById('single-dt-output');
+    const dtOutputUnit = document.getElementById('single-dt-output-unit');
+    const dtError = document.getElementById('single-dt-error');
+
+    function convertTimestampSingle() {
+      tsError.textContent = '';
+      const raw = String(tsInput.value || '').trim();
+      if (!raw) {
+        tsError.textContent = '请输入时间戳';
+        tsOutput.value = '';
+        return;
+      }
+
+      const num = Number(raw);
+      if (!Number.isFinite(num)) {
+        tsError.textContent = '时间戳格式不正确';
+        tsOutput.value = 'Invalid';
+        return;
+      }
+
+      const ms = tsUnit.value === 's' ? num * 1000 : num;
+      const result = timestampToDateTimeText(ms, tsTimezone.value);
+      if (!result) {
+        tsOutput.value = 'Invalid';
+        tsError.textContent = '转换失败';
+        return;
+      }
+
+      tsOutput.value = result;
+    }
+
+    function renderSingleDateTimeToTimestampFromCache() {
+      if (lastSingleDateTimeToTsMs === null) return;
+      dtOutput.value = dtOutputUnit.value === 's'
+        ? String(Math.floor(lastSingleDateTimeToTsMs / 1000))
+        : String(lastSingleDateTimeToTsMs);
+    }
+
+    function convertDateTimeSingle() {
+      dtError.textContent = '';
+      const raw = String(dtInput.value || '').trim();
+      if (!raw) {
+        dtError.textContent = '请输入日期时间';
+        dtOutput.value = '';
+        return;
+      }
+
+      const ms = dateTimeTextToTimestampMs(raw, dtTimezone.value);
+      if (!Number.isFinite(ms)) {
+        lastSingleDateTimeToTsMs = null;
+        dtOutput.value = 'Invalid';
+        dtError.textContent = '日期时间格式或时区不正确';
+        return;
+      }
+
+      lastSingleDateTimeToTsMs = ms;
+      renderSingleDateTimeToTimestampFromCache();
+    }
+
+    tsConvert.addEventListener('click', convertTimestampSingle);
+    tsInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') convertTimestampSingle();
+    });
+
+    dtConvert.addEventListener('click', convertDateTimeSingle);
+    dtInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') convertDateTimeSingle();
+    });
+
+    dtOutputUnit.addEventListener('change', renderSingleDateTimeToTimestampFromCache);
+  }
+
+  function setupBatchConverters() {
+    const batchTsInput = document.getElementById('batch-ts-input');
+    const batchTsOutput = document.getElementById('batch-ts-output');
+    const batchTsUnit = document.getElementById('batch-ts-unit');
+    const batchTsTimezone = document.getElementById('batch-ts-timezone');
+    const batchTsConvert = document.getElementById('batch-ts-convert');
+
+    const batchDtInput = document.getElementById('batch-dt-input');
+    const batchDtOutput = document.getElementById('batch-dt-output');
+    const batchDtTimezone = document.getElementById('batch-dt-timezone');
+    const batchDtOutputUnit = document.getElementById('batch-dt-output-unit');
+    const batchDtConvert = document.getElementById('batch-dt-convert');
+
+    function getNonEmptyLines(text) {
+      return String(text || '')
+        .split(/\r?\n/)
+        .map((line) => line.trim())
+        .filter((line) => line.length > 0);
+    }
+
+    function convertBatchTimestamp() {
+      const lines = getNonEmptyLines(batchTsInput.value);
+      if (lines.length === 0) {
+        batchTsOutput.value = '';
+        return;
+      }
+
+      const outputs = lines.map((line) => {
+        const num = Number(line);
+        if (!Number.isFinite(num)) return 'Invalid';
+
+        const ms = batchTsUnit.value === 's' ? num * 1000 : num;
+        const result = timestampToDateTimeText(ms, batchTsTimezone.value);
+        return result || 'Invalid';
+      });
+
+      batchTsOutput.value = outputs.join('\n');
+    }
+
+    function convertBatchDateTime() {
+      const lines = getNonEmptyLines(batchDtInput.value);
+      if (lines.length === 0) {
+        batchDtOutput.value = '';
+        return;
+      }
+
+      const outputs = lines.map((line) => {
+        const ms = dateTimeTextToTimestampMs(line, batchDtTimezone.value);
+        if (!Number.isFinite(ms)) return 'Invalid';
+        return batchDtOutputUnit.value === 's' ? String(Math.floor(ms / 1000)) : String(ms);
+      });
+
+      batchDtOutput.value = outputs.join('\n');
+    }
+
+    batchTsConvert.addEventListener('click', convertBatchTimestamp);
+    batchDtConvert.addEventListener('click', convertBatchDateTime);
+  }
+
+  setupTimezoneSelects();
+  setupTabs();
+  setupCurrentControls();
+  setupSingleConverters();
+  setupBatchConverters();
+</script>
