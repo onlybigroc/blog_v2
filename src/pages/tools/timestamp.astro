@@ -222,19 +222,21 @@ const description = '秒/毫秒时间戳和日期时间的单个/批量双向转
 
   let currentUnit = 'ms';
   let currentRunning = true;
-  let currentInterval = null;
+  let currentFrame: ReturnType<typeof requestAnimationFrame> | null = null;
+  let currentTimeout: ReturnType<typeof setTimeout> | null = null;
+  let currentTimestampMs = Date.now();
 
-  let lastSingleDateTimeToTsMs = null;
+  let lastSingleDateTimeToTsMs: number | null = null;
 
-  function pad2(value) {
+  function pad2(value: any) {
     return String(value).padStart(2, '0');
   }
 
-  function formatDateTimeParts(parts) {
+  function formatDateTimeParts(parts: { year: any; month: any; day: any; hour: any; minute: any; second: any; }) {
     return `${parts.year}-${pad2(parts.month)}-${pad2(parts.day)} ${pad2(parts.hour)}:${pad2(parts.minute)}:${pad2(parts.second)}`;
   }
 
-  function getTimeZoneParts(date, timeZone) {
+  function getTimeZoneParts(date: number | Date | undefined, timeZone: any) {
     const formatter = new Intl.DateTimeFormat('en-US', {
       timeZone,
       year: 'numeric',
@@ -264,7 +266,7 @@ const description = '秒/毫秒时间戳和日期时间的单个/批量双向转
     };
   }
 
-  function getTimeZoneOffsetMinutes(timeZone, date) {
+  function getTimeZoneOffsetMinutes(timeZone: any, date: number | Date | undefined) {
     const p = getTimeZoneParts(date, timeZone);
     const asUtcMs = Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second);
     return (asUtcMs - date.getTime()) / 60000;
@@ -307,7 +309,7 @@ const description = '秒/毫秒时间戳和日期时间的单个/批量双向转
     return { year, month, day, hour, minute, second };
   }
 
-  function dateTimeTextToTimestampMs(text, timeZone) {
+  function dateTimeTextToTimestampMs(text: string, timeZone: any) {
     const p = parseDateTimeText(text);
     if (!p) return NaN;
 
@@ -339,13 +341,13 @@ const description = '秒/毫秒时间戳和日期时间的单个/批量双向转
     }, 1800);
   }
 
-  function getCurrentDisplayValue() {
-    const nowMs = Date.now();
-    return currentUnit === 's' ? String(Math.floor(nowMs / 1000)) : String(nowMs);
+  function getCurrentDisplayValue(timestampMs = currentTimestampMs) {
+    return currentUnit === 's' ? String(Math.floor(timestampMs / 1000)) : String(timestampMs);
   }
 
-  function renderCurrentTimestamp() {
-    currentValueEl.textContent = getCurrentDisplayValue();
+  function renderCurrentTimestamp(timestampMs = currentTimestampMs) {
+    currentTimestampMs = timestampMs;
+    currentValueEl.textContent = getCurrentDisplayValue(timestampMs);
     currentUnitEl.textContent = currentUnit === 's' ? '秒' : '毫秒';
     currentToggleRunningBtn.textContent = currentRunning ? '停止' : '开始';
     currentToggleRunningBtn.classList.toggle('bg-red-600', currentRunning);
@@ -355,22 +357,40 @@ const description = '秒/毫秒时间戳和日期时间的单个/批量双向转
   }
 
   function stopCurrentTimer() {
-    if (currentInterval !== null) {
-      clearInterval(currentInterval);
-      currentInterval = null;
-    }
+    if (currentFrame !== null) cancelAnimationFrame(currentFrame);
+    if (currentTimeout !== null) clearTimeout(currentTimeout);
+    currentFrame = null;
+    currentTimeout = null;
   }
 
   function startCurrentTimer() {
     stopCurrentTimer();
-    currentInterval = setInterval(() => {
-      if (currentRunning) {
-        renderCurrentTimestamp();
-      }
-    }, 200);
+    if (!currentRunning) return;
+
+    if (currentUnit === 'ms') {
+      const tick = () => {
+        if (!currentRunning || currentUnit !== 'ms') return;
+        renderCurrentTimestamp(Date.now());
+        currentFrame = requestAnimationFrame(tick);
+      };
+
+      renderCurrentTimestamp(Date.now());
+      currentFrame = requestAnimationFrame(tick);
+      return;
+    }
+
+    const tick = () => {
+      if (!currentRunning || currentUnit !== 's') return;
+      const now = Date.now();
+      renderCurrentTimestamp(now);
+      const delay = 1000 - (now % 1000) || 1000;
+      currentTimeout = setTimeout(tick, delay);
+    };
+
+    tick();
   }
 
-  async function copyText(text) {
+  async function copyText(text: string) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       await navigator.clipboard.writeText(text);
       return;
@@ -432,12 +452,18 @@ const description = '秒/毫秒时间戳和日期时间的单个/批量双向转
   function setupCurrentControls() {
     currentToggleUnitBtn.addEventListener('click', () => {
       currentUnit = currentUnit === 'ms' ? 's' : 'ms';
-      renderCurrentTimestamp();
+      if (currentRunning) {
+        startCurrentTimer();
+      } else {
+        renderCurrentTimestamp(currentTimestampMs);
+      }
     });
 
     currentCopyBtn.addEventListener('click', async () => {
       try {
-        await copyText(currentValueEl.textContent || '');
+        const timestampMs = currentRunning ? Date.now() : currentTimestampMs;
+        renderCurrentTimestamp(timestampMs);
+        await copyText(getCurrentDisplayValue(timestampMs));
         setCopyFeedback('已复制');
       } catch {
         setCopyFeedback('复制失败');
@@ -446,10 +472,14 @@ const description = '秒/毫秒时间戳和日期时间的单个/批量双向转
 
     currentToggleRunningBtn.addEventListener('click', () => {
       currentRunning = !currentRunning;
-      renderCurrentTimestamp();
+      if (currentRunning) {
+        startCurrentTimer();
+      } else {
+        stopCurrentTimer();
+        renderCurrentTimestamp(Date.now());
+      }
     });
 
-    renderCurrentTimestamp();
     startCurrentTimer();
   }
 
