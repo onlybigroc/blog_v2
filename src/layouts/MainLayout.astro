@@ -1,5 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import GiscusComments from '@components/GiscusComments.astro';
+import PageLikeButton from '@components/PageLikeButton.astro';
 
 interface Props {
   title: string;
@@ -7,6 +9,10 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isToolsSubpage = pathname.startsWith('/tools/') && pathname !== '/tools';
+const isPromotionsSubpage = pathname.startsWith('/promotions/') && pathname !== '/promotions';
+const showSubpageFeedback = isToolsSubpage || isPromotionsSubpage;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -40,6 +46,15 @@ const { title, description } = Astro.props;
   
   <main class="max-w-4xl mx-auto px-4 py-12">
     <slot />
+
+    {showSubpageFeedback && (
+      <section class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="flex justify-center">
+          <PageLikeButton />
+        </div>
+        <GiscusComments />
+      </section>
+    )}
   </main>
   
   <footer class="border-t border-gray-200 dark:border-gray-800 mt-20">
