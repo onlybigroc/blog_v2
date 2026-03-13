@@ -4,25 +4,23 @@ interface Props {
 }
 
 const { className = '' } = Astro.props;
-const normalizedPath = Astro.url.pathname === '/'
-  ? 'root'
-  : Astro.url.pathname.replace(/\/+$/, '').replace(/[^a-zA-Z0-9_-]/g, '-');
-const counterId = `page-view-count-${normalizedPath || 'page'}`;
 ---
 
-<span class:list={['inline-flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400', className]}>
+<span data-page-view-counter class:list={['inline-flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400', className]}>
   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
   </svg>
-  <span id={counterId}>0</span>
+  <span data-page-view-count>0</span>
   <span>浏览</span>
 </span>
 
-<script define:vars={{ counterId }}>
+<script>
   import { formatCount, recordView } from '@utils/stats';
 
-  function normalizePath(pathname) {
+  const INIT_FLAG = '__blogPageViewCounterInit__';
+
+  function normalizePath(pathname: string) {
     if (!pathname || pathname === '/') {
       return '/';
     }
@@ -30,16 +28,33 @@ const counterId = `page-view-count-${normalizedPath || 'page'}`;
     return trimmed || '/';
   }
 
-  document.addEventListener('DOMContentLoaded', async () => {
+  async function syncPageViewCounters() {
     try {
       const pageId = `page:${normalizePath(window.location.pathname)}`;
       const stats = await recordView(pageId);
-      const viewCountEl = document.getElementById(counterId);
-      if (viewCountEl) {
-        viewCountEl.textContent = formatCount(stats.views);
-      }
+
+      const viewText = formatCount(stats.views);
+      const counters = document.querySelectorAll('[data-page-view-counter]');
+      counters.forEach((counter) => {
+        const viewCountEl = counter.querySelector('[data-page-view-count]');
+        if (viewCountEl) {
+          viewCountEl.textContent = viewText;
+        }
+      });
     } catch (error) {
       console.warn('记录页面浏览量失败:', error);
     }
-  });
+  }
+
+  if (!(window as any)[INIT_FLAG]) {
+    (window as any)[INIT_FLAG] = true;
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        void syncPageViewCounters();
+      }, { once: true });
+    } else {
+      void syncPageViewCounters();
+    }
+  }
 </script>

@@ -1,7 +1,6 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 import { promotions } from '@/data/promotions';
-import PageViewCounter from '@components/PageViewCounter.astro';
 
 const title = '推广 | 个人技术博客-bigroc';
 const description = '推广内容与合作入口，后续会持续补充。';
@@ -11,10 +10,6 @@ const draftPromotions = promotions.filter((item) => item.status === 'draft');
 ---
 
 <MainLayout title={title} description={description}>
-  <div class="mb-6">
-    <PageViewCounter />
-  </div>
-
   <!-- <div class="mb-10">
     <h1 class="text-4xl font-bold mb-3">推广</h1>
     <p class="text-gray-600 dark:text-gray-400">
