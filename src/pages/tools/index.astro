@@ -1,6 +1,7 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 import { tools } from '@/data/tools';
+import PageViewCounter from '@components/PageViewCounter.astro';
 
 const title = '工具 | 个人技术博客-bigroc';
 const description = '常用在线工具集合，后续会持续迁移和补充。';
@@ -12,6 +13,7 @@ const draftTools = tools.filter((tool) => tool.status === 'draft');
 <MainLayout title={title} description={description}>
   <div class="mb-10">
     <h1 class="text-4xl font-bold mb-3">工具</h1>
+    <PageViewCounter className="mb-3" />
     <p class="text-gray-600 dark:text-gray-400">
       这里会逐步迁移我常用的工具页面，统一收口到 <code class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">/tools</code> 模块。
     </p>

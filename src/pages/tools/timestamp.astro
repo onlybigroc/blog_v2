@@ -1,5 +1,6 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
+import PageViewCounter from '@components/PageViewCounter.astro';
 
 const title = '时间戳转换 | 工具 | 个人技术博客-bigroc';
 const description = '秒/毫秒时间戳和日期时间的单个/批量双向转换工具。';
@@ -8,6 +9,7 @@ const description = '秒/毫秒时间戳和日期时间的单个/批量双向转
 <MainLayout title={title} description={description}>
   <div class="mb-8">
     <h1 class="text-4xl font-bold mb-3">时间戳转换</h1>
+    <PageViewCounter className="mb-3" />
     <p class="text-gray-600 dark:text-gray-400">支持当前时间戳控制、单个转换和批量转换，支持常用时区。</p>
   </div>
 

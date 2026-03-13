@@ -1,5 +1,6 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
+import PageViewCounter from '@components/PageViewCounter.astro';
 
 const title = 'ChatGPT全自动充值系统 | 推广 | 个人技术博客-bigroc';
 const description = '面向开发者与内容创作者的 ChatGPT 全自动充值入口，支持更稳定的 AI 工具使用体验。';
@@ -9,6 +10,9 @@ const promotionLink = 'https://aff.aimizy.com/?ref=NARLSO';
 <MainLayout title={title} description={description}>
   <article class="prose prose-lg dark:prose-invert max-w-none">
     <h1>ChatGPT全自动充值系统</h1>
+    <div class="not-prose mb-6">
+      <PageViewCounter />
+    </div>
 
     <p>
       如果你在日常开发、写作、翻译或内容生产中频繁使用 ChatGPT，
