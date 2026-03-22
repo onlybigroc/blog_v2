@@ -18,7 +18,7 @@ export async function GET() {
       }),
       tags: post.data.tags,
       categories: post.data.categories,
-      summary: post.data.summary,
+      summary: post.data.summary.trim(),
     }));
 
   return new Response(JSON.stringify(posts), {

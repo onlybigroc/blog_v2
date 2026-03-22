@@ -36,6 +36,9 @@ export default defineConfig({
     remarkPlugins: [remarkImagePath],
     shikiConfig: {
       theme: 'github-dark-dimmed',
+      langAlias: {
+        golang: 'go',
+      },
       wrap: true,
     },
   },

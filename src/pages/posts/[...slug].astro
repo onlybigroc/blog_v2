@@ -2,7 +2,7 @@
 import GiscusComments from '@components/GiscusComments.astro';
 import MainLayout from '@layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
-import { getPostUrl } from '@utils/slug';
+import { getPostUrl, getTagUrl } from '@utils/slug';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -27,9 +27,16 @@ export async function getStaticPaths() {
 
 const { post, prevPost, nextPost } = Astro.props;
 const { Content } = await post.render();
+const summary = post.data.summary.trim();
 ---
 
-<MainLayout title={post.data.title} description={post.data.summary}>
+<MainLayout
+  title={post.data.title}
+  description={summary}
+  image={post.data.cover}
+  publishedTime={post.data.date}
+  modifiedTime={post.data.date}
+>
   <article class="prose prose-lg mx-auto max-w-none dark:prose-invert">
     <header class="mb-8 pb-8 border-b border-gray-200 dark:border-gray-800">
       <h1 class="text-4xl font-bold mb-4">{post.data.title}</h1>
@@ -63,7 +70,7 @@ const { Content } = await post.render();
           {post.data.tags.map((tag) => (
             <Fragment key={tag}>
               <a
-                href={`/tags/${encodeURIComponent(tag)}`}
+                href={getTagUrl(tag)}
                 class="px-3 py-1 bg-primary-100 text-primary-700 rounded text-sm transition hover:bg-primary-200 dark:bg-primary-900/30 dark:text-primary-300 dark:hover:bg-primary-900/50"
               >
                 {tag}

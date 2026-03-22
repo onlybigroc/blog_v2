@@ -2,20 +2,56 @@
 import BaseLayout from './BaseLayout.astro';
 import GiscusComments from '@components/GiscusComments.astro';
 import PageLikeButton from '@components/PageLikeButton.astro';
+import { isArticlePath } from '@utils/site';
 
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  robots?: string;
+  type?: 'website' | 'article';
+  loadAds?: boolean;
+  canonicalURL?: string;
+  publishedTime?: Date | string;
+  modifiedTime?: Date | string;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  image,
+  robots,
+  type,
+  loadAds,
+  canonicalURL,
+  publishedTime,
+  modifiedTime,
+} = Astro.props;
 const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const isToolsSubpage = pathname.startsWith('/tools/') && pathname !== '/tools';
 const isPromotionsSubpage = pathname.startsWith('/promotions/') && pathname !== '/promotions';
 const showSubpageFeedback = isToolsSubpage || isPromotionsSubpage;
+const defaultType = isArticlePath(pathname) ? 'article' : 'website';
+const shouldLoadAds = loadAds ?? isArticlePath(pathname);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  image={image}
+  robots={robots}
+  type={type ?? defaultType}
+  loadAds={shouldLoadAds}
+  canonicalURL={canonicalURL}
+  publishedTime={publishedTime}
+  modifiedTime={modifiedTime}
+>
+  <a
+    href="#main-content"
+    class="sr-only absolute left-4 top-4 z-50 rounded-md bg-primary-600 px-4 py-2 text-white shadow focus:not-sr-only focus:outline-none focus:ring-2 focus:ring-primary-300"
+  >
+    跳到正文
+  </a>
   <header class="border-b border-gray-200 dark:border-gray-800">
     <nav class="max-w-4xl mx-auto px-4 py-6 flex items-center justify-between">
       <a href="/" class="text-2xl font-bold text-primary-600 dark:text-primary-400">Bigroc - 技术博客</a>
@@ -44,7 +80,7 @@ const showSubpageFeedback = isToolsSubpage || isPromotionsSubpage;
     </nav>
   </header>
   
-  <main class="max-w-4xl mx-auto px-4 py-12">
+  <main id="main-content" tabindex="-1" class="max-w-4xl mx-auto px-4 py-12 focus:outline-none">
     <slot />
 
     {showSubpageFeedback && (

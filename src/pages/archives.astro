@@ -1,7 +1,7 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
-import { getPostUrl } from '@utils/slug';
+import { getPostUrl, getTagUrl } from '@utils/slug';
 
 const title = '归档 | 个人技术博客 bigroc';
 const description = '按时间归档的所有文章';
@@ -110,7 +110,7 @@ const years = archives.length;
                                   {post.data.tags.slice(0, 5).map((tag) => (
                                     <Fragment key={tag}>
                                       <a
-                                        href={`/tags/${encodeURIComponent(tag)}`}
+                                        href={getTagUrl(tag)}
                                         class="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs transition-colors hover:bg-primary-100 hover:text-primary-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-primary-900/30 dark:hover:text-primary-300"
                                       >
                                         {tag}

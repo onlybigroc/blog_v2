@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { getPostUrl } from '@utils/slug';
+import { getPostUrl, getTagUrl } from '@utils/slug';
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -23,6 +23,7 @@ const {
 const HeadingTag = headingTag;
 const postHref = `/posts/${getPostUrl(post.id)}`;
 const visibleTags = post.data.tags.slice(0, tagLimit);
+const summary = post.data.summary.trim();
 const formattedDate = post.data.date.toLocaleDateString('zh-CN', {
   year: 'numeric',
   month: 'long',
@@ -56,7 +57,7 @@ const formattedDate = post.data.date.toLocaleDateString('zh-CN', {
         {visibleTags.map((tag) => (
           <Fragment key={tag}>
             <a
-              href={`/tags/${encodeURIComponent(tag)}`}
+              href={getTagUrl(tag)}
               class:list={[
                 'px-2 py-1 rounded text-xs transition-colors',
                 activeTag === tag
@@ -72,8 +73,8 @@ const formattedDate = post.data.date.toLocaleDateString('zh-CN', {
     )}
   </div>
 
-  {post.data.summary && (
-    <p class="text-gray-700 mb-3 line-clamp-2 dark:text-gray-300">{post.data.summary}</p>
+  {summary && (
+    <p class="text-gray-700 mb-3 line-clamp-2 dark:text-gray-300">{summary}</p>
   )}
 
   {showReadMore && (

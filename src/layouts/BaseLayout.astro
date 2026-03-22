@@ -1,14 +1,46 @@
 ---
+import {
+  SITE_KEYWORDS,
+  SITE_NAME,
+  SITE_OG_IMAGE_ALT,
+  SITE_TWITTER_HANDLE,
+  getImageMimeType,
+  getMetaDescription,
+  getSocialImageUrl,
+  withBrandSuffix,
+} from '@utils/site';
+
 interface Props {
   title: string;
   description?: string;
   image?: string;
   canonicalURL?: string;
+  robots?: string;
+  type?: 'website' | 'article';
+  loadAds?: boolean;
+  publishedTime?: Date | string;
+  modifiedTime?: Date | string;
 }
 
-const { title, description = '个人技术博客，分享编程、开发和技术经验，涵盖Java、JavaScript、Go、Docker、数据库等领域。原创技术文章，持续更新。', image = '/og-image.png', canonicalURL } = Astro.props;
+const {
+  title,
+  description,
+  image,
+  canonicalURL,
+  robots = 'index, follow',
+  type = 'website',
+  loadAds = false,
+  publishedTime,
+  modifiedTime,
+} = Astro.props;
 const siteURL = Astro.site?.toString() || 'https://bigroc.cn';
 const currentURL = canonicalURL || new URL(Astro.url.pathname, siteURL).toString();
+const fullTitle = withBrandSuffix(title);
+const metaDescription = getMetaDescription(description);
+const socialImage = getSocialImageUrl(image, siteURL);
+const socialImageType = getImageMimeType(image);
+const publishedDate = publishedTime ? new Date(publishedTime).toISOString() : undefined;
+const modifiedDate = modifiedTime ? new Date(modifiedTime).toISOString() : publishedDate;
 ---
 
 <!doctype html>
@@ -19,11 +51,11 @@ const currentURL = canonicalURL || new URL(Astro.url.pathname, siteURL).toString
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="keywords" content="技术博客,编程,开发,Java,JavaScript,Go,Docker,数据库,前端,后端,Spring Boot,Vue,React,Astro,PostgreSQL,MySQL,算法,数据结构,软件设计" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="keywords" content={SITE_KEYWORDS} />
     <meta name="author" content="bigroc" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robots} />
     <meta name="language" content="zh-CN" />
     <meta name="revisit-after" content="7 days" />
     
@@ -33,35 +65,66 @@ const currentURL = canonicalURL || new URL(Astro.url.pathname, siteURL).toString
     <link rel="canonical" href={currentURL} />
     
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:url" content={currentURL} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, siteURL)} />
-    <meta property="og:site_name" content="bigroc 技术博客" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:secure_url" content={socialImage} />
+    {socialImageType && <meta property="og:image:type" content={socialImageType} />}
+    <meta property="og:image:alt" content={SITE_OG_IMAGE_ALT} />
+    <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:locale" content="zh_CN" />
+    {type === 'article' && publishedDate && <meta property="article:published_time" content={publishedDate} />}
+    {type === 'article' && modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={currentURL} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(image, siteURL)} />
-    <meta name="twitter:creator" content="@bigroc" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={SITE_OG_IMAGE_ALT} />
+    <meta name="twitter:site" content={SITE_TWITTER_HANDLE} />
+    <meta name="twitter:creator" content={SITE_TWITTER_HANDLE} />
     
     
     <link rel="sitemap" href="/sitemap-index.xml" />
     
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6550916586984251"
-      crossorigin="anonymous"></script>
+    {loadAds && (
+      <script is:inline>
+        const ADSENSE_INIT_FLAG = '__bigrocAdsenseLoaded__';
+        const ADSENSE_SRC =
+          'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6550916586984251';
+
+        const loadAdsense = () => {
+          if (window[ADSENSE_INIT_FLAG]) {
+            return;
+          }
+
+          window[ADSENSE_INIT_FLAG] = true;
+
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = ADSENSE_SRC;
+          script.crossOrigin = 'anonymous';
+          document.head.appendChild(script);
+        };
+
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadAdsense, { timeout: 2000 });
+        } else {
+          window.addEventListener('load', loadAdsense, { once: true });
+        }
+      </script>
+    )}
     
     <script is:inline>
       const theme = localStorage.getItem('theme') || 'dark';
       document.documentElement.classList.toggle('dark', theme === 'dark');
     </script>
   </head>
-  <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+  <body id="top" class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
     <slot />
   </body>
 </html>
