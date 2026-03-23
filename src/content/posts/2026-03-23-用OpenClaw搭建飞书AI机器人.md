@@ -5,7 +5,7 @@ slug: openclaw-feishu-bot
 categories: ["技术"]
 tags: ["OpenClaw", "飞书", "AI", "机器人"]
 summary: "在飞书里直接跟一个 AI 助手聊天，让它帮你写代码、查资料、管理文件？OpenClaw 就是干这个的——一个开源自托管的 AI 网关，把你的聊天应用和 AI Agent 连起来。本文记录从零部署到飞书机器人上线的全过程。"
-originUrl: "https://bigroc.cn/posts/openclaw-feishu-bot"
+originUrl: "/posts/openclaw-feishu-bot"
 draft: false
 ---
 
