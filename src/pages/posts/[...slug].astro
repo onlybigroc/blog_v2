@@ -5,35 +5,57 @@ import { getCollection } from 'astro:content';
 import { getPostUrl, getTagUrl } from '@utils/slug';
 
 export async function getStaticPaths() {
+  const getInternalOriginPostSlug = (originUrl: string): string | null => {
+    const match = originUrl.match(/^\/posts\/(.+?)\/?$/);
+
+    if (!match) {
+      return null;
+    }
+
+    const [, slug] = match;
+
+    if (!slug || slug.startsWith('page/')) {
+      return null;
+    }
+
+    return slug;
+  };
+
   const posts = await getCollection('posts');
   const sortedPosts = posts
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-  return sortedPosts.map((post, index) => {
+  return sortedPosts.flatMap((post, index) => {
     const prevPost = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null;
     const nextPost = index > 0 ? sortedPosts[index - 1] : null;
+    const canonicalSlug = getPostUrl(post.id);
+    const aliasSlug = getInternalOriginPostSlug(post.data.originUrl);
+    const slugs = aliasSlug && aliasSlug !== canonicalSlug ? [canonicalSlug, aliasSlug] : [canonicalSlug];
 
-    return {
-      params: { slug: getPostUrl(post.id) },
+    return slugs.map((slug) => ({
+      params: { slug },
       props: {
         post,
         prevPost,
         nextPost,
       },
-    };
+    }));
   });
 }
 
 const { post, prevPost, nextPost } = Astro.props;
 const { Content } = await post.render();
 const summary = post.data.summary.trim();
+const siteURL = Astro.site?.toString() || 'https://bigroc.cn';
+const canonicalURL = new URL(`/posts/${getPostUrl(post.id)}`, siteURL).toString();
 ---
 
 <MainLayout
   title={post.data.title}
   description={summary}
   image={post.data.cover}
+  canonicalURL={canonicalURL}
   publishedTime={post.data.date}
   modifiedTime={post.data.date}
 >
