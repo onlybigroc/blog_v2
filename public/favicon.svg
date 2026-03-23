@@ -4,10 +4,18 @@
       <stop offset="0%" stop-color="#0f172a" />
       <stop offset="100%" stop-color="#2563eb" />
     </linearGradient>
+    <!-- 定义字体样式，确保“锤”字显示美观 -->
+    <style>
+      .chinese-char {
+      font-family: "Microsoft YaHei", "PingFang SC", "SimHei", sans-serif;
+      font-weight: bold;
+      font-size: 32px;
+      fill: #f8fafc; /* 与原文字颜色一致 */
+      }
+    </style>
   </defs>
+  <!-- 保留原有背景 -->
   <rect width="64" height="64" rx="16" fill="url(#fav-bg)" />
-  <path
-    d="M20 14h13.5c8.2 0 13.5 4.1 13.5 10.8 0 4.4-2.5 7.5-6.1 8.9 4.6 1.2 7.5 4.7 7.5 9.7C48.4 50.2 42.6 54 34 54H20V14zm12.6 16.1c4.1 0 6.6-1.8 6.6-4.9 0-2.8-2.2-4.6-6.2-4.6h-5.1v9.5h4.7zm.8 17.3c4.6 0 7.2-1.8 7.2-5.2 0-3.2-2.4-5-7-5h-5.7v10.2h5.5z"
-    fill="#f8fafc"
-  />
+  <!-- 替换为“锤”字，居中显示 -->
+  <text x="32" y="38" text-anchor="middle" dominant-baseline="middle" class="chinese-char">锤</text>
 </svg>
