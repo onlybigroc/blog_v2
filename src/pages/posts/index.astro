@@ -3,7 +3,7 @@ import PostCard from '@components/PostCard.astro';
 import MainLayout from '@layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
 
-const title = '文章列表 | 个人技术博客';
+const title = '文章列表';
 const description = '所有博客文章';
 
 const allPosts = (await getCollection('posts'))

@@ -3,7 +3,7 @@ import MainLayout from '@layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
 import { getPostUrl, getTagUrl } from '@utils/slug';
 
-const title = '归档 | 个人技术博客 bigroc';
+const title = '归档';
 const description = '按时间归档的所有文章';
 
 const allPosts = (await getCollection('posts'))
