@@ -1,15 +1,15 @@
-export const SITE_NAME = '大鹏的 Git Log';
-export const SITE_TITLE_SUFFIX = '大鹏的 Git Log';
+export const SITE_NAME = '大鹏的Log';
+export const SITE_TITLE_SUFFIX = '大鹏的Log';
 export const SITE_DESCRIPTION =
-  '大鹏的 Git Log，记录正在发生的技术事。涵盖 Java、JavaScript、Go、Docker、数据库等领域，分享编程、开发和技术经验。';
+  '大鹏的Log，记录正在发生的技术事。涵盖 Java、JavaScript、Go、Docker、数据库等领域，分享编程、开发和技术经验。';
 export const SITE_KEYWORDS =
   '大鹏的GitLog,技术博客,编程,开发,Java,JavaScript,Go,Docker,数据库,前端,后端,Spring Boot,Vue,React,Astro,PostgreSQL,MySQL,算法,数据结构,软件设计';
 export const SITE_TWITTER_HANDLE = '@bigroc';
-export const SITE_OG_IMAGE_ALT = '大鹏的 Git Log - 记录正在发生的技术事';
+export const SITE_OG_IMAGE_ALT = '大鹏的Log - 记录正在发生的技术事';
 export const DEFAULT_SOCIAL_IMAGE = '/og-image.svg';
 
 const LEGACY_TITLE_SUFFIX_PATTERN =
-  /\s*\|\s*(?:个人技术博客(?:\s*[-|]?\s*bigroc)?|大鹏的 Git Log|Bigroc)\s*$/i;
+  /\s*\|\s*(?:个人技术博客(?:\s*[-|]?\s*bigroc)?|大鹏的Log|Bigroc)\s*$/i;
 
 export function withBrandSuffix(title: string): string {
   const normalizedTitle = title.replace(LEGACY_TITLE_SUFFIX_PATTERN, '').trim();
