@@ -53,9 +53,11 @@ const shouldLoadAds = loadAds ?? isArticlePath(pathname);
     跳到正文
   </a>
   <header class="border-b border-gray-200 dark:border-gray-800">
-    <nav class="max-w-4xl mx-auto px-4 py-6 flex items-center justify-between">
-      <a href="/" class="text-2xl font-bold text-primary-600 dark:text-primary-400">Bigroc - 技术博客</a>
-      <div class="flex gap-6 items-center">
+    <nav class="max-w-4xl mx-auto px-4 py-4 md:py-6 flex items-center justify-between">
+      <a href="/" class="text-lg md:text-2xl font-bold text-primary-600 dark:text-primary-400 truncate mr-2">Bigroc - 技术博客</a>
+
+      <!-- Desktop nav (>=768px) -->
+      <div class="hidden md:flex gap-6 items-center">
         <a href="/posts" class="hover:text-primary-600 dark:hover:text-primary-400 transition">文章</a>
         <a href="/tags" class="hover:text-primary-600 dark:hover:text-primary-400 transition">标签</a>
         <a href="/archives" class="hover:text-primary-600 dark:hover:text-primary-400 transition">归档</a>
@@ -77,7 +79,47 @@ const shouldLoadAds = loadAds ?? isArticlePath(pathname);
           </svg>
         </button>
       </div>
+
+      <!-- Mobile controls (<768px) -->
+      <div class="flex md:hidden items-center gap-2">
+        <a href="/search" class="p-2 hover:text-primary-600 dark:hover:text-primary-400 transition" aria-label="搜索">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </a>
+        <button id="theme-toggle-mobile" class="p-2 hover:text-primary-600 dark:hover:text-primary-400 transition" aria-label="切换主题">
+          <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+        </button>
+        <button id="menu-toggle" class="p-2 hover:text-primary-600 dark:hover:text-primary-400 transition" aria-label="菜单" aria-expanded="false">
+          <!-- Hamburger icon -->
+          <svg class="w-6 h-6 menu-open" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <!-- Close icon -->
+          <svg class="w-6 h-6 menu-close hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
     </nav>
+
+    <!-- Mobile menu panel -->
+    <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-[max-height] duration-300 ease-in-out">
+      <div class="border-t border-gray-200 dark:border-gray-800 px-4 py-3 flex flex-col gap-1">
+        <a href="/posts" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">文章</a>
+        <a href="/tags" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">标签</a>
+        <a href="/archives" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">归档</a>
+        <a href="/tools" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">工具</a>
+        <a href="/promotions" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">推广</a>
+        <a href="/about" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">关于</a>
+        <a href="/contact" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">联系</a>
+      </div>
+    </div>
   </header>
   
   <main id="main-content" tabindex="-1" class="max-w-4xl mx-auto px-4 py-12 focus:outline-none">
@@ -109,10 +151,40 @@ const shouldLoadAds = loadAds ?? isArticlePath(pathname);
   </footer>
 
   <script>
-    const toggle = document.getElementById('theme-toggle');
-    toggle?.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    // Theme toggle (desktop + mobile)
+    const applyTheme = (dark: boolean) => {
+      document.documentElement.classList.toggle('dark', dark);
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    };
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+      applyTheme(!document.documentElement.classList.contains('dark'));
+    });
+    document.getElementById('theme-toggle-mobile')?.addEventListener('click', () => {
+      applyTheme(!document.documentElement.classList.contains('dark'));
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle?.addEventListener('click', () => {
+      const isOpen = mobileMenu?.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      if (mobileMenu) {
+        mobileMenu.style.maxHeight = isOpen ? mobileMenu.scrollHeight + 'px' : '0';
+      }
+      menuToggle.querySelector('.menu-open')?.classList.toggle('hidden', isOpen);
+      menuToggle.querySelector('.menu-close')?.classList.toggle('hidden', !isOpen);
+    });
+
+    // Close mobile menu on navigation
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.style.maxHeight = '0';
+        mobileMenu.classList.remove('open');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+        menuToggle?.querySelector('.menu-open')?.classList.remove('hidden');
+        menuToggle?.querySelector('.menu-close')?.classList.add('hidden');
+      });
     });
   </script>
 </BaseLayout>
