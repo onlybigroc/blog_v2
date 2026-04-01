@@ -5,7 +5,7 @@ import { promotions } from '@/data/promotions';
 const title = '推广';
 const description = '推广内容与合作入口，后续会持续补充。';
 
-const readyPromotions = promotions.filter((item) => item.status !== 'draft');
+const readyPromotions = promotions.filter((item) => item.status === 'ready' || item.status === undefined);
 const draftPromotions = promotions.filter((item) => item.status === 'draft');
 ---
 

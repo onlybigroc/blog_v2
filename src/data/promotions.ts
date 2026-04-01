@@ -1,4 +1,4 @@
-export type PromotionStatus = 'ready' | 'draft';
+export type PromotionStatus = 'ready' | 'draft' | 'hidden';
 
 export interface PromotionItem {
   id: string;
@@ -16,6 +16,6 @@ export const promotions: PromotionItem[] = [
     name: 'ChatGPT全自动充值系统',
     description: '围绕 ChatGPT 使用场景的一站式充值与账号开通入口，适合需要稳定使用 AI 工具的用户。',
     path: '/promotions/chatgpt-auto-recharge',
-    status: 'ready',
+    status: 'hidden',
   },
 ];
