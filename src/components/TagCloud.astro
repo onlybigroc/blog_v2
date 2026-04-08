@@ -1,0 +1,100 @@
+---
+import { getTagUrl } from '@utils/slug';
+
+interface Props {
+  tags: Array<{ tag: string; count: number }>;
+}
+
+const { tags } = Astro.props;
+
+const maxCount = Math.max(...tags.map((tagEntry) => tagEntry.count));
+const minCount = Math.min(...tags.map((tagEntry) => tagEntry.count));
+
+function getTagSize(count: number): number {
+  if (maxCount === minCount) {
+    return 18;
+  }
+
+  const ratio = (count - minCount) / (maxCount - minCount);
+  return 14 + ratio * 18;
+}
+
+function getTagColor(count: number): string {
+  if (maxCount === minCount) {
+    return 'text-primary-500';
+  }
+
+  const ratio = (count - minCount) / (maxCount - minCount);
+  if (ratio > 0.7) {
+    return 'text-primary-600 dark:text-primary-400';
+  } else if (ratio > 0.4) {
+    return 'text-primary-500 dark:text-primary-300';
+  } else {
+    return 'text-primary-400 dark:text-primary-200';
+  }
+}
+
+function getTagBackground(count: number): string {
+  if (maxCount === minCount) {
+    return 'hover:bg-primary-50 dark:hover:bg-primary-900/20';
+  }
+
+  const ratio = (count - minCount) / (maxCount - minCount);
+  if (ratio > 0.7) {
+    return 'hover:bg-primary-100 dark:hover:bg-primary-900/30';
+  } else if (ratio > 0.4) {
+    return 'hover:bg-primary-50 dark:hover:bg-primary-900/20';
+  } else {
+    return 'hover:bg-primary-50/50 dark:hover:bg-primary-900/10';
+  }
+}
+---
+
+<div class="tag-cloud-container">
+  <div class="flex flex-wrap gap-3 sm:gap-4 justify-center items-center">
+    {tags.map(({ tag, count }) => {
+      const size = getTagSize(count);
+      const adjustedSize = Math.max(12, Math.min(size, 20));
+      const opacity = 0.6 + (adjustedSize - 12) / 24;
+      const colorClass = getTagColor(count);
+      const backgroundClass = getTagBackground(count);
+      
+      return (
+        <a
+          key={`tag-cloud-${tag}`}
+          href={getTagUrl(tag)}
+          class={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-md ${colorClass} ${backgroundClass}`}
+          style={`font-size: ${adjustedSize}px; opacity: ${opacity};`}
+          title={`${tag} (${count} 篇)`}
+        >
+          <span class="relative">
+            {tag}
+            <span class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap">
+              {count} 篇
+            </span>
+          </span>
+        </a>
+      );
+    })}
+  </div>
+</div>
+
+<style scoped>
+  .tag-cloud-container {
+    position: relative;
+    padding: 2rem 1rem;
+  }
+  
+  .tag-cloud-container a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  
+  .tag-cloud-container a:hover {
+    z-index: 10;
+  }
+</style>

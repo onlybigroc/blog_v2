@@ -1,7 +1,7 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
+import TagCloud from '@components/TagCloud.astro';
 import { getCollection } from 'astro:content';
-import { getTagUrl } from '@utils/slug';
 
 const title = '标签';
 const description = '所有文章标签';
@@ -18,18 +18,6 @@ allPosts.forEach((post) => {
 const tags = Array.from(tagCount.entries())
   .sort((a, b) => b[1] - a[1])
   .map(([tag, count]) => ({ tag, count }));
-
-const maxCount = Math.max(...tags.map((tagEntry) => tagEntry.count));
-const minCount = Math.min(...tags.map((tagEntry) => tagEntry.count));
-
-function getTagSize(count: number): number {
-  if (maxCount === minCount) {
-    return 18;
-  }
-
-  const ratio = (count - minCount) / (maxCount - minCount);
-  return 14 + ratio * 18;
-}
 ---
 
 <MainLayout title={title} description={description}>
@@ -40,25 +28,7 @@ function getTagSize(count: number): number {
 
   <div class="mb-12 p-6 sm:p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl shadow-sm dark:from-gray-800/50 dark:to-gray-900/50">
     <h2 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">标签云</h2>
-    <div class="flex flex-wrap gap-3 sm:gap-4 justify-center items-center">
-      {tags.map(({ tag, count }) => {
-        const size = getTagSize(count);
-        const adjustedSize = Math.max(12, Math.min(size, 20));
-        const opacity = 0.6 + (adjustedSize - 12) / 24;
-        return (
-          <Fragment key={`cloud-${tag}`}>
-            <a
-              href={getTagUrl(tag)}
-              class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-md text-primary-600 hover:bg-primary-50 dark:text-primary-400 dark:hover:bg-primary-900/20"
-              style={`font-size: ${adjustedSize}px; opacity: ${opacity};`}
-              title={`${tag} (${count} 篇)`}
-            >
-              {tag}
-            </a>
-          </Fragment>
-        );
-      })}
-    </div>
+    <TagCloud tags={tags} />
   </div>
 
   <div class="space-y-4">
