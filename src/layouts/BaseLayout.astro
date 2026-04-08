@@ -88,6 +88,28 @@ const modifiedDate = modifiedTime ? new Date(modifiedTime).toISOString() : publi
     <meta name="twitter:site" content={SITE_TWITTER_HANDLE} />
     <meta name="twitter:creator" content={SITE_TWITTER_HANDLE} />
     
+    <!-- 结构化数据 (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "name": "Blog Post",
+        "description": "Blog post description",
+        "url": "https://bigroc.cn",
+        "publisher": {
+          "@type": "Organization",
+          "name": "大鹏的Log",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://bigroc.cn/favicon.svg"
+          }
+        },
+        "author": {
+          "@type": "Person",
+          "name": "bigroc"
+        }
+      }
+    </script>
     
     <link rel="sitemap" href="/sitemap-index.xml" />
     
@@ -125,6 +147,67 @@ const modifiedDate = modifiedTime ? new Date(modifiedTime).toISOString() : publi
     </script>
   </head>
   <body id="top" class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+    <!-- 页面加载动画 -->
+    <div id="loading-overlay" class="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50 transition-opacity duration-500">
+      <div class="flex flex-col items-center">
+        <div class="w-16 h-16 border-4 border-primary-600 border-t-transparent rounded-full animate-spin"></div>
+        <p class="mt-4 text-lg font-medium text-primary-600 dark:text-primary-400">加载中...</p>
+      </div>
+    </div>
+    
     <slot />
+    
+    <!-- 图片懒加载 -->
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        // 检查浏览器是否支持 Intersection Observer
+        if ('IntersectionObserver' in window) {
+          const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                const dataSrc = img.getAttribute('data-src');
+                if (dataSrc) {
+                  // 确保只在需要时更新 src
+                  if (img.src !== dataSrc) {
+                    img.src = dataSrc;
+                  }
+                  img.classList.remove('lazy');
+                  imageObserver.unobserve(img);
+                }
+              }
+            });
+          }, {
+            rootMargin: '50px 0px',
+            threshold: 0.01
+          });
+
+          // 观察所有带有 data-src 属性的图片
+          document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+          });
+        } else {
+          // 降级方案：直接加载所有图片
+          document.querySelectorAll('img[data-src]').forEach(img => {
+            const dataSrc = img.getAttribute('data-src');
+            if (dataSrc && img.src !== dataSrc) {
+              img.src = dataSrc;
+            }
+            img.classList.remove('lazy');
+          });
+        }
+      });
+
+      // 页面加载完成后隐藏加载动画
+      window.addEventListener('load', function() {
+        const loadingOverlay = document.getElementById('loading-overlay');
+        if (loadingOverlay) {
+          loadingOverlay.style.opacity = '0';
+          setTimeout(() => {
+            loadingOverlay.style.display = 'none';
+          }, 500);
+        }
+      });
+    </script>
   </body>
 </html>

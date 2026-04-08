@@ -52,6 +52,9 @@ const shouldLoadAds = loadAds ?? isArticlePath(pathname);
   >
     跳到正文
   </a>
+  
+  <!-- 阅读进度条 -->
+  <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-primary-600 z-50 transition-all duration-300"></div>
   <header class="border-b border-gray-200 dark:border-gray-800">
     <nav class="max-w-4xl mx-auto px-4 py-4 md:py-6 flex items-center justify-between">
       <a href="/" class="text-lg md:text-2xl font-bold text-primary-600 dark:text-primary-400 truncate mr-2">大鹏的Log</a>
@@ -109,15 +112,15 @@ const shouldLoadAds = loadAds ?? isArticlePath(pathname);
     </nav>
 
     <!-- Mobile menu panel -->
-    <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-[max-height] duration-300 ease-in-out">
+    <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0 transform translate-y-[-10px]">
       <div class="border-t border-gray-200 dark:border-gray-800 px-4 py-3 flex flex-col gap-1">
-        <a href="/posts" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">文章</a>
-        <a href="/tags" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">标签</a>
-        <a href="/archives" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">归档</a>
-        <a href="/tools" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">工具</a>
-        <a href="/promotions" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">推广</a>
-        <a href="/about" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">关于</a>
-        <a href="/contact" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">联系</a>
+        <a href="/posts" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200">文章</a>
+        <a href="/tags" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200">标签</a>
+        <a href="/archives" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200">归档</a>
+        <a href="/tools" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200">工具</a>
+        <a href="/promotions" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200">推广</a>
+        <a href="/about" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200">关于</a>
+        <a href="/contact" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200">联系</a>
       </div>
     </div>
   </header>
@@ -170,7 +173,17 @@ const shouldLoadAds = loadAds ?? isArticlePath(pathname);
       const isOpen = mobileMenu?.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', String(isOpen));
       if (mobileMenu) {
-        mobileMenu.style.maxHeight = isOpen ? mobileMenu.scrollHeight + 'px' : '0';
+        if (isOpen) {
+          // 打开菜单
+          mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+          mobileMenu.style.opacity = '1';
+          mobileMenu.style.transform = 'translateY(0)';
+        } else {
+          // 关闭菜单
+          mobileMenu.style.maxHeight = '0';
+          mobileMenu.style.opacity = '0';
+          mobileMenu.style.transform = 'translateY(-10px)';
+        }
       }
       menuToggle.querySelector('.menu-open')?.classList.toggle('hidden', isOpen);
       menuToggle.querySelector('.menu-close')?.classList.toggle('hidden', !isOpen);
@@ -179,12 +192,31 @@ const shouldLoadAds = loadAds ?? isArticlePath(pathname);
     // Close mobile menu on navigation
     mobileMenu?.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        mobileMenu.style.maxHeight = '0';
-        mobileMenu.classList.remove('open');
+        if (mobileMenu) {
+          mobileMenu.style.maxHeight = '0';
+          mobileMenu.style.opacity = '0';
+          mobileMenu.style.transform = 'translateY(-10px)';
+          mobileMenu.classList.remove('open');
+        }
         menuToggle?.setAttribute('aria-expanded', 'false');
         menuToggle?.querySelector('.menu-open')?.classList.remove('hidden');
         menuToggle?.querySelector('.menu-close')?.classList.add('hidden');
       });
     });
+
+    // 阅读进度条
+    const updateReadingProgress = () => {
+      const progressBar = document.getElementById('reading-progress');
+      if (!progressBar) return;
+
+      const totalHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      progressBar.style.width = `${progress}%`;
+    };
+
+    // 监听滚动事件
+    window.addEventListener('scroll', updateReadingProgress);
+    // 初始加载时更新一次
+    window.addEventListener('load', updateReadingProgress);
   </script>
 </BaseLayout>

@@ -26,9 +26,29 @@ export async function getStaticPaths() {
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
+  // 为每篇文章生成相关文章
+  const getRelatedPosts = (currentPost: any, allPosts: any[]) => {
+    return allPosts
+      .filter((p) => p.id !== currentPost.id && !p.data.draft)
+      .map((p) => {
+        // 计算标签匹配度
+        const commonTags = p.data.tags.filter((tag: string) => 
+          currentPost.data.tags.includes(tag)
+        );
+        return {
+          ...p,
+          matchScore: commonTags.length
+        };
+      })
+      .filter((p) => p.matchScore > 0)
+      .sort((a, b) => b.matchScore - a.matchScore)
+      .slice(0, 3);
+  };
+
   return sortedPosts.flatMap((post, index) => {
     const prevPost = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null;
     const nextPost = index > 0 ? sortedPosts[index - 1] : null;
+    const relatedPosts = getRelatedPosts(post, sortedPosts);
     const canonicalSlug = getPostUrl(post.id);
     const aliasSlug = getInternalOriginPostSlug(post.data.originUrl);
     const slugs = aliasSlug && aliasSlug !== canonicalSlug ? [canonicalSlug, aliasSlug] : [canonicalSlug];
@@ -39,12 +59,13 @@ export async function getStaticPaths() {
         post,
         prevPost,
         nextPost,
+        relatedPosts,
       },
     }));
   });
 }
 
-const { post, prevPost, nextPost } = Astro.props;
+const { post, prevPost, nextPost, relatedPosts } = Astro.props;
 const { Content } = await post.render();
 const summary = post.data.summary.trim();
 const siteURL = Astro.site?.toString() || 'https://bigroc.cn';
@@ -161,7 +182,51 @@ const canonicalURL = new URL(`/posts/${getPostUrl(post.id)}`, siteURL).toString(
         )}
       </nav>
 
-      <div class="text-center">
+      <!-- 相关文章推荐 -->
+      {relatedPosts.length > 0 && (
+        <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+          <h3 class="text-2xl font-bold mb-6">相关文章</h3>
+          <div class="space-y-6">
+            {relatedPosts.map((relatedPost) => (
+              <article key={relatedPost.id} class="border-b border-gray-200 pb-6 last:border-0 dark:border-gray-800">
+                <h4 class="text-xl font-bold mb-2">
+                  <a 
+                    href={`/posts/${getPostUrl(relatedPost.id)}`} 
+                    class="text-primary-600 hover:underline dark:text-primary-400"
+                  >
+                    {relatedPost.data.title}
+                  </a>
+                </h4>
+                <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-3 dark:text-gray-400">
+                  <time datetime={relatedPost.data.date.toISOString()}>
+                    {relatedPost.data.date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </time>
+                  {relatedPost.data.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2">
+                      {relatedPost.data.tags.slice(0, 3).map((tag) => (
+                        <a
+                          key={tag}
+                          href={getTagUrl(tag)}
+                          class="px-2 py-1 bg-primary-100 text-primary-700 rounded text-xs transition-colors hover:bg-primary-200 dark:bg-primary-900/30 dark:text-primary-300 dark:hover:bg-primary-900/50"
+                        >
+                          {tag}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                {relatedPost.data.summary && (
+                  <p class="text-gray-700 line-clamp-2 dark:text-gray-300">
+                    {relatedPost.data.summary}
+                  </p>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div class="text-center mt-12">
         <a href="/" class="text-primary-600 hover:underline dark:text-primary-400">← 返回首页</a>
       </div>
     </footer>

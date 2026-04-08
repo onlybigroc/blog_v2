@@ -26,6 +26,8 @@ const totalPosts = (await getCollection('posts')).filter((post) => !post.data.dr
         <svg class="absolute right-4 top-3.5 w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
         </svg>
+        <!-- 搜索建议下拉框 -->
+        <div id="search-suggestions" class="absolute left-0 right-0 mt-1 max-h-60 overflow-y-auto bg-white border border-gray-300 rounded-lg shadow-lg z-10 dark:bg-gray-800 dark:border-gray-600 hidden"></div>
       </div>
     </div>
 
@@ -57,6 +59,7 @@ const totalPosts = (await getCollection('posts')).filter((post) => !post.data.dr
   const searchStats = document.getElementById('search-stats');
   const noResults = document.getElementById('no-results');
   const searchPrompt = document.getElementById('search-prompt');
+  const searchSuggestions = document.getElementById('search-suggestions');
 
   let searchIndexPromise;
 
@@ -65,6 +68,34 @@ const totalPosts = (await getCollection('posts')).filter((post) => !post.data.dr
     searchStats.textContent = '';
     noResults.classList.add('hidden');
     searchPrompt.classList.remove('hidden');
+    hideSearchSuggestions();
+  }
+
+  function hideSearchSuggestions() {
+    searchSuggestions.classList.add('hidden');
+    searchSuggestions.replaceChildren();
+  }
+
+  function showSearchSuggestions(suggestions) {
+    if (suggestions.length === 0) {
+      hideSearchSuggestions();
+      return;
+    }
+
+    searchSuggestions.replaceChildren();
+    suggestions.forEach((suggestion) => {
+      const suggestionItem = document.createElement('div');
+      suggestionItem.className = 'px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer';
+      suggestionItem.textContent = suggestion;
+      suggestionItem.addEventListener('click', () => {
+        searchInput.value = suggestion;
+        searchPosts(suggestion);
+        hideSearchSuggestions();
+      });
+      searchSuggestions.append(suggestionItem);
+    });
+
+    searchSuggestions.classList.remove('hidden');
   }
 
   async function loadSearchIndex() {
@@ -207,6 +238,49 @@ const totalPosts = (await getCollection('posts')).filter((post) => !post.data.dr
     return score;
   }
 
+  async function getSearchSuggestions(query) {
+    const trimmedQuery = query.trim().toLowerCase();
+    if (!trimmedQuery) {
+      return [];
+    }
+
+    let allPosts = [];
+    try {
+      allPosts = await loadSearchIndex();
+    } catch (error) {
+      console.error('加载搜索索引失败:', error);
+      return [];
+    }
+
+    // 收集所有可能的建议（标题、标签）
+    const suggestions = new Set();
+    
+    allPosts.forEach((post) => {
+      // 标题建议
+      if (post.title.toLowerCase().includes(trimmedQuery)) {
+        suggestions.add(post.title);
+      }
+      // 标签建议
+      post.tags.forEach((tag) => {
+        if (tag.toLowerCase().includes(trimmedQuery)) {
+          suggestions.add(tag);
+        }
+      });
+    });
+
+    // 按匹配度和长度排序，返回前10个建议
+    return Array.from(suggestions)
+      .sort((a, b) => {
+        const aMatch = a.toLowerCase().indexOf(trimmedQuery);
+        const bMatch = b.toLowerCase().indexOf(trimmedQuery);
+        if (aMatch !== bMatch) {
+          return aMatch - bMatch; // 匹配位置越靠前越优先
+        }
+        return a.length - b.length; // 长度越短越优先
+      })
+      .slice(0, 10);
+  }
+
   async function searchPosts(query) {
     const trimmedQuery = query.trim();
 
@@ -265,8 +339,53 @@ const totalPosts = (await getCollection('posts')).filter((post) => !post.data.dr
     searchPosts(event.target.value);
   }, 300);
 
+  const debouncedSuggestions = debounce(async (event) => {
+    const query = event.target.value;
+    const suggestions = await getSearchSuggestions(query);
+    showSearchSuggestions(suggestions);
+  }, 200);
+
   if (searchInput) {
     searchInput.addEventListener('input', debouncedSearch);
+    searchInput.addEventListener('input', debouncedSuggestions);
+
+    // 点击外部关闭搜索建议
+    document.addEventListener('click', (event) => {
+      if (!searchInput.contains(event.target) && !searchSuggestions.contains(event.target)) {
+        hideSearchSuggestions();
+      }
+    });
+
+    // 键盘导航
+    searchInput.addEventListener('keydown', (event) => {
+      const suggestionItems = searchSuggestions.querySelectorAll('div');
+      const activeIndex = Array.from(suggestionItems).findIndex(item => item.classList.contains('bg-gray-200'));
+
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        if (activeIndex < suggestionItems.length - 1) {
+          if (activeIndex >= 0) {
+            suggestionItems[activeIndex].classList.remove('bg-gray-200', 'dark:bg-gray-700');
+          }
+          suggestionItems[activeIndex + 1].classList.add('bg-gray-200', 'dark:bg-gray-700');
+          suggestionItems[activeIndex + 1].scrollIntoView({ block: 'nearest' });
+        }
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (activeIndex > 0) {
+          suggestionItems[activeIndex].classList.remove('bg-gray-200', 'dark:bg-gray-700');
+          suggestionItems[activeIndex - 1].classList.add('bg-gray-200', 'dark:bg-gray-700');
+          suggestionItems[activeIndex - 1].scrollIntoView({ block: 'nearest' });
+        }
+      } else if (event.key === 'Enter') {
+        if (activeIndex >= 0) {
+          event.preventDefault();
+          suggestionItems[activeIndex].click();
+        }
+      } else if (event.key === 'Escape') {
+        hideSearchSuggestions();
+      }
+    });
 
     const urlParams = new URLSearchParams(window.location.search);
     const queryParam = urlParams.get('q');
