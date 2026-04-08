@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getPostUrl, getTagUrl } from '@utils/slug';
+import { calculateReadingTime, calculateWordCount } from '@utils/site';
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -29,6 +30,8 @@ const formattedDate = post.data.date.toLocaleDateString('zh-CN', {
   month: 'long',
   day: 'numeric',
 });
+const readingTime = calculateReadingTime(post.body);
+const wordCount = calculateWordCount(post.body);
 ---
 
 <article class="border-b border-gray-200 pb-8 last:border-0 dark:border-gray-800">
@@ -40,6 +43,20 @@ const formattedDate = post.data.date.toLocaleDateString('zh-CN', {
 
   <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-3 dark:text-gray-400">
     <time datetime={post.data.date.toISOString()}>{formattedDate}</time>
+
+    <span class="flex items-center gap-1">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      {readingTime} 分钟阅读
+    </span>
+
+    <span class="flex items-center gap-1">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+      </svg>
+      {wordCount} 字
+    </span>
 
     {showCategories && post.data.categories.length > 0 && (
       <div class="flex flex-wrap gap-2">

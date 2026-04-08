@@ -3,6 +3,7 @@ import GiscusComments from '@components/GiscusComments.astro';
 import MainLayout from '@layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
 import { getPostUrl, getTagUrl } from '@utils/slug';
+import { calculateReadingTime, calculateWordCount } from '@utils/site';
 
 export async function getStaticPaths() {
   const getInternalOriginPostSlug = (originUrl: string): string | null => {
@@ -70,6 +71,8 @@ const { Content } = await post.render();
 const summary = post.data.summary.trim();
 const siteURL = Astro.site?.toString() || 'https://bigroc.cn';
 const canonicalURL = new URL(`/posts/${getPostUrl(post.id)}`, siteURL).toString();
+const readingTime = calculateReadingTime(post.body);
+const wordCount = calculateWordCount(post.body);
 ---
 
 <MainLayout
@@ -87,6 +90,20 @@ const canonicalURL = new URL(`/posts/${getPostUrl(post.id)}`, siteURL).toString(
         <time datetime={post.data.date.toISOString()}>
           {post.data.date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
         </time>
+
+        <span class="flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          {readingTime} 分钟阅读
+        </span>
+
+        <span class="flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          {wordCount} 字
+        </span>
 
         {post.data.categories.length > 0 && <span>分类：{post.data.categories.join(', ')}</span>}
 

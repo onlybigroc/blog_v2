@@ -66,3 +66,27 @@ export function isArticlePath(pathname: string): boolean {
   const normalizedPath = pathname.replace(/\/+$/, '') || '/';
   return normalizedPath.startsWith('/posts/') && !normalizedPath.startsWith('/posts/page/');
 }
+
+export function calculateReadingTime(content: string): number {
+  // 平均阅读速度：中文 300 字/分钟，英文 200 词/分钟
+  const chineseChars = (content.match(/[\u4e00-\u9fa5]/g) || []).length;
+  const englishWords = (content.match(/\b[a-zA-Z]+\b/g) || []).length;
+  
+  // 计算阅读时间（分钟）
+  const readingTime = chineseChars / 300 + englishWords / 200;
+  
+  // 四舍五入到整数
+  return Math.ceil(readingTime);
+}
+
+export function calculateWordCount(content: string): number {
+  // 统计中文字符
+  const chineseChars = (content.match(/[\u4e00-\u9fa5]/g) || []).length;
+  // 统计英文单词
+  const englishWords = (content.match(/\b[a-zA-Z]+\b/g) || []).length;
+  // 统计数字
+  const numbers = (content.match(/\b\d+\b/g) || []).length;
+  
+  // 总字数
+  return chineseChars + englishWords + numbers;
+}
