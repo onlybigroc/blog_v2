@@ -1,5 +1,5 @@
 ---
-import { getTagUrl } from '@utils/slug';
+import { getTagUrl } from '../utils/slug';
 
 interface Props {
   tags: Array<{ tag: string; count: number }>;
@@ -63,7 +63,7 @@ function getTagBackground(count: number): string {
         <a
           key={`tag-cloud-${tag}`}
           href={getTagUrl(tag)}
-          class={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-md ${colorClass} ${backgroundClass}`}
+          class={`group px-3 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-md ${colorClass} ${backgroundClass}`}
           style={`font-size: ${adjustedSize}px; opacity: ${opacity};`}
           title={`${tag} (${count} 篇)`}
         >

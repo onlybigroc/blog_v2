@@ -1,7 +1,8 @@
 ---
-import MainLayout from '@layouts/MainLayout.astro';
-import TagCloud from '@components/TagCloud.astro';
+import MainLayout from '../../layouts/MainLayout.astro';
+import TagCloud from '../../components/TagCloud.astro';
 import { getCollection } from 'astro:content';
+import { getTagUrl } from '../../utils/slug';
 
 const title = '标签';
 const description = '所有文章标签';
