@@ -29,15 +29,44 @@ const description = `包含标签 ${tag} 的所有文章`;
 
 <MainLayout title={title} description={description}>
   <div class="mb-8">
-    <nav class="text-sm text-gray-600 mb-4 dark:text-gray-400">
-      <a href="/" class="hover:text-primary-600 dark:hover:text-primary-400">首页</a>
-      <span class="mx-2">/</span>
-      <a href="/tags" class="hover:text-primary-600 dark:hover:text-primary-400">标签</a>
-      <span class="mx-2">/</span>
-      <span class="text-gray-900 dark:text-gray-100">{tag}</span>
+    <nav class="text-sm text-gray-600 mb-6 dark:text-gray-400 flex items-center gap-2">
+      <a href="/" class="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        首页
+      </a>
+      <span class="text-gray-400">/</span>
+      <a href="/tags" class="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+        标签
+      </a>
+      <span class="text-gray-400">/</span>
+      <span class="text-gray-900 dark:text-gray-100 font-medium flex items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+        {tag}
+      </span>
     </nav>
-    <h1 class="text-4xl font-bold mb-2">标签: {tag}</h1>
-    <p class="text-gray-600 dark:text-gray-400">共 {posts.length} 篇文章</p>
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-12 h-12 bg-gradient-to-br from-primary-100 to-primary-200 rounded-xl flex items-center justify-center text-primary-600 dark:from-primary-900/30 dark:to-primary-800/30 dark:text-primary-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+      </div>
+      <div>
+        <h1 class="text-4xl font-bold mb-1">{tag}</h1>
+        <p class="text-gray-600 dark:text-gray-400 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          共 {posts.length} 篇文章
+        </p>
+      </div>
+    </div>
   </div>
 
   <div class="space-y-8">
