@@ -147,14 +147,6 @@ const modifiedDate = modifiedTime ? new Date(modifiedTime).toISOString() : publi
     </script>
   </head>
   <body id="top" class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
-    <!-- 页面加载动画 -->
-    <div id="loading-overlay" class="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50 transition-opacity duration-500">
-      <div class="flex flex-col items-center">
-        <div class="w-16 h-16 border-4 border-primary-600 border-t-transparent rounded-full animate-spin"></div>
-        <p class="mt-4 text-lg font-medium text-primary-600 dark:text-primary-400">加载中...</p>
-      </div>
-    </div>
-    
     <slot />
     
     <!-- 图片懒加载 -->
@@ -195,17 +187,6 @@ const modifiedDate = modifiedTime ? new Date(modifiedTime).toISOString() : publi
             }
             img.classList.remove('lazy');
           });
-        }
-      });
-
-      // 页面加载完成后隐藏加载动画
-      window.addEventListener('load', function() {
-        const loadingOverlay = document.getElementById('loading-overlay');
-        if (loadingOverlay) {
-          loadingOverlay.style.opacity = '0';
-          setTimeout(() => {
-            loadingOverlay.style.display = 'none';
-          }, 500);
         }
       });
     </script>
