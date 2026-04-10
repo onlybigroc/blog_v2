@@ -67,7 +67,10 @@ export function isArticlePath(pathname: string): boolean {
   return normalizedPath.startsWith('/posts/') && !normalizedPath.startsWith('/posts/page/');
 }
 
-export function calculateReadingTime(content: string): number {
+export function calculateReadingTime(content: string | undefined | null): number {
+  if (!content) {
+    return 0;
+  }
   // 平均阅读速度：中文 300 字/分钟，英文 200 词/分钟
   const chineseChars = (content.match(/[\u4e00-\u9fa5]/g) || []).length;
   const englishWords = (content.match(/\b[a-zA-Z]+\b/g) || []).length;
@@ -79,7 +82,10 @@ export function calculateReadingTime(content: string): number {
   return Math.ceil(readingTime);
 }
 
-export function calculateWordCount(content: string): number {
+export function calculateWordCount(content: string | undefined | null): number {
+  if (!content) {
+    return 0;
+  }
   // 统计中文字符
   const chineseChars = (content.match(/[\u4e00-\u9fa5]/g) || []).length;
   // 统计英文单词
