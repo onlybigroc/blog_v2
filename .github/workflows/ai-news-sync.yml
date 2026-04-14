@@ -1,0 +1,43 @@
+name: Sync AI News
+
+on:
+  schedule:
+    - cron: '15 1 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync-ai-news:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: sync-ai-news
+      cancel-in-progress: true
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync AI news digest
+        run: npm run sync:ai-news
+
+      - name: Build site
+        run: npm run build
+
+      - name: Commit generated digest
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A src/data/ai-news.json public/images/ai-news
+          git diff --cached --quiet || (
+            git commit -m "chore: sync ai news [skip ci]" &&
+            git push
+          )

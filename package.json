@@ -7,6 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "sync": "node scripts/sync-cnblogs.mjs",
+    "sync:ai-news": "node scripts/sync-ai-news.mjs",
     "sync:history": "node scripts/sync-cnblogs.mjs --history",
     "sync:all": "node scripts/sync-cnblogs.mjs --history --pages=50",
     "diagnose": "node scripts/diagnose-d1.mjs"

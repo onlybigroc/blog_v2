@@ -62,6 +62,7 @@ const shouldLoadAds = loadAds ?? isArticlePath(pathname);
       <!-- Desktop nav (>=768px) -->
       <div class="hidden md:flex gap-6 items-center">
         <a href="/posts" class="hover:text-primary-600 dark:hover:text-primary-400 transition">文章</a>
+        <a href="/ai-news" class="hover:text-primary-600 dark:hover:text-primary-400 transition">AI资讯</a>
         <a href="/tags" class="hover:text-primary-600 dark:hover:text-primary-400 transition">标签</a>
         <a href="/archives" class="hover:text-primary-600 dark:hover:text-primary-400 transition">归档</a>
         <a href="/tools" class="hover:text-primary-600 dark:hover:text-primary-400 transition">工具</a>
@@ -115,6 +116,7 @@ const shouldLoadAds = loadAds ?? isArticlePath(pathname);
     <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0 transform translate-y-[-10px]">
       <div class="border-t border-gray-200 dark:border-gray-800 px-4 py-3 flex flex-col gap-1">
         <a href="/posts" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200">文章</a>
+        <a href="/ai-news" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200">AI资讯</a>
         <a href="/tags" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200">标签</a>
         <a href="/archives" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200">归档</a>
         <a href="/tools" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200">工具</a>
@@ -143,6 +145,7 @@ const shouldLoadAds = loadAds ?? isArticlePath(pathname);
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
         <p>© {new Date().getFullYear()} Blog. 原博客地址：<a href="https://www.cnblogs.com/bigroc" class="text-primary-600 dark:text-primary-400 hover:underline" target="_blank" rel="noopener">www.cnblogs.com/bigroc</a></p>
         <div class="flex gap-4">
+          <a href="/ai-news" class="hover:text-primary-600 dark:hover:text-primary-400">AI资讯</a>
           <a href="/tools" class="hover:text-primary-600 dark:hover:text-primary-400">工具</a>
           <a href="/promotions" class="hover:text-primary-600 dark:hover:text-primary-400">推广</a>
           <a href="/about" class="hover:text-primary-600 dark:hover:text-primary-400">关于</a>

@@ -1,0 +1,249 @@
+---
+import AINewsCard from '@components/AINewsCard.astro';
+import type { AINewsDigest, AINewsItem } from '@data/aiNews';
+import { formatChineseDateTime } from '@utils/site';
+
+interface Props {
+  digest: AINewsDigest;
+  items: AINewsItem[];
+  currentPage: number;
+  totalPages: number;
+  totalItems: number;
+}
+
+const { digest, items, currentPage, totalPages, totalItems } = Astro.props;
+const cnItems = items.filter((item) => item.sourceRegion === 'cn');
+const globalItems = items.filter((item) => item.sourceRegion === 'global');
+const formattedUpdatedAt = formatChineseDateTime(digest.updatedAt) || '暂无数据';
+
+const pageNumbers = [];
+for (let page = 1; page <= totalPages; page += 1) {
+  if (page === 1 || page === totalPages || (page >= currentPage - 2 && page <= currentPage + 2)) {
+    pageNumbers.push(page);
+  } else if (page === currentPage - 3 || page === currentPage + 3) {
+    pageNumbers.push(-1);
+  }
+}
+
+function getPageHref(page: number) {
+  return page === 1 ? '/ai-news' : `/ai-news/page/${page}`;
+}
+---
+
+<section class="mb-10 rounded-3xl border border-primary-100 bg-gradient-to-br from-primary-50 via-white to-sky-50 p-8 dark:border-primary-900/40 dark:from-gray-900 dark:via-gray-900 dark:to-sky-950/40">
+  <div class="max-w-3xl">
+    <p class="mb-3 inline-flex rounded-full bg-primary-100 px-3 py-1 text-sm font-medium text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+      Daily AI Brief
+    </p>
+    <h1 class="text-4xl font-bold tracking-tight">AI 资讯</h1>
+    <p class="mt-4 text-base leading-8 text-gray-600 dark:text-gray-300">
+      聚合公开 RSS、中文资讯页与官方公告，优先补充中文 AI 动态；所有已抓到的资讯会持续保留，不再被每日同步覆盖，同时尽量抓取一份站内原文快照方便回看。
+    </p>
+    <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
+      最近更新：{formattedUpdatedAt} · 最新推荐窗口：最近 {Math.round(digest.windowHours / 24)} 天 · 历史存档共 {totalItems} 条，当前第 {currentPage}/{totalPages} 页
+    </p>
+  </div>
+</section>
+
+<section class="mb-10 grid gap-4 md:grid-cols-3">
+  <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+    <p class="text-sm text-gray-500 dark:text-gray-400">历史存档</p>
+    <p class="mt-2 text-3xl font-bold">{digest.stats.totalItems}</p>
+  </div>
+  <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+    <p class="text-sm text-gray-500 dark:text-gray-400">中文资讯</p>
+    <p class="mt-2 text-3xl font-bold">{digest.stats.cnCount}</p>
+  </div>
+  <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+    <p class="text-sm text-gray-500 dark:text-gray-400">国际资讯</p>
+    <p class="mt-2 text-3xl font-bold">{digest.stats.globalCount}</p>
+  </div>
+</section>
+
+<section class="mb-10 rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+  <div class="flex flex-wrap items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+    <span>{digest.note}</span>
+    {digest.sources.length > 0 && <span aria-hidden="true">·</span>}
+    {digest.sources.map((source) => (
+      <a href={source.homepage} target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-400">
+        {source.name}
+      </a>
+    ))}
+  </div>
+</section>
+
+<section class="mb-10 flex flex-wrap items-center gap-3 rounded-2xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-900">
+  <span class="text-sm text-gray-500 dark:text-gray-400">资讯筛选：</span>
+  <div class="flex flex-wrap gap-2" id="ai-news-filter">
+    <button type="button" data-region-filter="all" aria-pressed="true" class="rounded-full border border-primary-600 bg-primary-600 px-4 py-2 text-sm font-medium text-white transition">
+      全部
+    </button>
+    <button type="button" data-region-filter="cn" aria-pressed="false" class="rounded-full border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-primary-400 hover:text-primary-600 dark:border-gray-700 dark:text-gray-300 dark:hover:border-primary-500 dark:hover:text-primary-400">
+      国内
+    </button>
+    <button type="button" data-region-filter="global" aria-pressed="false" class="rounded-full border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-primary-400 hover:text-primary-600 dark:border-gray-700 dark:text-gray-300 dark:hover:border-primary-500 dark:hover:text-primary-400">
+      国际
+    </button>
+  </div>
+</section>
+
+{totalItems === 0 ? (
+  <section class="rounded-2xl border border-dashed border-gray-300 p-8 text-center text-gray-500 dark:border-gray-700 dark:text-gray-400">
+    <p>还没有生成 AI 资讯数据。</p>
+    <p class="mt-2 text-sm">
+      运行 <code class="rounded bg-gray-100 px-2 py-1 dark:bg-gray-800">npm run sync:ai-news</code> 后即可看到内容。
+    </p>
+  </section>
+) : (
+  <>
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-3 text-sm text-gray-500 dark:text-gray-400">
+      <p>当前页展示 {items.length} 条归档，默认按发布时间倒序。</p>
+      <p>每页 24 条，避免一次性渲染全量历史记录。</p>
+    </div>
+
+    <div class="space-y-12" id="ai-news-sections">
+      <section class="space-y-5" data-region-section="cn">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h2 class="text-3xl font-bold">中文 AI 资讯</h2>
+            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">优先保留国内媒体与官方动态，支持站内存档回看。</p>
+          </div>
+          <p class="text-sm text-gray-500 dark:text-gray-400">本页 {cnItems.length} 条</p>
+        </div>
+
+        {cnItems.length === 0 ? (
+          <div class="rounded-2xl border border-dashed border-gray-300 p-6 text-sm text-gray-500 dark:border-gray-700 dark:text-gray-400">
+            本页没有中文 AI 资讯。
+          </div>
+        ) : (
+          cnItems.map((item) => <AINewsCard item={item} />)
+        )}
+      </section>
+
+      <section class="space-y-5" data-region-section="global">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h2 class="text-3xl font-bold">国际 AI 资讯</h2>
+            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">保留国际模型、产品和行业动态，并附中文辅助阅读。</p>
+          </div>
+          <p class="text-sm text-gray-500 dark:text-gray-400">本页 {globalItems.length} 条</p>
+        </div>
+
+        {globalItems.length === 0 ? (
+          <div class="rounded-2xl border border-dashed border-gray-300 p-6 text-sm text-gray-500 dark:border-gray-700 dark:text-gray-400">
+            本页没有国际 AI 资讯。
+          </div>
+        ) : (
+          globalItems.map((item) => <AINewsCard item={item} />)
+        )}
+      </section>
+    </div>
+
+    {totalPages > 1 && (
+      <nav class="mt-12 flex flex-wrap justify-center gap-2" aria-label="AI 资讯分页导航">
+        {currentPage > 1 && (
+          <a
+            href={getPageHref(currentPage - 1)}
+            class="ai-news-pagination-link px-4 py-2 rounded bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+          >
+            ← 上一页
+          </a>
+        )}
+
+        {pageNumbers.map((page, index) => (
+          <Fragment key={page === -1 ? `ellipsis-${index}` : `page-${page}`}>
+            {page === -1 ? (
+              <span class="px-2 py-2 text-gray-500">...</span>
+            ) : (
+              <a
+                href={getPageHref(page)}
+                class:list={[
+                  'ai-news-pagination-link px-4 py-2 rounded',
+                  page === currentPage
+                    ? 'bg-primary-600 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700',
+                ]}
+                aria-current={page === currentPage ? 'page' : undefined}
+              >
+                {page}
+              </a>
+            )}
+          </Fragment>
+        ))}
+
+        {currentPage < totalPages && (
+          <a
+            href={getPageHref(currentPage + 1)}
+            class="ai-news-pagination-link px-4 py-2 rounded bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+          >
+            下一页 →
+          </a>
+        )}
+      </nav>
+    )}
+  </>
+)}
+
+<script is:inline>
+  (() => {
+    const buttons = Array.from(document.querySelectorAll('[data-region-filter]'));
+    const sections = Array.from(document.querySelectorAll('[data-region-section]'));
+    const paginationLinks = Array.from(document.querySelectorAll('.ai-news-pagination-link'));
+
+    if (buttons.length && sections.length) {
+      const applyFilter = (region) => {
+        sections.forEach((section) => {
+          const sectionRegion = section.getAttribute('data-region-section');
+          section.toggleAttribute('hidden', !(region === 'all' || sectionRegion === region));
+        });
+
+        buttons.forEach((button) => {
+          const isActive = button.getAttribute('data-region-filter') === region;
+          button.setAttribute('aria-pressed', String(isActive));
+          button.classList.toggle('border-primary-600', isActive);
+          button.classList.toggle('bg-primary-600', isActive);
+          button.classList.toggle('text-white', isActive);
+          button.classList.toggle('border-gray-300', !isActive);
+          button.classList.toggle('text-gray-700', !isActive);
+          button.classList.toggle('dark:border-gray-700', !isActive);
+          button.classList.toggle('dark:text-gray-300', !isActive);
+        });
+
+        const url = new URL(window.location.href);
+        if (region === 'all') {
+          url.searchParams.delete('region');
+        } else {
+          url.searchParams.set('region', region);
+        }
+
+        window.history.replaceState({}, '', url);
+      };
+
+      const initialRegion = new URL(window.location.href).searchParams.get('region');
+      applyFilter(initialRegion === 'cn' || initialRegion === 'global' ? initialRegion : 'all');
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const region = button.getAttribute('data-region-filter') || 'all';
+          applyFilter(region);
+        });
+      });
+    }
+
+    if (paginationLinks.length) {
+      const region = new URL(window.location.href).searchParams.get('region');
+      if (region === 'cn' || region === 'global') {
+        paginationLinks.forEach((link) => {
+          const href = link.getAttribute('href');
+          if (!href) {
+            return;
+          }
+
+          const url = new URL(href, window.location.origin);
+          url.searchParams.set('region', region);
+          link.setAttribute('href', `${url.pathname}${url.search}`);
+        });
+      }
+    }
+  })();
+</script>

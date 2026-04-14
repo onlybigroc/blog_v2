@@ -1,0 +1,43 @@
+---
+import AINewsArchivePage from '@components/AINewsArchivePage.astro';
+import MainLayout from '@layouts/MainLayout.astro';
+import { getAiNewsDigest, getAiNewsItems } from '@data/aiNews';
+
+export function getStaticPaths() {
+  const allItems = getAiNewsItems();
+  const pageSize = 24;
+  const totalPages = Math.ceil(allItems.length / pageSize);
+
+  if (totalPages <= 1) {
+    return [];
+  }
+
+  return Array.from({ length: totalPages - 1 }, (_, index) => {
+    const currentPage = index + 2;
+    return {
+      params: { page: String(currentPage) },
+      props: {
+        items: allItems.slice((currentPage - 1) * pageSize, currentPage * pageSize),
+        currentPage,
+        totalPages,
+        totalItems: allItems.length,
+      },
+    };
+  });
+}
+
+const digest = getAiNewsDigest();
+const { items, currentPage, totalPages, totalItems } = Astro.props;
+const title = `AI 资讯 - 第 ${currentPage} 页`;
+const description = '聚合中文与国际 AI 资讯，保留历史存档，并提供站内原文快照与原文链接。';
+---
+
+<MainLayout title={title} description={description}>
+  <AINewsArchivePage
+    digest={digest}
+    items={items}
+    currentPage={currentPage}
+    totalPages={totalPages}
+    totalItems={totalItems}
+  />
+</MainLayout>

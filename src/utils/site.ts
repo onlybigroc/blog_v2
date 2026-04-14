@@ -1,9 +1,9 @@
 export const SITE_NAME = '大鹏的Log';
 export const SITE_TITLE_SUFFIX = '大鹏的Log';
 export const SITE_DESCRIPTION =
-  '大鹏的Log，记录正在发生的技术事。涵盖 Java、JavaScript、Go、Docker、数据库等领域，分享编程、开发和技术经验。';
+  '大鹏的Log，记录正在发生的技术事。涵盖 Java、JavaScript、Go、Docker、数据库、AI 资讯等领域，分享编程、开发和技术经验。';
 export const SITE_KEYWORDS =
-  '大鹏的GitLog,技术博客,编程,开发,Java,JavaScript,Go,Docker,数据库,前端,后端,Spring Boot,Vue,React,Astro,PostgreSQL,MySQL,算法,数据结构,软件设计';
+  '大鹏的GitLog,技术博客,编程,开发,Java,JavaScript,Go,Docker,数据库,AI,LLM,Agent,前端,后端,Spring Boot,Vue,React,Astro,PostgreSQL,MySQL,算法,数据结构,软件设计';
 export const SITE_TWITTER_HANDLE = '@bigroc';
 export const SITE_OG_IMAGE_ALT = '大鹏的Log - 记录正在发生的技术事';
 export const DEFAULT_SOCIAL_IMAGE = '/og-image.svg';
@@ -95,4 +95,57 @@ export function calculateWordCount(content: string | undefined | null): number {
   
   // 总字数
   return chineseChars + englishWords + numbers;
+}
+
+function getChinaDateParts(
+  value: Date | string | number,
+  includeTime = false
+): Record<string, string> | null {
+  const date = value instanceof Date ? value : new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return null;
+  }
+
+  const formatter = new Intl.DateTimeFormat('zh-CN', {
+    timeZone: 'Asia/Shanghai',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    ...(includeTime
+      ? {
+          hour: '2-digit',
+          minute: '2-digit',
+          hourCycle: 'h23' as const,
+        }
+      : {}),
+  });
+
+  return formatter.formatToParts(date).reduce<Record<string, string>>((parts, part) => {
+    if (part.type !== 'literal') {
+      parts[part.type] = part.value;
+    }
+
+    return parts;
+  }, {});
+}
+
+export function formatChineseDate(value: Date | string | number): string {
+  const parts = getChinaDateParts(value);
+
+  if (!parts) {
+    return '';
+  }
+
+  return `${parts.year}年${parts.month}月${parts.day}日`;
+}
+
+export function formatChineseDateTime(value: Date | string | number): string {
+  const parts = getChinaDateParts(value, true);
+
+  if (!parts) {
+    return '';
+  }
+
+  return `${parts.year}年${parts.month}月${parts.day}日 ${parts.hour}:${parts.minute}`;
 }

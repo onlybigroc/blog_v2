@@ -1,0 +1,24 @@
+---
+import AINewsArchivePage from '@components/AINewsArchivePage.astro';
+import MainLayout from '@layouts/MainLayout.astro';
+import { getAiNewsDigest, getAiNewsItems } from '@data/aiNews';
+
+const digest = getAiNewsDigest();
+const allItems = getAiNewsItems();
+const pageSize = 24;
+const currentPage = 1;
+const totalPages = Math.max(1, Math.ceil(allItems.length / pageSize));
+const pageItems = allItems.slice(0, pageSize);
+const title = 'AI 资讯';
+const description = '聚合中文与国际 AI 资讯，保留历史存档，并提供站内原文快照与原文链接。';
+---
+
+<MainLayout title={title} description={description}>
+  <AINewsArchivePage
+    digest={digest}
+    items={pageItems}
+    currentPage={currentPage}
+    totalPages={totalPages}
+    totalItems={allItems.length}
+  />
+</MainLayout>
