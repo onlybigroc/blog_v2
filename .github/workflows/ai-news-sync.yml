@@ -2,12 +2,14 @@ name: Sync AI News
 
 on:
   schedule:
-    - cron: '15 1 * * *'
+    - cron: '20 1,7,13,19 * * *'
+      timezone: 'Asia/Shanghai'
   workflow_dispatch:
 
 jobs:
   sync-ai-news:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     concurrency:
       group: sync-ai-news
       cancel-in-progress: true
@@ -16,6 +18,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref_name }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -29,15 +34,37 @@ jobs:
       - name: Sync AI news digest
         run: npm run sync:ai-news
 
+      - name: Show digest summary
+        run: |
+          node <<'NODE'
+          const digest = require('./src/data/ai-news.json');
+          console.log(`updatedAt=${digest.updatedAt}`);
+          console.log(`totalItems=${digest.stats.totalItems}`);
+          console.log(`recent24h=${digest.stats.recent24h}`);
+          console.log(`latestCount=${digest.latestIds.length}`);
+          console.log('latestTop5=');
+          for (const item of digest.items.slice(0, 5)) {
+            console.log(`- ${item.publishedAt} | ${item.source} | ${item.title}`);
+          }
+          NODE
+
       - name: Build site
         run: npm run build
+
+      - name: Inspect generated changes
+        run: |
+          git status --short src/data/ai-news.json public/images/ai-news
+          git diff --stat -- src/data/ai-news.json public/images/ai-news
 
       - name: Commit generated digest
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add -A src/data/ai-news.json public/images/ai-news
-          git diff --cached --quiet || (
-            git commit -m "chore: sync ai news [skip ci]" &&
-            git push
-          )
+          if git diff --cached --quiet; then
+            echo "No AI news changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: sync ai news [skip ci]"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
