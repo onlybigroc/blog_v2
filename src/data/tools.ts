@@ -17,4 +17,11 @@ export const tools: ToolItem[] = [
     path: '/tools/timestamp',
     status: 'ready',
   },
+  {
+    id: 'roll-call',
+    name: '课堂点名',
+    description: '导入 Excel 或粘贴名单后随机点名，支持本轮不重复、课堂反馈和自定义表扬鼓励语。',
+    path: '/tools/roll-call',
+    status: 'ready',
+  },
 ];

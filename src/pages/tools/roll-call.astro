@@ -1,0 +1,958 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import PageViewCounter from '@components/PageViewCounter.astro';
+
+const title = '课堂点名 | 工具';
+const description = '导入 Excel 或粘贴名单后随机点名，支持一轮内不重复点名、回答反馈和自定义表扬鼓励语。';
+---
+
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <h1 class="text-4xl font-bold mb-3">课堂点名</h1>
+    <PageViewCounter className="mb-3" />
+    <p class="text-gray-600 dark:text-gray-400">导入名单后随机抽取学生，并记录本次课堂反馈。</p>
+  </div>
+
+  <div id="roll-call-tool" class="space-y-6">
+    <section class="rounded-xl border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between mb-5">
+        <div>
+          <h2 class="text-2xl font-semibold mb-2">学生名单</h2>
+          <p id="list-summary" class="text-sm text-gray-600 dark:text-gray-400">当前未导入名单</p>
+        </div>
+        <button
+          id="clear-list"
+          type="button"
+          class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 dark:border-gray-600 px-4 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+        >
+          <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 7h12M10 11v6m4-6v6M9 7l1-2h4l1 2m-8 0 1 13h8l1-13" />
+          </svg>
+          清空
+        </button>
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-[1fr_1fr]">
+        <div>
+          <button
+            id="upload-area"
+            type="button"
+            class="flex min-h-48 w-full flex-col items-center justify-center rounded-lg border-2 border-dashed border-primary-300 dark:border-primary-700 bg-primary-50/60 dark:bg-primary-900/20 px-5 py-8 text-center transition-colors hover:border-primary-500 dark:hover:border-primary-500"
+          >
+            <svg class="mb-3 h-10 w-10 text-primary-600 dark:text-primary-400" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 16V4m0 0 4 4m-4-4-4 4M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2" />
+            </svg>
+            <span class="font-medium text-primary-700 dark:text-primary-300">选择或拖入 Excel 名单</span>
+            <span class="mt-1 text-sm text-gray-600 dark:text-gray-400">支持 .xlsx / .xls，默认读取第一个工作表</span>
+          </button>
+          <input id="file-input" type="file" accept=".xlsx,.xls" class="sr-only" />
+
+          <div id="file-panel" class="mt-4 hidden rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-0">
+                <p class="text-xs text-gray-500 dark:text-gray-400">已选择文件</p>
+                <p id="file-name" class="truncate font-medium"></p>
+              </div>
+              <button
+                id="remove-file"
+                type="button"
+                class="rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-red-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-red-400"
+                aria-label="移除文件"
+                title="移除文件"
+              >
+                <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 6 12 12M18 6 6 18" />
+                </svg>
+              </button>
+            </div>
+
+            <div id="column-panel" class="mt-4 hidden">
+              <label for="column-select" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">姓名列</label>
+              <div class="grid gap-3 sm:grid-cols-[1fr_auto]">
+                <select
+                  id="column-select"
+                  class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2"
+                ></select>
+                <button
+                  id="confirm-column"
+                  type="button"
+                  class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-700 px-4 py-2 font-medium text-white transition-colors hover:bg-primary-800"
+                >
+                  <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 13 4 4L19 7" />
+                  </svg>
+                  导入
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label for="manual-list" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">手动名单</label>
+          <textarea
+            id="manual-list"
+            rows="8"
+            placeholder="每行一个姓名，也可以用逗号、顿号或空格分隔"
+            class="min-h-48 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-3"
+          ></textarea>
+          <div class="mt-3 flex flex-wrap gap-3">
+            <button
+              id="import-manual"
+              type="button"
+              class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-700 px-4 py-2 font-medium text-white transition-colors hover:bg-primary-800"
+            >
+              <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14" />
+              </svg>
+              使用手动名单
+            </button>
+            <button
+              id="reset-round"
+              type="button"
+              class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 dark:border-gray-600 px-4 py-2 font-medium transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
+            >
+              <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v6h6M20 20v-6h-6M5 19A9 9 0 0 0 19 5M19 5h-5m5 0v5" />
+              </svg>
+              重置本轮
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="students-preview" class="mt-5 hidden">
+        <div class="mb-2 flex items-center justify-between gap-3">
+          <h3 class="font-semibold">名单预览</h3>
+          <span id="students-count" class="text-sm text-gray-500 dark:text-gray-400"></span>
+        </div>
+        <div id="students-list" class="max-h-40 overflow-y-auto rounded-lg bg-gray-50 dark:bg-gray-800 p-3 text-sm"></div>
+      </div>
+    </section>
+
+    <section class="rounded-xl border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+      <div class="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h2 class="text-2xl font-semibold mb-2">随机点名</h2>
+          <p id="round-summary" class="text-sm text-gray-600 dark:text-gray-400">等待导入名单</p>
+        </div>
+        <button
+          id="settings-btn"
+          type="button"
+          class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 dark:border-gray-600 px-4 py-2 text-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
+        >
+          <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.3 4.3 11 2h2l.7 2.3 2.1.9 2.1-1.1 1.4 1.4-1.1 2.1.9 2.1L21.5 11v2l-2.4.7-.9 2.1 1.1 2.1-1.4 1.4-2.1-1.1-2.1.9-.7 2.3h-2l-.7-2.3-2.1-.9-2.1 1.1-1.4-1.4 1.1-2.1-.9-2.1L2.5 13v-2l2.4-.7.9-2.1-1.1-2.1 1.4-1.4 2.1 1.1 2.1-.9Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12a3 3 0 1 0 6 0 3 3 0 0 0-6 0Z" />
+          </svg>
+          设置
+        </button>
+      </div>
+
+      <div class="relative overflow-hidden rounded-xl border border-primary-200 dark:border-primary-800 bg-gradient-to-br from-primary-50 to-white dark:from-gray-950 dark:to-primary-950 px-4 py-12 text-center">
+        <div id="shine-effect" class="pointer-events-none absolute inset-y-0 left-[-35%] w-1/4 -skew-x-12 bg-white/50 opacity-0"></div>
+        <p id="display-text" class="break-words text-3xl font-bold text-primary-700 dark:text-primary-300 sm:text-5xl">请先导入学生名单</p>
+        <p id="display-subtitle" class="mt-3 text-sm text-gray-600 dark:text-gray-400">名单就绪后即可开始</p>
+      </div>
+
+      <div class="mt-5 flex flex-wrap justify-center gap-3">
+        <button
+          id="start-btn"
+          type="button"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-green-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-50"
+          disabled
+        >
+          <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7-11-7Z" />
+          </svg>
+          开始
+        </button>
+        <button
+          id="stop-btn"
+          type="button"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-red-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-50"
+          disabled
+        >
+          <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7 7h10v10H7V7Z" />
+          </svg>
+          停止
+        </button>
+      </div>
+
+      <div id="feedback-buttons" class="mt-5 hidden flex-wrap justify-center gap-3">
+        <button
+          id="correct-btn"
+          type="button"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-emerald-700"
+        >
+          <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 13 4 4L19 7" />
+          </svg>
+          回答正确
+        </button>
+        <button
+          id="effort-btn"
+          type="button"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-amber-500 px-5 py-2.5 font-medium text-white transition-colors hover:bg-amber-600"
+        >
+          <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 21.35 10.55 20.03C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08A6 6 0 0 1 16.5 3C19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35Z" />
+          </svg>
+          需要努力
+        </button>
+      </div>
+    </section>
+
+    <section class="rounded-xl border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+      <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h2 class="text-2xl font-semibold">课堂记录</h2>
+        <button
+          id="clear-history"
+          type="button"
+          class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 dark:border-gray-600 px-4 py-2 text-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
+        >
+          <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 7h12M10 11v6m4-6v6M9 7l1-2h4l1 2m-8 0 1 13h8l1-13" />
+          </svg>
+          清除记录
+        </button>
+      </div>
+      <div id="history-list" class="max-h-96 space-y-3 overflow-y-auto">
+        <div class="rounded-lg bg-gray-50 dark:bg-gray-800 px-4 py-8 text-center text-gray-500 dark:text-gray-400">暂无记录</div>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast" class="pointer-events-none fixed left-1/2 top-20 z-50 max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-full px-5 py-3 text-sm font-medium opacity-0 shadow-lg transition-opacity"></div>
+
+  <div id="result-modal" class="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 opacity-0 transition-opacity">
+    <div id="result-dialog" class="w-full max-w-md scale-95 rounded-xl bg-white p-6 text-center shadow-xl transition-transform dark:bg-gray-900">
+      <div id="result-icon" class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full text-2xl"></div>
+      <h2 id="result-title" class="text-2xl font-bold mb-2"></h2>
+      <p id="result-message" class="text-gray-700 dark:text-gray-300"></p>
+      <button
+        id="close-result"
+        type="button"
+        class="mt-6 rounded-lg bg-primary-700 px-5 py-2.5 font-medium text-white transition-colors hover:bg-primary-800"
+      >
+        确定
+      </button>
+    </div>
+  </div>
+
+  <div id="settings-modal" class="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 opacity-0 transition-opacity">
+    <div id="settings-dialog" class="max-h-[90vh] w-full max-w-xl scale-95 overflow-y-auto rounded-xl bg-white p-5 shadow-xl transition-transform dark:bg-gray-900">
+      <div class="mb-5 flex items-center justify-between gap-3">
+        <h2 class="text-xl font-bold">点名设置</h2>
+        <button
+          id="close-settings"
+          type="button"
+          class="rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-100"
+          aria-label="关闭设置"
+          title="关闭设置"
+        >
+          <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 6 12 12M18 6 6 18" />
+          </svg>
+        </button>
+      </div>
+
+      <label for="praise-phrases" class="mb-2 block font-medium">表扬语</label>
+      <textarea
+        id="praise-phrases"
+        rows="6"
+        class="mb-4 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-3"
+      ></textarea>
+
+      <label for="encourage-phrases" class="mb-2 block font-medium">鼓励语</label>
+      <textarea
+        id="encourage-phrases"
+        rows="6"
+        class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-3"
+      ></textarea>
+
+      <button
+        id="save-settings"
+        type="button"
+        class="mt-5 w-full rounded-lg bg-primary-700 px-5 py-3 font-semibold text-white transition-colors hover:bg-primary-800"
+      >
+        保存设置
+      </button>
+    </div>
+  </div>
+
+  <div id="animation-container" class="pointer-events-none fixed inset-0 z-40 overflow-hidden"></div>
+
+  <script is:inline>
+    const XLSX_CDN_URL = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
+    const SETTINGS_KEYS = {
+      praise: 'rollCallPraisePhrases',
+      encourage: 'rollCallEncouragePhrases',
+    };
+
+    const defaultPraisePhrases = [
+      '回答很准确，继续保持！',
+      '思路清楚，表达也很完整。',
+      '这个答案很棒。',
+      '反应很快，值得表扬。',
+      '理解到位，继续加油！',
+      '回答得很有条理。',
+    ];
+
+    const defaultEncouragePhrases = [
+      '没关系，再想一想就更接近了。',
+      '继续尝试，思路已经打开了。',
+      '先别急，下一次会更稳。',
+      '这个问题值得再推一步。',
+      '保持专注，慢慢来。',
+      '愿意尝试就是进步。',
+    ];
+
+    const state = {
+      students: [],
+      availableStudents: [],
+      history: [],
+      isRolling: false,
+      rollTimer: null,
+      currentName: '',
+      parsedRows: [],
+      toastTimer: null,
+      xlsxPromise: null,
+    };
+
+    const uploadArea = document.getElementById('upload-area');
+    const fileInput = document.getElementById('file-input');
+    const filePanel = document.getElementById('file-panel');
+    const fileName = document.getElementById('file-name');
+    const removeFile = document.getElementById('remove-file');
+    const columnPanel = document.getElementById('column-panel');
+    const columnSelect = document.getElementById('column-select');
+    const confirmColumn = document.getElementById('confirm-column');
+    const manualList = document.getElementById('manual-list');
+    const importManual = document.getElementById('import-manual');
+    const resetRound = document.getElementById('reset-round');
+    const clearList = document.getElementById('clear-list');
+    const studentsPreview = document.getElementById('students-preview');
+    const studentsList = document.getElementById('students-list');
+    const studentsCount = document.getElementById('students-count');
+    const listSummary = document.getElementById('list-summary');
+    const roundSummary = document.getElementById('round-summary');
+    const displayText = document.getElementById('display-text');
+    const displaySubtitle = document.getElementById('display-subtitle');
+    const shineEffect = document.getElementById('shine-effect');
+    const startBtn = document.getElementById('start-btn');
+    const stopBtn = document.getElementById('stop-btn');
+    const feedbackButtons = document.getElementById('feedback-buttons');
+    const correctBtn = document.getElementById('correct-btn');
+    const effortBtn = document.getElementById('effort-btn');
+    const historyList = document.getElementById('history-list');
+    const clearHistory = document.getElementById('clear-history');
+    const toast = document.getElementById('toast');
+    const resultModal = document.getElementById('result-modal');
+    const resultDialog = document.getElementById('result-dialog');
+    const resultIcon = document.getElementById('result-icon');
+    const resultTitle = document.getElementById('result-title');
+    const resultMessage = document.getElementById('result-message');
+    const closeResult = document.getElementById('close-result');
+    const settingsBtn = document.getElementById('settings-btn');
+    const settingsModal = document.getElementById('settings-modal');
+    const settingsDialog = document.getElementById('settings-dialog');
+    const closeSettings = document.getElementById('close-settings');
+    const praisePhrases = document.getElementById('praise-phrases');
+    const encouragePhrases = document.getElementById('encourage-phrases');
+    const saveSettings = document.getElementById('save-settings');
+    const animationContainer = document.getElementById('animation-container');
+
+    function dedupeNames(names) {
+      const seen = new Set();
+      const result = [];
+      for (const rawName of names) {
+        const name = String(rawName || '').trim();
+        if (!name || seen.has(name)) continue;
+        seen.add(name);
+        result.push(name);
+      }
+      return result;
+    }
+
+    function parseManualNames(text) {
+      return dedupeNames(String(text || '').split(/[\n\r,，、;；\t ]+/));
+    }
+
+    function setStudents(names, sourceLabel) {
+      const cleanNames = dedupeNames(names);
+      if (cleanNames.length === 0) {
+        showToast('未找到有效姓名', 'error');
+        return;
+      }
+
+      stopRolling();
+      state.students = cleanNames;
+      state.availableStudents = [...cleanNames];
+      state.currentName = '';
+      displayText.textContent = '点击开始按钮进行点名';
+      displaySubtitle.textContent = sourceLabel || '名单已导入';
+      feedbackButtons.classList.add('hidden');
+      feedbackButtons.classList.remove('flex');
+      renderStudentsPreview();
+      renderSummary();
+      showToast(`已导入 ${cleanNames.length} 个姓名`, 'success');
+    }
+
+    function renderStudentsPreview() {
+      studentsList.replaceChildren();
+
+      for (const name of state.students) {
+        const tag = document.createElement('span');
+        tag.className = 'mb-2 mr-2 inline-flex rounded-full bg-primary-100 px-3 py-1 text-primary-800 dark:bg-primary-900/60 dark:text-primary-200';
+        tag.textContent = name;
+        studentsList.appendChild(tag);
+      }
+
+      studentsCount.textContent = `${state.students.length} 人`;
+      studentsPreview.classList.toggle('hidden', state.students.length === 0);
+    }
+
+    function renderSummary() {
+      if (state.students.length === 0) {
+        listSummary.textContent = '当前未导入名单';
+        roundSummary.textContent = '等待导入名单';
+        startBtn.disabled = true;
+        stopBtn.disabled = true;
+        return;
+      }
+
+      const calledCount = state.students.length - state.availableStudents.length;
+      listSummary.textContent = `共 ${state.students.length} 人`;
+      roundSummary.textContent = `本轮已点 ${calledCount} 人，剩余 ${state.availableStudents.length} 人`;
+      startBtn.disabled = state.isRolling;
+      stopBtn.disabled = !state.isRolling;
+    }
+
+    function resetCurrentRound() {
+      if (state.students.length === 0) {
+        showToast('请先导入名单', 'info');
+        return;
+      }
+
+      stopRolling();
+      state.availableStudents = [...state.students];
+      state.currentName = '';
+      displayText.textContent = '点击开始按钮进行点名';
+      displaySubtitle.textContent = '本轮名单已重置';
+      feedbackButtons.classList.add('hidden');
+      feedbackButtons.classList.remove('flex');
+      renderSummary();
+      showToast('本轮已重置', 'success');
+    }
+
+    function clearStudentList() {
+      stopRolling();
+      state.students = [];
+      state.availableStudents = [];
+      state.currentName = '';
+      state.parsedRows = [];
+      fileInput.value = '';
+      manualList.value = '';
+      filePanel.classList.add('hidden');
+      columnPanel.classList.add('hidden');
+      studentsPreview.classList.add('hidden');
+      feedbackButtons.classList.add('hidden');
+      feedbackButtons.classList.remove('flex');
+      displayText.textContent = '请先导入学生名单';
+      displaySubtitle.textContent = '名单就绪后即可开始';
+      renderSummary();
+      showToast('名单已清空', 'success');
+    }
+
+    function loadXlsx() {
+      if (window.XLSX) return Promise.resolve(window.XLSX);
+      if (state.xlsxPromise) return state.xlsxPromise;
+
+      state.xlsxPromise = new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = XLSX_CDN_URL;
+        script.async = true;
+        script.onload = () => {
+          if (window.XLSX) {
+            resolve(window.XLSX);
+          } else {
+            reject(new Error('XLSX is unavailable'));
+          }
+        };
+        script.onerror = () => reject(new Error('failed to load XLSX'));
+        document.head.appendChild(script);
+      });
+
+      return state.xlsxPromise;
+    }
+
+    function readFileAsArrayBuffer(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(reader.error || new Error('failed to read file'));
+        reader.readAsArrayBuffer(file);
+      });
+    }
+
+    async function handleFile(file) {
+      if (!file) return;
+      if (!/\.(xlsx|xls)$/i.test(file.name)) {
+        showToast('请选择 Excel 文件', 'error');
+        return;
+      }
+
+      fileName.textContent = file.name;
+      filePanel.classList.remove('hidden');
+      columnPanel.classList.add('hidden');
+      columnSelect.replaceChildren();
+
+      try {
+        showToast('正在解析 Excel', 'info');
+        const XLSX = await loadXlsx();
+        const buffer = await readFileAsArrayBuffer(file);
+        const workbook = XLSX.read(new Uint8Array(buffer), { type: 'array' });
+        const firstSheetName = workbook.SheetNames[0];
+        if (!firstSheetName) {
+          showToast('Excel 中没有工作表', 'error');
+          return;
+        }
+
+        const worksheet = workbook.Sheets[firstSheetName];
+        state.parsedRows = XLSX.utils.sheet_to_json(worksheet, { header: 1, raw: false, defval: '' });
+        if (state.parsedRows.length === 0) {
+          showToast('Excel 中没有数据', 'error');
+          return;
+        }
+
+        const maxColumns = state.parsedRows.reduce((max, row) => Math.max(max, row.length), 0);
+        if (maxColumns === 0) {
+          showToast('Excel 中没有可读取的列', 'error');
+          return;
+        }
+
+        const headerRow = state.parsedRows[0] || [];
+        for (let index = 0; index < maxColumns; index += 1) {
+          const option = document.createElement('option');
+          option.value = String(index);
+          const header = String(headerRow[index] || '').trim();
+          option.textContent = header ? `${header}（第 ${index + 1} 列）` : `第 ${index + 1} 列`;
+          columnSelect.appendChild(option);
+        }
+
+        const guessedIndex = guessNameColumn(headerRow);
+        if (guessedIndex >= 0 && guessedIndex < maxColumns) {
+          columnSelect.value = String(guessedIndex);
+        }
+
+        columnPanel.classList.remove('hidden');
+        showToast('请选择姓名列后导入', 'success');
+      } catch (error) {
+        console.error(error);
+        showToast('Excel 解析失败，请检查网络或文件格式', 'error');
+      }
+    }
+
+    function guessNameColumn(headerRow) {
+      const keys = ['姓名', '名字', '学生', '名称', 'name'];
+      return headerRow.findIndex((item) => {
+        const text = String(item || '').trim().toLowerCase();
+        return keys.some((key) => text.includes(key));
+      });
+    }
+
+    function importSelectedColumn() {
+      const columnIndex = Number(columnSelect.value);
+      if (!Number.isInteger(columnIndex) || state.parsedRows.length === 0) {
+        showToast('请先选择姓名列', 'error');
+        return;
+      }
+
+      const names = state.parsedRows
+        .slice(1)
+        .map((row) => row[columnIndex])
+        .filter((value) => String(value || '').trim().length > 0);
+
+      setStudents(names, '来自 Excel 名单');
+    }
+
+    function startRolling() {
+      if (state.students.length === 0) {
+        showToast('请先导入名单', 'info');
+        return;
+      }
+
+      if (state.availableStudents.length === 0) {
+        state.availableStudents = [...state.students];
+        showToast('所有人已点过一轮，已自动重置', 'info');
+      }
+
+      state.isRolling = true;
+      feedbackButtons.classList.add('hidden');
+      feedbackButtons.classList.remove('flex');
+      displaySubtitle.textContent = '正在随机抽取';
+      renderSummary();
+
+      let lastIndex = -1;
+      state.rollTimer = window.setInterval(() => {
+        if (state.availableStudents.length === 0) return;
+        let randomIndex = Math.floor(Math.random() * state.availableStudents.length);
+        if (state.availableStudents.length > 1) {
+          while (randomIndex === lastIndex) {
+            randomIndex = Math.floor(Math.random() * state.availableStudents.length);
+          }
+        }
+
+        lastIndex = randomIndex;
+        state.currentName = state.availableStudents[randomIndex];
+        displayText.textContent = state.currentName;
+      }, 55);
+    }
+
+    function stopRolling() {
+      if (state.rollTimer) {
+        window.clearInterval(state.rollTimer);
+        state.rollTimer = null;
+      }
+      state.isRolling = false;
+      renderSummary();
+    }
+
+    function stopAndSelectName() {
+      if (!state.isRolling) return;
+      stopRolling();
+
+      if (!state.currentName && state.availableStudents.length > 0) {
+        state.currentName = state.availableStudents[Math.floor(Math.random() * state.availableStudents.length)];
+        displayText.textContent = state.currentName;
+      }
+
+      if (!state.currentName) {
+        displayText.textContent = '本轮已完成';
+        displaySubtitle.textContent = '可以重置本轮继续点名';
+        return;
+      }
+
+      state.availableStudents = state.availableStudents.filter((name) => name !== state.currentName);
+      displaySubtitle.textContent = '请记录本次回答情况';
+      feedbackButtons.classList.remove('hidden');
+      feedbackButtons.classList.add('flex');
+      displayText.classList.remove('name-pop');
+      void displayText.offsetWidth;
+      displayText.classList.add('name-pop');
+      shineEffect.classList.remove('shine-active');
+      void shineEffect.offsetWidth;
+      shineEffect.classList.add('shine-active');
+      renderSummary();
+    }
+
+    function getSavedPhrases(key, fallback) {
+      const saved = localStorage.getItem(key);
+      if (!saved) return fallback;
+      const lines = saved.split('\n').map((line) => line.trim()).filter(Boolean);
+      return lines.length > 0 ? lines : fallback;
+    }
+
+    function getRandomPhrase(type) {
+      const phrases = type === 'correct'
+        ? getSavedPhrases(SETTINGS_KEYS.praise, defaultPraisePhrases)
+        : getSavedPhrases(SETTINGS_KEYS.encourage, defaultEncouragePhrases);
+      return phrases[Math.floor(Math.random() * phrases.length)];
+    }
+
+    function addHistory(type) {
+      if (!state.currentName) {
+        showToast('请先完成一次点名', 'info');
+        return;
+      }
+
+      const phrase = getRandomPhrase(type);
+      const now = new Date();
+      const record = {
+        name: state.currentName,
+        type,
+        phrase,
+        time: now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' }),
+      };
+
+      state.history.unshift(record);
+      renderHistory();
+      showResult(type, record.name, phrase);
+      feedbackButtons.classList.add('hidden');
+      feedbackButtons.classList.remove('flex');
+
+      if (type === 'correct') {
+        createConfetti();
+      } else {
+        createHearts();
+      }
+    }
+
+    function renderHistory() {
+      historyList.replaceChildren();
+      if (state.history.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'rounded-lg bg-gray-50 px-4 py-8 text-center text-gray-500 dark:bg-gray-800 dark:text-gray-400';
+        empty.textContent = '暂无记录';
+        historyList.appendChild(empty);
+        return;
+      }
+
+      for (const record of state.history) {
+        const item = document.createElement('div');
+        item.className = record.type === 'correct'
+          ? 'rounded-lg border border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-900 dark:bg-emerald-950/40'
+          : 'rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-900 dark:bg-amber-950/40';
+
+        const row = document.createElement('div');
+        row.className = 'flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between';
+
+        const left = document.createElement('div');
+        const name = document.createElement('div');
+        name.className = 'font-semibold text-gray-900 dark:text-gray-100';
+        name.textContent = record.name;
+        const phrase = document.createElement('div');
+        phrase.className = 'mt-1 text-sm text-gray-700 dark:text-gray-300';
+        phrase.textContent = record.phrase;
+        left.append(name, phrase);
+
+        const right = document.createElement('div');
+        right.className = 'flex shrink-0 items-center gap-2 text-sm';
+
+        const badge = document.createElement('span');
+        badge.className = record.type === 'correct'
+          ? 'rounded-full bg-emerald-600 px-3 py-1 text-xs font-medium text-white'
+          : 'rounded-full bg-amber-500 px-3 py-1 text-xs font-medium text-white';
+        badge.textContent = record.type === 'correct' ? '回答正确' : '需要努力';
+
+        const time = document.createElement('span');
+        time.className = 'text-gray-500 dark:text-gray-400';
+        time.textContent = record.time;
+        right.append(badge, time);
+        row.append(left, right);
+        item.appendChild(row);
+        historyList.appendChild(item);
+      }
+    }
+
+    function showResult(type, name, phrase) {
+      resultIcon.className = type === 'correct'
+        ? 'mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-2xl text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300'
+        : 'mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-amber-100 text-2xl text-amber-700 dark:bg-amber-950 dark:text-amber-300';
+      resultIcon.textContent = type === 'correct' ? '✓' : '❤';
+      resultTitle.textContent = type === 'correct' ? '太棒了' : '继续加油';
+      resultMessage.replaceChildren();
+      const strong = document.createElement('strong');
+      strong.textContent = name;
+      resultMessage.append(strong, `，${phrase}`);
+      openModal(resultModal, resultDialog);
+    }
+
+    function openModal(modal, dialog) {
+      modal.classList.remove('pointer-events-none');
+      modal.classList.add('opacity-100');
+      modal.classList.remove('opacity-0');
+      dialog.classList.add('scale-100');
+      dialog.classList.remove('scale-95');
+    }
+
+    function closeModal(modal, dialog) {
+      modal.classList.add('opacity-0');
+      modal.classList.remove('opacity-100');
+      dialog.classList.add('scale-95');
+      dialog.classList.remove('scale-100');
+      window.setTimeout(() => {
+        modal.classList.add('pointer-events-none');
+      }, 180);
+    }
+
+    function showToast(message, type) {
+      window.clearTimeout(state.toastTimer);
+      toast.textContent = message;
+      toast.className = 'pointer-events-none fixed left-1/2 top-20 z-50 max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-full px-5 py-3 text-sm font-medium opacity-100 shadow-lg transition-opacity';
+      if (type === 'error') {
+        toast.classList.add('bg-red-600', 'text-white');
+      } else if (type === 'success') {
+        toast.classList.add('bg-emerald-600', 'text-white');
+      } else {
+        toast.classList.add('bg-gray-900', 'text-white', 'dark:bg-gray-100', 'dark:text-gray-900');
+      }
+
+      state.toastTimer = window.setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0');
+      }, 2200);
+    }
+
+    function createConfetti() {
+      animationContainer.replaceChildren();
+      const colors = ['#2563eb', '#16a34a', '#f59e0b', '#dc2626', '#7c3aed', '#0891b2'];
+      for (let i = 0; i < 70; i += 1) {
+        const piece = document.createElement('span');
+        const size = Math.round(Math.random() * 8 + 5);
+        piece.style.cssText = [
+          'position:absolute',
+          `left:${Math.random() * 100}%`,
+          `top:-${size}px`,
+          `width:${size}px`,
+          `height:${Math.max(5, size - 2)}px`,
+          `background:${colors[Math.floor(Math.random() * colors.length)]}`,
+          `animation:roll-call-confetti ${Math.random() * 2.5 + 2.2}s ease-in forwards`,
+          `animation-delay:${Math.random() * 0.4}s`,
+        ].join(';');
+        animationContainer.appendChild(piece);
+      }
+    }
+
+    function createHearts() {
+      animationContainer.replaceChildren();
+      const colors = ['#f97316', '#f59e0b', '#ec4899', '#8b5cf6'];
+      for (let i = 0; i < 18; i += 1) {
+        const heart = document.createElement('span');
+        heart.textContent = '❤';
+        heart.style.cssText = [
+          'position:absolute',
+          `left:${Math.random() * 100}%`,
+          'bottom:-30px',
+          `font-size:${Math.random() * 18 + 18}px`,
+          `color:${colors[Math.floor(Math.random() * colors.length)]}`,
+          `animation:roll-call-heart ${Math.random() * 2 + 3}s ease-out forwards`,
+          `animation-delay:${Math.random() * 0.8}s`,
+        ].join(';');
+        animationContainer.appendChild(heart);
+      }
+    }
+
+    function loadSettings() {
+      praisePhrases.value = getSavedPhrases(SETTINGS_KEYS.praise, defaultPraisePhrases).join('\n');
+      encouragePhrases.value = getSavedPhrases(SETTINGS_KEYS.encourage, defaultEncouragePhrases).join('\n');
+    }
+
+    uploadArea.addEventListener('click', () => fileInput.click());
+    uploadArea.addEventListener('dragover', (event) => {
+      event.preventDefault();
+      uploadArea.classList.add('border-primary-600');
+    });
+    uploadArea.addEventListener('dragleave', () => {
+      uploadArea.classList.remove('border-primary-600');
+    });
+    uploadArea.addEventListener('drop', (event) => {
+      event.preventDefault();
+      uploadArea.classList.remove('border-primary-600');
+      handleFile(event.dataTransfer.files[0]);
+    });
+    fileInput.addEventListener('change', () => handleFile(fileInput.files[0]));
+    removeFile.addEventListener('click', () => {
+      fileInput.value = '';
+      filePanel.classList.add('hidden');
+      columnPanel.classList.add('hidden');
+      state.parsedRows = [];
+    });
+    confirmColumn.addEventListener('click', importSelectedColumn);
+    importManual.addEventListener('click', () => setStudents(parseManualNames(manualList.value), '来自手动名单'));
+    resetRound.addEventListener('click', resetCurrentRound);
+    clearList.addEventListener('click', clearStudentList);
+    startBtn.addEventListener('click', startRolling);
+    stopBtn.addEventListener('click', stopAndSelectName);
+    correctBtn.addEventListener('click', () => addHistory('correct'));
+    effortBtn.addEventListener('click', () => addHistory('effort'));
+    clearHistory.addEventListener('click', () => {
+      state.history = [];
+      renderHistory();
+      showToast('记录已清除', 'success');
+    });
+
+    settingsBtn.addEventListener('click', () => {
+      loadSettings();
+      openModal(settingsModal, settingsDialog);
+    });
+    closeSettings.addEventListener('click', () => closeModal(settingsModal, settingsDialog));
+    settingsModal.addEventListener('click', (event) => {
+      if (event.target === settingsModal) closeModal(settingsModal, settingsDialog);
+    });
+    saveSettings.addEventListener('click', () => {
+      localStorage.setItem(SETTINGS_KEYS.praise, praisePhrases.value.trim());
+      localStorage.setItem(SETTINGS_KEYS.encourage, encouragePhrases.value.trim());
+      closeModal(settingsModal, settingsDialog);
+      showToast('设置已保存', 'success');
+    });
+
+    closeResult.addEventListener('click', () => closeModal(resultModal, resultDialog));
+    resultModal.addEventListener('click', (event) => {
+      if (event.target === resultModal) closeModal(resultModal, resultDialog);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeModal(resultModal, resultDialog);
+        closeModal(settingsModal, settingsDialog);
+      }
+    });
+
+    loadSettings();
+    renderSummary();
+    renderHistory();
+  </script>
+</MainLayout>
+
+<style>
+  @keyframes roll-call-shine {
+    0% {
+      left: -35%;
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    100% {
+      left: 125%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes roll-call-pop {
+    0% {
+      transform: scale(0.92);
+    }
+    50% {
+      transform: scale(1.08);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes roll-call-confetti {
+    0% {
+      transform: translateY(-20px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(540deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes roll-call-heart {
+    0% {
+      transform: translateY(0) scale(0.9);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.9;
+    }
+    100% {
+      transform: translateY(-75vh) scale(1.2);
+      opacity: 0;
+    }
+  }
+
+  .shine-active {
+    animation: roll-call-shine 700ms ease-out;
+  }
+
+  .name-pop {
+    animation: roll-call-pop 320ms ease-out;
+  }
+</style>
