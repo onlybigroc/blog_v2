@@ -1,0 +1,11 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import WinterTroopCalculatorTool from '@components/tools/WinterTroopCalculatorTool.astro';
+
+const title = '无尽冬日出兵计算器 | 工具';
+const description = '无尽冬日盾、矛、射出兵比例计算工具，支持 118/127、自定义比例、多队列和带兵上限。';
+---
+
+<MainLayout title={title} description={description}>
+  <WinterTroopCalculatorTool cleanPath="/tools/winter-troops/clean/" showCleanLink showPageMeta />
+</MainLayout>

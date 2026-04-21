@@ -24,4 +24,11 @@ export const tools: ToolItem[] = [
     path: '/tools/roll-call',
     status: 'ready',
   },
+  {
+    id: 'winter-troops',
+    name: '无尽冬日出兵计算器',
+    description: '按盾、矛、射比例计算出兵数量，支持 118/127、自定义比例、多队列和带兵上限。',
+    path: '/tools/winter-troops',
+    status: 'ready',
+  },
 ];

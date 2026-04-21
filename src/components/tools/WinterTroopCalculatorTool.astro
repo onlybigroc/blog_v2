@@ -1,0 +1,1114 @@
+---
+import PageViewCounter from '@components/PageViewCounter.astro';
+
+interface Props {
+  cleanPath?: string;
+  showCleanLink?: boolean;
+  showPageMeta?: boolean;
+}
+
+const {
+  cleanPath,
+  showCleanLink = false,
+  showPageMeta = false,
+} = Astro.props;
+
+const troopTypes = [
+  { key: 'shield', label: '盾', shortLabel: '盾兵' },
+  { key: 'spear', label: '矛', shortLabel: '矛兵' },
+  { key: 'archer', label: '射', shortLabel: '射手' },
+] as const;
+
+const levels = Array.from({ length: 10 }, (_, index) => index + 1);
+---
+
+<div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+  <div>
+    <h1 class="text-4xl font-bold mb-3">无尽冬日出兵计算器</h1>
+    {showPageMeta && <PageViewCounter className="mb-3" />}
+    <p class="text-gray-600 dark:text-gray-400">按盾、矛、射比例计算可出兵数量，支持多队列和带兵上限。</p>
+  </div>
+  {showCleanLink && cleanPath && (
+    <a
+      href={cleanPath}
+      title="打开可单独收藏的工具页面"
+      class="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"
+    >
+      <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" />
+      </svg>
+      独立打开
+    </a>
+  )}
+</div>
+
+<section class="mb-6 rounded-xl border border-gray-200 p-4 dark:border-gray-700 sm:p-6">
+  <details class="group">
+    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
+      <div>
+        <h2 class="text-2xl font-semibold">打熊伤害攻略</h2>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">点击展开查看车头、车身、兵种配比和增伤细节。</p>
+      </div>
+      <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9 6 6 6-6" />
+      </svg>
+    </summary>
+
+    <div class="mt-6 space-y-5 text-sm leading-7 text-gray-700 dark:text-gray-300">
+      <div class="rounded-lg bg-gray-50 p-4 dark:bg-gray-800">
+        <h3 class="font-semibold text-gray-900 dark:text-gray-100">核心策略：车头与车身</h3>
+        <ul class="mt-2 list-disc space-y-2 pl-5">
+          <li>车头由联盟战力最高、加成最多的成员发起集结，他的英雄技能和装备会影响全队，是伤害上限的关键。</li>
+          <li>车身成员加入集结时，通常只有第一号位英雄的远征一技能对队伍生效，所以一号位英雄要选对。</li>
+        </ul>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <article class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+          <h3 class="font-semibold text-gray-900 dark:text-gray-100">车头篇</h3>
+          <ul class="mt-2 list-disc space-y-2 pl-5">
+            <li>跨代核心优先培养尼莫和米娅，尼莫专武提供攻击，米娅提供增伤。</li>
+            <li>前期可用尼莫、茉莉、巴希提，或尼莫、菲兰德、阿隆索。</li>
+            <li>中期常用尼莫、米娅、格温，后期围绕尼莫和米娅搭配更强输出英雄。</li>
+            <li>车头三个英雄都应穿上当前最好的英雄装备。</li>
+          </ul>
+        </article>
+
+        <article class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+          <h3 class="font-semibold text-gray-900 dark:text-gray-100">车身篇</h3>
+          <ul class="mt-2 list-disc space-y-2 pl-5">
+            <li>车身一号位优先选择能提升攻击或穿透的英雄，例如杰西、杰塞尔、书允。</li>
+            <li>杰西对零氪玩家友好，升到 5 星后能提供稳定的全体穿透加成。</li>
+            <li>可以提前通过脱装备、驻防等方式调整英雄排序，确保一键上车时增伤英雄在前。</li>
+            <li>队伍里组合 2 个杰西和 2 个书允，攻击与穿透乘法叠加，通常比 4 个杰西更高。</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <article class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+          <h3 class="font-semibold text-gray-900 dark:text-gray-100">兵种配比</h3>
+          <ul class="mt-2 list-disc space-y-2 pl-5">
+            <li>打熊建议只用最高级兵，低级兵会拉低整体伤害。</li>
+            <li>通用比例为盾、矛、射 1:2:7，稳定且高效。</li>
+            <li>进阶比例可用 6:22:72，伤害上限更高，但对兵种数量要求也更高。</li>
+            <li>弓兵不足时可调整为 1:3:6 或 1:4:5。</li>
+          </ul>
+        </article>
+
+        <article class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+          <h3 class="font-semibold text-gray-900 dark:text-gray-100">宠物与增益</h3>
+          <ul class="mt-2 list-disc space-y-2 pl-5">
+            <li>开服超过 100 天后解锁洞狮，打熊时记得开启伤害增益技能。</li>
+            <li>长期提升关注领主装备、科研所战斗科技和联盟科技。</li>
+            <li>高玩可在巨熊血量降至 50% 时使用暴风雪药剂，叠加 Boss 狂暴增伤与药剂效果。</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <article class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+          <h3 class="font-semibold text-gray-900 dark:text-gray-100">进阶公式</h3>
+          <p class="mt-2">单兵种基础伤害可理解为：兵种系数 × √兵力 × 攻击力 × 穿透力。单兵种数量低于 5000 时边际收益更大，超过后会递减，所以均衡提升比单项堆叠更有效。</p>
+        </article>
+
+        <article class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+          <h3 class="font-semibold text-gray-900 dark:text-gray-100">名词解释</h3>
+          <ul class="mt-2 list-disc space-y-2 pl-5">
+            <li>火男指弗林特，因高攻击属性被称为打熊之王。</li>
+            <li>熊妹指娜塔莉亚。</li>
+            <li>专武指专属武器，部分英雄专武提供集结攻击或穿透加成。</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="rounded-lg bg-primary-50 p-4 dark:bg-primary-900/30">
+        <h3 class="font-semibold text-primary-800 dark:text-primary-200">总结建议</h3>
+        <ol class="mt-2 list-decimal space-y-2 pl-5">
+          <li>联盟协作分清车头和车身，各司其职才能打出高伤害。</li>
+          <li>车头优先围绕尼莫和米娅培养，车身优先准备杰西等一号位增伤英雄。</li>
+          <li>兵种配置优先使用 1:2:7，并提前编队，减少活动开始后的操作失误。</li>
+          <li>宠物技能、英雄装备、战斗科技等细节会持续放大最终伤害。</li>
+        </ol>
+      </div>
+    </div>
+  </details>
+</section>
+
+<div id="winter-troop-calculator" class="space-y-6">
+  <section class="rounded-xl border border-gray-200 p-4 dark:border-gray-700 sm:p-6">
+    <div class="mb-5 flex items-center justify-between gap-3">
+      <div>
+        <h2 class="text-2xl font-semibold">出兵设置</h2>
+        <p id="winter-message" class="mt-2 min-h-5 text-sm text-gray-600 dark:text-gray-400" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-[1.25fr_1fr]">
+      <div>
+        <label class="mb-3 block text-sm font-medium text-gray-700 dark:text-gray-300">出兵比例</label>
+        <div class="grid gap-2 sm:grid-cols-3">
+          <button
+            type="button"
+            data-ratio="118"
+            aria-pressed="true"
+            class="winter-ratio-btn rounded-lg border border-primary-600 bg-primary-50 px-4 py-3 text-left font-medium text-primary-700 transition-colors dark:border-primary-400 dark:bg-primary-900/30 dark:text-primary-200"
+          >
+            <span class="block text-base font-semibold">118</span>
+            <span class="text-sm text-gray-600 dark:text-gray-400">1盾 1矛 8射</span>
+          </button>
+          <button
+            type="button"
+            data-ratio="127"
+            aria-pressed="false"
+            class="winter-ratio-btn rounded-lg border border-gray-300 px-4 py-3 text-left font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"
+          >
+            <span class="block text-base font-semibold">127</span>
+            <span class="text-sm text-gray-600 dark:text-gray-400">1盾 2矛 7射</span>
+          </button>
+          <button
+            type="button"
+            data-ratio="custom"
+            aria-pressed="false"
+            class="winter-ratio-btn rounded-lg border border-gray-300 px-4 py-3 text-left font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"
+          >
+            <span class="block text-base font-semibold">自定义</span>
+            <span class="text-sm text-gray-600 dark:text-gray-400">保存常用比例</span>
+          </button>
+        </div>
+
+        <div id="winter-custom-ratio" class="mt-4 hidden rounded-lg border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800/50">
+          <div class="grid gap-3 sm:grid-cols-[1fr_1fr_1fr_auto]">
+            <label class="block">
+              <span class="mb-1 block text-sm text-gray-600 dark:text-gray-400">盾</span>
+              <input
+                id="winter-ratio-shield"
+                type="number"
+                min="0"
+                value="1"
+                inputmode="numeric"
+                class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-center font-semibold dark:border-gray-600 dark:bg-gray-900"
+              />
+            </label>
+            <label class="block">
+              <span class="mb-1 block text-sm text-gray-600 dark:text-gray-400">矛</span>
+              <input
+                id="winter-ratio-spear"
+                type="number"
+                min="0"
+                value="1"
+                inputmode="numeric"
+                class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-center font-semibold dark:border-gray-600 dark:bg-gray-900"
+              />
+            </label>
+            <label class="block">
+              <span class="mb-1 block text-sm text-gray-600 dark:text-gray-400">射</span>
+              <input
+                id="winter-ratio-archer"
+                type="number"
+                min="0"
+                value="8"
+                inputmode="numeric"
+                class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-center font-semibold dark:border-gray-600 dark:bg-gray-900"
+              />
+            </label>
+            <button
+              id="winter-save-ratio"
+              type="button"
+              class="self-end rounded-lg bg-primary-700 px-4 py-2 font-medium text-white transition-colors hover:bg-primary-800"
+            >
+              保存
+            </button>
+          </div>
+          <div id="winter-saved-ratios" class="mt-4 flex flex-wrap gap-2"></div>
+        </div>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+        <div>
+          <label for="winter-queue-count" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">队列数量</label>
+          <input
+            id="winter-queue-count"
+            type="number"
+            min="1"
+            max="20"
+            value="1"
+            inputmode="numeric"
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-lg font-semibold dark:border-gray-600 dark:bg-gray-800"
+          />
+          <div class="mt-2 grid grid-cols-5 gap-2">
+            {[1, 2, 3, 4, 5].map((count) => (
+              <button
+                type="button"
+                data-queue={count}
+                class="rounded-md border border-gray-300 px-2 py-1.5 text-sm transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"
+              >
+                {count}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <label for="winter-troop-limit" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">带兵上限</label>
+          <input
+            id="winter-troop-limit"
+            type="number"
+            min="0"
+            value="0"
+            inputmode="numeric"
+            placeholder="0 表示不限"
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-lg font-semibold dark:border-gray-600 dark:bg-gray-800"
+          />
+          <div class="mt-2 grid grid-cols-4 gap-2">
+            {[
+              { label: '5W', value: 50000 },
+              { label: '10W', value: 100000 },
+              { label: '15W', value: 150000 },
+              { label: '20W', value: 200000 },
+            ].map((item) => (
+              <button
+                type="button"
+                data-limit={item.value}
+                class="rounded-md border border-gray-300 px-2 py-1.5 text-sm transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid gap-4 lg:grid-cols-3">
+    {troopTypes.map((troop) => (
+      <section class="rounded-xl border border-gray-200 p-4 dark:border-gray-700">
+        <div class="mb-4 flex items-center justify-between gap-3">
+          <h2 class="text-xl font-semibold">{troop.label}</h2>
+          <button
+            type="button"
+            data-add-row={troop.key}
+            class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary-700 text-white transition-colors hover:bg-primary-800"
+            aria-label={`增加${troop.shortLabel}输入行`}
+            title="增加一行"
+          >
+            <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14" />
+            </svg>
+          </button>
+        </div>
+        <div id={`winter-${troop.key}-rows`} class="space-y-3" data-troop-rows={troop.key}>
+          <div class="troop-row grid grid-cols-[minmax(88px,110px)_1fr_auto] items-center gap-2" data-row-id="1">
+            <label class="sr-only" for={`winter-${troop.key}-level-1`}>{troop.shortLabel}等级</label>
+            <select
+              id={`winter-${troop.key}-level-1`}
+              data-level
+              class="min-w-0 rounded-lg border border-gray-300 bg-white px-3 py-2 dark:border-gray-600 dark:bg-gray-800"
+            >
+              {levels.map((level) => <option value={level}>{level}级</option>)}
+            </select>
+            <label class="sr-only" for={`winter-${troop.key}-count-1`}>{troop.shortLabel}数量</label>
+            <input
+              id={`winter-${troop.key}-count-1`}
+              data-count
+              type="number"
+              min="0"
+              inputmode="numeric"
+              placeholder="数量"
+              class="min-w-0 rounded-lg border border-gray-300 bg-white px-3 py-2 dark:border-gray-600 dark:bg-gray-800"
+            />
+            <button
+              type="button"
+              data-delete-row={troop.key}
+              class="hidden rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-red-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-red-400"
+              aria-label={`删除${troop.shortLabel}输入行`}
+              title="删除"
+            >
+              <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 6 12 12M18 6 6 18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <div class="flex flex-col gap-3 sm:flex-row">
+    <button
+      id="winter-calculate"
+      type="button"
+      class="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary-700 px-5 py-3 font-semibold text-white transition-colors hover:bg-primary-800"
+    >
+      <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12h12M12 6v12M5 5l14 14" />
+      </svg>
+      计算出兵
+    </button>
+    <button
+      id="winter-clear"
+      type="button"
+      class="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-gray-300 px-5 py-3 font-semibold transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"
+    >
+      <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v6h6M20 20v-6h-6M5 19A9 9 0 0 0 19 5M19 5h-5m5 0v5" />
+      </svg>
+      清空数量
+    </button>
+  </div>
+
+  <section id="winter-result" class="hidden rounded-xl border border-gray-200 p-4 dark:border-gray-700 sm:p-6">
+    <div class="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <h2 class="text-2xl font-semibold">计算结果</h2>
+        <p id="winter-ratio-display" class="mt-1 text-sm text-gray-600 dark:text-gray-400">比例 118</p>
+      </div>
+    </div>
+
+    <div class="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="rounded-lg bg-gray-50 p-4 dark:bg-gray-800">
+        <div id="winter-total-troops" class="break-words text-2xl font-bold text-gray-900 dark:text-gray-100">0</div>
+        <div class="mt-1 text-sm text-gray-600 dark:text-gray-400">总兵力</div>
+      </div>
+      <div class="rounded-lg bg-primary-50 p-4 dark:bg-primary-900/30">
+        <div id="winter-actual-troops" class="break-words text-2xl font-bold text-primary-700 dark:text-primary-200">0</div>
+        <div class="mt-1 text-sm text-gray-600 dark:text-gray-400">实际出兵</div>
+      </div>
+      <div class="rounded-lg bg-gray-50 p-4 dark:bg-gray-800">
+        <div id="winter-total-units" class="break-words text-2xl font-bold text-gray-900 dark:text-gray-100">0</div>
+        <div class="mt-1 text-sm text-gray-600 dark:text-gray-400">可组单位</div>
+      </div>
+      <div class="rounded-lg bg-gray-50 p-4 dark:bg-gray-800">
+        <div id="winter-limit-display" class="break-words text-2xl font-bold text-gray-900 dark:text-gray-100">不限</div>
+        <div class="mt-1 text-sm text-gray-600 dark:text-gray-400">带兵上限</div>
+      </div>
+    </div>
+
+    <div class="mb-6 rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+      <h3 class="mb-3 font-semibold">兵种需求</h3>
+      <div class="space-y-3">
+        {troopTypes.map((troop) => (
+          <div class="grid grid-cols-[70px_1fr_auto] items-center gap-3 rounded-lg bg-gray-50 px-3 py-2 dark:bg-gray-800">
+            <span class="font-medium">{troop.label}</span>
+            <span id={`winter-need-${troop.key}`} class="break-words font-mono text-lg font-semibold">0</span>
+            <span id={`winter-status-${troop.key}`} class="rounded-full bg-green-100 px-2.5 py-1 text-xs font-medium text-green-700 dark:bg-green-900/40 dark:text-green-200">足够</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div id="winter-queue-result" class="space-y-3"></div>
+
+    <div class="mt-6 rounded-lg bg-gray-50 p-4 text-sm text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+      <h3 class="mb-2 font-semibold">发车规则</h3>
+      <p>车头按 118 或 127 比例配兵，盾在前；车身优先使用合适英雄带队，高战优先上车。</p>
+    </div>
+  </section>
+</div>
+
+<script>
+  type TroopType = 'shield' | 'spear' | 'archer';
+  type RatioType = '118' | '127' | 'custom';
+  type Ratio = Record<TroopType, number>;
+  type SavedRatio = Ratio & { key: string };
+  type TroopCounts = Record<TroopType, Record<number, number>>;
+  type TroopRowState = { level: number; count: string };
+  type TroopRowsState = Record<TroopType, TroopRowState[]>;
+  type WinterSettings = {
+    savedRatios?: SavedRatio[];
+    lastRatio?: Ratio;
+    selectedRatioType?: RatioType;
+    queueCount?: number;
+    troopLimit?: number;
+    troopRows?: Partial<Record<TroopType, TroopRowState[]>>;
+  };
+
+  const root = document.getElementById('winter-troop-calculator');
+
+  if (root) {
+    const storageKey = 'winterRatioSettings';
+    const troopLabels: Record<TroopType, { label: string; shortLabel: string }> = {
+      shield: { label: '盾', shortLabel: '盾兵' },
+      spear: { label: '矛', shortLabel: '矛兵' },
+      archer: { label: '射', shortLabel: '射手' },
+    };
+    const troopTypes: TroopType[] = ['shield', 'spear', 'archer'];
+    let inputCounters: Record<TroopType, number> = {
+      shield: 1,
+      spear: 1,
+      archer: 1,
+    };
+    let currentRatio: Ratio = {
+      shield: 1,
+      spear: 1,
+      archer: 8,
+    };
+    let savedRatios: SavedRatio[] = [];
+    let selectedRatioType: RatioType = '118';
+
+    const getElement = <T extends HTMLElement>(selector: string) => root.querySelector<T>(selector);
+    const mustGet = <T extends HTMLElement>(selector: string) => {
+      const element = getElement<T>(selector);
+      if (!element) {
+        throw new Error(`Missing winter calculator element: ${selector}`);
+      }
+      return element;
+    };
+
+    const messageEl = mustGet<HTMLParagraphElement>('#winter-message');
+    const customRatioPanel = mustGet<HTMLDivElement>('#winter-custom-ratio');
+    const ratioShieldInput = mustGet<HTMLInputElement>('#winter-ratio-shield');
+    const ratioSpearInput = mustGet<HTMLInputElement>('#winter-ratio-spear');
+    const ratioArcherInput = mustGet<HTMLInputElement>('#winter-ratio-archer');
+    const savedRatiosEl = mustGet<HTMLDivElement>('#winter-saved-ratios');
+    const queueCountInput = mustGet<HTMLInputElement>('#winter-queue-count');
+    const troopLimitInput = mustGet<HTMLInputElement>('#winter-troop-limit');
+    const resultEl = mustGet<HTMLElement>('#winter-result');
+    const queueResultEl = mustGet<HTMLDivElement>('#winter-queue-result');
+
+    function parseWholeNumber(value: string | number, fallback = 0) {
+      const numberValue = Number(value);
+      if (!Number.isFinite(numberValue)) {
+        return fallback;
+      }
+      return Math.max(0, Math.floor(numberValue));
+    }
+
+    function clamp(value: number, min: number, max: number) {
+      return Math.min(Math.max(value, min), max);
+    }
+
+    function formatNumber(value: number) {
+      return value.toLocaleString('zh-CN');
+    }
+
+    function setMessage(text: string, tone: 'neutral' | 'error' | 'success' = 'neutral') {
+      messageEl.textContent = text;
+      messageEl.classList.toggle('text-red-600', tone === 'error');
+      messageEl.classList.toggle('dark:text-red-400', tone === 'error');
+      messageEl.classList.toggle('text-green-700', tone === 'success');
+      messageEl.classList.toggle('dark:text-green-300', tone === 'success');
+      messageEl.classList.toggle('text-gray-600', tone === 'neutral');
+      messageEl.classList.toggle('dark:text-gray-400', tone === 'neutral');
+    }
+
+    function isRatio(value: unknown): value is Ratio {
+      if (!value || typeof value !== 'object') {
+        return false;
+      }
+      const ratio = value as Ratio;
+      return troopTypes.every((type) => Number.isFinite(Number(ratio[type])) && Number(ratio[type]) >= 0);
+    }
+
+    function isRatioType(value: unknown): value is RatioType {
+      return value === '118' || value === '127' || value === 'custom';
+    }
+
+    function normalizeRatio(ratio: Ratio): Ratio {
+      return {
+        shield: parseWholeNumber(ratio.shield),
+        spear: parseWholeNumber(ratio.spear),
+        archer: parseWholeNumber(ratio.archer),
+      };
+    }
+
+    function ratioKey(ratio: Ratio) {
+      return `${ratio.shield}:${ratio.spear}:${ratio.archer}`;
+    }
+
+    function sameRatio(left: Ratio, right: Ratio) {
+      return left.shield === right.shield && left.spear === right.spear && left.archer === right.archer;
+    }
+
+    function getPresetRatio(ratioType: string): Ratio | null {
+      if (ratioType === '118') {
+        return { shield: 1, spear: 1, archer: 8 };
+      }
+      if (ratioType === '127') {
+        return { shield: 1, spear: 2, archer: 7 };
+      }
+      return null;
+    }
+
+    function readCustomRatio(): Ratio {
+      return {
+        shield: parseWholeNumber(ratioShieldInput.value),
+        spear: parseWholeNumber(ratioSpearInput.value),
+        archer: parseWholeNumber(ratioArcherInput.value),
+      };
+    }
+
+    function setCustomInputs(ratio: Ratio) {
+      ratioShieldInput.value = String(ratio.shield);
+      ratioSpearInput.value = String(ratio.spear);
+      ratioArcherInput.value = String(ratio.archer);
+    }
+
+    function chooseButtonFromRatio(ratio: Ratio) {
+      if (sameRatio(ratio, { shield: 1, spear: 1, archer: 8 })) {
+        return '118';
+      }
+      if (sameRatio(ratio, { shield: 1, spear: 2, archer: 7 })) {
+        return '127';
+      }
+      return 'custom';
+    }
+
+    function setActiveRatioButton(ratioType: RatioType) {
+      selectedRatioType = ratioType;
+      const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-ratio]'));
+      buttons.forEach((button) => {
+        const active = button.dataset.ratio === ratioType;
+        button.setAttribute('aria-pressed', String(active));
+        button.classList.toggle('border-primary-600', active);
+        button.classList.toggle('bg-primary-50', active);
+        button.classList.toggle('text-primary-700', active);
+        button.classList.toggle('dark:border-primary-400', active);
+        button.classList.toggle('dark:bg-primary-900/30', active);
+        button.classList.toggle('dark:text-primary-200', active);
+        button.classList.toggle('border-gray-300', !active);
+        button.classList.toggle('hover:bg-gray-50', !active);
+        button.classList.toggle('dark:border-gray-600', !active);
+        button.classList.toggle('dark:hover:bg-gray-800', !active);
+      });
+      customRatioPanel.classList.toggle('hidden', ratioType !== 'custom');
+    }
+
+    function saveSettings() {
+      try {
+        const settings: WinterSettings = {
+          savedRatios,
+          lastRatio: currentRatio,
+          selectedRatioType,
+          queueCount: clamp(parseWholeNumber(queueCountInput.value, 1), 1, 20),
+          troopLimit: parseWholeNumber(troopLimitInput.value),
+          troopRows: readTroopRows(),
+        };
+        localStorage.setItem(storageKey, JSON.stringify(settings));
+      } catch {
+        setMessage('当前浏览器无法保存本地缓存。', 'error');
+      }
+    }
+
+    function loadSettings() {
+      try {
+        const saved = localStorage.getItem(storageKey);
+        if (!saved) {
+          return;
+        }
+        const settings = JSON.parse(saved) as WinterSettings;
+        if (Array.isArray(settings.savedRatios)) {
+          savedRatios = settings.savedRatios
+            .filter(isRatio)
+            .map((ratio) => {
+              const normalized = normalizeRatio(ratio);
+              return { ...normalized, key: ratioKey(normalized) };
+            });
+        }
+        if (settings.lastRatio && isRatio(settings.lastRatio)) {
+          currentRatio = normalizeRatio(settings.lastRatio);
+        }
+        if (isRatioType(settings.selectedRatioType)) {
+          selectedRatioType = settings.selectedRatioType;
+        }
+        if (Number.isFinite(Number(settings.queueCount))) {
+          queueCountInput.value = String(clamp(parseWholeNumber(settings.queueCount ?? 1, 1), 1, 20));
+        }
+        if (Number.isFinite(Number(settings.troopLimit))) {
+          troopLimitInput.value = String(parseWholeNumber(settings.troopLimit ?? 0));
+        }
+        const rows = normalizeTroopRows(settings.troopRows);
+        if (rows) {
+          applyTroopRows(rows);
+        }
+      } catch {
+        savedRatios = [];
+      }
+    }
+
+    function renderSavedRatios() {
+      savedRatiosEl.replaceChildren();
+      savedRatios.forEach((ratio, index) => {
+        const group = document.createElement('div');
+        group.className = 'inline-flex overflow-hidden rounded-lg border border-gray-300 text-sm dark:border-gray-600';
+
+        const applyButton = document.createElement('button');
+        applyButton.type = 'button';
+        applyButton.dataset.applySavedRatio = String(index);
+        applyButton.className = 'px-3 py-1.5 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800';
+        applyButton.textContent = `盾${ratio.shield} 矛${ratio.spear} 射${ratio.archer}`;
+
+        const deleteButton = document.createElement('button');
+        deleteButton.type = 'button';
+        deleteButton.dataset.deleteSavedRatio = String(index);
+        deleteButton.className = 'border-l border-gray-300 px-2 py-1.5 text-red-600 transition-colors hover:bg-red-50 dark:border-gray-600 dark:text-red-400 dark:hover:bg-red-950/40';
+        deleteButton.setAttribute('aria-label', `删除比例 ${ratio.key}`);
+        deleteButton.textContent = '×';
+
+        group.append(applyButton, deleteButton);
+        savedRatiosEl.append(group);
+      });
+    }
+
+    function applyRatio(ratio: Ratio, persist = true) {
+      currentRatio = normalizeRatio(ratio);
+      setCustomInputs(currentRatio);
+      const ratioType = chooseButtonFromRatio(currentRatio) as RatioType;
+      setActiveRatioButton(ratioType);
+      if (persist) {
+        saveSettings();
+      }
+    }
+
+    function saveCustomRatio() {
+      const ratio = readCustomRatio();
+      if (ratio.shield + ratio.spear + ratio.archer === 0) {
+        setMessage('比例不能全部为 0。', 'error');
+        return;
+      }
+      currentRatio = ratio;
+      const key = ratioKey(ratio);
+      if (!savedRatios.some((item) => item.key === key)) {
+        savedRatios.push({ ...ratio, key });
+      }
+      setActiveRatioButton('custom');
+      renderSavedRatios();
+      saveSettings();
+      setMessage('已保存自定义比例。', 'success');
+    }
+
+    function createLevelSelect(type: TroopType, rowId: number) {
+      const select = document.createElement('select');
+      select.id = `winter-${type}-level-${rowId}`;
+      select.dataset.level = '';
+      select.className = 'min-w-0 rounded-lg border border-gray-300 bg-white px-3 py-2 dark:border-gray-600 dark:bg-gray-800';
+      for (let level = 1; level <= 10; level += 1) {
+        const option = document.createElement('option');
+        option.value = String(level);
+        option.textContent = `${level}级`;
+        select.append(option);
+      }
+      return select;
+    }
+
+    function createTroopRow(type: TroopType, rowId: number) {
+      const row = document.createElement('div');
+      row.className = 'troop-row grid grid-cols-[minmax(88px,110px)_1fr_auto] items-center gap-2';
+      row.dataset.rowId = String(rowId);
+
+      const levelLabel = document.createElement('label');
+      levelLabel.className = 'sr-only';
+      levelLabel.htmlFor = `winter-${type}-level-${rowId}`;
+      levelLabel.textContent = `${troopLabels[type].shortLabel}等级`;
+
+      const select = createLevelSelect(type, rowId);
+
+      const countLabel = document.createElement('label');
+      countLabel.className = 'sr-only';
+      countLabel.htmlFor = `winter-${type}-count-${rowId}`;
+      countLabel.textContent = `${troopLabels[type].shortLabel}数量`;
+
+      const input = document.createElement('input');
+      input.id = `winter-${type}-count-${rowId}`;
+      input.dataset.count = '';
+      input.type = 'number';
+      input.min = '0';
+      input.inputMode = 'numeric';
+      input.placeholder = '数量';
+      input.className = 'min-w-0 rounded-lg border border-gray-300 bg-white px-3 py-2 dark:border-gray-600 dark:bg-gray-800';
+
+      const deleteButton = document.createElement('button');
+      deleteButton.type = 'button';
+      deleteButton.dataset.deleteRow = type;
+      deleteButton.className = 'rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-red-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-red-400';
+      deleteButton.setAttribute('aria-label', `删除${troopLabels[type].shortLabel}输入行`);
+      deleteButton.title = '删除';
+      const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      icon.setAttribute('class', 'h-5 w-5');
+      icon.setAttribute('aria-hidden', 'true');
+      icon.setAttribute('viewBox', '0 0 24 24');
+      icon.setAttribute('fill', 'none');
+      icon.setAttribute('stroke', 'currentColor');
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('stroke-linecap', 'round');
+      path.setAttribute('stroke-linejoin', 'round');
+      path.setAttribute('stroke-width', '2');
+      path.setAttribute('d', 'm6 6 12 12M18 6 6 18');
+      icon.append(path);
+      deleteButton.append(icon);
+
+      row.append(levelLabel, select, countLabel, input, deleteButton);
+      return row;
+    }
+
+    function getRowsContainer(type: TroopType) {
+      return mustGet<HTMLDivElement>(`#winter-${type}-rows`);
+    }
+
+    function normalizeTroopRow(row: unknown): TroopRowState | null {
+      if (!row || typeof row !== 'object') {
+        return null;
+      }
+      const source = row as { level?: unknown; count?: unknown };
+      const level = clamp(parseWholeNumber(String(source.level ?? '1'), 1), 1, 10);
+      const rawCount = source.count;
+      const count = rawCount === '' || rawCount === undefined || rawCount === null
+        ? ''
+        : String(parseWholeNumber(String(rawCount)));
+      return { level, count };
+    }
+
+    function normalizeTroopRows(value: WinterSettings['troopRows']): TroopRowsState | null {
+      if (!value || typeof value !== 'object') {
+        return null;
+      }
+      return troopTypes.reduce((rows, type) => {
+        const storedRows = Array.isArray(value[type]) ? value[type] : [];
+        const normalizedRows = storedRows
+          .map(normalizeTroopRow)
+          .filter((row): row is TroopRowState => Boolean(row));
+        rows[type] = normalizedRows.length > 0 ? normalizedRows : [{ level: 1, count: '' }];
+        return rows;
+      }, {} as TroopRowsState);
+    }
+
+    function readTroopRows(): TroopRowsState {
+      return troopTypes.reduce((state, type) => {
+        const rows = Array.from(getRowsContainer(type).querySelectorAll<HTMLDivElement>('.troop-row'));
+        state[type] = rows.map((row) => {
+          const level = clamp(parseWholeNumber(row.querySelector<HTMLSelectElement>('[data-level]')?.value ?? '1', 1), 1, 10);
+          const count = row.querySelector<HTMLInputElement>('[data-count]')?.value.trim() ?? '';
+          return { level, count };
+        });
+        if (state[type].length === 0) {
+          state[type] = [{ level: 1, count: '' }];
+        }
+        return state;
+      }, {} as TroopRowsState);
+    }
+
+    function applyTroopRows(rowsState: TroopRowsState) {
+      troopTypes.forEach((type) => {
+        const rows = rowsState[type].length > 0 ? rowsState[type] : [{ level: 1, count: '' }];
+        const elements = rows.map((rowState, index) => {
+          const rowId = index + 1;
+          const row = createTroopRow(type, rowId);
+          const levelSelect = row.querySelector<HTMLSelectElement>('[data-level]');
+          const countInput = row.querySelector<HTMLInputElement>('[data-count]');
+          if (levelSelect) {
+            levelSelect.value = String(clamp(rowState.level, 1, 10));
+          }
+          if (countInput) {
+            countInput.value = rowState.count;
+          }
+          return row;
+        });
+        inputCounters[type] = elements.length;
+        getRowsContainer(type).replaceChildren(...elements);
+        updateDeleteButtons(type);
+      });
+    }
+
+    function updateDeleteButtons(type: TroopType) {
+      const rows = Array.from(getRowsContainer(type).querySelectorAll<HTMLDivElement>('.troop-row'));
+      rows.forEach((row) => {
+        const deleteButton = row.querySelector<HTMLButtonElement>('[data-delete-row]');
+        deleteButton?.classList.toggle('hidden', rows.length === 1);
+      });
+    }
+
+    function addInputRow(type: TroopType) {
+      inputCounters[type] += 1;
+      getRowsContainer(type).append(createTroopRow(type, inputCounters[type]));
+      updateDeleteButtons(type);
+    }
+
+    function deleteInputRow(type: TroopType, button: HTMLButtonElement) {
+      const row = button.closest('.troop-row');
+      row?.remove();
+      updateDeleteButtons(type);
+    }
+
+    function resetTroopRows() {
+      troopTypes.forEach((type) => {
+        inputCounters[type] = 1;
+        getRowsContainer(type).replaceChildren(createTroopRow(type, 1));
+        updateDeleteButtons(type);
+      });
+    }
+
+    function getTroops(): TroopCounts {
+      const troops: TroopCounts = {
+        shield: {},
+        spear: {},
+        archer: {},
+      };
+      troopTypes.forEach((type) => {
+        const rows = Array.from(getRowsContainer(type).querySelectorAll<HTMLDivElement>('.troop-row'));
+        rows.forEach((row) => {
+          const level = parseWholeNumber(row.querySelector<HTMLSelectElement>('[data-level]')?.value ?? 1, 1);
+          const count = parseWholeNumber(row.querySelector<HTMLInputElement>('[data-count]')?.value ?? 0);
+          if (count > 0) {
+            troops[type][level] = (troops[type][level] ?? 0) + count;
+          }
+        });
+      });
+      return troops;
+    }
+
+    function sumTroops(troopCounts: Record<number, number>) {
+      return Object.values(troopCounts).reduce((sum, value) => sum + value, 0);
+    }
+
+    function currentSelectedRatio() {
+      if (selectedRatioType === 'custom') {
+        currentRatio = readCustomRatio();
+      }
+      return currentRatio;
+    }
+
+    function setStatus(elementId: string, stock: number, need: number) {
+      const element = mustGet<HTMLSpanElement>(elementId);
+      const remaining = stock - need;
+      element.className = 'rounded-full px-2.5 py-1 text-xs font-medium';
+      if (need === 0) {
+        element.classList.add('bg-gray-100', 'text-gray-600', 'dark:bg-gray-700', 'dark:text-gray-300');
+        element.textContent = '不需要';
+      } else if (remaining > 0) {
+        element.classList.add('bg-green-100', 'text-green-700', 'dark:bg-green-900/40', 'dark:text-green-200');
+        element.textContent = `余 ${formatNumber(remaining)}`;
+      } else if (remaining === 0) {
+        element.classList.add('bg-green-100', 'text-green-700', 'dark:bg-green-900/40', 'dark:text-green-200');
+        element.textContent = '刚好';
+      } else {
+        element.classList.add('bg-red-100', 'text-red-700', 'dark:bg-red-900/40', 'dark:text-red-200');
+        element.textContent = `差 ${formatNumber(Math.abs(remaining))}`;
+      }
+    }
+
+    function appendTextElement(parent: HTMLElement, tagName: keyof HTMLElementTagNameMap, className: string, text: string) {
+      const element = document.createElement(tagName);
+      element.className = className;
+      element.textContent = text;
+      parent.append(element);
+      return element;
+    }
+
+    function displayQueueAllocation(queueCount: number, totalUnits: number, ratio: Ratio) {
+      queueResultEl.replaceChildren();
+      if (queueCount <= 1 || totalUnits <= 0) {
+        return;
+      }
+
+      appendTextElement(queueResultEl, 'h3', 'text-lg font-semibold', '队列分配详情');
+      const grid = document.createElement('div');
+      grid.className = 'grid gap-3 md:grid-cols-2';
+      const unitsPerQueue = Math.floor(totalUnits / queueCount);
+      const remainder = totalUnits % queueCount;
+
+      for (let index = 1; index <= queueCount; index += 1) {
+        const queueUnits = unitsPerQueue + (index <= remainder ? 1 : 0);
+        const queueShield = queueUnits * ratio.shield;
+        const queueSpear = queueUnits * ratio.spear;
+        const queueArcher = queueUnits * ratio.archer;
+        const queueTotal = queueShield + queueSpear + queueArcher;
+
+        const card = document.createElement('article');
+        card.className = 'rounded-lg border border-gray-200 p-4 dark:border-gray-700';
+        const header = document.createElement('div');
+        header.className = 'mb-3 flex items-center justify-between gap-3';
+        appendTextElement(header, 'h4', 'font-semibold', `第 ${index} 队`);
+        appendTextElement(header, 'span', 'text-sm text-gray-600 dark:text-gray-400', `${formatNumber(queueUnits)} 组`);
+        card.append(header);
+
+        const detail = document.createElement('div');
+        detail.className = 'grid grid-cols-4 gap-2 text-center text-sm';
+        [
+          ['盾', queueShield],
+          ['矛', queueSpear],
+          ['射', queueArcher],
+          ['总计', queueTotal],
+        ].forEach(([label, value]) => {
+          const item = document.createElement('div');
+          item.className = 'rounded-md bg-gray-50 px-2 py-2 dark:bg-gray-800';
+          appendTextElement(item, 'div', 'font-semibold', formatNumber(value as number));
+          appendTextElement(item, 'div', 'mt-1 text-xs text-gray-500 dark:text-gray-400', label as string);
+          detail.append(item);
+        });
+        card.append(detail);
+        grid.append(card);
+      }
+      queueResultEl.append(grid);
+    }
+
+    function calculate() {
+      const ratio = normalizeRatio(currentSelectedRatio());
+      const ratioUnit = ratio.shield + ratio.spear + ratio.archer;
+      if (ratioUnit === 0) {
+        setMessage('比例不能全部为 0。', 'error');
+        return;
+      }
+
+      currentRatio = ratio;
+      saveSettings();
+
+      const troops = getTroops();
+      const totalShield = sumTroops(troops.shield);
+      const totalSpear = sumTroops(troops.spear);
+      const totalArcher = sumTroops(troops.archer);
+      const totalTroops = totalShield + totalSpear + totalArcher;
+
+      if (totalTroops === 0) {
+        setMessage('请先输入兵种数量。', 'error');
+        return;
+      }
+
+      const queueCount = clamp(parseWholeNumber(queueCountInput.value, 1), 1, 20);
+      const troopLimit = parseWholeNumber(troopLimitInput.value);
+      queueCountInput.value = String(queueCount);
+      troopLimitInput.value = String(troopLimit);
+
+      const capacityTroops = troopLimit > 0 ? Math.min(totalTroops, troopLimit) : totalTroops;
+      const unitsByCapacity = Math.floor(capacityTroops / ratioUnit);
+      const unitsByType = Math.min(
+        ratio.shield > 0 ? Math.floor(totalShield / ratio.shield) : Number.POSITIVE_INFINITY,
+        ratio.spear > 0 ? Math.floor(totalSpear / ratio.spear) : Number.POSITIVE_INFINITY,
+        ratio.archer > 0 ? Math.floor(totalArcher / ratio.archer) : Number.POSITIVE_INFINITY,
+      );
+      const totalUnits = Math.max(0, Math.min(unitsByCapacity, unitsByType));
+      const needShield = totalUnits * ratio.shield;
+      const needSpear = totalUnits * ratio.spear;
+      const needArcher = totalUnits * ratio.archer;
+      const actualTotal = needShield + needSpear + needArcher;
+
+      mustGet<HTMLParagraphElement>('#winter-ratio-display').textContent = `比例 ${ratio.shield}:${ratio.spear}:${ratio.archer}`;
+      mustGet<HTMLDivElement>('#winter-total-troops').textContent = formatNumber(totalTroops);
+      mustGet<HTMLDivElement>('#winter-actual-troops').textContent = formatNumber(actualTotal);
+      mustGet<HTMLDivElement>('#winter-total-units').textContent = `${formatNumber(totalUnits)} 组`;
+      mustGet<HTMLDivElement>('#winter-limit-display').textContent = troopLimit > 0 ? formatNumber(troopLimit) : '不限';
+      mustGet<HTMLSpanElement>('#winter-need-shield').textContent = formatNumber(needShield);
+      mustGet<HTMLSpanElement>('#winter-need-spear').textContent = formatNumber(needSpear);
+      mustGet<HTMLSpanElement>('#winter-need-archer').textContent = formatNumber(needArcher);
+      setStatus('#winter-status-shield', totalShield, needShield);
+      setStatus('#winter-status-spear', totalSpear, needSpear);
+      setStatus('#winter-status-archer', totalArcher, needArcher);
+      displayQueueAllocation(queueCount, totalUnits, ratio);
+      resultEl.classList.remove('hidden');
+      setMessage('计算完成。', 'success');
+      resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function clearAll() {
+      resetTroopRows();
+      queueCountInput.value = '1';
+      troopLimitInput.value = '0';
+      queueResultEl.replaceChildren();
+      resultEl.classList.add('hidden');
+      saveSettings();
+      setMessage('', 'neutral');
+    }
+
+    root.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      const ratioButton = target.closest<HTMLButtonElement>('[data-ratio]');
+      if (ratioButton) {
+        const ratioType = ratioButton.dataset.ratio as RatioType;
+        const preset = getPresetRatio(ratioType);
+        if (preset) {
+          applyRatio(preset);
+          setMessage('', 'neutral');
+        } else {
+          setActiveRatioButton('custom');
+          setCustomInputs(currentRatio);
+          saveSettings();
+          setMessage('', 'neutral');
+        }
+        return;
+      }
+
+      const addButton = target.closest<HTMLButtonElement>('[data-add-row]');
+      if (addButton) {
+        addInputRow(addButton.dataset.addRow as TroopType);
+        saveSettings();
+        return;
+      }
+
+      const deleteButton = target.closest<HTMLButtonElement>('[data-delete-row]');
+      if (deleteButton) {
+        deleteInputRow(deleteButton.dataset.deleteRow as TroopType, deleteButton);
+        saveSettings();
+        return;
+      }
+
+      const queueButton = target.closest<HTMLButtonElement>('[data-queue]');
+      if (queueButton) {
+        queueCountInput.value = queueButton.dataset.queue ?? '1';
+        saveSettings();
+        return;
+      }
+
+      const limitButton = target.closest<HTMLButtonElement>('[data-limit]');
+      if (limitButton) {
+        troopLimitInput.value = limitButton.dataset.limit ?? '0';
+        saveSettings();
+        return;
+      }
+
+      const applySavedButton = target.closest<HTMLButtonElement>('[data-apply-saved-ratio]');
+      if (applySavedButton) {
+        const ratio = savedRatios[Number(applySavedButton.dataset.applySavedRatio)];
+        if (ratio) {
+          applyRatio(ratio);
+          setActiveRatioButton('custom');
+          setMessage('', 'neutral');
+        }
+        return;
+      }
+
+      const deleteSavedButton = target.closest<HTMLButtonElement>('[data-delete-saved-ratio]');
+      if (deleteSavedButton) {
+        const index = Number(deleteSavedButton.dataset.deleteSavedRatio);
+        if (Number.isInteger(index)) {
+          savedRatios.splice(index, 1);
+          renderSavedRatios();
+          saveSettings();
+        }
+      }
+    });
+
+    mustGet<HTMLButtonElement>('#winter-save-ratio').addEventListener('click', saveCustomRatio);
+    mustGet<HTMLButtonElement>('#winter-calculate').addEventListener('click', calculate);
+    mustGet<HTMLButtonElement>('#winter-clear').addEventListener('click', clearAll);
+
+    root.addEventListener('input', (event) => {
+      const target = event.target as HTMLElement;
+      if (target instanceof HTMLInputElement && (target.dataset.count !== undefined || target === queueCountInput || target === troopLimitInput)) {
+        saveSettings();
+      }
+    });
+
+    root.addEventListener('change', (event) => {
+      const target = event.target as HTMLElement;
+      if (target instanceof HTMLSelectElement && target.dataset.level !== undefined) {
+        saveSettings();
+      }
+    });
+
+    [ratioShieldInput, ratioSpearInput, ratioArcherInput].forEach((input) => {
+      input.addEventListener('input', () => {
+        if (selectedRatioType === 'custom') {
+          currentRatio = readCustomRatio();
+          saveSettings();
+        }
+      });
+    });
+
+    loadSettings();
+    const initialRatioType = selectedRatioType;
+    applyRatio(currentRatio, false);
+    renderSavedRatios();
+    setActiveRatioButton(initialRatioType === 'custom' ? 'custom' : chooseButtonFromRatio(currentRatio) as RatioType);
+    troopTypes.forEach(updateDeleteButtons);
+  }
+</script>
