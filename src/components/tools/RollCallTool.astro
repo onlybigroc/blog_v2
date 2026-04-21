@@ -149,6 +149,49 @@ const {
         </div>
         <div id="students-list" class="max-h-40 overflow-y-auto rounded-lg bg-gray-50 dark:bg-gray-800 p-3 text-sm"></div>
       </div>
+
+      <div class="mt-6 border-t border-gray-200 pt-5 dark:border-gray-700">
+        <div class="mb-4 grid gap-3 lg:grid-cols-[1fr_auto]">
+          <label for="student-group-title" class="sr-only">名单分组标题</label>
+          <input
+            id="student-group-title"
+            type="text"
+            maxlength="60"
+            placeholder="输入标题保存当前名单分组"
+            class="rounded-lg border border-gray-300 bg-white px-4 py-2.5 dark:border-gray-600 dark:bg-gray-800"
+          />
+          <button
+            id="save-student-group"
+            type="button"
+            disabled
+            class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-700 px-5 py-2.5 font-medium text-white transition-colors hover:bg-primary-800 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h7l2 2h7v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z" />
+            </svg>
+            保存分组
+          </button>
+        </div>
+
+        <div class="mb-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <h3 class="font-semibold">已保存名单</h3>
+            <p id="student-groups-summary" class="mt-1 text-sm text-gray-500 dark:text-gray-400">暂无保存名单</p>
+          </div>
+          <div class="w-full lg:max-w-xs">
+            <label for="student-groups-search" class="sr-only">搜索保存名单</label>
+            <input
+              id="student-groups-search"
+              type="search"
+              placeholder="搜索分组标题或姓名"
+              class="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 dark:border-gray-600 dark:bg-gray-800"
+            />
+          </div>
+        </div>
+        <div id="student-groups-list" class="max-h-80 space-y-3 overflow-y-auto">
+          <div class="rounded-lg bg-gray-50 px-4 py-8 text-center text-gray-500 dark:bg-gray-800 dark:text-gray-400">暂无保存名单</div>
+        </div>
+      </div>
     </section>
 
     <section class="rounded-xl border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
@@ -231,16 +274,60 @@ const {
         <button
           id="clear-history"
           type="button"
-          class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 dark:border-gray-600 px-4 py-2 text-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
+          class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-600 dark:hover:bg-gray-800"
         >
           <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 7h12M10 11v6m4-6v6M9 7l1-2h4l1 2m-8 0 1 13h8l1-13" />
           </svg>
-          清除记录
+          清除当前
         </button>
       </div>
+
+      <div class="mb-5 grid gap-3 lg:grid-cols-[1fr_auto]">
+        <label for="history-title" class="sr-only">记录标题</label>
+        <input
+          id="history-title"
+          type="text"
+          maxlength="60"
+          placeholder="输入标题保存本次课堂记录"
+          class="rounded-lg border border-gray-300 bg-white px-4 py-2.5 dark:border-gray-600 dark:bg-gray-800"
+        />
+        <button
+          id="save-history"
+          type="button"
+          disabled
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-700 px-5 py-2.5 font-medium text-white transition-colors hover:bg-primary-800 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h12l2 2v14H5V4Zm3 0v6h8V4M8 17h8" />
+          </svg>
+          保存记录
+        </button>
+      </div>
+
       <div id="history-list" class="max-h-96 space-y-3 overflow-y-auto">
         <div class="rounded-lg bg-gray-50 dark:bg-gray-800 px-4 py-8 text-center text-gray-500 dark:text-gray-400">暂无记录</div>
+      </div>
+
+      <div class="mt-6 border-t border-gray-200 pt-5 dark:border-gray-700">
+        <div class="mb-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <h3 class="font-semibold">已保存记录</h3>
+            <p id="saved-records-summary" class="mt-1 text-sm text-gray-500 dark:text-gray-400">暂无保存记录</p>
+          </div>
+          <div class="w-full lg:max-w-xs">
+            <label for="saved-records-search" class="sr-only">搜索保存记录</label>
+            <input
+              id="saved-records-search"
+              type="search"
+              placeholder="搜索标题、姓名或评语"
+              class="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 dark:border-gray-600 dark:bg-gray-800"
+            />
+          </div>
+        </div>
+        <div id="saved-records-list" class="max-h-80 space-y-3 overflow-y-auto">
+          <div class="rounded-lg bg-gray-50 px-4 py-8 text-center text-gray-500 dark:bg-gray-800 dark:text-gray-400">暂无保存记录</div>
+        </div>
       </div>
     </section>
   </div>
@@ -310,6 +397,8 @@ const {
     const SETTINGS_KEYS = {
       praise: 'rollCallPraisePhrases',
       encourage: 'rollCallEncouragePhrases',
+      savedRecords: 'rollCallSavedRecords',
+      savedStudentGroups: 'rollCallSavedStudentGroups',
     };
 
     const defaultPraisePhrases = [
@@ -334,6 +423,10 @@ const {
       students: [],
       availableStudents: [],
       history: [],
+      savedStudentGroups: [],
+      studentGroupQuery: '',
+      savedRecords: [],
+      savedRecordQuery: '',
       isRolling: false,
       rollTimer: null,
       currentName: '',
@@ -357,6 +450,11 @@ const {
     const studentsPreview = document.getElementById('students-preview');
     const studentsList = document.getElementById('students-list');
     const studentsCount = document.getElementById('students-count');
+    const studentGroupTitle = document.getElementById('student-group-title');
+    const saveStudentGroup = document.getElementById('save-student-group');
+    const studentGroupsSummary = document.getElementById('student-groups-summary');
+    const studentGroupsSearch = document.getElementById('student-groups-search');
+    const studentGroupsList = document.getElementById('student-groups-list');
     const listSummary = document.getElementById('list-summary');
     const roundSummary = document.getElementById('round-summary');
     const displayText = document.getElementById('display-text');
@@ -369,6 +467,11 @@ const {
     const effortBtn = document.getElementById('effort-btn');
     const historyList = document.getElementById('history-list');
     const clearHistory = document.getElementById('clear-history');
+    const historyTitle = document.getElementById('history-title');
+    const saveHistory = document.getElementById('save-history');
+    const savedRecordsSummary = document.getElementById('saved-records-summary');
+    const savedRecordsSearch = document.getElementById('saved-records-search');
+    const savedRecordsList = document.getElementById('saved-records-list');
     const toast = document.getElementById('toast');
     const resultModal = document.getElementById('result-modal');
     const resultDialog = document.getElementById('result-dialog');
@@ -433,6 +536,205 @@ const {
 
       studentsCount.textContent = `${state.students.length} 人`;
       studentsPreview.classList.toggle('hidden', state.students.length === 0);
+      saveStudentGroup.disabled = state.students.length === 0;
+    }
+
+    function normalizeStudentGroup(item, index) {
+      if (!item || typeof item !== 'object') return null;
+
+      const title = String(item.title || '').trim();
+      const students = Array.isArray(item.students) ? dedupeNames(item.students) : [];
+      if (!title || students.length === 0) return null;
+
+      const savedAt = String(item.savedAt || '').trim();
+      const savedDate = new Date(savedAt);
+
+      return {
+        id: String(item.id || `roll-call-students-${index}-${Date.now()}`),
+        title,
+        savedAt: Number.isNaN(savedDate.getTime()) ? new Date().toISOString() : savedAt,
+        students,
+      };
+    }
+
+    function loadSavedStudentGroups() {
+      const saved = localStorage.getItem(SETTINGS_KEYS.savedStudentGroups);
+      if (!saved) {
+        state.savedStudentGroups = [];
+        return;
+      }
+
+      try {
+        const parsed = JSON.parse(saved);
+        state.savedStudentGroups = Array.isArray(parsed)
+          ? parsed.map(normalizeStudentGroup).filter(Boolean)
+          : [];
+      } catch (error) {
+        console.error(error);
+        state.savedStudentGroups = [];
+      }
+    }
+
+    function persistSavedStudentGroups() {
+      try {
+        localStorage.setItem(SETTINGS_KEYS.savedStudentGroups, JSON.stringify(state.savedStudentGroups));
+        return true;
+      } catch (error) {
+        console.error(error);
+        showToast('保存失败，本地存储空间不足', 'error');
+        return false;
+      }
+    }
+
+    function saveCurrentStudentGroup() {
+      const title = String(studentGroupTitle.value || '').trim();
+      if (state.students.length === 0) {
+        showToast('请先导入名单', 'info');
+        return;
+      }
+
+      if (!title) {
+        showToast('请输入名单分组标题', 'error');
+        studentGroupTitle.focus();
+        return;
+      }
+
+      const previousGroups = state.savedStudentGroups.map((group) => ({
+        ...group,
+        students: [...group.students],
+      }));
+      const now = new Date();
+      const existingIndex = state.savedStudentGroups.findIndex((group) => group.title === title);
+      const savedGroup = {
+        id: existingIndex >= 0
+          ? state.savedStudentGroups[existingIndex].id
+          : `roll-call-students-${now.getTime()}-${Math.random().toString(36).slice(2, 8)}`,
+        title,
+        savedAt: now.toISOString(),
+        students: [...state.students],
+      };
+
+      if (existingIndex >= 0) {
+        state.savedStudentGroups.splice(existingIndex, 1);
+      }
+      state.savedStudentGroups.unshift(savedGroup);
+
+      if (!persistSavedStudentGroups()) {
+        state.savedStudentGroups = previousGroups;
+        return;
+      }
+
+      studentGroupTitle.value = '';
+      studentGroupsSearch.value = '';
+      state.studentGroupQuery = '';
+      renderSavedStudentGroups();
+      showToast(existingIndex >= 0 ? '名单分组已更新' : '名单分组已保存', 'success');
+    }
+
+    function loadStudentGroup(id) {
+      const group = state.savedStudentGroups.find((item) => item.id === id);
+      if (!group) {
+        showToast('未找到保存名单', 'error');
+        return;
+      }
+
+      manualList.value = group.students.join('\n');
+      studentGroupTitle.value = group.title;
+      setStudents(group.students, `来自保存名单：${group.title}`);
+    }
+
+    function deleteStudentGroup(id) {
+      const nextGroups = state.savedStudentGroups.filter((item) => item.id !== id);
+      if (nextGroups.length === state.savedStudentGroups.length) {
+        showToast('未找到保存名单', 'error');
+        return;
+      }
+
+      const previousGroups = state.savedStudentGroups;
+      state.savedStudentGroups = nextGroups;
+      if (!persistSavedStudentGroups()) {
+        state.savedStudentGroups = previousGroups;
+        return;
+      }
+
+      renderSavedStudentGroups();
+      showToast('保存名单已删除', 'success');
+    }
+
+    function getFilteredStudentGroups() {
+      const query = state.studentGroupQuery.trim().toLowerCase();
+      if (!query) return state.savedStudentGroups;
+
+      return state.savedStudentGroups.filter((group) => {
+        if (group.title.toLowerCase().includes(query)) return true;
+        return group.students.some((name) => name.toLowerCase().includes(query));
+      });
+    }
+
+    function renderSavedStudentGroups() {
+      studentGroupsList.replaceChildren();
+
+      const groups = getFilteredStudentGroups();
+      const query = state.studentGroupQuery.trim();
+      if (state.savedStudentGroups.length === 0) {
+        studentGroupsSummary.textContent = '暂无保存名单';
+      } else if (query) {
+        studentGroupsSummary.textContent = `找到 ${groups.length} 个，共 ${state.savedStudentGroups.length} 个`;
+      } else {
+        studentGroupsSummary.textContent = `共 ${state.savedStudentGroups.length} 个保存名单`;
+      }
+
+      if (groups.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'rounded-lg bg-gray-50 px-4 py-8 text-center text-gray-500 dark:bg-gray-800 dark:text-gray-400';
+        empty.textContent = query ? '没有匹配的保存名单' : '暂无保存名单';
+        studentGroupsList.appendChild(empty);
+        return;
+      }
+
+      for (const group of groups) {
+        const item = document.createElement('div');
+        item.className = 'rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-900';
+
+        const row = document.createElement('div');
+        row.className = 'flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between';
+
+        const left = document.createElement('div');
+        left.className = 'min-w-0';
+        const title = document.createElement('div');
+        title.className = 'truncate font-semibold text-gray-900 dark:text-gray-100';
+        title.textContent = group.title;
+
+        const meta = document.createElement('div');
+        meta.className = 'mt-1 text-sm text-gray-500 dark:text-gray-400';
+        meta.textContent = `${formatSavedDate(group.savedAt)} · ${group.students.length} 人`;
+
+        const preview = document.createElement('div');
+        preview.className = 'mt-2 truncate text-sm text-gray-600 dark:text-gray-300';
+        const names = group.students.slice(0, 8).join('、');
+        preview.textContent = group.students.length > 8 ? `${names} 等` : names;
+        left.append(title, meta, preview);
+
+        const actions = document.createElement('div');
+        actions.className = 'flex shrink-0 gap-2';
+
+        const loadButton = document.createElement('button');
+        loadButton.type = 'button';
+        loadButton.className = 'rounded-lg border border-primary-200 px-3 py-1.5 text-sm font-medium text-primary-700 transition-colors hover:bg-primary-50 dark:border-primary-800 dark:text-primary-300 dark:hover:bg-primary-950/50';
+        loadButton.textContent = '载入';
+        loadButton.addEventListener('click', () => loadStudentGroup(group.id));
+
+        const deleteButton = document.createElement('button');
+        deleteButton.type = 'button';
+        deleteButton.className = 'rounded-lg border border-gray-300 px-3 py-1.5 text-sm font-medium transition-colors hover:bg-gray-50 hover:text-red-600 dark:border-gray-600 dark:hover:bg-gray-800 dark:hover:text-red-400';
+        deleteButton.textContent = '删除';
+        deleteButton.addEventListener('click', () => deleteStudentGroup(group.id));
+
+        actions.append(loadButton, deleteButton);
+        row.append(left, actions);
+        item.appendChild(row);
+        studentGroupsList.appendChild(item);
+      }
     }
 
     function renderSummary() {
@@ -479,6 +781,7 @@ const {
       filePanel.classList.add('hidden');
       columnPanel.classList.add('hidden');
       studentsPreview.classList.add('hidden');
+      saveStudentGroup.disabled = true;
       feedbackButtons.classList.add('hidden');
       feedbackButtons.classList.remove('flex');
       displayText.textContent = '请先导入学生名单';
@@ -696,6 +999,7 @@ const {
         type,
         phrase,
         time: now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' }),
+        createdAt: now.toISOString(),
       };
 
       state.history.unshift(record);
@@ -711,8 +1015,246 @@ const {
       }
     }
 
+    function normalizeHistoryRecord(record) {
+      if (!record || typeof record !== 'object') return null;
+
+      const name = String(record.name || '').trim();
+      if (!name) return null;
+
+      return {
+        name,
+        type: record.type === 'correct' ? 'correct' : 'effort',
+        phrase: String(record.phrase || '').trim(),
+        time: String(record.time || '').trim(),
+        createdAt: String(record.createdAt || '').trim(),
+      };
+    }
+
+    function normalizeSavedRecord(item, index) {
+      if (!item || typeof item !== 'object') return null;
+
+      const title = String(item.title || '').trim();
+      const records = Array.isArray(item.records)
+        ? item.records.map(normalizeHistoryRecord).filter(Boolean)
+        : [];
+      if (!title || records.length === 0) return null;
+
+      const savedAt = String(item.savedAt || '').trim();
+      const savedDate = new Date(savedAt);
+
+      return {
+        id: String(item.id || `roll-call-${index}-${Date.now()}`),
+        title,
+        savedAt: Number.isNaN(savedDate.getTime()) ? new Date().toISOString() : savedAt,
+        records,
+      };
+    }
+
+    function loadSavedRecords() {
+      const saved = localStorage.getItem(SETTINGS_KEYS.savedRecords);
+      if (!saved) {
+        state.savedRecords = [];
+        return;
+      }
+
+      try {
+        const parsed = JSON.parse(saved);
+        state.savedRecords = Array.isArray(parsed)
+          ? parsed.map(normalizeSavedRecord).filter(Boolean)
+          : [];
+      } catch (error) {
+        console.error(error);
+        state.savedRecords = [];
+      }
+    }
+
+    function persistSavedRecords() {
+      try {
+        localStorage.setItem(SETTINGS_KEYS.savedRecords, JSON.stringify(state.savedRecords));
+        return true;
+      } catch (error) {
+        console.error(error);
+        showToast('保存失败，本地存储空间不足', 'error');
+        return false;
+      }
+    }
+
+    function formatSavedDate(value) {
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return '保存时间未知';
+
+      return date.toLocaleString('zh-CN', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+      });
+    }
+
+    function getHistoryCounts(records) {
+      return records.reduce((counts, record) => {
+        if (record.type === 'correct') {
+          counts.correct += 1;
+        } else {
+          counts.effort += 1;
+        }
+        return counts;
+      }, { correct: 0, effort: 0 });
+    }
+
+    function saveCurrentHistory() {
+      const title = String(historyTitle.value || '').trim();
+      if (state.history.length === 0) {
+        showToast('暂无课堂记录可保存', 'info');
+        return;
+      }
+
+      if (!title) {
+        showToast('请输入记录标题', 'error');
+        historyTitle.focus();
+        return;
+      }
+
+      const now = new Date();
+      const records = state.history.map(normalizeHistoryRecord).filter(Boolean);
+      const savedRecord = {
+        id: `roll-call-${now.getTime()}-${Math.random().toString(36).slice(2, 8)}`,
+        title,
+        savedAt: now.toISOString(),
+        records,
+      };
+
+      state.savedRecords.unshift(savedRecord);
+      if (!persistSavedRecords()) {
+        state.savedRecords.shift();
+        return;
+      }
+
+      historyTitle.value = '';
+      savedRecordsSearch.value = '';
+      state.savedRecordQuery = '';
+      renderSavedRecords();
+      showToast('记录已保存', 'success');
+    }
+
+    function loadSavedRecord(id) {
+      const savedRecord = state.savedRecords.find((item) => item.id === id);
+      if (!savedRecord) {
+        showToast('未找到保存记录', 'error');
+        return;
+      }
+
+      state.history = savedRecord.records.map((record) => ({ ...record }));
+      historyTitle.value = savedRecord.title;
+      renderHistory();
+      showToast('已载入保存记录', 'success');
+    }
+
+    function deleteSavedRecord(id) {
+      const nextRecords = state.savedRecords.filter((item) => item.id !== id);
+      if (nextRecords.length === state.savedRecords.length) {
+        showToast('未找到保存记录', 'error');
+        return;
+      }
+
+      const previousRecords = state.savedRecords;
+      state.savedRecords = nextRecords;
+      if (!persistSavedRecords()) {
+        state.savedRecords = previousRecords;
+        return;
+      }
+
+      renderSavedRecords();
+      showToast('保存记录已删除', 'success');
+    }
+
+    function getFilteredSavedRecords() {
+      const query = state.savedRecordQuery.trim().toLowerCase();
+      if (!query) return state.savedRecords;
+
+      return state.savedRecords.filter((savedRecord) => {
+        if (savedRecord.title.toLowerCase().includes(query)) return true;
+        return savedRecord.records.some((record) => {
+          return record.name.toLowerCase().includes(query)
+            || record.phrase.toLowerCase().includes(query);
+        });
+      });
+    }
+
+    function renderSavedRecords() {
+      savedRecordsList.replaceChildren();
+
+      const records = getFilteredSavedRecords();
+      const query = state.savedRecordQuery.trim();
+      if (state.savedRecords.length === 0) {
+        savedRecordsSummary.textContent = '暂无保存记录';
+      } else if (query) {
+        savedRecordsSummary.textContent = `找到 ${records.length} 条，共 ${state.savedRecords.length} 条`;
+      } else {
+        savedRecordsSummary.textContent = `共 ${state.savedRecords.length} 条保存记录`;
+      }
+
+      if (records.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'rounded-lg bg-gray-50 px-4 py-8 text-center text-gray-500 dark:bg-gray-800 dark:text-gray-400';
+        empty.textContent = query ? '没有匹配的保存记录' : '暂无保存记录';
+        savedRecordsList.appendChild(empty);
+        return;
+      }
+
+      for (const savedRecord of records) {
+        const item = document.createElement('div');
+        item.className = 'rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-900';
+
+        const row = document.createElement('div');
+        row.className = 'flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between';
+
+        const left = document.createElement('div');
+        left.className = 'min-w-0';
+        const title = document.createElement('div');
+        title.className = 'truncate font-semibold text-gray-900 dark:text-gray-100';
+        title.textContent = savedRecord.title;
+
+        const counts = getHistoryCounts(savedRecord.records);
+        const meta = document.createElement('div');
+        meta.className = 'mt-1 text-sm text-gray-500 dark:text-gray-400';
+        meta.textContent = `${formatSavedDate(savedRecord.savedAt)} · ${savedRecord.records.length} 条 · 正确 ${counts.correct} · 努力 ${counts.effort}`;
+
+        const preview = document.createElement('div');
+        preview.className = 'mt-2 truncate text-sm text-gray-600 dark:text-gray-300';
+        const names = savedRecord.records.slice(0, 6).map((record) => record.name).join('、');
+        preview.textContent = savedRecord.records.length > 6 ? `${names} 等` : names;
+        left.append(title, meta, preview);
+
+        const actions = document.createElement('div');
+        actions.className = 'flex shrink-0 gap-2';
+
+        const viewButton = document.createElement('button');
+        viewButton.type = 'button';
+        viewButton.className = 'rounded-lg border border-primary-200 px-3 py-1.5 text-sm font-medium text-primary-700 transition-colors hover:bg-primary-50 dark:border-primary-800 dark:text-primary-300 dark:hover:bg-primary-950/50';
+        viewButton.textContent = '查看';
+        viewButton.addEventListener('click', () => loadSavedRecord(savedRecord.id));
+
+        const deleteButton = document.createElement('button');
+        deleteButton.type = 'button';
+        deleteButton.className = 'rounded-lg border border-gray-300 px-3 py-1.5 text-sm font-medium transition-colors hover:bg-gray-50 hover:text-red-600 dark:border-gray-600 dark:hover:bg-gray-800 dark:hover:text-red-400';
+        deleteButton.textContent = '删除';
+        deleteButton.addEventListener('click', () => deleteSavedRecord(savedRecord.id));
+
+        actions.append(viewButton, deleteButton);
+        row.append(left, actions);
+        item.appendChild(row);
+        savedRecordsList.appendChild(item);
+      }
+    }
+
     function renderHistory() {
       historyList.replaceChildren();
+      const hasHistory = state.history.length > 0;
+      saveHistory.disabled = !hasHistory;
+      clearHistory.disabled = !hasHistory;
+
       if (state.history.length === 0) {
         const empty = document.createElement('div');
         empty.className = 'rounded-lg bg-gray-50 px-4 py-8 text-center text-gray-500 dark:bg-gray-800 dark:text-gray-400';
@@ -873,16 +1415,38 @@ const {
     });
     confirmColumn.addEventListener('click', importSelectedColumn);
     importManual.addEventListener('click', () => setStudents(parseManualNames(manualList.value), '来自手动名单'));
+    saveStudentGroup.addEventListener('click', saveCurrentStudentGroup);
+    studentGroupTitle.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        saveCurrentStudentGroup();
+      }
+    });
+    studentGroupsSearch.addEventListener('input', () => {
+      state.studentGroupQuery = studentGroupsSearch.value;
+      renderSavedStudentGroups();
+    });
     resetRound.addEventListener('click', resetCurrentRound);
     clearList.addEventListener('click', clearStudentList);
     startBtn.addEventListener('click', startRolling);
     stopBtn.addEventListener('click', stopAndSelectName);
     correctBtn.addEventListener('click', () => addHistory('correct'));
     effortBtn.addEventListener('click', () => addHistory('effort'));
+    saveHistory.addEventListener('click', saveCurrentHistory);
+    historyTitle.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        saveCurrentHistory();
+      }
+    });
+    savedRecordsSearch.addEventListener('input', () => {
+      state.savedRecordQuery = savedRecordsSearch.value;
+      renderSavedRecords();
+    });
     clearHistory.addEventListener('click', () => {
       state.history = [];
       renderHistory();
-      showToast('记录已清除', 'success');
+      showToast('当前记录已清除', 'success');
     });
 
     settingsBtn.addEventListener('click', () => {
@@ -912,8 +1476,12 @@ const {
     });
 
     loadSettings();
+    loadSavedStudentGroups();
+    loadSavedRecords();
     renderSummary();
     renderHistory();
+    renderSavedStudentGroups();
+    renderSavedRecords();
   </script>
 
 <style>
