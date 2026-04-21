@@ -1,0 +1,37 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  robots?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title,
+  description,
+  image,
+  robots,
+  canonicalURL,
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={image}
+  robots={robots}
+  type="website"
+  loadAds={false}
+  canonicalURL={canonicalURL}
+>
+  <main id="main-content" tabindex="-1" class="min-h-screen focus:outline-none">
+    <div class="mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-8 sm:px-6 lg:px-8">
+      <div class="flex-1">
+        <slot />
+      </div>
+    </div>
+  </main>
+</BaseLayout>

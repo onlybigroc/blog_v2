@@ -1,11 +1,11 @@
 ---
-import MainLayout from '@layouts/MainLayout.astro';
+import ToolLayout from '@layouts/ToolLayout.astro';
 import TimestampTool from '@components/tools/TimestampTool.astro';
 
 const title = '时间戳转换 | 工具';
 const description = '秒/毫秒时间戳和日期时间的单个/批量双向转换工具。';
 ---
 
-<MainLayout title={title} description={description}>
-  <TimestampTool cleanPath="/tools/timestamp/clean/" showCleanLink showPageMeta />
-</MainLayout>
+<ToolLayout title={title} description={description}>
+  <TimestampTool />
+</ToolLayout>
