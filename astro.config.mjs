@@ -11,19 +11,16 @@ export default defineConfig({
     tailwind(),
     mdx(),
     sitemap({
-      // sitemap 优化配置
       changefreq: 'daily',
       priority: 0.7,
       lastmod: new Date(),
-      // 过滤掉不需要的页面
       filter: (page) => {
-        // 排除特定路径
         const excludePaths = ['/404', '/search'];
+        // 排除 AI News 分页（只保留首页和详情页）
+        if (/\/ai-news\/page\/\d+/.test(page)) return false;
         return !excludePaths.some(path => page.includes(path));
       },
-      // 自定义页面优先级
       customPages: [],
-      // 启用多语言支持（如需要）
       i18n: {
         defaultLocale: 'zh-CN',
         locales: {

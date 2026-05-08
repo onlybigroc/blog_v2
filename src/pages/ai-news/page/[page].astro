@@ -6,7 +6,8 @@ import { getAiNewsDigest, getAiNewsItems } from '@data/aiNews';
 export function getStaticPaths() {
   const allItems = getAiNewsItems();
   const pageSize = 24;
-  const totalPages = Math.ceil(allItems.length / pageSize);
+  const MAX_PAGES = 30; // 限制最多生成 30 页，更早的归档通过搜索查看
+  const totalPages = Math.min(Math.ceil(allItems.length / pageSize), MAX_PAGES);
 
   if (totalPages <= 1) {
     return [];

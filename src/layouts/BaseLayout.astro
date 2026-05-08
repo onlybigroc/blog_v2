@@ -20,6 +20,7 @@ interface Props {
   loadAds?: boolean;
   publishedTime?: Date | string;
   modifiedTime?: Date | string;
+  author?: string;
 }
 
 const {
@@ -32,6 +33,7 @@ const {
   loadAds = false,
   publishedTime,
   modifiedTime,
+  author = 'bigroc',
 } = Astro.props;
 const siteURL = Astro.site?.toString() || 'https://bigroc.cn';
 const currentURL = canonicalURL || new URL(Astro.url.pathname, siteURL).toString();
@@ -89,27 +91,37 @@ const modifiedDate = modifiedTime ? new Date(modifiedTime).toISOString() : publi
     <meta name="twitter:creator" content={SITE_TWITTER_HANDLE} />
     
     <!-- 结构化数据 (JSON-LD) -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "name": "Blog Post",
-        "description": "Blog post description",
-        "url": "https://bigroc.cn",
-        "publisher": {
-          "@type": "Organization",
-          "name": "大鹏的Log",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://bigroc.cn/favicon.svg"
-          }
-        },
-        "author": {
-          "@type": "Person",
-          "name": "bigroc"
+    {type === 'article' ? (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        'headline': fullTitle,
+        'description': metaDescription,
+        'url': currentURL,
+        'image': socialImage,
+        'datePublished': publishedDate,
+        'dateModified': modifiedDate,
+        'author': { '@type': 'Person', 'name': author },
+        'publisher': {
+          '@type': 'Organization',
+          'name': SITE_NAME,
+          'logo': { '@type': 'ImageObject', 'url': `${siteURL}favicon.svg` }
         }
-      }
-    </script>
+      })} />
+    ) : (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        'name': SITE_NAME,
+        'url': siteURL,
+        'description': metaDescription,
+        'publisher': {
+          '@type': 'Organization',
+          'name': SITE_NAME,
+          'logo': { '@type': 'ImageObject', 'url': `${siteURL}favicon.svg` }
+        }
+      })} />
+    )}
     
     <link rel="sitemap" href="/sitemap-index.xml" />
     
@@ -149,46 +161,6 @@ const modifiedDate = modifiedTime ? new Date(modifiedTime).toISOString() : publi
   <body id="top" class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
     <slot />
     
-    <!-- 图片懒加载 -->
-    <script is:inline>
-      document.addEventListener('DOMContentLoaded', function() {
-        // 检查浏览器是否支持 Intersection Observer
-        if ('IntersectionObserver' in window) {
-          const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                const img = entry.target;
-                const dataSrc = img.getAttribute('data-src');
-                if (dataSrc) {
-                  // 确保只在需要时更新 src
-                  if (img.src !== dataSrc) {
-                    img.src = dataSrc;
-                  }
-                  img.classList.remove('lazy');
-                  imageObserver.unobserve(img);
-                }
-              }
-            });
-          }, {
-            rootMargin: '50px 0px',
-            threshold: 0.01
-          });
-
-          // 观察所有带有 data-src 属性的图片
-          document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-          });
-        } else {
-          // 降级方案：直接加载所有图片
-          document.querySelectorAll('img[data-src]').forEach(img => {
-            const dataSrc = img.getAttribute('data-src');
-            if (dataSrc && img.src !== dataSrc) {
-              img.src = dataSrc;
-            }
-            img.classList.remove('lazy');
-          });
-        }
-      });
-    </script>
+    <!-- 图片懒加载：所有 <img> 标签已使用原生 loading="lazy"，无需额外 JS -->
   </body>
 </html>
