@@ -1,0 +1,248 @@
+---
+// 正则表达式测试工具
+---
+
+<div class="space-y-6" id="regex-tool">
+  <div class="flex flex-wrap items-center gap-3">
+    <button
+      id="regex-test"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      🔍 测试匹配
+    </button>
+    <button
+      id="regex-clear"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      清空
+    </button>
+    <button
+      id="regex-escape"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      转义特殊字符
+    </button>
+    <div class="flex items-center gap-3 ml-auto text-sm">
+      <label class="flex items-center gap-1 cursor-pointer">
+        <input type="checkbox" id="regex-global" class="rounded" checked />
+        <span class="text-gray-600 dark:text-gray-400">全局 (g)</span>
+      </label>
+      <label class="flex items-center gap-1 cursor-pointer">
+        <input type="checkbox" id="regex-case" class="rounded" />
+        <span class="text-gray-600 dark:text-gray-400">忽略大小写 (i)</span>
+      </label>
+      <label class="flex items-center gap-1 cursor-pointer">
+        <input type="checkbox" id="regex-multiline" class="rounded" />
+        <span class="text-gray-600 dark:text-gray-400">多行 (m)</span>
+      </label>
+      <label class="flex items-center gap-1 cursor-pointer">
+        <input type="checkbox" id="regex-dotall" class="rounded" />
+        <span class="text-gray-600 dark:text-gray-400">点匹配换行 (s)</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- 正则输入 -->
+  <div>
+    <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">正则表达式</label>
+    <div class="flex items-center gap-2">
+      <span class="text-lg text-gray-400 font-mono">/</span>
+      <input
+        type="text"
+        id="regex-pattern"
+        class="flex-1 px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        placeholder="输入正则表达式..."
+      />
+      <span class="text-lg text-gray-400 font-mono">/</span>
+      <input
+        type="text"
+        id="regex-flags-display"
+        class="w-16 px-2 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm text-center"
+        readonly
+        value="gi"
+      />
+    </div>
+  </div>
+
+  <!-- 测试文本 -->
+  <div>
+    <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">测试文本</label>
+    <textarea
+      id="regex-text"
+      class="w-full h-40 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+      placeholder="输入要测试的文本..."
+    ></textarea>
+  </div>
+
+  <!-- 匹配结果 -->
+  <div>
+    <div class="flex items-center justify-between mb-2">
+      <label class="text-sm font-medium text-gray-700 dark:text-gray-300">匹配结果</label>
+      <span id="regex-match-count" class="text-sm text-gray-500"></span>
+    </div>
+    <div
+      id="regex-highlighted"
+      class="w-full min-h-[6rem] p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm whitespace-pre-wrap break-all"
+    >
+      匹配结果将在这里高亮显示...
+    </div>
+  </div>
+
+  <!-- 匹配详情 -->
+  <div id="regex-matches-detail" class="hidden">
+    <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">匹配详情</label>
+    <div id="regex-matches-list" class="space-y-2"></div>
+  </div>
+
+  <div id="regex-status" class="hidden rounded-lg p-3 text-sm"></div>
+
+  <!-- 常用正则参考 -->
+  <div>
+    <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">📚 常用正则</label>
+    <div class="flex flex-wrap gap-2">
+      <button class="regex-preset px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-xs hover:bg-gray-200 dark:hover:bg-gray-700" data-regex="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" data-text="联系我：test@example.com 或 admin@site.org">邮箱</button>
+      <button class="regex-preset px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-xs hover:bg-gray-200 dark:hover:bg-gray-700" data-regex="1[3-9]\d{9}" data-text="手机号：13812345678, 15900001111">手机号</button>
+      <button class="regex-preset px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-xs hover:bg-gray-200 dark:hover:bg-gray-700" data-regex="https?://[^\s]+" data-text="访问 https://example.com 或 http://test.org/path?q=1">URL</button>
+      <button class="regex-preset px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-xs hover:bg-gray-200 dark:hover:bg-gray-700" data-regex="\d{4}-\d{2}-\d{2}" data-text="日期：2024-01-15, 2025-12-31">日期</button>
+      <button class="regex-preset px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-xs hover:bg-gray-200 dark:hover:bg-gray-700" data-regex="#[0-9a-fA-F]{6}" data-text="颜色：#3b82f6, #ff0000, #000000">HEX颜色</button>
+      <button class="regex-preset px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-xs hover:bg-gray-200 dark:hover:bg-gray-700" data-regex="<([a-z]+)[^>]*>.*?</\1>" data-text="<div class='test'>内容</div><span>行内</span><br/>">HTML标签</button>
+      <button class="regex-preset px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-xs hover:bg-gray-200 dark:hover:bg-gray-700" data-regex="\b\d{1,3}(\.\d{1,3}){3}\b" data-text="IP: 192.168.1.1, 10.0.0.255">IPv4</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const patternInput = document.getElementById('regex-pattern') as HTMLInputElement;
+  const textInput = document.getElementById('regex-text') as HTMLTextAreaElement;
+  const highlighted = document.getElementById('regex-highlighted')!;
+  const matchCount = document.getElementById('regex-match-count')!;
+  const matchesDetail = document.getElementById('regex-matches-detail')!;
+  const matchesList = document.getElementById('regex-matches-list')!;
+  const flagsDisplay = document.getElementById('regex-flags-display') as HTMLInputElement;
+  const regexStatus = document.getElementById('regex-status');
+  const globalCheck = document.getElementById('regex-global') as HTMLInputElement;
+  const caseCheck = document.getElementById('regex-case') as HTMLInputElement;
+  const multilineCheck = document.getElementById('regex-multiline') as HTMLInputElement;
+  const dotallCheck = document.getElementById('regex-dotall') as HTMLInputElement;
+
+  function showRegexStatus(msg: string, type: 'success' | 'error') {
+    if (!regexStatus) return;
+    regexStatus.textContent = msg;
+    regexStatus.className = `rounded-lg p-3 text-sm ${type === 'success' ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'}`;
+    regexStatus.classList.remove('hidden');
+  }
+
+  function getFlags(): string {
+    let flags = '';
+    if (globalCheck.checked) flags += 'g';
+    if (caseCheck.checked) flags += 'i';
+    if (multilineCheck.checked) flags += 'm';
+    if (dotallCheck.checked) flags += 's';
+    flagsDisplay.value = flags;
+    return flags;
+  }
+
+  function escapeHtml(str: string): string {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function doMatch() {
+    const pattern = patternInput.value;
+    const text = textInput.value;
+
+    if (!pattern || !text) {
+      highlighted.innerHTML = escapeHtml(text || '匹配结果将在这里高亮显示...');
+      matchCount.textContent = '';
+      matchesDetail.classList.add('hidden');
+      regexStatus?.classList.add('hidden');
+      return;
+    }
+
+    try {
+      const flags = getFlags();
+      const regex = new RegExp(pattern, flags);
+      const matches: { index: number; length: number; value: number }[] = [];
+
+      let match: RegExpExecArray | null;
+      const tempRegex = new RegExp(pattern, flags.replace('g', '') + 'g');
+      
+      // 收集所有匹配
+      if (flags.includes('g')) {
+        while ((match = tempRegex.exec(text)) !== null) {
+          matches.push({ index: match.index, length: match[0].length, value: 0 });
+          if (!match[0].length) tempRegex.lastIndex++;
+        }
+      } else {
+        match = regex.exec(text);
+        if (match) matches.push({ index: match.index, length: match[0].length, value: 0 });
+      }
+
+      matchCount.textContent = `找到 ${matches.length} 个匹配`;
+
+      // 高亮显示
+      let html = '';
+      let lastIndex = 0;
+      for (const m of matches) {
+        html += escapeHtml(text.slice(lastIndex, m.index));
+        html += `<mark class="bg-yellow-200 dark:bg-yellow-800 rounded px-0.5">${escapeHtml(text.slice(m.index, m.index + m.length))}</mark>`;
+        lastIndex = m.index + m.length;
+      }
+      html += escapeHtml(text.slice(lastIndex));
+      highlighted.innerHTML = html || escapeHtml(text);
+
+      // 匹配详情
+      if (matches.length > 0) {
+        matchesDetail.classList.remove('hidden');
+        matchesList.innerHTML = matches.map((m, i) => `
+          <div class="flex items-start gap-3 p-2 rounded bg-gray-50 dark:bg-gray-800 text-sm">
+            <span class="text-gray-500 font-mono w-6">#${i + 1}</span>
+            <div>
+              <span class="font-mono text-primary-600 dark:text-primary-400">"${escapeHtml(text.slice(m.index, m.index + m.length))}"</span>
+              <span class="text-gray-500 ml-2">位置: ${m.index}–${m.index + m.length}</span>
+            </div>
+          </div>
+        `).join('');
+      } else {
+        matchesDetail.classList.add('hidden');
+      }
+
+      showRegexStatus(`✅ 正则语法正确，找到 ${matches.length} 个匹配`, 'success');
+    } catch (e) {
+      highlighted.innerHTML = escapeHtml(text);
+      matchCount.textContent = '';
+      matchesDetail.classList.add('hidden');
+      showRegexStatus(`❌ 正则语法错误：${(e as Error).message}`, 'error');
+    }
+  }
+
+  // 实时匹配
+  [patternInput, textInput].forEach(el => el?.addEventListener('input', doMatch));
+  [globalCheck, caseCheck, multilineCheck, dotallCheck].forEach(el => el?.addEventListener('change', () => { getFlags(); doMatch(); }));
+
+  document.getElementById('regex-test')?.addEventListener('click', doMatch);
+
+  document.getElementById('regex-clear')?.addEventListener('click', () => {
+    patternInput.value = '';
+    textInput.value = '';
+    highlighted.innerHTML = '匹配结果将在这里高亮显示...';
+    matchCount.textContent = '';
+    matchesDetail.classList.add('hidden');
+    regexStatus?.classList.add('hidden');
+  });
+
+  document.getElementById('regex-escape')?.addEventListener('click', () => {
+    patternInput.value = patternInput.value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    doMatch();
+  });
+
+  // 预设
+  document.querySelectorAll('.regex-preset').forEach(btn => {
+    btn.addEventListener('click', () => {
+      patternInput.value = (btn as HTMLElement).dataset.regex || '';
+      textInput.value = (btn as HTMLElement).dataset.text || '';
+      doMatch();
+    });
+  });
+
+  getFlags();
+</script>

@@ -1,0 +1,17 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import JsonFormatTool from '@components/tools/JsonFormatTool.astro';
+
+const title = 'JSON 格式化 | 工具';
+const description = 'JSON 格式化、压缩、语法校验工具，支持自定义缩进。';
+---
+
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">JSON 格式化</h1>
+    <p class="text-gray-600 dark:text-gray-400">JSON 格式化、压缩、语法校验，支持自定义缩进大小。</p>
+  </div>
+
+  <JsonFormatTool />
+</MainLayout>

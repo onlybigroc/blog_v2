@@ -1,0 +1,182 @@
+---
+// Base64 编解码工具
+---
+
+<div class="space-y-6" id="base64-tool">
+  <div class="flex flex-wrap items-center gap-3">
+    <button
+      id="b64-encode"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      编码 →
+    </button>
+    <button
+      id="b64-decode"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      ← 解码
+    </button>
+    <button
+      id="b64-swap"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      ⇄ 互换
+    </button>
+    <button
+      id="b64-copy-encoded"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      复制编码
+    </button>
+    <button
+      id="b64-copy-decoded"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      复制原文
+    </button>
+    <button
+      id="b64-clear"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      清空
+    </button>
+    <div class="flex items-center gap-2 ml-auto text-sm">
+      <label class="flex items-center gap-1 cursor-pointer">
+        <input type="checkbox" id="b64-url-safe" class="rounded" />
+        <span class="text-gray-600 dark:text-gray-400">URL 安全模式</span>
+      </label>
+      <label class="flex items-center gap-1 cursor-pointer ml-3">
+        <input type="checkbox" id="b64-utf8" class="rounded" checked />
+        <span class="text-gray-600 dark:text-gray-400">UTF-8</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">原文</label>
+      <textarea
+        id="b64-input"
+        class="w-full h-64 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        placeholder="输入要编码的文本..."
+      ></textarea>
+      <div class="mt-1 text-xs text-gray-500" id="b64-input-info"></div>
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Base64</label>
+      <textarea
+        id="b64-output"
+        class="w-full h-64 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        placeholder="输入 Base64 字符串..."
+      ></textarea>
+      <div class="mt-1 text-xs text-gray-500" id="b64-output-info"></div>
+    </div>
+  </div>
+
+  <div id="b64-status" class="hidden rounded-lg p-3 text-sm"></div>
+
+  <div class="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+    <p>💡 使用提示：</p>
+    <ul class="list-disc list-inside space-y-1">
+      <li>支持中文及 Unicode 字符（UTF-8 编码）</li>
+      <li>URL 安全模式将 +/ 替换为 -_</li>
+      <li>可用于编码图片、文件等二进制数据</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const b64Input = document.getElementById('b64-input') as HTMLTextAreaElement;
+  const b64Output = document.getElementById('b64-output') as HTMLTextAreaElement;
+  const b64Status = document.getElementById('b64-status');
+  const b64InputInfo = document.getElementById('b64-input-info');
+  const b64OutputInfo = document.getElementById('b64-output-info');
+  const urlSafeCheck = document.getElementById('b64-url-safe') as HTMLInputElement;
+  const utf8Check = document.getElementById('b64-utf8') as HTMLInputElement;
+
+  function showB64Status(msg: string, type: 'success' | 'error') {
+    if (!b64Status) return;
+    b64Status.textContent = msg;
+    b64Status.className = `rounded-lg p-3 text-sm ${type === 'success' ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'}`;
+    b64Status.classList.remove('hidden');
+  }
+
+  function updateInfo() {
+    if (b64InputInfo) b64InputInfo.textContent = `${b64Input.value.length} 字符`;
+    if (b64OutputInfo) b64OutputInfo.textContent = `${b64Output.value.length} 字符`;
+  }
+
+  function encodeBase64(str: string, urlSafe: boolean): string {
+    let encoded: string;
+    if (utf8Check.checked) {
+      encoded = btoa(unescape(encodeURIComponent(str)));
+    } else {
+      encoded = btoa(str);
+    }
+    if (urlSafe) {
+      encoded = encoded.replace(/\+/g, '-').replace(/\//g, '_');
+    }
+    return encoded;
+  }
+
+  function decodeBase64(str: string, urlSafe: boolean): string {
+    let decoded = str;
+    if (urlSafe) {
+      decoded = decoded.replace(/-/g, '+').replace(/_/g, '/');
+    }
+    // 补齐 =
+    while (decoded.length % 4) decoded += '=';
+    if (utf8Check.checked) {
+      return decodeURIComponent(escape(atob(decoded)));
+    }
+    return atob(decoded);
+  }
+
+  document.getElementById('b64-encode')?.addEventListener('click', () => {
+    try {
+      b64Output.value = encodeBase64(b64Input.value, urlSafeCheck.checked);
+      showB64Status('✅ 编码成功', 'success');
+      updateInfo();
+    } catch (e) {
+      showB64Status(`❌ 编码失败：${(e as Error).message}`, 'error');
+    }
+  });
+
+  document.getElementById('b64-decode')?.addEventListener('click', () => {
+    try {
+      b64Input.value = decodeBase64(b64Output.value, urlSafeCheck.checked);
+      showB64Status('✅ 解码成功', 'success');
+      updateInfo();
+    } catch (e) {
+      showB64Status(`❌ 解码失败：输入不是有效的 Base64 字符串`, 'error');
+    }
+  });
+
+  document.getElementById('b64-swap')?.addEventListener('click', () => {
+    const tmp = b64Input.value;
+    b64Input.value = b64Output.value;
+    b64Output.value = tmp;
+    updateInfo();
+  });
+
+  document.getElementById('b64-copy-encoded')?.addEventListener('click', async () => {
+    if (!b64Output.value) return;
+    await navigator.clipboard.writeText(b64Output.value);
+    showB64Status('✅ 已复制编码结果', 'success');
+  });
+
+  document.getElementById('b64-copy-decoded')?.addEventListener('click', async () => {
+    if (!b64Input.value) return;
+    await navigator.clipboard.writeText(b64Input.value);
+    showB64Status('✅ 已复制原文', 'success');
+  });
+
+  document.getElementById('b64-clear')?.addEventListener('click', () => {
+    b64Input.value = '';
+    b64Output.value = '';
+    b64Status?.classList.add('hidden');
+    updateInfo();
+  });
+
+  [b64Input, b64Output].forEach(el => el?.addEventListener('input', updateInfo));
+</script>

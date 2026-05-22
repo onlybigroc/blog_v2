@@ -1,0 +1,17 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import Base64Tool from '@components/tools/Base64Tool.astro';
+
+const title = 'Base64 编解码 | 工具';
+const description = 'Base64 编码解码工具，支持 UTF-8 和 URL 安全模式。';
+---
+
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">Base64 编解码</h1>
+    <p class="text-gray-600 dark:text-gray-400">支持中文 UTF-8 编码和 URL 安全 Base64。</p>
+  </div>
+
+  <Base64Tool />
+</MainLayout>

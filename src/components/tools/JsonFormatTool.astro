@@ -1,0 +1,159 @@
+---
+// JSON 格式化 / 压缩 / 校验工具
+---
+
+<div class="space-y-6" id="json-format-tool">
+  <div class="flex flex-wrap items-center gap-3">
+    <button
+      id="btn-format"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      格式化
+    </button>
+    <button
+      id="btn-minify"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      压缩
+    </button>
+    <button
+      id="btn-validate"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      校验
+    </button>
+    <button
+      id="btn-copy"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      复制结果
+    </button>
+    <button
+      id="btn-clear"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      清空
+    </button>
+    <button
+      id="btn-sample"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      示例
+    </button>
+    <div class="flex items-center gap-2 ml-auto text-sm">
+      <label class="text-gray-600 dark:text-gray-400">缩进：</label>
+      <select
+        id="indent-size"
+        class="px-2 py-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm"
+      >
+        <option value="2" selected>2 空格</option>
+        <option value="4">4 空格</option>
+        <option value="tab">Tab</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">输入 JSON</label>
+      <textarea
+        id="json-input"
+        class="w-full h-80 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        placeholder="粘贴或输入 JSON 数据..."
+        spellcheck="false"
+      ></textarea>
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">输出结果</label>
+      <textarea
+        id="json-output"
+        class="w-full h-80 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm resize-y"
+        readonly
+        placeholder="格式化结果将显示在这里..."
+      ></textarea>
+    </div>
+  </div>
+
+  <div id="json-status" class="hidden rounded-lg p-3 text-sm"></div>
+
+  <div class="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+    <p>💡 使用提示：</p>
+    <ul class="list-disc list-inside space-y-1">
+      <li>支持格式化、压缩和语法校验</li>
+      <li>可选缩进大小：2 空格、4 空格、Tab</li>
+      <li>校验失败会提示错误位置</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const input = document.getElementById('json-input') as HTMLTextAreaElement;
+  const output = document.getElementById('json-output') as HTMLTextAreaElement;
+  const status = document.getElementById('json-status');
+  const indentSelect = document.getElementById('indent-size') as HTMLSelectElement;
+
+  function showStatus(msg: string, type: 'success' | 'error') {
+    if (!status) return;
+    status.textContent = msg;
+    status.className = `rounded-lg p-3 text-sm ${type === 'success' ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'}`;
+    status.classList.remove('hidden');
+  }
+
+  function getIndent(): string | number {
+    const val = indentSelect.value;
+    return val === 'tab' ? '\t' : parseInt(val);
+  }
+
+  document.getElementById('btn-format')?.addEventListener('click', () => {
+    try {
+      const obj = JSON.parse(input.value);
+      output.value = JSON.stringify(obj, null, getIndent());
+      showStatus('✅ 格式化成功', 'success');
+    } catch (e) {
+      showStatus(`❌ JSON 语法错误：${(e as Error).message}`, 'error');
+    }
+  });
+
+  document.getElementById('btn-minify')?.addEventListener('click', () => {
+    try {
+      const obj = JSON.parse(input.value);
+      output.value = JSON.stringify(obj);
+      showStatus('✅ 压缩成功', 'success');
+    } catch (e) {
+      showStatus(`❌ JSON 语法错误：${(e as Error).message}`, 'error');
+    }
+  });
+
+  document.getElementById('btn-validate')?.addEventListener('click', () => {
+    try {
+      JSON.parse(input.value);
+      showStatus('✅ JSON 语法正确', 'success');
+    } catch (e) {
+      showStatus(`❌ JSON 语法错误：${(e as Error).message}`, 'error');
+    }
+  });
+
+  document.getElementById('btn-copy')?.addEventListener('click', async () => {
+    if (!output.value) return;
+    await navigator.clipboard.writeText(output.value);
+    showStatus('✅ 已复制到剪贴板', 'success');
+  });
+
+  document.getElementById('btn-clear')?.addEventListener('click', () => {
+    input.value = '';
+    output.value = '';
+    status?.classList.add('hidden');
+  });
+
+  document.getElementById('btn-sample')?.addEventListener('click', () => {
+    input.value = JSON.stringify({
+      name: "示例数据",
+      version: "1.0",
+      items: [
+        { id: 1, label: "苹果", price: 5.5 },
+        { id: 2, label: "香蕉", price: 3.2 }
+      ],
+      meta: { total: 2, currency: "CNY" }
+    }, null, 2);
+  });
+</script>

@@ -1,0 +1,17 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import RegexTool from '@components/tools/RegexTool.astro';
+
+const title = '正则表达式测试 | 工具';
+const description = '在线正则表达式测试工具，实时高亮匹配，含常用正则参考。';
+---
+
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">正则表达式测试</h1>
+    <p class="text-gray-600 dark:text-gray-400">实时匹配高亮，支持常用正则预设。</p>
+  </div>
+
+  <RegexTool />
+</MainLayout>
