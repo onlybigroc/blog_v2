@@ -1,6 +1,11 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
 import { tools } from '@/data/tools';
+import { Clock, Users, Swords, Braces, Lock, Palette, KeyRound, Search } from 'lucide-astro';
+
+const iconMap: Record<string, any> = {
+  Clock, Users, Swords, Braces, Lock, Palette, KeyRound, Search,
+};
 
 const title = '工具';
 const description = '常用在线工具集合，后续会持续迁移和补充。';
@@ -38,7 +43,10 @@ const draftTools = tools.filter((tool) => tool.status === 'draft');
             class="block rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:border-primary-500 dark:hover:border-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
           >
             <div class="flex items-center gap-3 mb-2">
-              <span class="text-2xl">{tool.icon}</span>
+              {(() => {
+                const Icon = iconMap[tool.icon];
+                return Icon ? <Icon class="w-6 h-6 text-primary-600 dark:text-primary-400 shrink-0" /> : null;
+              })()}
               <h3 class="text-lg font-semibold text-primary-600 dark:text-primary-400">{tool.name}</h3>
             </div>
             <p class="text-gray-600 dark:text-gray-400 text-sm">{tool.description}</p>
