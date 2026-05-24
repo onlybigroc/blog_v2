@@ -1,0 +1,390 @@
+---
+// Markdown 预览工具
+---
+
+<div class="space-y-4" id="md-preview-tool">
+  <!-- 工具栏 -->
+  <div class="flex flex-wrap items-center gap-3">
+    <button
+      id="btn-copy-md"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      复制 Markdown
+    </button>
+    <button
+      id="btn-copy-html"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      复制 HTML
+    </button>
+    <button
+      id="btn-fullscreen"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      全屏预览
+    </button>
+    <button
+      id="btn-sample"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      加载示例
+    </button>
+    <button
+      id="btn-clear"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      清空
+    </button>
+  </div>
+
+  <!-- 编辑区 + 预览区 -->
+  <div class="grid gap-4 lg:grid-cols-2" id="md-split">
+    <div class="flex flex-col">
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Markdown 输入</label>
+      <textarea
+        id="md-input"
+        class="w-full h-[32rem] p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        placeholder="在这里输入 Markdown..."
+        spellcheck="false"
+      ></textarea>
+    </div>
+    <div class="flex flex-col">
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">实时预览</label>
+      <div
+        id="md-preview"
+        class="w-full h-[32rem] p-6 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 overflow-y-auto prose prose-sm dark:prose-invert max-w-none"
+      >
+        <p class="text-gray-400 italic">预览将显示在这里...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 状态提示 -->
+  <div id="md-status" class="hidden rounded-lg p-3 text-sm"></div>
+</div>
+
+<script>
+  // --- Markdown 解析器（纯 regex，零依赖）---
+  function parseMarkdown(md: string): string {
+    if (!md.trim()) return '';
+
+    let html = md;
+
+    // 1. 代码块（```）—— 先保护，避免内部被其他规则干扰
+    const codeBlocks: string[] = [];
+    html = html.replace(/```(\w*)\n([\s\S]*?)```/g, (_m, lang, code) => {
+      const escaped = escapeHtml(code.replace(/\n$/, ''));
+      const langAttr = lang ? ` class="language-${lang}"` : '';
+      const idx = codeBlocks.length;
+      codeBlocks.push(`<pre class="bg-gray-100 dark:bg-gray-900 rounded-lg p-4 overflow-x-auto text-sm"><code${langAttr}>${escaped}</code></pre>`);
+      return `%%CODEBLOCK_${idx}%%`;
+    });
+
+    // 2. 行内代码
+    const inlineCodes: string[] = [];
+    html = html.replace(/`([^`]+)`/g, (_m, code) => {
+      const idx = inlineCodes.length;
+      inlineCodes.push(`<code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm font-mono text-pink-600 dark:text-pink-400">${escapeHtml(code)}</code>`);
+      return `%%INLINECODE_${idx}%%`;
+    });
+
+    // 3. 图片
+    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="max-w-full rounded-lg" />');
+
+    // 4. 链接
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-primary-600 dark:text-primary-400 underline hover:no-underline" target="_blank" rel="noopener">$1</a>');
+
+    // 5. 表格
+    html = parseTables(html);
+
+    // 6. 标题
+    html = html.replace(/^######\s+(.+)$/gm, '<h6 class="text-sm font-semibold mt-4 mb-2">$1</h6>');
+    html = html.replace(/^#####\s+(.+)$/gm, '<h5 class="text-base font-semibold mt-4 mb-2">$1</h5>');
+    html = html.replace(/^####\s+(.+)$/gm, '<h4 class="text-lg font-semibold mt-5 mb-2">$1</h4>');
+    html = html.replace(/^###\s+(.+)$/gm, '<h3 class="text-xl font-bold mt-6 mb-3">$1</h3>');
+    html = html.replace(/^##\s+(.+)$/gm, '<h2 class="text-2xl font-bold mt-8 mb-3 border-b pb-2 border-gray-200 dark:border-gray-700">$1</h2>');
+    html = html.replace(/^#\s+(.+)$/gm, '<h1 class="text-3xl font-bold mt-8 mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">$1</h1>');
+
+    // 7. 粗体 + 斜体
+    html = html.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+    html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+    html = html.replace(/___(.+?)___/g, '<strong><em>$1</em></strong>');
+    html = html.replace(/__(.+?)__/g, '<strong>$1</strong>');
+    html = html.replace(/_(.+?)_/g, '<em>$1</em>');
+
+    // 8. 删除线
+    html = html.replace(/~~(.+?)~~/g, '<del>$1</del>');
+
+    // 9. 引用块
+    html = html.replace(/^>\s+(.+)$/gm, '<blockquote class="pl-4 border-l-4 border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400 italic my-3">$1</blockquote>');
+    // 合并连续 blockquote
+    html = html.replace(/<\/blockquote>\n<blockquote[^>]*>/g, '\n');
+
+    // 10. 无序列表
+    html = parseLists(html);
+
+    // 11. 有序列表
+    html = parseOrderedLists(html);
+
+    // 12. 水平线
+    html = html.replace(/^(?:---|\*\*\*|___)\s*$/gm, '<hr class="my-6 border-gray-300 dark:border-gray-600" />');
+
+    // 13. 段落（连续非空行）
+    html = html.replace(/^(?!<[a-z/]|%%)(.+)$/gm, '<p class="my-2 leading-relaxed">$1</p>');
+
+    // 14. 换行
+    html = html.replace(/\n{2,}/g, '\n');
+
+    // 恢复代码块
+    codeBlocks.forEach((block, i) => {
+      html = html.replace(`%%CODEBLOCK_${i}%%`, block);
+    });
+    inlineCodes.forEach((code, i) => {
+      html = html.replace(`%%INLINECODE_${i}%%`, code);
+    });
+
+    return html;
+  }
+
+  function escapeHtml(s: string): string {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function parseTables(html: string): string {
+    const lines = html.split('\n');
+    const result: string[] = [];
+    let i = 0;
+
+    while (i < lines.length) {
+      // 检测表格：当前行有 | 且下一行是分隔行 |---|
+      if (i + 1 < lines.length && lines[i].includes('|') && /^\|?[\s\-:|]+\|?$/.test(lines[i + 1])) {
+        const headerLine = lines[i].trim();
+        const separatorLine = lines[i + 1].trim();
+        const headers = splitTableRow(headerLine);
+        const alignments = separatorLine.split('|').filter(c => c.trim()).map(c => {
+          const s = c.trim();
+          if (s.startsWith(':') && s.endsWith(':')) return 'center';
+          if (s.endsWith(':')) return 'right';
+          return 'left';
+        });
+
+        let tableHtml = '<div class="overflow-x-auto my-4"><table class="min-w-full border-collapse border border-gray-300 dark:border-gray-600">';
+        tableHtml += '<thead><tr>';
+        headers.forEach((h, j) => {
+          const align = alignments[j] || 'left';
+          tableHtml += `<th class="border border-gray-300 dark:border-gray-600 px-4 py-2 bg-gray-50 dark:bg-gray-800 text-${align} font-semibold">${h.trim()}</th>`;
+        });
+        tableHtml += '</tr></thead><tbody>';
+
+        i += 2; // 跳过 header + separator
+        while (i < lines.length && lines[i].includes('|')) {
+          const cells = splitTableRow(lines[i].trim());
+          tableHtml += '<tr>';
+          cells.forEach((c, j) => {
+            const align = alignments[j] || 'left';
+            tableHtml += `<td class="border border-gray-300 dark:border-gray-600 px-4 py-2 text-${align}">${c.trim()}</td>`;
+          });
+          tableHtml += '</tr>';
+          i++;
+        }
+        tableHtml += '</tbody></table></div>';
+        result.push(tableHtml);
+      } else {
+        result.push(lines[i]);
+        i++;
+      }
+    }
+    return result.join('\n');
+  }
+
+  function splitTableRow(line: string): string[] {
+    return line.replace(/^\||\|$/g, '').split('|');
+  }
+
+  function parseLists(html: string): string {
+    const lines = html.split('\n');
+    const result: string[] = [];
+    let inList = false;
+
+    for (const line of lines) {
+      const match = line.match(/^[\s]*[-*+]\s+(.+)$/);
+      if (match) {
+        if (!inList) {
+          result.push('<ul class="list-disc list-inside my-3 space-y-1">');
+          inList = true;
+        }
+        result.push(`<li>${match[1]}</li>`);
+      } else {
+        if (inList) {
+          result.push('</ul>');
+          inList = false;
+        }
+        result.push(line);
+      }
+    }
+    if (inList) result.push('</ul>');
+    return result.join('\n');
+  }
+
+  function parseOrderedLists(html: string): string {
+    const lines = html.split('\n');
+    const result: string[] = [];
+    let inList = false;
+
+    for (const line of lines) {
+      const match = line.match(/^[\s]*\d+\.\s+(.+)$/);
+      if (match) {
+        if (!inList) {
+          result.push('<ol class="list-decimal list-inside my-3 space-y-1">');
+          inList = true;
+        }
+        result.push(`<li>${match[1]}</li>`);
+      } else {
+        if (inList) {
+          result.push('</ol>');
+          inList = false;
+        }
+        result.push(line);
+      }
+    }
+    if (inList) result.push('</ol>');
+    return result.join('\n');
+  }
+
+  // --- 示例内容 ---
+  const sampleMarkdown = `# Markdown 示例
+
+这是一个 **Markdown 预览** 工具的示例内容。
+
+## 文本格式
+
+这是 *斜体*，这是 **粗体**，这是 ***粗斜体***。
+
+这是 ~~删除线~~ 效果。
+
+## 列表
+
+### 无序列表
+- 苹果
+- 香蕉
+- 橘子
+
+### 有序列表
+1. 第一步
+2. 第二步
+3. 第三步
+
+## 引用
+
+> 生活不止眼前的苟且，还有诗和远方的田野。
+
+## 代码
+
+行内代码：\`console.log('Hello')\`
+
+代码块：
+\`\`\`javascript
+function greet(name) {
+  return \`Hello, \${name}!\`;
+}
+console.log(greet('World'));
+\`\`\`
+
+## 链接和图片
+
+[访问 GitHub](https://github.com)
+
+![示例图片](https://picsum.photos/400/200)
+
+## 表格
+
+| 姓名 | 年龄 | 城市 |
+|------|------|------|
+| 张三 | 28   | 北京 |
+| 李四 | 32   | 上海 |
+| 王五 | 25   | 深圳 |
+
+## 分割线
+
+---
+
+感谢使用 Markdown 预览工具！`;
+
+  // --- DOM ---
+  const input = document.getElementById('md-input') as HTMLTextAreaElement;
+  const preview = document.getElementById('md-preview') as HTMLElement;
+  const status = document.getElementById('md-status') as HTMLElement;
+  const split = document.getElementById('md-split') as HTMLElement;
+
+  function showStatus(msg: string, type: 'success' | 'error') {
+    status.textContent = msg;
+    status.className = `rounded-lg p-3 text-sm ${type === 'success' ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'}`;
+    status.classList.remove('hidden');
+    setTimeout(() => status.classList.add('hidden'), 2000);
+  }
+
+  // 实时预览
+  let debounceTimer: number;
+  function updatePreview() {
+    clearTimeout(debounceTimer);
+    debounceTimer = window.setTimeout(() => {
+      const md = input.value;
+      if (!md.trim()) {
+        preview.innerHTML = '<p class="text-gray-400 italic">预览将显示在这里...</p>';
+        return;
+      }
+      preview.innerHTML = parseMarkdown(md);
+    }, 150);
+  }
+
+  input.addEventListener('input', updatePreview);
+
+  // 复制 Markdown
+  document.getElementById('btn-copy-md')?.addEventListener('click', async () => {
+    if (!input.value) return;
+    await navigator.clipboard.writeText(input.value);
+    showStatus('✅ Markdown 已复制', 'success');
+  });
+
+  // 复制 HTML
+  document.getElementById('btn-copy-html')?.addEventListener('click', async () => {
+    const html = preview.innerHTML;
+    if (!html || html.includes('预览将显示在这里')) return;
+    await navigator.clipboard.writeText(html);
+    showStatus('✅ HTML 已复制', 'success');
+  });
+
+  // 全屏预览
+  let isFullscreen = false;
+  const btnFullscreen = document.getElementById('btn-fullscreen')!;
+  btnFullscreen.addEventListener('click', () => {
+    isFullscreen = !isFullscreen;
+    if (isFullscreen) {
+      split.classList.remove('lg:grid-cols-2');
+      split.classList.add('lg:grid-cols-1');
+      // 隐藏输入区
+      (split.children[0] as HTMLElement).style.display = 'none';
+      preview.style.height = '80vh';
+      btnFullscreen.textContent = '退出全屏';
+    } else {
+      split.classList.remove('lg:grid-cols-1');
+      split.classList.add('lg:grid-cols-2');
+      (split.children[0] as HTMLElement).style.display = '';
+      preview.style.height = '';
+      btnFullscreen.textContent = '全屏预览';
+    }
+  });
+
+  // 加载示例
+  document.getElementById('btn-sample')?.addEventListener('click', () => {
+    input.value = sampleMarkdown;
+    updatePreview();
+  });
+
+  // 清空
+  document.getElementById('btn-clear')?.addEventListener('click', () => {
+    input.value = '';
+    preview.innerHTML = '<p class="text-gray-400 italic">预览将显示在这里...</p>';
+  });
+</script>

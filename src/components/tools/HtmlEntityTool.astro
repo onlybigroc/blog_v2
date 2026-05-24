@@ -1,0 +1,355 @@
+---
+// HTML 实体编解码工具
+---
+
+<div class="space-y-6" id="html-entity-tool">
+  <div class="flex flex-wrap items-center gap-3">
+    <button
+      id="he-encode"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      编码 →
+    </button>
+    <button
+      id="he-decode"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      ← 解码
+    </button>
+    <button
+      id="he-swap"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      ⇄ 互换
+    </button>
+    <button
+      id="he-copy-encoded"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      复制编码
+    </button>
+    <button
+      id="he-copy-decoded"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      复制原文
+    </button>
+    <button
+      id="he-clear"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      清空
+    </button>
+    <div class="flex items-center gap-2 ml-auto text-sm">
+      <label class="flex items-center gap-1 cursor-pointer">
+        <input type="radio" name="he-entity-type" value="named" id="he-type-named" class="rounded" checked />
+        <span class="text-gray-600 dark:text-gray-400">命名实体</span>
+      </label>
+      <label class="flex items-center gap-1 cursor-pointer">
+        <input type="radio" name="he-entity-type" value="numeric" id="he-type-numeric" class="rounded" />
+        <span class="text-gray-600 dark:text-gray-400">数字实体</span>
+      </label>
+      <label class="flex items-center gap-1 cursor-pointer">
+        <input type="radio" name="he-entity-type" value="hex" id="he-type-hex" class="rounded" />
+        <span class="text-gray-600 dark:text-gray-400">十六进制</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">原文</label>
+      <textarea
+        id="he-input"
+        class="w-full h-64 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        placeholder="输入要编码的文本，如 <div class=&quot;test&quot;>Hello &amp; World</div>"
+      ></textarea>
+      <div class="mt-1 text-xs text-gray-500" id="he-input-info"></div>
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">HTML 实体</label>
+      <textarea
+        id="he-output"
+        class="w-full h-64 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        placeholder="输入 HTML 实体编码，如 &amp;lt;div class=&amp;quot;test&amp;quot;&amp;gt;Hello &amp;amp; World&amp;lt;/div&amp;gt;"
+      ></textarea>
+      <div class="mt-1 text-xs text-gray-500" id="he-output-info"></div>
+    </div>
+  </div>
+
+  <div id="he-status" class="hidden rounded-lg p-3 text-sm"></div>
+
+  <!-- 实时预览 -->
+  <div>
+    <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">实时预览</label>
+    <div
+      id="he-preview"
+      class="w-full min-h-[4rem] p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-sm break-words"
+    >
+      <span class="text-gray-400">在左侧输入文本，编码结果将在此实时预览…</span>
+    </div>
+  </div>
+
+  <!-- 常用实体参考表 -->
+  <details class="rounded-lg border border-gray-200 dark:border-gray-700">
+    <summary class="px-4 py-3 cursor-pointer text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">
+      📋 常用 HTML 实体参考表
+    </summary>
+    <div class="px-4 pb-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-2">
+        <table class="text-sm">
+          <thead>
+            <tr class="text-left text-gray-500 dark:text-gray-400">
+              <th class="py-1 pr-3 font-medium">字符</th>
+              <th class="py-1 pr-3 font-medium">命名实体</th>
+              <th class="py-1 font-medium">数字实体</th>
+            </tr>
+          </thead>
+          <tbody id="he-entity-table" class="font-mono text-xs">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
+
+  <div class="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+    <p>💡 使用提示：</p>
+    <ul class="list-disc list-inside space-y-1">
+      <li>编码模式：将 <code>&lt;</code> <code>&gt;</code> <code>&amp;</code> <code>"</code> <code>'</code> 等特殊字符转为 HTML 实体</li>
+      <li>解码模式：将 HTML 实体（如 <code>&amp;amp;</code> <code>&amp;#60;</code> <code>&amp;#x3C;</code>）还原为字符</li>
+      <li>支持命名实体（<code>&amp;amp;</code>）、十进制（<code>&amp;#38;</code>）和十六进制（<code>&amp;#x26;</code>）三种格式</li>
+      <li>可用于安全地在 HTML 中显示代码片段，防止 XSS 注入</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const heInput = document.getElementById('he-input') as HTMLTextAreaElement;
+  const heOutput = document.getElementById('he-output') as HTMLTextAreaElement;
+  const heStatus = document.getElementById('he-status');
+  const heInputInfo = document.getElementById('he-input-info');
+  const heOutputInfo = document.getElementById('he-output-info');
+  const hePreview = document.getElementById('he-preview');
+
+  const typeNamed = document.getElementById('he-type-named') as HTMLInputElement;
+  const typeNumeric = document.getElementById('he-type-numeric') as HTMLInputElement;
+  const typeHex = document.getElementById('he-type-hex') as HTMLInputElement;
+
+  // 命名实体映射
+  const namedEntities: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&apos;',
+    ' ': '&nbsp;',
+    '©': '&copy;',
+    '®': '&reg;',
+    '™': '&trade;',
+    '€': '&euro;',
+    '£': '&pound;',
+    '¥': '&yen;',
+    '°': '&deg;',
+    '±': '&plusmn;',
+    '×': '&times;',
+    '÷': '&divide;',
+    '→': '&rarr;',
+    '←': '&larr;',
+    '↑': '&uarr;',
+    '↓': '&darr;',
+    '•': '&bull;',
+    '…': '&hellip;',
+    '«': '&laquo;',
+    '»': '&raquo;',
+    '—': '&mdash;',
+    '–': '&ndash;',
+    '†': '&dagger;',
+    '‡': '&Dagger;',
+    '§': '&sect;',
+    '¶': '&para;',
+    'µ': '&micro;',
+    '¢': '&cent;',
+    '¤': '&curren;',
+    '¡': '&iexcl;',
+    '¿': '&iquest;',
+    '«': '&laquo;',
+    '»': '&raquo;',
+  };
+
+  const namedEntitiesReverse: Record<string, string> = {};
+  for (const [char, entity] of Object.entries(namedEntities)) {
+    namedEntitiesReverse[entity] = char;
+  }
+
+  // 参考表数据
+  const refTable: [string, string, string][] = [
+    ['&', '&amp;', '&#38;'],
+    ['<', '&lt;', '&#60;'],
+    ['>', '&gt;', '&#62;'],
+    ['"', '&quot;', '&#34;'],
+    ["'", '&apos;', '&#39;'],
+    [' ', '&nbsp;', '&#160;'],
+    ['©', '&copy;', '&#169;'],
+    ['®', '&reg;', '&#174;'],
+    ['™', '&trade;', '&#8482;'],
+    ['€', '&euro;', '&#8364;'],
+    ['£', '&pound;', '&#163;'],
+    ['¥', '&yen;', '&#165;'],
+    ['°', '&deg;', '&#176;'],
+    ['±', '&plusmn;', '&#177;'],
+    ['×', '&times;', '&#215;'],
+    ['÷', '&divide;', '&#247;'],
+    ['→', '&rarr;', '&#8594;'],
+    ['←', '&larr;', '&#8592;'],
+    ['•', '&bull;', '&#8226;'],
+    ['…', '&hellip;', '&#8230;'],
+    ['—', '&mdash;', '&#8212;'],
+    ['–', '&ndash;', '&#8211;'],
+    ['§', '&sect;', '&#167;'],
+    ['¶', '&para;', '&#182;'],
+    ['«', '&laquo;', '&#171;'],
+    ['»', '&raquo;', '&#187;'],
+  ];
+
+  function getEntityType(): 'named' | 'numeric' | 'hex' {
+    if (typeNamed.checked) return 'named';
+    if (typeHex.checked) return 'hex';
+    return 'numeric';
+  }
+
+  function showStatus(msg: string, type: 'success' | 'error') {
+    if (!heStatus) return;
+    heStatus.textContent = msg;
+    heStatus.className = `rounded-lg p-3 text-sm ${type === 'success' ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'}`;
+    heStatus.classList.remove('hidden');
+  }
+
+  function updateInfo() {
+    if (heInputInfo) heInputInfo.textContent = `${heInput.value.length} 字符`;
+    if (heOutputInfo) heOutputInfo.textContent = `${heOutput.value.length} 字符`;
+  }
+
+  function encodeHtmlEntities(text: string): string {
+    const entityType = getEntityType();
+    let result = '';
+    for (const char of text) {
+      const code = char.codePointAt(0)!;
+      // 始终编码五个基本字符
+      if (char === '&' || char === '<' || char === '>' || char === '"' || char === "'") {
+        if (entityType === 'named') {
+          result += namedEntities[char] || char;
+        } else if (entityType === 'hex') {
+          result += `&#x${code.toString(16).toUpperCase()};`;
+        } else {
+          result += `&#${code};`;
+        }
+      } else if (code > 127) {
+        // 非 ASCII 字符
+        if (entityType === 'named' && namedEntities[char]) {
+          result += namedEntities[char];
+        } else if (entityType === 'hex') {
+          result += `&#x${code.toString(16).toUpperCase()};`;
+        } else {
+          result += `&#${code};`;
+        }
+      } else {
+        result += char;
+      }
+    }
+    return result;
+  }
+
+  function decodeHtmlEntities(text: string): string {
+    // 处理命名实体
+    let result = text.replace(/&[a-zA-Z]+;/g, (match) => {
+      if (namedEntitiesReverse[match]) return namedEntitiesReverse[match];
+      // 使用 DOM 解析其他命名实体
+      const temp = document.createElement('textarea');
+      temp.innerHTML = match;
+      return temp.value;
+    });
+    // 处理十六进制数字实体
+    result = result.replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => {
+      return String.fromCodePoint(parseInt(hex, 16));
+    });
+    // 处理十进制数字实体
+    result = result.replace(/&#(\d+);/g, (_, dec) => {
+      return String.fromCodePoint(parseInt(dec, 10));
+    });
+    return result;
+  }
+
+  function updatePreview() {
+    if (!hePreview) return;
+    if (!heInput.value) {
+      hePreview.innerHTML = '<span class="text-gray-400">在左侧输入文本，编码结果将在此实时预览…</span>';
+      return;
+    }
+    // 使用 textarea 的值作为编码结果进行预览
+    const encoded = heOutput.value || encodeHtmlEntities(heInput.value);
+    hePreview.textContent = encoded;
+  }
+
+  document.getElementById('he-encode')?.addEventListener('click', () => {
+    heOutput.value = encodeHtmlEntities(heInput.value);
+    showStatus('✅ 编码成功', 'success');
+    updateInfo();
+    updatePreview();
+  });
+
+  document.getElementById('he-decode')?.addEventListener('click', () => {
+    heInput.value = decodeHtmlEntities(heOutput.value);
+    showStatus('✅ 解码成功', 'success');
+    updateInfo();
+    updatePreview();
+  });
+
+  document.getElementById('he-swap')?.addEventListener('click', () => {
+    const tmp = heInput.value;
+    heInput.value = heOutput.value;
+    heOutput.value = tmp;
+    updateInfo();
+    updatePreview();
+  });
+
+  document.getElementById('he-copy-encoded')?.addEventListener('click', async () => {
+    if (!heOutput.value) return;
+    await navigator.clipboard.writeText(heOutput.value);
+    showStatus('✅ 已复制编码结果', 'success');
+  });
+
+  document.getElementById('he-copy-decoded')?.addEventListener('click', async () => {
+    if (!heInput.value) return;
+    await navigator.clipboard.writeText(heInput.value);
+    showStatus('✅ 已复制原文', 'success');
+  });
+
+  document.getElementById('he-clear')?.addEventListener('click', () => {
+    heInput.value = '';
+    heOutput.value = '';
+    heStatus?.classList.add('hidden');
+    updateInfo();
+    updatePreview();
+  });
+
+  // 实时编码
+  heInput?.addEventListener('input', () => {
+    heOutput.value = encodeHtmlEntities(heInput.value);
+    updateInfo();
+    updatePreview();
+  });
+
+  // 填充参考表
+  const tableBody = document.getElementById('he-entity-table');
+  if (tableBody) {
+    tableBody.innerHTML = refTable.map(([char, named, num]) =>
+      `<tr class="border-t border-gray-100 dark:border-gray-800">
+        <td class="py-1 pr-3 text-lg">${char}</td>
+        <td class="py-1 pr-3">${named}</td>
+        <td class="py-1">${num}</td>
+      </tr>`
+    ).join('');
+  }
+
+  [heInput, heOutput].forEach(el => el?.addEventListener('input', updateInfo));
+</script>

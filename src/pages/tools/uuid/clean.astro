@@ -1,0 +1,11 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import UuidTool from '@components/tools/UuidTool.astro';
+
+const title = 'UUID 生成器 | 工具';
+const description = '生成 UUID v4，支持批量生成和格式自定义。';
+---
+
+<ToolLayout title={title} description={description}>
+  <UuidTool />
+</ToolLayout>

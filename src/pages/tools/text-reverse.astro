@@ -1,0 +1,17 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import TextReverseTool from '@components/tools/TextReverseTool.astro';
+
+const title = '文本反转 | 工具';
+const description = '文本反转工具，支持按字符、行、单词多种反转模式。';
+---
+
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-4xl font-bold mt-3 mb-3">文本反转</h1>
+    <p class="text-gray-600 dark:text-gray-400">多种反转模式，支持 Unicode 和中文。</p>
+  </div>
+
+  <TextReverseTool />
+</MainLayout>

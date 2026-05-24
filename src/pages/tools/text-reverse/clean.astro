@@ -1,0 +1,11 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import TextReverseTool from '@components/tools/TextReverseTool.astro';
+
+const title = '文本反转 | 工具';
+const description = '文本反转工具，支持按字符、行、单词多种反转模式。';
+---
+
+<ToolLayout title={title} description={description}>
+  <TextReverseTool />
+</ToolLayout>

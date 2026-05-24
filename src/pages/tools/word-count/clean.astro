@@ -1,0 +1,11 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import WordCountTool from '@components/tools/WordCountTool.astro';
+
+const title = '文字计数 | 工具';
+const description = '实时统计字数、字符数、行数、段落，支持中英文混合。';
+---
+
+<ToolLayout title={title} description={description}>
+  <WordCountTool />
+</ToolLayout>

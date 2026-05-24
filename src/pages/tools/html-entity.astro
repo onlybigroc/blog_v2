@@ -1,0 +1,17 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import HtmlEntityTool from '@components/tools/HtmlEntityTool.astro';
+
+const title = 'HTML 实体编解码 | 工具';
+const description = 'HTML 实体编码解码，支持命名实体和数字实体。';
+---
+
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">HTML 实体编解码</h1>
+    <p class="text-gray-600 dark:text-gray-400">HTML 实体编码解码，支持命名实体和数字实体。</p>
+  </div>
+
+  <HtmlEntityTool />
+</MainLayout>

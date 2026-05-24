@@ -1,0 +1,252 @@
+---
+// 文本差异对比工具
+---
+
+<div class="space-y-6" id="text-diff-tool">
+  <div class="flex flex-wrap items-center gap-3">
+    <button
+      id="btn-compare"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      对比
+    </button>
+    <button
+      id="btn-swap"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      ⇄ 交换
+    </button>
+    <button
+      id="btn-copy"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      复制结果
+    </button>
+    <button
+      id="btn-clear"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      清空
+    </button>
+  </div>
+
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">原始文本</label>
+      <textarea
+        id="diff-left"
+        class="w-full h-72 p-4 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        placeholder="输入原始文本..."
+        spellcheck="false"
+      ></textarea>
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">修改文本</label>
+      <textarea
+        id="diff-right"
+        class="w-full h-72 p-4 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        placeholder="输入修改后的文本..."
+        spellcheck="false"
+      ></textarea>
+    </div>
+  </div>
+
+  <div id="diff-stats" class="hidden flex flex-wrap gap-4 text-sm">
+    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+      <span class="inline-block w-3 h-3 rounded-full bg-green-500"></span>
+      新增：<strong id="stat-added">0</strong> 行
+    </span>
+    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400">
+      <span class="inline-block w-3 h-3 rounded-full bg-red-500"></span>
+      删除：<strong id="stat-removed">0</strong> 行
+    </span>
+    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400">
+      <span class="inline-block w-3 h-3 rounded-full bg-yellow-500"></span>
+      修改：<strong id="stat-changed">0</strong> 行
+    </span>
+  </div>
+
+  <div id="diff-result" class="hidden rounded-xl border border-gray-300 dark:border-gray-600 overflow-hidden">
+    <div class="bg-gray-50 dark:bg-gray-900 px-4 py-2 border-b border-gray-300 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-300">
+      对比结果
+    </div>
+    <div id="diff-output" class="max-h-[32rem] overflow-auto font-mono text-sm leading-relaxed"></div>
+  </div>
+
+  <div id="diff-status" class="hidden rounded-lg p-3 text-sm"></div>
+
+  <div class="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+    <p>💡 使用提示：</p>
+    <ul class="list-disc list-inside space-y-1">
+      <li>逐行对比两段文本，高亮显示差异</li>
+      <li>🟢 绿色 = 新增行 &nbsp; 🔴 红色 = 删除行 &nbsp; 🟡 黄色 = 修改行</li>
+      <li>支持复制对比结果</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const leftEl = document.getElementById('diff-left') as HTMLTextAreaElement;
+  const rightEl = document.getElementById('diff-right') as HTMLTextAreaElement;
+  const resultEl = document.getElementById('diff-result');
+  const outputEl = document.getElementById('diff-output');
+  const statsEl = document.getElementById('diff-stats');
+  const statusEl = document.getElementById('diff-status');
+  const statAdded = document.getElementById('stat-added');
+  const statRemoved = document.getElementById('stat-removed');
+  const statChanged = document.getElementById('stat-changed');
+
+  type DiffLine = { type: 'equal' | 'added' | 'removed' | 'changed'; leftNum: number; rightNum: number; left: string; right: string };
+
+  function lcs(a: string[], b: string[]): number[][] {
+    const m = a.length, n = b.length;
+    const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    for (let i = 1; i <= m; i++) {
+      for (let j = 1; j <= n; j++) {
+        dp[i][j] = a[i - 1] === b[j - 1] ? dp[i - 1][j - 1] + 1 : Math.max(dp[i - 1][j], dp[i][j - 1]);
+      }
+    }
+    return dp;
+  }
+
+  function diffLines(leftText: string, rightText: string): DiffLine[] {
+    const leftLines = leftText.split('\n');
+    const rightLines = rightText.split('\n');
+    const dp = lcs(leftLines, rightLines);
+    const result: DiffLine[] = [];
+    let i = leftLines.length, j = rightLines.length;
+
+    const raw: DiffLine[] = [];
+    while (i > 0 || j > 0) {
+      if (i > 0 && j > 0 && leftLines[i - 1] === rightLines[j - 1]) {
+        raw.unshift({ type: 'equal', leftNum: i, rightNum: j, left: leftLines[i - 1], right: rightLines[j - 1] });
+        i--; j--;
+      } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
+        raw.unshift({ type: 'added', leftNum: 0, rightNum: j, left: '', right: rightLines[j - 1] });
+        j--;
+      } else {
+        raw.unshift({ type: 'removed', leftNum: i, rightNum: 0, left: leftLines[i - 1], right: '' });
+        i--;
+      }
+    }
+
+    // Merge adjacent removed+added into "changed"
+    let k = 0;
+    while (k < raw.length) {
+      if (raw[k].type === 'removed' && k + 1 < raw.length && raw[k + 1].type === 'added') {
+        result.push({ type: 'changed', leftNum: raw[k].leftNum, rightNum: raw[k + 1].rightNum, left: raw[k].left, right: raw[k + 1].right });
+        k += 2;
+      } else {
+        result.push(raw[k]);
+        k++;
+      }
+    }
+    return result;
+  }
+
+  function escapeHtml(s: string): string {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function renderDiff(diffs: DiffLine[]): string {
+    return diffs.map(d => {
+      const numCol = d.type === 'equal' || d.type === 'removed'
+        ? `<span class="inline-block w-10 text-right pr-2 text-gray-400 select-none">${d.leftNum || ''}</span>`
+        : `<span class="inline-block w-10 text-right pr-2 text-gray-400 select-none"> </span>`;
+      const numCol2 = d.type === 'equal' || d.type === 'added'
+        ? `<span class="inline-block w-10 text-right pr-2 text-gray-400 select-none">${d.rightNum || ''}</span>`
+        : `<span class="inline-block w-10 text-right pr-2 text-gray-400 select-none"> </span>`;
+
+      let prefix = ' ';
+      let bg = '';
+      let content = '';
+      switch (d.type) {
+        case 'added':
+          prefix = '+';
+          bg = 'bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-300';
+          content = escapeHtml(d.right);
+          break;
+        case 'removed':
+          prefix = '-';
+          bg = 'bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-300';
+          content = escapeHtml(d.left);
+          break;
+        case 'changed':
+          prefix = '~';
+          bg = 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-300';
+          content = `<del class="line-through opacity-60">${escapeHtml(d.left)}</del> → <ins class="no-underline">${escapeHtml(d.right)}</ins>`;
+          break;
+        default:
+          content = escapeHtml(d.left);
+      }
+      return `<div class="flex ${bg} px-2 py-0.5 border-b border-gray-100 dark:border-gray-800">${numCol}${numCol2}<span class="inline-block w-5 text-center select-none text-gray-500">${prefix}</span><span class="flex-1 whitespace-pre-wrap break-all">${content}</span></div>`;
+    }).join('');
+  }
+
+  function showStatus(msg: string, type: 'success' | 'error') {
+    if (!statusEl) return;
+    statusEl.textContent = msg;
+    statusEl.className = `rounded-lg p-3 text-sm ${type === 'success' ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'}`;
+    statusEl.classList.remove('hidden');
+  }
+
+  function doCompare() {
+    const left = leftEl.value;
+    const right = rightEl.value;
+    if (!left && !right) {
+      showStatus('请输入至少一段文本', 'error');
+      return;
+    }
+    const diffs = diffLines(left, right);
+    const added = diffs.filter(d => d.type === 'added').length;
+    const removed = diffs.filter(d => d.type === 'removed').length;
+    const changed = diffs.filter(d => d.type === 'changed').length;
+
+    if (outputEl) outputEl.innerHTML = renderDiff(diffs);
+    resultEl?.classList.remove('hidden');
+    statsEl?.classList.remove('hidden');
+    if (statAdded) statAdded.textContent = String(added);
+    if (statRemoved) statRemoved.textContent = String(removed);
+    if (statChanged) statChanged.textContent = String(changed);
+
+    if (added === 0 && removed === 0 && changed === 0) {
+      showStatus('✅ 两段文本完全相同', 'success');
+    } else {
+      statusEl?.classList.add('hidden');
+    }
+  }
+
+  document.getElementById('btn-compare')?.addEventListener('click', doCompare);
+
+  document.getElementById('btn-swap')?.addEventListener('click', () => {
+    const tmp = leftEl.value;
+    leftEl.value = rightEl.value;
+    rightEl.value = tmp;
+  });
+
+  document.getElementById('btn-copy')?.addEventListener('click', async () => {
+    if (!outputEl) return;
+    const text = outputEl.innerText;
+    if (!text) return;
+    await navigator.clipboard.writeText(text);
+    showStatus('✅ 已复制到剪贴板', 'success');
+  });
+
+  document.getElementById('btn-clear')?.addEventListener('click', () => {
+    leftEl.value = '';
+    rightEl.value = '';
+    resultEl?.classList.add('hidden');
+    statsEl?.classList.add('hidden');
+    statusEl?.classList.add('hidden');
+    if (outputEl) outputEl.innerHTML = '';
+  });
+
+  // Auto-compare on input
+  let debounceTimer: ReturnType<typeof setTimeout>;
+  function autoCompare() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(doCompare, 500);
+  }
+  leftEl?.addEventListener('input', autoCompare);
+  rightEl?.addEventListener('input', autoCompare);
+</script>

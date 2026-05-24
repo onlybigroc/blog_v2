@@ -1,0 +1,181 @@
+---
+// UUID 生成器
+---
+
+<div class="space-y-6" id="uuid-tool">
+  <!-- 操作按钮 -->
+  <div class="flex flex-wrap items-center gap-3">
+    <button
+      id="uuid-generate"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      🔄 生成 UUID
+    </button>
+    <button
+      id="uuid-copy-all"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      📋 复制全部
+    </button>
+  </div>
+
+  <!-- 配置 -->
+  <div class="grid gap-4 sm:grid-cols-3">
+    <div>
+      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+        生成数量：<span id="uuid-count-val" class="text-primary-600">1</span>
+      </label>
+      <input type="range" id="uuid-count" min="1" max="100" value="1" class="w-full accent-primary-600" />
+      <div class="flex justify-between text-xs text-gray-500"><span>1</span><span>100</span></div>
+    </div>
+    <div class="space-y-2">
+      <label class="flex items-center gap-2 cursor-pointer">
+        <input type="checkbox" id="uuid-uppercase" class="rounded" />
+        <span class="text-sm">大写字母</span>
+      </label>
+      <label class="flex items-center gap-2 cursor-pointer">
+        <input type="checkbox" id="uuid-no-hyphens" class="rounded" />
+        <span class="text-sm">去掉连字符 (-)</span>
+      </label>
+    </div>
+    <div class="flex items-end">
+      <div id="uuid-timestamp" class="text-xs text-gray-500 dark:text-gray-400"></div>
+    </div>
+  </div>
+
+  <!-- UUID 结果 -->
+  <div id="uuid-result" class="space-y-2">
+    <div class="text-center text-gray-400 dark:text-gray-500 py-8">
+      点击「生成 UUID」开始
+    </div>
+  </div>
+
+  <!-- 批量文本区 -->
+  <div id="uuid-batch-container" class="hidden">
+    <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">全部结果</label>
+    <textarea
+      id="uuid-batch-output"
+      class="w-full h-48 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y"
+      readonly
+    ></textarea>
+  </div>
+
+  <div id="uuid-status" class="hidden rounded-lg p-3 text-sm"></div>
+</div>
+
+<script>
+  const countInput = document.getElementById('uuid-count') as HTMLInputElement;
+  const countVal = document.getElementById('uuid-count-val')!;
+  const uppercaseCheck = document.getElementById('uuid-uppercase') as HTMLInputElement;
+  const noHyphensCheck = document.getElementById('uuid-no-hyphens') as HTMLInputElement;
+  const resultContainer = document.getElementById('uuid-result')!;
+  const batchContainer = document.getElementById('uuid-batch-container')!;
+  const batchOutput = document.getElementById('uuid-batch-output') as HTMLTextAreaElement;
+  const timestampEl = document.getElementById('uuid-timestamp')!;
+  const statusEl = document.getElementById('uuid-status')!;
+
+  function generateUuidV4(): string {
+    const bytes = new Uint8Array(16);
+    crypto.getRandomValues(bytes);
+    bytes[6] = (bytes[6] & 0x0f) | 0x40; // version 4
+    bytes[8] = (bytes[8] & 0x3f) | 0x80; // variant 1
+
+    const hex = Array.from(bytes, b => b.toString(16).padStart(2, '0')).join('');
+    return [
+      hex.slice(0, 8),
+      hex.slice(8, 12),
+      hex.slice(12, 16),
+      hex.slice(16, 20),
+      hex.slice(20, 32),
+    ].join('-');
+  }
+
+  function formatUuid(uuid: string): string {
+    let result = uuid;
+    if (uppercaseCheck.checked) result = result.toUpperCase();
+    if (noHyphensCheck.checked) result = result.replace(/-/g, '');
+    return result;
+  }
+
+  function showStatus(msg: string) {
+    statusEl.textContent = msg;
+    statusEl.className = 'rounded-lg p-3 text-sm bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400';
+    statusEl.classList.remove('hidden');
+    setTimeout(() => statusEl.classList.add('hidden'), 2000);
+  }
+
+  async function copyText(text: string) {
+    await navigator.clipboard.writeText(text);
+    showStatus('✅ 已复制到剪贴板');
+  }
+
+  function renderResults(uuids: string[]) {
+    const now = new Date();
+    timestampEl.textContent = `生成时间：${now.toLocaleString('zh-CN')}`;
+
+    if (uuids.length === 1) {
+      resultContainer.innerHTML = `
+        <div class="flex items-center gap-3 p-4 rounded-lg border-2 border-primary-200 dark:border-primary-800 bg-gray-50 dark:bg-gray-900">
+          <code class="flex-1 font-mono text-lg break-all">${uuids[0]}</code>
+          <button class="uuid-copy-single shrink-0 px-3 py-1.5 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm" data-uuid="${uuids[0]}">
+            📋 复制
+          </button>
+        </div>
+      `;
+    } else {
+      resultContainer.innerHTML = uuids
+        .map(
+          (u, i) => `
+        <div class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+          <span class="text-xs text-gray-400 w-8 text-right shrink-0">${i + 1}</span>
+          <code class="flex-1 font-mono text-sm break-all">${u}</code>
+          <button class="uuid-copy-single shrink-0 px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-xs" data-uuid="${u}">
+            📋
+          </button>
+        </div>
+      `
+        )
+        .join('');
+    }
+
+    // batch textarea
+    batchOutput.value = uuids.join('\n');
+    batchContainer.classList.toggle('hidden', uuids.length <= 1);
+
+    // bind single copy buttons
+    resultContainer.querySelectorAll('.uuid-copy-single').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const uuid = (btn as HTMLElement).dataset.uuid;
+        if (uuid) copyText(uuid);
+      });
+    });
+  }
+
+  function doGenerate() {
+    const count = parseInt(countInput.value);
+    const uuids = Array.from({ length: count }, () => formatUuid(generateUuidV4()));
+    renderResults(uuids);
+  }
+
+  countInput.addEventListener('input', () => {
+    countVal.textContent = countInput.value;
+  });
+
+  // re-format on option change
+  uppercaseCheck.addEventListener('change', () => {
+    if (batchOutput.value) doGenerate();
+  });
+  noHyphensCheck.addEventListener('change', () => {
+    if (batchOutput.value) doGenerate();
+  });
+
+  document.getElementById('uuid-generate')?.addEventListener('click', doGenerate);
+
+  document.getElementById('uuid-copy-all')?.addEventListener('click', () => {
+    if (!batchOutput.value) return;
+    copyText(batchOutput.value);
+  });
+
+  // initial generation
+  doGenerate();
+</script>

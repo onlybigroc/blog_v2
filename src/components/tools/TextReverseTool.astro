@@ -1,0 +1,181 @@
+---
+// 文本反转工具
+---
+
+<div class="space-y-6" id="text-reverse-tool">
+  <!-- 模式选择 -->
+  <div class="flex flex-wrap items-center gap-4">
+    <fieldset class="flex flex-wrap gap-3">
+      <legend class="sr-only">反转模式</legend>
+      <label class="flex items-center gap-1.5 cursor-pointer text-sm">
+        <input type="radio" name="tr-mode" value="char" checked class="text-primary-600" />
+        <span class="text-gray-700 dark:text-gray-300">整体字符反转</span>
+      </label>
+      <label class="flex items-center gap-1.5 cursor-pointer text-sm">
+        <input type="radio" name="tr-mode" value="line" class="text-primary-600" />
+        <span class="text-gray-700 dark:text-gray-300">逐行反转</span>
+      </label>
+      <label class="flex items-center gap-1.5 cursor-pointer text-sm">
+        <input type="radio" name="tr-mode" value="word" class="text-primary-600" />
+        <span class="text-gray-700 dark:text-gray-300">逐词反转</span>
+      </label>
+      <label class="flex items-center gap-1.5 cursor-pointer text-sm">
+        <input type="radio" name="tr-mode" value="word-order" class="text-primary-600" />
+        <span class="text-gray-700 dark:text-gray-300">词序反转</span>
+      </label>
+    </fieldset>
+  </div>
+
+  <!-- 操作按钮 -->
+  <div class="flex flex-wrap gap-3">
+    <button
+      id="tr-reverse"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      反转 →
+    </button>
+    <button
+      id="tr-swap"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      ⇄ 互换
+    </button>
+    <button
+      id="tr-copy-input"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      复制输入
+    </button>
+    <button
+      id="tr-copy-output"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      复制输出
+    </button>
+    <button
+      id="tr-clear"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      清空
+    </button>
+  </div>
+
+  <!-- 输入输出 -->
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">输入文本</label>
+      <textarea
+        id="tr-input"
+        class="w-full h-64 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        placeholder="输入要反转的文本..."
+      ></textarea>
+      <div class="mt-1 text-xs text-gray-500" id="tr-input-info"></div>
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">反转结果</label>
+      <textarea
+        id="tr-output"
+        class="w-full h-64 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        readonly
+        placeholder="反转结果..."
+      ></textarea>
+      <div class="mt-1 text-xs text-gray-500" id="tr-output-info"></div>
+    </div>
+  </div>
+
+  <div id="tr-status" class="hidden rounded-lg p-3 text-sm"></div>
+
+  <div class="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+    <p>💡 使用提示：</p>
+    <ul class="list-disc list-inside space-y-1">
+      <li><strong>整体字符反转</strong>：将全部字符倒序排列，如 "Hello" → "olleH"</li>
+      <li><strong>逐行反转</strong>：每行独立反转，行序不变</li>
+      <li><strong>逐词反转</strong>：每个单词内部字符反转，如 "Hello World" → "olleH dlroW"</li>
+      <li><strong>词序反转</strong>：每行内单词顺序反转，如 "Hello World" → "World Hello"</li>
+      <li>完整支持中文、日文、韩文等 Unicode 字符</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const $ = (s: string) => document.querySelector(s) as HTMLElement;
+  const input = $('#tr-input') as HTMLTextAreaElement;
+  const output = $('#tr-output') as HTMLTextAreaElement;
+  const status = $('#tr-status');
+
+  function showStatus(msg: string, isError = false) {
+    status.textContent = msg;
+    status.className = `rounded-lg p-3 text-sm ${isError ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300' : 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'}`;
+    status.classList.remove('hidden');
+    setTimeout(() => status.classList.add('hidden'), 2000);
+  }
+
+  function getMode(): string {
+    return (document.querySelector('input[name="tr-mode"]:checked') as HTMLInputElement)?.value || 'char';
+  }
+
+  function reverseChars(s: string): string {
+    return [...s].reverse().join('');
+  }
+
+  function reverseEachLine(text: string): string {
+    return text.split('\n').map(line => [...line].reverse().join('')).join('\n');
+  }
+
+  function reverseEachWord(text: string): string {
+    return text.split('\n').map(line =>
+      line.split(/(\s+)/).map(token =>
+        /^\s+$/.test(token) ? token : [...token].reverse().join('')
+      ).join('')
+    ).join('\n');
+  }
+
+  function reverseWordOrder(text: string): string {
+    return text.split('\n').map(line =>
+      line.split(/(\s+)/).filter(t => !/^\s+$/.test(t)).reverse().join(' ')
+    ).join('\n');
+  }
+
+  function updateInfo() {
+    const inputLen = [...input.value].length;
+    const outputLen = [...output.value].length;
+    $('#tr-input-info').textContent = input.value ? `${inputLen} 字符` : '';
+    $('#tr-output-info').textContent = output.value ? `${outputLen} 字符` : '';
+  }
+
+  function doReverse() {
+    const text = input.value;
+    if (!text) { showStatus('请先输入文本', true); return; }
+    const mode = getMode();
+    const fn = { char: reverseChars, line: reverseEachLine, word: reverseEachWord, 'word-order': reverseWordOrder }[mode]!;
+    output.value = fn(text);
+    updateInfo();
+  }
+
+  $('#tr-reverse').addEventListener('click', doReverse);
+
+  $('#tr-swap').addEventListener('click', () => {
+    [input.value, output.value] = [output.value, input.value];
+    updateInfo();
+  });
+
+  $('#tr-copy-input').addEventListener('click', async () => {
+    if (!input.value) return;
+    await navigator.clipboard.writeText(input.value);
+    showStatus('已复制输入文本');
+  });
+
+  $('#tr-copy-output').addEventListener('click', async () => {
+    if (!output.value) return;
+    await navigator.clipboard.writeText(output.value);
+    showStatus('已复制输出文本');
+  });
+
+  $('#tr-clear').addEventListener('click', () => {
+    input.value = '';
+    output.value = '';
+    updateInfo();
+  });
+
+  input.addEventListener('input', updateInfo);
+</script>

@@ -1,0 +1,455 @@
+---
+// CSV 查看器工具
+---
+
+<div class="space-y-6" id="csv-viewer-tool">
+  <!-- Controls -->
+  <div class="flex flex-wrap items-center gap-3">
+    <label class="text-sm text-gray-600 dark:text-gray-400">分隔符：</label>
+    <select
+      id="delimiter"
+      class="px-2 py-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm"
+    >
+      <option value="," selected>逗号 (,)</option>
+      <option value="	">Tab (\t)</option>
+      <option value=";">分号 (;)</option>
+      <option value="|">管道 (|)</option>
+    </select>
+
+    <label class="inline-flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400 ml-2">
+      <input type="checkbox" id="has-header" checked class="rounded" />
+      首行为表头
+    </label>
+
+    <button
+      id="btn-upload"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      📂 上传文件
+    </button>
+    <input type="file" id="file-input" accept=".csv,.tsv,.txt" class="hidden" />
+
+    <button
+      id="btn-export"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+      disabled
+    >
+      💾 导出 CSV
+    </button>
+
+    <button
+      id="btn-sample"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      示例
+    </button>
+
+    <button
+      id="btn-clear"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      清空
+    </button>
+  </div>
+
+  <!-- Input area -->
+  <div>
+    <textarea
+      id="csv-input"
+      rows="8"
+      placeholder="粘贴 CSV 数据，或点击「上传文件」..."
+      class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-y"
+    ></textarea>
+  </div>
+
+  <!-- Search & Stats -->
+  <div id="table-controls" class="hidden space-y-3">
+    <div class="flex flex-wrap items-center gap-4">
+      <div class="flex-1 min-w-[200px]">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="搜索过滤..."
+          class="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+        />
+      </div>
+      <div id="stats" class="text-sm text-gray-600 dark:text-gray-400 flex gap-4">
+        <span id="stat-rows"></span>
+        <span id="stat-cols"></span>
+        <span id="stat-filtered" class="hidden"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div id="table-container" class="hidden overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+    <table id="csv-table" class="w-full text-sm">
+      <thead id="csv-thead" class="bg-gray-50 dark:bg-gray-800"></thead>
+      <tbody id="csv-tbody" class="divide-y divide-gray-200 dark:divide-gray-700"></tbody>
+    </table>
+  </div>
+
+  <!-- Error -->
+  <div id="error-msg" class="hidden text-red-600 dark:text-red-400 text-sm"></div>
+</div>
+
+<script>
+(function() {
+  const input = document.getElementById('csv-input') as HTMLTextAreaElement;
+  const delimiterEl = document.getElementById('delimiter') as HTMLSelectElement;
+  const hasHeaderEl = document.getElementById('has-header') as HTMLInputElement;
+  const fileInput = document.getElementById('file-input') as HTMLInputElement;
+  const btnUpload = document.getElementById('btn-upload')!;
+  const btnExport = document.getElementById('btn-export') as HTMLButtonElement;
+  const btnSample = document.getElementById('btn-sample')!;
+  const btnClear = document.getElementById('btn-clear')!;
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const tableControls = document.getElementById('table-controls')!;
+  const tableContainer = document.getElementById('table-container')!;
+  const thead = document.getElementById('csv-thead')!;
+  const tbody = document.getElementById('csv-tbody')!;
+  const statsRows = document.getElementById('stat-rows')!;
+  const statsCols = document.getElementById('stat-cols')!;
+  const statsFiltered = document.getElementById('stat-filtered')!;
+  const errorMsg = document.getElementById('error-msg')!;
+
+  let parsedData: string[][] = [];
+  let headers: string[] = [];
+  let hasHeader = true;
+  let sortCol = -1;
+  let sortDir: 'asc' | 'desc' = 'asc';
+  let searchTerm = '';
+
+  // CSV parser that handles quoted fields
+  function parseCSV(text: string, delimiter: string): string[][] {
+    const rows: string[][] = [];
+    let row: string[] = [];
+    let field = '';
+    let inQuotes = false;
+    let i = 0;
+
+    while (i < text.length) {
+      const ch = text[i];
+
+      if (inQuotes) {
+        if (ch === '"') {
+          if (i + 1 < text.length && text[i + 1] === '"') {
+            field += '"';
+            i += 2;
+          } else {
+            inQuotes = false;
+            i++;
+          }
+        } else {
+          field += ch;
+          i++;
+        }
+      } else {
+        if (ch === '"') {
+          inQuotes = true;
+          i++;
+        } else if (ch === delimiter) {
+          row.push(field);
+          field = '';
+          i++;
+        } else if (ch === '\r') {
+          row.push(field);
+          field = '';
+          rows.push(row);
+          row = [];
+          i++;
+          if (i < text.length && text[i] === '\n') i++;
+        } else if (ch === '\n') {
+          row.push(field);
+          field = '';
+          rows.push(row);
+          row = [];
+          i++;
+        } else {
+          field += ch;
+          i++;
+        }
+      }
+    }
+
+    // Last field / row
+    if (field || row.length > 0) {
+      row.push(field);
+      rows.push(row);
+    }
+
+    // Remove trailing empty row
+    if (rows.length > 0 && rows[rows.length - 1].length === 1 && rows[rows.length - 1][0] === '') {
+      rows.pop();
+    }
+
+    return rows;
+  }
+
+  function render() {
+    const delimiter = delimiterEl.value;
+    const raw = input.value.trim();
+    if (!raw) {
+      tableControls.classList.add('hidden');
+      tableContainer.classList.add('hidden');
+      errorMsg.classList.add('hidden');
+      btnExport.disabled = true;
+      return;
+    }
+
+    errorMsg.classList.add('hidden');
+    try {
+      parsedData = parseCSV(raw, delimiter);
+    } catch (e: any) {
+      errorMsg.textContent = '解析出错：' + e.message;
+      errorMsg.classList.remove('hidden');
+      tableControls.classList.add('hidden');
+      tableContainer.classList.add('hidden');
+      btnExport.disabled = true;
+      return;
+    }
+
+    if (parsedData.length === 0) {
+      tableControls.classList.add('hidden');
+      tableContainer.classList.add('hidden');
+      btnExport.disabled = true;
+      return;
+    }
+
+    hasHeader = hasHeaderEl.checked;
+    headers = hasHeader
+      ? parsedData[0]
+      : parsedData[0].map((_, i) => `列 ${i + 1}`);
+    const dataRows = hasHeader ? parsedData.slice(1) : parsedData;
+
+    sortCol = -1;
+    sortDir = 'asc';
+    searchTerm = '';
+    searchInput.value = '';
+
+    renderTable(dataRows);
+    tableControls.classList.remove('hidden');
+    tableContainer.classList.remove('hidden');
+    btnExport.disabled = false;
+    updateStats(dataRows.length, headers.length, -1);
+  }
+
+  function updateStats(total: number, cols: number, filtered: number) {
+    statsRows.textContent = `行数：${total}`;
+    statsCols.textContent = `列数：${cols}`;
+    if (filtered >= 0 && filtered !== total) {
+      statsFiltered.textContent = `匹配：${filtered}`;
+      statsFiltered.classList.remove('hidden');
+    } else {
+      statsFiltered.classList.add('hidden');
+    }
+  }
+
+  function renderTable(rows: string[][]) {
+    // Header
+    thead.innerHTML = '';
+    const tr = document.createElement('tr');
+    headers.forEach((h, idx) => {
+      const th = document.createElement('th');
+      th.className = 'px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider cursor-pointer select-none hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors whitespace-nowrap';
+      const label = document.createElement('span');
+      label.textContent = h || `列 ${idx + 1}`;
+      th.appendChild(label);
+
+      if (sortCol === idx) {
+        const arrow = document.createElement('span');
+        arrow.className = 'ml-1 text-primary-600';
+        arrow.textContent = sortDir === 'asc' ? ' ▲' : ' ▼';
+        th.appendChild(arrow);
+      }
+
+      th.addEventListener('click', () => sortByColumn(idx));
+      tr.appendChild(th);
+    });
+    thead.appendChild(tr);
+
+    // Body
+    tbody.innerHTML = '';
+    rows.forEach(row => {
+      const tr = document.createElement('tr');
+      tr.className = 'hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors';
+      headers.forEach((_, i) => {
+        const td = document.createElement('td');
+        td.className = 'px-4 py-2.5 text-gray-800 dark:text-gray-200 whitespace-nowrap';
+        td.textContent = row[i] ?? '';
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  }
+
+  function getFilteredRows(): string[][] {
+    const dataRows = hasHeader ? parsedData.slice(1) : parsedData;
+    if (!searchTerm) return dataRows;
+    const term = searchTerm.toLowerCase();
+    return dataRows.filter(row =>
+      row.some(cell => (cell ?? '').toLowerCase().includes(term))
+    );
+  }
+
+  function sortByColumn(colIdx: number) {
+    if (sortCol === colIdx) {
+      sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      sortCol = colIdx;
+      sortDir = 'asc';
+    }
+
+    let rows = getFilteredRows();
+    rows = [...rows].sort((a, b) => {
+      const va = (a[colIdx] ?? '').trim();
+      const vb = (b[colIdx] ?? '').trim();
+      const na = Number(va);
+      const nb = Number(vb);
+      let cmp: number;
+      if (!isNaN(na) && !isNaN(nb)) {
+        cmp = na - nb;
+      } else {
+        cmp = va.localeCompare(vb, 'zh-CN');
+      }
+      return sortDir === 'asc' ? cmp : -cmp;
+    });
+
+    renderTable(rows);
+  }
+
+  // Debounce helper
+  function debounce(fn: Function, ms: number) {
+    let timer: number;
+    return (...args: any[]) => {
+      clearTimeout(timer);
+      timer = window.setTimeout(() => fn(...args), ms);
+    };
+  }
+
+  const debouncedRender = debounce(render, 300);
+  input.addEventListener('input', debouncedRender);
+  delimiterEl.addEventListener('change', render);
+  hasHeaderEl.addEventListener('change', render);
+
+  searchInput.addEventListener('input', debounce(() => {
+    searchTerm = searchInput.value.trim();
+    const dataRows = hasHeader ? parsedData.slice(1) : parsedData;
+    let filtered = getFilteredRows();
+    if (sortCol >= 0) {
+      filtered = [...filtered].sort((a, b) => {
+        const va = (a[sortCol] ?? '').trim();
+        const vb = (b[sortCol] ?? '').trim();
+        const na = Number(va);
+        const nb = Number(vb);
+        let cmp: number;
+        if (!isNaN(na) && !isNaN(nb)) {
+          cmp = na - nb;
+        } else {
+          cmp = va.localeCompare(vb, 'zh-CN');
+        }
+        return sortDir === 'asc' ? cmp : -cmp;
+      });
+    }
+    renderTable(filtered);
+    updateStats(dataRows.length, headers.length, filtered.length);
+  }, 250));
+
+  // File upload
+  btnUpload.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => {
+    const file = fileInput.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      input.value = reader.result as string;
+      // Auto-detect delimiter from file content
+      const sample = (reader.result as string).slice(0, 2000);
+      const tabCount = (sample.match(/\t/g) || []).length;
+      const commaCount = (sample.match(/,/g) || []).length;
+      const semiCount = (sample.match(/;/g) || []).length;
+      const pipeCount = (sample.match(/\|/g) || []).length;
+      const max = Math.max(tabCount, commaCount, semiCount, pipeCount);
+      if (max === tabCount && tabCount > 0) delimiterEl.value = '\t';
+      else if (max === semiCount && semiCount > 0) delimiterEl.value = ';';
+      else if (max === pipeCount && pipeCount > 0) delimiterEl.value = '|';
+      else delimiterEl.value = ',';
+      render();
+    };
+    reader.readAsText(file);
+    fileInput.value = '';
+  });
+
+  // Drag & drop on textarea
+  input.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    input.classList.add('ring-2', 'ring-primary-500');
+  });
+  input.addEventListener('dragleave', () => {
+    input.classList.remove('ring-2', 'ring-primary-500');
+  });
+  input.addEventListener('drop', (e) => {
+    e.preventDefault();
+    input.classList.remove('ring-2', 'ring-primary-500');
+    const file = e.dataTransfer?.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      input.value = reader.result as string;
+      render();
+    };
+    reader.readAsText(file);
+  });
+
+  // Export CSV
+  btnExport.addEventListener('click', () => {
+    if (parsedData.length === 0) return;
+    const delimiter = delimiterEl.value;
+    const escCell = (cell: string) => {
+      if (cell.includes('"') || cell.includes(delimiter) || cell.includes('\n')) {
+        return '"' + cell.replace(/"/g, '""') + '"';
+      }
+      return cell;
+    };
+    const lines = parsedData.map(row => row.map(escCell).join(delimiter));
+    const blob = new Blob(['\uFEFF' + lines.join('\n')], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'export.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  // Sample data
+  btnSample.addEventListener('click', () => {
+    input.value = `姓名,年龄,城市,职业,月薪
+张三,28,北京,工程师,25000
+李四,35,上海,设计师,20000
+王五,42,深圳,产品经理,30000
+赵六,31,广州,数据分析师,22000
+孙七,26,杭州,前端开发,18000
+周八,38,成都,技术总监,45000
+吴九,29,南京,后端开发,21000
+郑十,33,武汉,运维工程师,19000
+"陈一一",45,北京,"高级架构师,首席",55000
+林二二,27,厦门,UI设计师,17000`;
+    delimiterEl.value = ',';
+    render();
+  });
+
+  // Clear
+  btnClear.addEventListener('click', () => {
+    input.value = '';
+    parsedData = [];
+    headers = [];
+    sortCol = -1;
+    searchTerm = '';
+    searchInput.value = '';
+    tableControls.classList.add('hidden');
+    tableContainer.classList.add('hidden');
+    errorMsg.classList.add('hidden');
+    btnExport.disabled = true;
+  });
+})();
+</script>

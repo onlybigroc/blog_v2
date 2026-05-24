@@ -1,0 +1,466 @@
+---
+// JSON ⇄ CSV 互转工具
+---
+
+<div class="space-y-6" id="json-csv-tool">
+  <div class="flex flex-wrap items-center gap-3">
+    <div class="flex rounded-lg overflow-hidden border border-gray-300 dark:border-gray-600">
+      <button
+        id="tab-json-csv"
+        class="px-4 py-2 text-sm font-medium bg-primary-600 text-white transition-colors"
+      >
+        JSON → CSV
+      </button>
+      <button
+        id="tab-csv-json"
+        class="px-4 py-2 text-sm font-medium bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+      >
+        CSV → JSON
+      </button>
+    </div>
+    <div class="flex items-center gap-2 text-sm">
+      <label class="text-gray-600 dark:text-gray-400">分隔符：</label>
+      <select
+        id="delimiter"
+        class="px-2 py-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm"
+      >
+        <option value="," selected>逗号 (,)</option>
+        <option value=";">分号 (;)</option>
+        <option value="\t">Tab</option>
+        <option value="|">管道 (|)</option>
+        <option value="custom">自定义…</option>
+      </select>
+      <input
+        id="custom-delimiter"
+        type="text"
+        class="w-16 px-2 py-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm hidden"
+        placeholder="符号"
+        maxlength="5"
+      />
+    </div>
+    <div class="flex items-center gap-2 ml-auto">
+      <label class="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+        <input id="flatten-nested" type="checkbox" checked class="rounded" />
+        展平嵌套对象
+      </label>
+    </div>
+  </div>
+
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div>
+      <label id="input-label" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">输入 JSON</label>
+      <textarea
+        id="input-area"
+        class="w-full h-72 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        placeholder='粘贴 JSON 数组，如 [{"name":"Alice","age":30},{"name":"Bob","age":25}]'
+        spellcheck="false"
+      ></textarea>
+    </div>
+    <div>
+      <label id="output-label" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">输出 CSV</label>
+      <textarea
+        id="output-area"
+        class="w-full h-72 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm resize-y"
+        readonly
+        placeholder="转换结果将显示在这里..."
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap items-center gap-3">
+    <button
+      id="btn-convert"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      转换
+    </button>
+    <button
+      id="btn-swap"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      ⇄ 交换
+    </button>
+    <button
+      id="btn-copy"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      复制结果
+    </button>
+    <button
+      id="btn-download"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      下载文件
+    </button>
+    <button
+      id="btn-clear"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      清空
+    </button>
+    <button
+      id="btn-sample"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      示例
+    </button>
+    <button
+      id="btn-preview"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      预览表格
+    </button>
+  </div>
+
+  <div id="status" class="hidden rounded-lg p-3 text-sm"></div>
+
+  <!-- Table preview -->
+  <div id="preview-container" class="hidden overflow-x-auto rounded-lg border border-gray-300 dark:border-gray-600">
+    <table id="preview-table" class="min-w-full text-sm">
+      <thead id="preview-thead" class="bg-gray-100 dark:bg-gray-800"></thead>
+      <tbody id="preview-tbody" class="divide-y divide-gray-200 dark:divide-gray-700"></tbody>
+    </table>
+  </div>
+
+  <div class="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+    <p>💡 使用提示：</p>
+    <ul class="list-disc list-inside space-y-1">
+      <li>支持 JSON 数组 → CSV 和 CSV → JSON 数组双向转换</li>
+      <li>嵌套对象会用点号展平（如 <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded">address.city</code>）</li>
+      <li>可自定义分隔符，支持逗号、分号、Tab、管道符</li>
+      <li>支持预览表格、复制和下载</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const inputArea = document.getElementById('input-area') as HTMLTextAreaElement;
+  const outputArea = document.getElementById('output-area') as HTMLTextAreaElement;
+  const status = document.getElementById('status');
+  const tabJsonCsv = document.getElementById('tab-json-csv');
+  const tabCsvJson = document.getElementById('tab-csv-json');
+  const inputLabel = document.getElementById('input-label');
+  const outputLabel = document.getElementById('output-label');
+  const delimiterSelect = document.getElementById('delimiter') as HTMLSelectElement;
+  const customDelimiterInput = document.getElementById('custom-delimiter') as HTMLInputElement;
+  const flattenCheckbox = document.getElementById('flatten-nested') as HTMLInputElement;
+  const previewContainer = document.getElementById('preview-container');
+  const previewThead = document.getElementById('preview-thead');
+  const previewTbody = document.getElementById('preview-tbody');
+
+  let mode: 'json-csv' | 'csv-json' = 'json-csv';
+
+  function showStatus(msg: string, type: 'success' | 'error') {
+    if (!status) return;
+    status.textContent = msg;
+    status.className = `rounded-lg p-3 text-sm ${type === 'success' ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'}`;
+    status.classList.remove('hidden');
+  }
+
+  function getDelimiter(): string {
+    const val = delimiterSelect.value;
+    if (val === 'custom') return customDelimiterInput.value || ',';
+    if (val === '\\t') return '\t';
+    return val;
+  }
+
+  function switchMode(newMode: 'json-csv' | 'csv-json') {
+    mode = newMode;
+    if (mode === 'json-csv') {
+      tabJsonCsv!.className = 'px-4 py-2 text-sm font-medium bg-primary-600 text-white transition-colors';
+      tabCsvJson!.className = 'px-4 py-2 text-sm font-medium bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors';
+      inputLabel!.textContent = '输入 JSON';
+      outputLabel!.textContent = '输出 CSV';
+      inputArea.placeholder = '粘贴 JSON 数组，如 [{"name":"Alice","age":30},{"name":"Bob","age":25}]';
+      outputArea.placeholder = '转换结果将显示在这里...';
+    } else {
+      tabCsvJson!.className = 'px-4 py-2 text-sm font-medium bg-primary-600 text-white transition-colors';
+      tabJsonCsv!.className = 'px-4 py-2 text-sm font-medium bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors';
+      inputLabel!.textContent = '输入 CSV';
+      outputLabel!.textContent = '输出 JSON';
+      inputArea.placeholder = '粘贴 CSV 数据，如\nname,age\nAlice,30\nBob,25';
+      outputArea.placeholder = '转换结果将显示在这里...';
+    }
+    previewContainer?.classList.add('hidden');
+  }
+
+  // Flatten nested object with dot notation
+  function flattenObject(obj: Record<string, any>, prefix = ''): Record<string, any> {
+    const result: Record<string, any> = {};
+    for (const key of Object.keys(obj)) {
+      const fullKey = prefix ? `${prefix}.${key}` : key;
+      const val = obj[key];
+      if (val && typeof val === 'object' && !Array.isArray(val) && !(val instanceof Date)) {
+        Object.assign(result, flattenObject(val, fullKey));
+      } else if (Array.isArray(val)) {
+        result[fullKey] = JSON.stringify(val);
+      } else {
+        result[fullKey] = val;
+      }
+    }
+    return result;
+  }
+
+  // Escape CSV field
+  function escapeCsvField(val: any, delimiter: string): string {
+    if (val === null || val === undefined) return '';
+    const str = String(val);
+    const needsQuote = str.includes(delimiter) || str.includes('"') || str.includes('\n') || str.includes('\r');
+    if (needsQuote) {
+      return '"' + str.replace(/"/g, '""') + '"';
+    }
+    return str;
+  }
+
+  // JSON → CSV
+  function jsonToCsv(): boolean {
+    try {
+      let data = JSON.parse(inputArea.value);
+      if (!Array.isArray(data)) {
+        if (typeof data === 'object' && data !== null) {
+          data = [data];
+        } else {
+          showStatus('❌ JSON 数据必须是对象数组', 'error');
+          return false;
+        }
+      }
+      if (data.length === 0) {
+        outputArea.value = '';
+        showStatus('⚠️ 空数组', 'error');
+        return false;
+      }
+
+      const flatten = flattenCheckbox.checked;
+      const delimiter = getDelimiter();
+      const rows = data.map(item => {
+        if (typeof item !== 'object' || item === null) return { value: item };
+        return flatten ? flattenObject(item) : item;
+      });
+
+      // Collect all keys
+      const allKeys = new Set<string>();
+      rows.forEach(row => Object.keys(row).forEach(k => allKeys.add(k)));
+      const headers = Array.from(allKeys);
+
+      const lines = [headers.map(h => escapeCsvField(h, delimiter)).join(delimiter)];
+      for (const row of rows) {
+        const line = headers.map(h => escapeCsvField((row as Record<string, any>)[h], delimiter)).join(delimiter);
+        lines.push(line);
+      }
+
+      outputArea.value = lines.join('\n');
+      showStatus(`✅ 转换成功，${rows.length} 行数据`, 'success');
+      return true;
+    } catch (e) {
+      showStatus(`❌ JSON 解析错误：${(e as Error).message}`, 'error');
+      return false;
+    }
+  }
+
+  // Parse CSV line respecting quotes
+  function parseCsvLine(line: string, delimiter: string): string[] {
+    const result: string[] = [];
+    let current = '';
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (inQuotes) {
+        if (ch === '"') {
+          if (i + 1 < line.length && line[i + 1] === '"') {
+            current += '"';
+            i++;
+          } else {
+            inQuotes = false;
+          }
+        } else {
+          current += ch;
+        }
+      } else {
+        if (ch === '"') {
+          inQuotes = true;
+        } else if (ch === delimiter) {
+          result.push(current);
+          current = '';
+        } else {
+          current += ch;
+        }
+      }
+    }
+    result.push(current);
+    return result;
+  }
+
+  // Unflatten dot-notation keys back to nested objects
+  function unflattenObject(flat: Record<string, any>): Record<string, any> {
+    const result: Record<string, any> = {};
+    for (const key of Object.keys(flat)) {
+      const parts = key.split('.');
+      let current = result;
+      for (let i = 0; i < parts.length - 1; i++) {
+        if (!(parts[i] in current) || typeof current[parts[i]] !== 'object' || current[parts[i]] === null) {
+          current[parts[i]] = {};
+        }
+        current = current[parts[i]];
+      }
+      const lastKey = parts[parts.length - 1];
+      let val = flat[key];
+      // Try to parse JSON arrays/objects stored as strings
+      if (typeof val === 'string' && ((val.startsWith('[') && val.endsWith(']')) || (val.startsWith('{') && val.endsWith('}')))) {
+        try { val = JSON.parse(val); } catch {}
+      }
+      // Try to parse numbers
+      if (typeof val === 'string' && val !== '' && !isNaN(Number(val))) {
+        val = Number(val);
+      }
+      // Try to parse booleans
+      if (val === 'true') val = true;
+      else if (val === 'false') val = false;
+      current[lastKey] = val;
+    }
+    return result;
+  }
+
+  // CSV → JSON
+  function csvToJson(): boolean {
+    try {
+      const delimiter = getDelimiter();
+      const lines = inputArea.value.split(/\r?\n/).filter(l => l.trim() !== '');
+      if (lines.length < 2) {
+        showStatus('❌ CSV 至少需要表头和一行数据', 'error');
+        return false;
+      }
+
+      const headers = parseCsvLine(lines[0], delimiter);
+      const result: Record<string, any>[] = [];
+
+      for (let i = 1; i < lines.length; i++) {
+        const values = parseCsvLine(lines[i], delimiter);
+        const obj: Record<string, any> = {};
+        headers.forEach((h, idx) => {
+          obj[h] = values[idx] !== undefined ? values[idx] : '';
+        });
+        result.push(unflattenObject(obj));
+      }
+
+      outputArea.value = JSON.stringify(result, null, 2);
+      showStatus(`✅ 转换成功，${result.length} 条记录`, 'success');
+      return true;
+    } catch (e) {
+      showStatus(`❌ CSV 解析错误：${(e as Error).message}`, 'error');
+      return false;
+    }
+  }
+
+  // Preview table
+  function previewTable() {
+    const delimiter = getDelimiter();
+    let headers: string[] = [];
+    let rows: string[][] = [];
+
+    if (mode === 'json-csv') {
+      // Build from output CSV
+      if (!outputArea.value.trim()) {
+        if (!jsonToCsv()) return;
+      }
+      const lines = outputArea.value.split(/\r?\n/).filter(l => l.trim() !== '');
+      if (lines.length === 0) return;
+      headers = parseCsvLine(lines[0], delimiter);
+      rows = lines.slice(1).map(l => parseCsvLine(l, delimiter));
+    } else {
+      // From input CSV
+      const lines = inputArea.value.split(/\r?\n/).filter(l => l.trim() !== '');
+      if (lines.length < 2) {
+        showStatus('❌ 数据不足，无法预览', 'error');
+        return;
+      }
+      headers = parseCsvLine(lines[0], delimiter);
+      rows = lines.slice(1).map(l => parseCsvLine(l, delimiter));
+    }
+
+    if (!previewThead || !previewTbody || !previewContainer) return;
+
+    previewThead.innerHTML = '<tr>' + headers.map(h => `<th class="px-4 py-2 text-left font-semibold whitespace-nowrap">${escapeHtml(h)}</th>`).join('') + '</tr>';
+    previewTbody.innerHTML = rows.map(row =>
+      '<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">' +
+      headers.map((_, i) => `<td class="px-4 py-2 whitespace-nowrap">${escapeHtml(row[i] || '')}</td>`).join('') +
+      '</tr>'
+    ).join('');
+
+    previewContainer.classList.remove('hidden');
+  }
+
+  function escapeHtml(str: string): string {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  // Download file
+  function downloadFile() {
+    if (!outputArea.value) return;
+    const ext = mode === 'json-csv' ? 'csv' : 'json';
+    const mime = mode === 'json-csv' ? 'text/csv' : 'application/json';
+    const blob = new Blob([outputArea.value], { type: mime });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `converted.${ext}`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  // Event listeners
+  tabJsonCsv?.addEventListener('click', () => switchMode('json-csv'));
+  tabCsvJson?.addEventListener('click', () => switchMode('csv-json'));
+
+  delimiterSelect?.addEventListener('change', () => {
+    if (delimiterSelect.value === 'custom') {
+      customDelimiterInput.classList.remove('hidden');
+      customDelimiterInput.focus();
+    } else {
+      customDelimiterInput.classList.add('hidden');
+    }
+  });
+
+  document.getElementById('btn-convert')?.addEventListener('click', () => {
+    previewContainer?.classList.add('hidden');
+    if (mode === 'json-csv') jsonToCsv();
+    else csvToJson();
+  });
+
+  document.getElementById('btn-swap')?.addEventListener('click', () => {
+    const tmp = inputArea.value;
+    inputArea.value = outputArea.value;
+    outputArea.value = tmp;
+    switchMode(mode === 'json-csv' ? 'csv-json' : 'json-csv');
+    status?.classList.add('hidden');
+    previewContainer?.classList.add('hidden');
+  });
+
+  document.getElementById('btn-copy')?.addEventListener('click', async () => {
+    if (!outputArea.value) return;
+    await navigator.clipboard.writeText(outputArea.value);
+    showStatus('✅ 已复制到剪贴板', 'success');
+  });
+
+  document.getElementById('btn-download')?.addEventListener('click', () => downloadFile());
+
+  document.getElementById('btn-clear')?.addEventListener('click', () => {
+    inputArea.value = '';
+    outputArea.value = '';
+    status?.classList.add('hidden');
+    previewContainer?.classList.add('hidden');
+  });
+
+  document.getElementById('btn-sample')?.addEventListener('click', () => {
+    if (mode === 'json-csv') {
+      inputArea.value = JSON.stringify([
+        { name: "Alice", age: 30, address: { city: "北京", district: "朝阳" }, tags: ["admin", "user"] },
+        { name: "Bob", age: 25, address: { city: "上海", district: "浦东" }, tags: ["user"] },
+        { name: "Charlie", age: 35, address: { city: "深圳", district: "南山" }, tags: [] }
+      ], null, 2);
+    } else {
+      inputArea.value = 'name,age,address.city,address.district,tags\nAlice,30,北京,朝阳,"[""admin"",""user""]"\nBob,25,上海,浦东,"[""user""]"\nCharlie,35,深圳,南山,[]';
+    }
+  });
+
+  document.getElementById('btn-preview')?.addEventListener('click', () => previewTable());
+</script>

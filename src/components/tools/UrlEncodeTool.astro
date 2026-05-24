@@ -1,0 +1,222 @@
+---
+// URL 编解码工具
+---
+
+<div class="space-y-6" id="url-encode-tool">
+  <div class="flex flex-wrap items-center gap-3">
+    <button
+      id="ue-encode"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      编码 →
+    </button>
+    <button
+      id="ue-decode"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      ← 解码
+    </button>
+    <button
+      id="ue-swap"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      ⇄ 互换
+    </button>
+    <button
+      id="ue-copy-encoded"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      复制编码
+    </button>
+    <button
+      id="ue-copy-decoded"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      复制原文
+    </button>
+    <button
+      id="ue-clear"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      清空
+    </button>
+    <div class="flex items-center gap-2 ml-auto text-sm">
+      <label class="flex items-center gap-1 cursor-pointer">
+        <input type="radio" name="ue-mode" value="component" class="rounded" checked />
+        <span class="text-gray-600 dark:text-gray-400">encodeURIComponent</span>
+      </label>
+      <label class="flex items-center gap-1 cursor-pointer ml-2">
+        <input type="radio" name="ue-mode" value="uri" class="rounded" />
+        <span class="text-gray-600 dark:text-gray-400">encodeURI</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">原文</label>
+      <textarea
+        id="ue-input"
+        class="w-full h-64 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        placeholder="输入要编码的文本，支持批量（每行一条）..."
+      ></textarea>
+      <div class="mt-1 text-xs text-gray-500" id="ue-input-info"></div>
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">URL 编码</label>
+      <textarea
+        id="ue-output"
+        class="w-full h-64 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+        placeholder="输入 URL 编码字符串..."
+      ></textarea>
+      <div class="mt-1 text-xs text-gray-500" id="ue-output-info"></div>
+    </div>
+  </div>
+
+  <div id="ue-status" class="hidden rounded-lg p-3 text-sm"></div>
+
+  <div class="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+    <p>💡 使用提示：</p>
+    <ul class="list-disc list-inside space-y-1">
+      <li><strong>encodeURIComponent</strong>：编码所有特殊字符，适合编码参数值</li>
+      <li><strong>encodeURI</strong>：保留 URL 结构字符（: / ? # [ ] @ 等），适合编码完整 URL</li>
+      <li>支持批量处理，每行一条独立编解码</li>
+      <li>支持中文及所有 Unicode 字符</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const ueInput = document.getElementById('ue-input') as HTMLTextAreaElement;
+  const ueOutput = document.getElementById('ue-output') as HTMLTextAreaElement;
+  const ueStatus = document.getElementById('ue-status');
+  const ueInputInfo = document.getElementById('ue-input-info');
+  const ueOutputInfo = document.getElementById('ue-output-info');
+
+  function getMode(): 'component' | 'uri' {
+    const checked = document.querySelector('input[name="ue-mode"]:checked') as HTMLInputElement;
+    return (checked?.value as 'component' | 'uri') || 'component';
+  }
+
+  function showUeStatus(msg: string, type: 'success' | 'error') {
+    if (!ueStatus) return;
+    ueStatus.textContent = msg;
+    ueStatus.className = `rounded-lg p-3 text-sm ${type === 'success' ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'}`;
+    ueStatus.classList.remove('hidden');
+  }
+
+  function updateInfo() {
+    const inputLines = ueInput.value ? ueInput.value.split('\n').length : 0;
+    const outputLines = ueOutput.value ? ueOutput.value.split('\n').length : 0;
+    if (ueInputInfo) ueInputInfo.textContent = `${ueInput.value.length} 字符${inputLines > 1 ? ` · ${inputLines} 行` : ''}`;
+    if (ueOutputInfo) ueOutputInfo.textContent = `${ueOutput.value.length} 字符${outputLines > 1 ? ` · ${outputLines} 行` : ''}`;
+  }
+
+  function encodeLine(line: string, mode: 'component' | 'uri'): string {
+    return mode === 'component' ? encodeURIComponent(line) : encodeURI(line);
+  }
+
+  function decodeLine(line: string, mode: 'component' | 'uri'): string {
+    // 两种模式解码结果相同，都用 decodeURIComponent 更可靠
+    return mode === 'component' ? decodeURIComponent(line) : decodeURI(line);
+  }
+
+  function processLines(input: string, fn: (line: string) => string): { result: string; errors: number } {
+    const lines = input.split('\n');
+    const results: string[] = [];
+    let errors = 0;
+    for (const line of lines) {
+      try {
+        results.push(fn(line));
+      } catch {
+        results.push(line);
+        errors++;
+      }
+    }
+    return { result: results.join('\n'), errors };
+  }
+
+  document.getElementById('ue-encode')?.addEventListener('click', () => {
+    if (!ueInput.value) return;
+    const mode = getMode();
+    const { result, errors } = processLines(ueInput.value, (l) => encodeLine(l, mode));
+    ueOutput.value = result;
+    const modeLabel = mode === 'component' ? 'encodeURIComponent' : 'encodeURI';
+    if (errors > 0) {
+      showUeStatus(`⚠️ ${modeLabel} 编码完成，${errors} 行出错`, 'error');
+    } else {
+      showUeStatus(`✅ ${modeLabel} 编码成功`, 'success');
+    }
+    updateInfo();
+  });
+
+  document.getElementById('ue-decode')?.addEventListener('click', () => {
+    if (!ueOutput.value) return;
+    const mode = getMode();
+    const { result, errors } = processLines(ueOutput.value, (l) => decodeLine(l, mode));
+    ueInput.value = result;
+    if (errors > 0) {
+      showUeStatus(`⚠️ 解码完成，${errors} 行出错（可能包含无效编码）`, 'error');
+    } else {
+      showUeStatus('✅ 解码成功', 'success');
+    }
+    updateInfo();
+  });
+
+  document.getElementById('ue-swap')?.addEventListener('click', () => {
+    const tmp = ueInput.value;
+    ueInput.value = ueOutput.value;
+    ueOutput.value = tmp;
+    updateInfo();
+  });
+
+  document.getElementById('ue-copy-encoded')?.addEventListener('click', async () => {
+    if (!ueOutput.value) return;
+    await navigator.clipboard.writeText(ueOutput.value);
+    showUeStatus('✅ 已复制编码结果', 'success');
+  });
+
+  document.getElementById('ue-copy-decoded')?.addEventListener('click', async () => {
+    if (!ueInput.value) return;
+    await navigator.clipboard.writeText(ueInput.value);
+    showUeStatus('✅ 已复制原文', 'success');
+  });
+
+  document.getElementById('ue-clear')?.addEventListener('click', () => {
+    ueInput.value = '';
+    ueOutput.value = '';
+    ueStatus?.classList.add('hidden');
+    updateInfo();
+  });
+
+  // 实时预览：输入时自动编码
+  let previewTimer: ReturnType<typeof setTimeout>;
+  ueInput?.addEventListener('input', () => {
+    clearTimeout(previewTimer);
+    previewTimer = setTimeout(() => {
+      if (!ueInput.value) {
+        ueOutput.value = '';
+        updateInfo();
+        return;
+      }
+      const mode = getMode();
+      const { result } = processLines(ueInput.value, (l) => encodeLine(l, mode));
+      ueOutput.value = result;
+      updateInfo();
+    }, 300);
+  });
+
+  [ueInput, ueOutput].forEach(el => el?.addEventListener('input', updateInfo));
+
+  // 模式切换时重新编码
+  document.querySelectorAll('input[name="ue-mode"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (ueInput.value) {
+        const mode = getMode();
+        const { result } = processLines(ueInput.value, (l) => encodeLine(l, mode));
+        ueOutput.value = result;
+        updateInfo();
+      }
+    });
+  });
+</script>

@@ -1,0 +1,203 @@
+---
+// 文字计数器 - 字数/字符数/行数/段落/字节统计 + 词频分析
+---
+
+<div class="space-y-6" id="word-count-tool">
+  <!-- 输入区域 -->
+  <div>
+    <textarea
+      id="wc-input"
+      rows="10"
+      class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-y"
+      placeholder="在此输入或粘贴文本..."
+    ></textarea>
+  </div>
+
+  <!-- 统计卡片 -->
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+    <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 p-4 text-center">
+      <div class="text-2xl font-bold text-primary-600 dark:text-primary-400" id="wc-chars">0</div>
+      <div class="text-xs text-gray-500 mt-1">字符数</div>
+    </div>
+    <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 p-4 text-center">
+      <div class="text-2xl font-bold text-primary-600 dark:text-primary-400" id="wc-chars-no-space">0</div>
+      <div class="text-xs text-gray-500 mt-1">字符（不含空格）</div>
+    </div>
+    <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 p-4 text-center">
+      <div class="text-2xl font-bold text-primary-600 dark:text-primary-400" id="wc-words">0</div>
+      <div class="text-xs text-gray-500 mt-1">英文单词</div>
+    </div>
+    <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 p-4 text-center">
+      <div class="text-2xl font-bold text-primary-600 dark:text-primary-400" id="wc-chinese">0</div>
+      <div class="text-xs text-gray-500 mt-1">中文字符</div>
+    </div>
+    <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 p-4 text-center">
+      <div class="text-2xl font-bold text-primary-600 dark:text-primary-400" id="wc-lines">0</div>
+      <div class="text-xs text-gray-500 mt-1">行数</div>
+    </div>
+    <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 p-4 text-center">
+      <div class="text-2xl font-bold text-primary-600 dark:text-primary-400" id="wc-paragraphs">0</div>
+      <div class="text-xs text-gray-500 mt-1">段落数</div>
+    </div>
+    <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 p-4 text-center">
+      <div class="text-2xl font-bold text-primary-600 dark:text-primary-400" id="wc-sentences">0</div>
+      <div class="text-xs text-gray-500 mt-1">句子数</div>
+    </div>
+    <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 p-4 text-center">
+      <div class="text-2xl font-bold text-primary-600 dark:text-primary-400" id="wc-bytes">0</div>
+      <div class="text-xs text-gray-500 mt-1">字节 (UTF-8)</div>
+    </div>
+  </div>
+
+  <!-- 操作按钮 -->
+  <div class="flex flex-wrap gap-3">
+    <button
+      id="btn-copy-stats"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      📋 复制统计
+    </button>
+    <button
+      id="btn-clear"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      🗑️ 清空
+    </button>
+  </div>
+
+  <!-- 字频分析 -->
+  <div id="wc-freq-section" class="hidden">
+    <h3 class="text-sm font-medium mb-3 text-gray-700 dark:text-gray-300">📊 字符频率 Top 10</h3>
+    <div class="space-y-2" id="wc-freq-list"></div>
+  </div>
+
+  <!-- 状态提示 -->
+  <div id="wc-status" class="hidden rounded-lg p-3 text-sm"></div>
+</div>
+
+<script>
+  const input = document.getElementById('wc-input') as HTMLTextAreaElement;
+  const elChars = document.getElementById('wc-chars');
+  const elCharsNoSpace = document.getElementById('wc-chars-no-space');
+  const elWords = document.getElementById('wc-words');
+  const elChinese = document.getElementById('wc-chinese');
+  const elLines = document.getElementById('wc-lines');
+  const elParagraphs = document.getElementById('wc-paragraphs');
+  const elSentences = document.getElementById('wc-sentences');
+  const elBytes = document.getElementById('wc-bytes');
+  const freqSection = document.getElementById('wc-freq-section');
+  const freqList = document.getElementById('wc-freq-list');
+  const statusEl = document.getElementById('wc-status');
+
+  function showStatus(msg: string) {
+    if (!statusEl) return;
+    statusEl.textContent = msg;
+    statusEl.className = 'rounded-lg p-3 text-sm bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400';
+    statusEl.classList.remove('hidden');
+    setTimeout(() => statusEl.classList.add('hidden'), 2000);
+  }
+
+  function countChinese(text: string): number {
+    return (text.match(/[\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff]/g) || []).length;
+  }
+
+  function countWords(text: string): number {
+    // 英文单词：连续的字母/数字/撇号
+    return (text.match(/[a-zA-Z0-9]+(?:'[a-zA-Z0-9]+)*/g) || []).length;
+  }
+
+  function countSentences(text: string): number {
+    if (!text.trim()) return 0;
+    // 中英文句子结尾
+    const matches = text.match(/[.!?。！？]+/g);
+    return matches ? matches.length : (text.trim() ? 1 : 0);
+  }
+
+  function getByteLength(text: string): number {
+    return new TextEncoder().encode(text).length;
+  }
+
+  function analyzeFrequency(text: string): Array<[string, number]> {
+    const freq: Record<string, number> = {};
+    for (const ch of text) {
+      if (/\s/.test(ch)) continue; // 跳过空白
+      freq[ch] = (freq[ch] || 0) + 1;
+    }
+    return Object.entries(freq)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10);
+  }
+
+  function renderFrequency(top10: Array<[string, number]>) {
+    if (!freqSection || !freqList) return;
+    if (top10.length === 0) {
+      freqSection.classList.add('hidden');
+      return;
+    }
+    freqSection.classList.remove('hidden');
+    const maxCount = top10[0][1];
+    freqList.innerHTML = top10.map(([ch, count]) => {
+      const pct = Math.round((count / maxCount) * 100);
+      const display = ch === ' ' ? '␣ 空格' : ch === '\t' ? '⇥ Tab' : `${ch}`;
+      return `
+        <div class="flex items-center gap-3">
+          <span class="w-16 text-sm font-mono text-gray-700 dark:text-gray-300 truncate">${display}</span>
+          <div class="flex-1 h-5 bg-gray-200 dark:bg-gray-700 rounded overflow-hidden">
+            <div class="h-full bg-primary-500 dark:bg-primary-400 rounded transition-all" style="width: ${pct}%"></div>
+          </div>
+          <span class="w-12 text-right text-xs text-gray-500">${count}</span>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function update() {
+    const text = input.value;
+
+    const chars = text.length;
+    const charsNoSpace = text.replace(/\s/g, '').length;
+    const words = countWords(text);
+    const chinese = countChinese(text);
+    const lines = text ? text.split('\n').length : 0;
+    const paragraphs = text.trim() ? text.trim().split(/\n\s*\n/).length : 0;
+    const sentences = countSentences(text);
+    const bytes = getByteLength(text);
+
+    if (elChars) elChars.textContent = chars.toLocaleString();
+    if (elCharsNoSpace) elCharsNoSpace.textContent = charsNoSpace.toLocaleString();
+    if (elWords) elWords.textContent = words.toLocaleString();
+    if (elChinese) elChinese.textContent = chinese.toLocaleString();
+    if (elLines) elLines.textContent = lines.toLocaleString();
+    if (elParagraphs) elParagraphs.textContent = paragraphs.toLocaleString();
+    if (elSentences) elSentences.textContent = sentences.toLocaleString();
+    if (elBytes) elBytes.textContent = bytes.toLocaleString();
+
+    renderFrequency(analyzeFrequency(text));
+  }
+
+  input.addEventListener('input', update);
+
+  document.getElementById('btn-copy-stats')?.addEventListener('click', async () => {
+    const text = input.value;
+    const stats = [
+      `字符数: ${text.length}`,
+      `字符(不含空格): ${text.replace(/\s/g, '').length}`,
+      `英文单词: ${countWords(text)}`,
+      `中文字符: ${countChinese(text)}`,
+      `行数: ${text ? text.split('\n').length : 0}`,
+      `段落数: ${text.trim() ? text.trim().split(/\n\s*\n/).length : 0}`,
+      `句子数: ${countSentences(text)}`,
+      `字节(UTF-8): ${getByteLength(text)}`,
+    ].join('\n');
+    await navigator.clipboard.writeText(stats);
+    showStatus('✅ 统计结果已复制到剪贴板');
+  });
+
+  document.getElementById('btn-clear')?.addEventListener('click', () => {
+    input.value = '';
+    update();
+  });
+
+  // 初始化
+  update();
+</script>

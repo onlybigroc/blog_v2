@@ -1,0 +1,286 @@
+---
+// Lorem Ipsum 生成器 - 支持段落/句子/单词模式，中英文占位文本
+---
+
+<div class="space-y-6" id="lorem-ipsum-tool">
+  <!-- 控制面板 -->
+  <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 p-5 space-y-5">
+    <!-- 语言选择 -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">语言</label>
+      <div class="flex gap-3">
+        <button
+          id="btn-lang-lorem"
+          class="flex-1 px-4 py-2.5 rounded-lg border-2 border-primary-500 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 font-medium text-sm transition-all"
+        >
+          Lorem Ipsum (拉丁文)
+        </button>
+        <button
+          id="btn-lang-cn"
+          class="flex-1 px-4 py-2.5 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm transition-all hover:border-gray-400 dark:hover:border-gray-500"
+        >
+          中文占位文本
+        </button>
+      </div>
+    </div>
+
+    <!-- 生成模式 -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">生成模式</label>
+      <div class="flex gap-3">
+        <button
+          data-mode="paragraphs"
+          class="lorem-mode-btn flex-1 px-4 py-2.5 rounded-lg border-2 border-primary-500 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 font-medium text-sm transition-all"
+        >
+          📝 段落
+        </button>
+        <button
+          data-mode="sentences"
+          class="lorem-mode-btn flex-1 px-4 py-2.5 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm transition-all hover:border-gray-400 dark:hover:border-gray-500"
+        >
+          📄 句子
+        </button>
+        <button
+          data-mode="words"
+          class="lorem-mode-btn flex-1 px-4 py-2.5 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm transition-all hover:border-gray-400 dark:hover:border-gray-500"
+        >
+          🔤 单词
+        </button>
+      </div>
+    </div>
+
+    <!-- 数量滑块 -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        数量：<span id="lorem-count-display" class="text-primary-600 dark:text-primary-400 font-bold">3</span>
+      </label>
+      <input
+        type="range"
+        id="lorem-count"
+        min="1"
+        max="50"
+        value="3"
+        class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-primary-600"
+      />
+      <div class="flex justify-between text-xs text-gray-400 mt-1">
+        <span>1</span>
+        <span>25</span>
+        <span>50</span>
+      </div>
+    </div>
+
+    <!-- 生成按钮 -->
+    <button
+      id="btn-generate"
+      class="w-full px-6 py-3 rounded-xl bg-primary-600 text-white hover:bg-primary-700 transition-colors font-medium text-sm"
+    >
+      ⚡ 生成文本
+    </button>
+  </div>
+
+  <!-- 输出区域 -->
+  <div class="relative">
+    <div
+      id="lorem-output"
+      class="w-full min-h-[200px] px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm leading-relaxed whitespace-pre-wrap"
+    >点击「生成文本」按钮开始生成...</div>
+  </div>
+
+  <!-- 操作按钮 -->
+  <div class="flex flex-wrap gap-3">
+    <button
+      id="btn-copy-lorem"
+      class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium"
+    >
+      📋 复制文本
+    </button>
+    <button
+      id="btn-clear-lorem"
+      class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+    >
+      🗑️ 清空
+    </button>
+  </div>
+
+  <!-- 状态提示 -->
+  <div id="lorem-status" class="hidden rounded-lg p-3 text-sm"></div>
+</div>
+
+<script>
+  // Classic Lorem Ipsum word list
+  const LOREM_WORDS = [
+    'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit',
+    'sed', 'do', 'eiusmod', 'tempor', 'incididunt', 'ut', 'labore', 'et', 'dolore',
+    'magna', 'aliqua', 'enim', 'ad', 'minim', 'veniam', 'quis', 'nostrud',
+    'exercitation', 'ullamco', 'laboris', 'nisi', 'aliquip', 'ex', 'ea', 'commodo',
+    'consequat', 'duis', 'aute', 'irure', 'in', 'reprehenderit', 'voluptate',
+    'velit', 'esse', 'cillum', 'fugiat', 'nulla', 'pariatur', 'excepteur', 'sint',
+    'occaecat', 'cupidatat', 'non', 'proident', 'sunt', 'culpa', 'qui', 'officia',
+    'deserunt', 'mollit', 'anim', 'id', 'est', 'laborum', 'vitae', 'elementum',
+    'curabitur', 'blandit', 'tempus', 'porttitor', 'auctor', 'neque', 'sapien',
+    'faucibus', 'ornare', 'suspendisse', 'interdum', 'varius', 'natoque', 'penatibus',
+    'magnis', 'dis', 'parturient', 'montes', 'nascetur', 'ridiculus', 'mus',
+    'mauris', 'pellentesque', 'pulvinar', 'etiam', 'risus', 'feugiat', 'scelerisque',
+    'viverra', 'nam', 'libero', 'justo', 'laoreet', 'mattis', 'aliquam', 'fringilla',
+    'ultrices', 'posuere', 'cubilia', 'curae', 'donec', 'velit', 'pharetra', 'vel',
+    'turpis', 'nunc', 'eget', 'aliquet', 'nibh', 'praesent', 'tristique',
+    'senectus', 'netus', 'malesuada', 'fames', 'ac', 'congue', 'quisque',
+    'egestas', 'diam', 'arcu', 'pretium', 'vulputate', 'sagittis', 'accumsan',
+    'lacus', 'volutpat', 'facilisis', 'leo', 'urna', 'morbi', 'tincidunt',
+    'augue', 'lectus', 'aenean', 'massa', 'dictum', 'fusce', 'placerat',
+    'eleifend', 'donec', 'odio', 'tempor', 'magna', 'mi', 'sit', 'amet',
+    'risus', 'nullam', 'blandit', 'cursus', 'luctus', 'purus', 'faucibus',
+    'odio', 'semper', 'feugiat', 'sed', 'aliquet', 'metus', 'proin',
+    'gravida', 'nibh', 'vel', 'auctor', 'aliquet', 'aenean', 'sollicitudin'
+  ];
+
+  // Chinese placeholder text
+  const CN_PARAGRAPHS = [
+    '天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。寒来暑往，秋收冬藏。闰余成岁，律吕调阳。云腾致雨，露结为霜。金生丽水，玉出昆冈。剑号巨阙，珠称夜光。果珍李柰，菜重芥姜。',
+    '海咸河淡，鳞潜羽翔。龙师火帝，鸟官人皇。始制文字，乃服衣裳。推位让国，有虞陶唐。吊民伐罪，周发殷汤。坐朝问道，垂拱平章。爱育黎首，臣伏戎羌。遐迩一体，率宾归王。',
+    '鸣凤在竹，白驹食场。化被草木，赖及万方。盖此身发，四大五常。恭惟鞠养，岂敢毁伤。女慕贞洁，男效才良。知过必改，得能莫忘。罔谈彼短，靡恃己长。信使可覆，器欲难量。',
+    '墨悲丝染，诗赞羔羊。景行维贤，克念作圣。德建名立，形端表正。空谷传声，虚堂习听。祸因恶积，福缘善庆。尺璧非宝，寸阴是竞。资父事君，曰严与敬。孝当竭力，忠则尽命。',
+    '临深履薄，夙兴温凊。似兰斯馨，如松之盛。川流不息，渊澄取映。容止若思，言辞安定。笃初诚美，慎终宜令。荣业所基，籍甚无竟。学优登仕，摄职从政。存以甘棠，去而益咏。',
+    '春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。这是一段中文占位文本，用于排版设计和页面布局测试。在网页开发和设计过程中，我们经常需要使用占位文本来预览页面效果。',
+    '在现代软件开发中，用户体验设计越来越受到重视。好的界面设计不仅要美观，还要注重交互的流畅性和信息的可读性。通过合理的布局和排版，可以让用户更轻松地获取所需信息。',
+    '互联网技术的飞速发展改变了人们的生活方式。从社交媒体到在线购物，从远程办公到智能家居，数字化已经渗透到日常生活的方方面面。技术的进步为人们带来了前所未有的便利。',
+    '人工智能是当今科技领域最热门的话题之一。机器学习、深度学习、自然语言处理等技术正在改变各行各业的运作方式。从自动驾驶到医疗诊断，AI的应用前景广阔而深远。',
+    '数据驱动的决策方式正在成为企业运营的新常态。通过大数据分析，企业可以更精准地了解市场需求，优化产品设计，提升服务质量。数据已经成为新时代最重要的生产要素之一。'
+  ];
+
+  let currentMode: 'paragraphs' | 'sentences' | 'words' = 'paragraphs';
+  let currentLang: 'lorem' | 'cn' = 'lorem';
+
+  const output = document.getElementById('lorem-output') as HTMLDivElement;
+  const countSlider = document.getElementById('lorem-count') as HTMLInputElement;
+  const countDisplay = document.getElementById('lorem-count-display') as HTMLSpanElement;
+  const statusEl = document.getElementById('lorem-status') as HTMLDivElement;
+
+  const activeBtnClass = 'border-2 border-primary-500 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 font-medium text-sm transition-all';
+  const inactiveBtnClass = 'border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm transition-all hover:border-gray-400 dark:hover:border-gray-500';
+
+  function showStatus(msg: string) {
+    if (!statusEl) return;
+    statusEl.textContent = msg;
+    statusEl.className = 'rounded-lg p-3 text-sm bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400';
+    statusEl.classList.remove('hidden');
+    setTimeout(() => statusEl.classList.add('hidden'), 2000);
+  }
+
+  function randomWord(): string {
+    return LOREM_WORDS[Math.floor(Math.random() * LOREM_WORDS.length)];
+  }
+
+  function generateLoremSentence(): string {
+    const len = 8 + Math.floor(Math.random() * 12);
+    const words = Array.from({ length: len }, randomWord);
+    words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
+    return words.join(' ') + '.';
+  }
+
+  function generateLoremParagraph(): string {
+    const sentCount = 3 + Math.floor(Math.random() * 5);
+    return Array.from({ length: sentCount }, generateLoremSentence).join(' ');
+  }
+
+  function generateCnSentence(): string {
+    const pool = CN_PARAGRAPHS[Math.floor(Math.random() * CN_PARAGRAPHS.length)];
+    const sentences = pool.match(/[^。！？]+[。！？]/g) || [pool];
+    return sentences[Math.floor(Math.random() * sentences.length)];
+  }
+
+  function generateCnParagraph(): string {
+    return CN_PARAGRAPHS[Math.floor(Math.random() * CN_PARAGRAPHS.length)];
+  }
+
+  function generate(): string {
+    const count = parseInt(countSlider.value);
+
+    if (currentLang === 'lorem') {
+      if (currentMode === 'paragraphs') {
+        return Array.from({ length: count }, (_, i) => {
+          const p = generateLoremParagraph();
+          return i === 0 ? 'Lorem ipsum ' + p.charAt(0).toLowerCase() + p.slice(1) : p;
+        }).join('\n\n');
+      } else if (currentMode === 'sentences') {
+        return Array.from({ length: count }, (_, i) => {
+          const s = generateLoremSentence();
+          return i === 0 ? 'Lorem ipsum dolor sit amet, ' + s.charAt(0).toLowerCase() + s.slice(1) : s;
+        }).join(' ');
+      } else {
+        const words = Array.from({ length: count }, randomWord);
+        words[0] = 'Lorem';
+        if (count > 1) words[1] = 'ipsum';
+        if (count > 2) words[2] = 'dolor';
+        if (count > 3) words[3] = 'sit';
+        if (count > 4) words[4] = 'amet';
+        return words.join(' ');
+      }
+    } else {
+      if (currentMode === 'paragraphs') {
+        return Array.from({ length: count }, generateCnParagraph).join('\n\n');
+      } else if (currentMode === 'sentences') {
+        return Array.from({ length: count }, generateCnSentence).join('');
+      } else {
+        const pool = CN_PARAGRAPHS.join('');
+        const chars = pool.replace(/[，。！？、；：""''（）\s]/g, '');
+        return Array.from({ length: count }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+      }
+    }
+  }
+
+  // Mode buttons
+  document.querySelectorAll('.lorem-mode-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.lorem-mode-btn').forEach(b => {
+        b.className = 'lorem-mode-btn flex-1 px-4 py-2.5 rounded-lg ' + inactiveBtnClass;
+      });
+      btn.className = 'lorem-mode-btn flex-1 px-4 py-2.5 rounded-lg ' + activeBtnClass;
+      currentMode = (btn as HTMLElement).dataset.mode as typeof currentMode;
+    });
+  });
+
+  // Language buttons
+  const btnLangLorem = document.getElementById('btn-lang-lorem')!;
+  const btnLangCn = document.getElementById('btn-lang-cn')!;
+
+  function setLang(lang: 'lorem' | 'cn') {
+    currentLang = lang;
+    if (lang === 'lorem') {
+      btnLangLorem.className = 'flex-1 px-4 py-2.5 rounded-lg ' + activeBtnClass;
+      btnLangCn.className = 'flex-1 px-4 py-2.5 rounded-lg ' + inactiveBtnClass;
+    } else {
+      btnLangCn.className = 'flex-1 px-4 py-2.5 rounded-lg ' + activeBtnClass;
+      btnLangLorem.className = 'flex-1 px-4 py-2.5 rounded-lg ' + inactiveBtnClass;
+    }
+  }
+
+  btnLangLorem.addEventListener('click', () => setLang('lorem'));
+  btnLangCn.addEventListener('click', () => setLang('cn'));
+
+  // Count slider
+  countSlider.addEventListener('input', () => {
+    countDisplay.textContent = countSlider.value;
+  });
+
+  // Generate
+  document.getElementById('btn-generate')?.addEventListener('click', () => {
+    output.textContent = generate();
+  });
+
+  // Copy
+  document.getElementById('btn-copy-lorem')?.addEventListener('click', async () => {
+    const text = output.textContent || '';
+    if (!text || text.startsWith('点击')) return;
+    await navigator.clipboard.writeText(text);
+    showStatus('✅ 文本已复制到剪贴板');
+  });
+
+  // Clear
+  document.getElementById('btn-clear-lorem')?.addEventListener('click', () => {
+    output.textContent = '点击「生成文本」按钮开始生成...';
+  });
+
+  // Auto-generate on load
+  output.textContent = generate();
+</script>

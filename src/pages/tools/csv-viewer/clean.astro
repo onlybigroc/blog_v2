@@ -1,0 +1,11 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import CsvViewerTool from '@components/tools/CsvViewerTool.astro';
+
+const title = 'CSV 查看器 | 工具';
+const description = '解析 CSV 数据，以表格形式展示，支持排序和筛选。';
+---
+
+<ToolLayout title={title} description={description}>
+  <CsvViewerTool />
+</ToolLayout>
