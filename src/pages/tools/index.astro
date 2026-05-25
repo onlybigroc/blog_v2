@@ -1,60 +1,84 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
-import { tools } from '@/data/tools';
-import { Clock, Users, Swords, Braces, Lock, Palette, KeyRound, Search, ArrowRightLeft, Type, GitCompare, Eye, Table, Fingerprint, Pilcrow, Link, Code, RotateCcw } from 'lucide-astro';
+import { tools, categoryMeta, type ToolCategory } from '@/data/tools';
+import {
+  Clock, Users, Swords, Braces, Lock, Palette, KeyRound, Search,
+  ArrowRightLeft, Type, GitCompare, Eye, Table, Fingerprint, Pilcrow,
+  Link, Code, RotateCcw, Wrench, FileText, Shield, Heart, Gamepad2,
+} from 'lucide-astro';
 
 const iconMap: Record<string, any> = {
-  Clock, Users, Swords, Braces, Lock, Palette, KeyRound, Search, ArrowRightLeft,
-  Type, GitCompare, Eye, Table, Fingerprint, Pilcrow, Link, Code, RotateCcw,
+  Clock, Users, Swords, Braces, Lock, Palette, KeyRound, Search,
+  ArrowRightLeft, Type, GitCompare, Eye, Table, Fingerprint, Pilcrow,
+  Link, Code, RotateCcw, Wrench, FileText, Shield, Heart, Gamepad2,
 };
 
 const title = '工具';
-const description = '常用在线工具集合，后续会持续迁移和补充。';
+const description = '常用在线工具集合，按功能分组，方便查找。';
 
-const readyTools = tools.filter((tool) => tool.status !== 'draft');
-const draftTools = tools.filter((tool) => tool.status === 'draft');
+const categoryOrder: ToolCategory[] = ['dev', 'text', 'security', 'time', 'life', 'game'];
+
+const readyTools = tools.filter((t) => t.status !== 'draft');
+const draftTools = tools.filter((t) => t.status === 'draft');
+
+// 按分组整理
+const grouped: { key: ToolCategory; label: string; icon: any; items: typeof readyTools }[] = [];
+for (const cat of categoryOrder) {
+  const items = readyTools.filter((t) => t.category === cat);
+  if (items.length > 0) {
+    grouped.push({
+      key: cat,
+      label: categoryMeta[cat].label,
+      icon: iconMap[categoryMeta[cat].icon],
+      items,
+    });
+  }
+}
 ---
 
 <MainLayout title={title} description={description}>
   <div class="mb-10">
     <h1 class="text-4xl font-bold mb-3">工具</h1>
     <p class="text-gray-600 dark:text-gray-400">
-      这里会逐步迁移我常用的工具页面，统一收口到 <code class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">/tools</code> 模块。
+      常用在线工具集合，按功能分组，方便查找。
     </p>
   </div>
 
-  {readyTools.length === 0 ? (
+  {grouped.length === 0 ? (
     <section class="rounded-xl border border-dashed border-gray-300 dark:border-gray-700 p-8">
       <h2 class="text-xl font-semibold mb-2">暂无已发布工具</h2>
       <p class="text-gray-600 dark:text-gray-400 mb-4">
         你可以先把工具页面迁移到 <code class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">src/pages/tools</code>，然后在
         <code class="mx-1 px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">src/data/tools.ts</code> 增加入口配置。
       </p>
-      <div class="text-sm text-gray-500 dark:text-gray-500">
-        示例路径：<code class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">src/pages/tools/json-format.astro</code>
-      </div>
     </section>
   ) : (
-    <section>
-      <h2 class="text-2xl font-bold mb-6">已发布</h2>
-      <div class="grid gap-4 sm:grid-cols-2">
-        {readyTools.map((tool) => (
-          <a
-            href={tool.path}
-            class="block rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:border-primary-500 dark:hover:border-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
-          >
-            <div class="flex items-center gap-3 mb-2">
-              {(() => {
-                const Icon = iconMap[tool.icon];
-                return Icon ? <Icon class="w-6 h-6 text-primary-600 dark:text-primary-400 shrink-0" /> : null;
-              })()}
-              <h3 class="text-lg font-semibold text-primary-600 dark:text-primary-400">{tool.name}</h3>
-            </div>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">{tool.description}</p>
-          </a>
-        ))}
-      </div>
-    </section>
+    grouped.map((group) => (
+      <section class="mb-10">
+        <div class="flex items-center gap-3 mb-5">
+          {group.icon && <group.icon class="w-6 h-6 text-primary-600 dark:text-primary-400" />}
+          <h2 class="text-2xl font-bold">{group.label}</h2>
+          <span class="text-sm text-gray-500 dark:text-gray-400">({group.items.length})</span>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          {group.items.map((tool) => (
+            <a
+              href={tool.path}
+              class="block rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:border-primary-500 dark:hover:border-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+            >
+              <div class="flex items-center gap-3 mb-2">
+                {(() => {
+                  const Icon = iconMap[tool.icon];
+                  return Icon ? <Icon class="w-6 h-6 text-primary-600 dark:text-primary-400 shrink-0" /> : null;
+                })()}
+                <h3 class="text-lg font-semibold text-primary-600 dark:text-primary-400">{tool.name}</h3>
+              </div>
+              <p class="text-gray-600 dark:text-gray-400 text-sm">{tool.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))
   )}
 
   {draftTools.length > 0 && (

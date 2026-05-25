@@ -1,0 +1,11 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import JsonFormatTool from '@components/tools/JsonFormatTool.astro';
+
+const title = 'JSON 格式化 | 工具';
+const description = 'JSON 格式化、压缩、语法校验工具，支持自定义缩进。';
+---
+
+<ToolLayout title={title} description={description}>
+  <JsonFormatTool />
+</ToolLayout>

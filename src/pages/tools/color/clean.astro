@@ -1,0 +1,11 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import ColorTool from '@components/tools/ColorTool.astro';
+
+const title = '颜色转换器 | 工具';
+const description = 'HEX、RGB、HSL 颜色格式互转，含色板和随机颜色。';
+---
+
+<ToolLayout title={title} description={description}>
+  <ColorTool />
+</ToolLayout>

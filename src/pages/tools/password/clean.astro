@@ -1,0 +1,11 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import PasswordTool from '@components/tools/PasswordTool.astro';
+
+const title = '密码生成器 | 工具';
+const description = '安全随机密码生成器，支持自定义字符类型、长度和批量生成。';
+---
+
+<ToolLayout title={title} description={description}>
+  <PasswordTool />
+</ToolLayout>

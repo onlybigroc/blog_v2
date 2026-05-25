@@ -1,8 +1,32 @@
 ---
 // UUID 生成器
+
+interface Props {
+  cleanPath?: string;
+  showCleanLink?: boolean;
+  showPageMeta?: boolean;
+}
+
+const {
+  cleanPath,
+  showCleanLink = false,
+  showPageMeta = false,
+} = Astro.props;
 ---
 
 <div class="space-y-6" id="uuid-tool">
+    {showCleanLink && cleanPath && (
+      <a
+        href={cleanPath}
+        title="打开可单独收藏的工具页面"
+        class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"
+      >
+        <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" />
+        </svg>
+        独立打开
+      </a>
+    )}
   <!-- 操作按钮 -->
   <div class="flex flex-wrap items-center gap-3">
     <button
