@@ -1,0 +1,14 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import IpLookupTool from '@components/tools/IpLookupTool.astro';
+const title = 'IP 地址查询 | 工具';
+const description = '查询本机 IP 和 IP 归属地信息。';
+---
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">IP 地址查询</h1>
+    <p class="text-gray-600 dark:text-gray-400">查询本机 IP 和 IP 归属地信息。</p>
+  </div>
+  <IpLookupTool cleanPath="/tools/ip-lookup/clean/" showCleanLink />
+</MainLayout>

@@ -1,0 +1,14 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import UrlSafeBase64Tool from '@components/tools/UrlSafeBase64Tool.astro';
+const title = 'URL Safe Base64 | 工具';
+const description = 'URL 安全的 Base64 编解码。';
+---
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">URL Safe Base64</h1>
+    <p class="text-gray-600 dark:text-gray-400">URL 安全的 Base64 编解码。</p>
+  </div>
+  <UrlSafeBase64Tool cleanPath="/tools/url-safe-base64/clean/" showCleanLink />
+</MainLayout>

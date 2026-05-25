@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import AnagramCheckTool from '@components/tools/AnagramCheckTool.astro';
+const title = '变位词检测 | 工具';
+const description = '检测两个文本是否为变位词。';
+---
+<ToolLayout title={title} description={description}>
+  <AnagramCheckTool />
+</ToolLayout>

@@ -1,0 +1,14 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import RandomSortTool from '@components/tools/RandomSortTool.astro';
+const title = '随机排序 | 工具';
+const description = '将文本按行随机打乱顺序。';
+---
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">随机排序</h1>
+    <p class="text-gray-600 dark:text-gray-400">将文本按行随机打乱顺序。</p>
+  </div>
+  <RandomSortTool cleanPath="/tools/random-sort/clean/" showCleanLink />
+</MainLayout>

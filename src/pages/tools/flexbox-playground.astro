@@ -1,0 +1,14 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import FlexboxPlaygroundTool from '@components/tools/FlexboxPlaygroundTool.astro';
+const title = 'Flexbox 练习场 | 工具';
+const description = '可视化调整 Flexbox 属性，实时预览布局。';
+---
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">Flexbox 练习场</h1>
+    <p class="text-gray-600 dark:text-gray-400">可视化调整 Flexbox 属性，实时预览布局。</p>
+  </div>
+  <FlexboxPlaygroundTool cleanPath="/tools/flexbox-playground/clean/" showCleanLink />
+</MainLayout>

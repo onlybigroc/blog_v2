@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import QrGenTool from '@components/tools/QrGenTool.astro';
+const title = '二维码生成器 | 工具';
+const description = '将文本或 URL 生成二维码。';
+---
+<ToolLayout title={title} description={description}>
+  <QrGenTool />
+</ToolLayout>

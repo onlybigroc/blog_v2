@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import SlugifyTool from '@components/tools/SlugifyTool.astro';
+const title = 'Slug 生成器 | 工具';
+const description = '将文本转换为 URL 友好的 slug 格式。';
+---
+<ToolLayout title={title} description={description}>
+  <SlugifyTool />
+</ToolLayout>

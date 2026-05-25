@@ -1,0 +1,14 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import DiffWordsTool from '@components/tools/DiffWordsTool.astro';
+const title = '单词级差异对比 | 工具';
+const description = '逐词对比两段文本，高亮差异。';
+---
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">单词级差异对比</h1>
+    <p class="text-gray-600 dark:text-gray-400">逐词对比两段文本，高亮差异。</p>
+  </div>
+  <DiffWordsTool cleanPath="/tools/diff-words/clean/" showCleanLink />
+</MainLayout>

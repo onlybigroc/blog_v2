@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import GraphqlDebugTool from '@components/tools/GraphqlDebugTool.astro';
+const title = 'GraphQL 调试器 | 工具';
+const description = '格式化并验证 GraphQL 查询语句。';
+---
+<ToolLayout title={title} description={description}>
+  <GraphqlDebugTool />
+</ToolLayout>

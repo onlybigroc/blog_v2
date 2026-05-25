@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import CountdownTool from '@components/tools/CountdownTool.astro';
+const title = '倒计时器 | 工具';
+const description = '设置目标时间，实时显示剩余时间。';
+---
+<ToolLayout title={title} description={description}>
+  <CountdownTool />
+</ToolLayout>

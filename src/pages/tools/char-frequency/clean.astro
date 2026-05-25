@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import CharFrequencyTool from '@components/tools/CharFrequencyTool.astro';
+const title = '字符频率分析 | 工具';
+const description = '统计文本中每个字符出现的频率。';
+---
+<ToolLayout title={title} description={description}>
+  <CharFrequencyTool />
+</ToolLayout>

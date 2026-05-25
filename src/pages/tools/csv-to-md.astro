@@ -1,0 +1,14 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import CsvToMdTool from '@components/tools/CsvToMdTool.astro';
+const title = 'CSV 转 Markdown 表格 | 工具';
+const description = '将 CSV 数据转换为 Markdown 表格格式。';
+---
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">CSV 转 Markdown 表格</h1>
+    <p class="text-gray-600 dark:text-gray-400">将 CSV 数据转换为 Markdown 表格格式。</p>
+  </div>
+  <CsvToMdTool cleanPath="/tools/csv-to-md/clean/" showCleanLink />
+</MainLayout>

@@ -1,0 +1,14 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import MeetingPlannerTool from '@components/tools/MeetingPlannerTool.astro';
+const title = '会议时间规划 | 工具';
+const description = '跨时区会议时间规划工具。';
+---
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">会议时间规划</h1>
+    <p class="text-gray-600 dark:text-gray-400">跨时区会议时间规划工具。</p>
+  </div>
+  <MeetingPlannerTool cleanPath="/tools/meeting-planner/clean/" showCleanLink />
+</MainLayout>

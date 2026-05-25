@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import TemperatureConvertTool from '@components/tools/TemperatureConvertTool.astro';
+const title = '温度换算 | 工具';
+const description = '摄氏/华氏/开尔文温度互转。';
+---
+<ToolLayout title={title} description={description}>
+  <TemperatureConvertTool />
+</ToolLayout>

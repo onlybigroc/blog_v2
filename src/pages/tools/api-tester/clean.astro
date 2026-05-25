@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import ApiTesterTool from '@components/tools/ApiTesterTool.astro';
+const title = 'API 测试器 | 工具';
+const description = '发送 HTTP 请求并查看响应。';
+---
+<ToolLayout title={title} description={description}>
+  <ApiTesterTool />
+</ToolLayout>

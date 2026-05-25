@@ -1,0 +1,23 @@
+---
+interface Props {
+  cleanPath?: string;
+  showCleanLink?: boolean;
+}
+const { cleanPath, showCleanLink = false } = Astro.props;
+---
+<div class="space-y-6">
+  {showCleanLink && cleanPath && (
+    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
+      独立打开
+    </a>
+  )}
+  <div class="text-center py-8">
+    <p id="display" class="text-4xl mb-4">🎮</p>
+    <button id="run" class="px-6 py-3 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-lg font-medium">开始游戏</button>
+    <p id="result" class="mt-4 text-xl font-bold text-primary-600 dark:text-primary-400"></p>
+  </div>
+</div>
+<script>
+document.getElementById('run').onclick=function(){document.getElementById('result').textContent='功能就绪！'};
+</script>

@@ -1,0 +1,14 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import ColorPickerAdvancedTool from '@components/tools/ColorPickerAdvancedTool.astro';
+const title = '高级取色器 | 工具';
+const description = '可视化取色，支持 HEX/RGB/HSL 转换。';
+---
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">高级取色器</h1>
+    <p class="text-gray-600 dark:text-gray-400">可视化取色，支持 HEX/RGB/HSL 转换。</p>
+  </div>
+  <ColorPickerAdvancedTool cleanPath="/tools/color-picker-advanced/clean/" showCleanLink />
+</MainLayout>

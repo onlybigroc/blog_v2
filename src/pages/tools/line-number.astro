@@ -1,0 +1,14 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import LineNumberTool from '@components/tools/LineNumberTool.astro';
+const title = '行号工具 | 工具';
+const description = '为文本添加或移除行号。';
+---
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">行号工具</h1>
+    <p class="text-gray-600 dark:text-gray-400">为文本添加或移除行号。</p>
+  </div>
+  <LineNumberTool cleanPath="/tools/line-number/clean/" showCleanLink />
+</MainLayout>

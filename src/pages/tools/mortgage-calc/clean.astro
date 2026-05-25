@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import MortgageCalcTool from '@components/tools/MortgageCalcTool.astro';
+const title = '房贷计算器 | 工具';
+const description = '计算等额本息/等额本金月供。';
+---
+<ToolLayout title={title} description={description}>
+  <MortgageCalcTool />
+</ToolLayout>

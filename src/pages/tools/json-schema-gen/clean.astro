@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import JsonSchemaGenTool from '@components/tools/JsonSchemaGenTool.astro';
+const title = 'JSON Schema 生成器 | 工具';
+const description = '从 JSON 数据自动生成 JSON Schema。';
+---
+<ToolLayout title={title} description={description}>
+  <JsonSchemaGenTool />
+</ToolLayout>

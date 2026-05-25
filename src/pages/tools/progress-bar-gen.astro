@@ -1,0 +1,14 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import ProgressBarGenTool from '@components/tools/ProgressBarGenTool.astro';
+const title = '进度条生成器 | 工具';
+const description = '生成可嵌入的进度条代码。';
+---
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">进度条生成器</h1>
+    <p class="text-gray-600 dark:text-gray-400">生成可嵌入的进度条代码。</p>
+  </div>
+  <ProgressBarGenTool cleanPath="/tools/progress-bar-gen/clean/" showCleanLink />
+</MainLayout>

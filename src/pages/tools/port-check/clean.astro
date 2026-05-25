@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import PortCheckTool from '@components/tools/PortCheckTool.astro';
+const title = '端口占用查询 | 工具';
+const description = '查看常用端口列表和端口说明。';
+---
+<ToolLayout title={title} description={description}>
+  <PortCheckTool />
+</ToolLayout>

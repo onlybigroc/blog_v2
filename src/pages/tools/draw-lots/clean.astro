@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import DrawLotsTool from '@components/tools/DrawLotsTool.astro';
+const title = '抽签器 | 工具';
+const description = '从列表中随机抽取项目。';
+---
+<ToolLayout title={title} description={description}>
+  <DrawLotsTool />
+</ToolLayout>

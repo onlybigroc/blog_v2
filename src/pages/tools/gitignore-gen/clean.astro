@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import GitignoreGenTool from '@components/tools/GitignoreGenTool.astro';
+const title = '.gitignore 生成器 | 工具';
+const description = '根据项目类型生成 .gitignore 文件。';
+---
+<ToolLayout title={title} description={description}>
+  <GitignoreGenTool />
+</ToolLayout>

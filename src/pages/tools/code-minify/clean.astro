@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import CodeMinifyTool from '@components/tools/CodeMinifyTool.astro';
+const title = '代码压缩 | 工具';
+const description = '压缩 JavaScript/CSS/HTML 代码，移除空白和注释。';
+---
+<ToolLayout title={title} description={description}>
+  <CodeMinifyTool />
+</ToolLayout>

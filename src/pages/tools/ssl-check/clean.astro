@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import SslCheckTool from '@components/tools/SslCheckTool.astro';
+const title = 'SSL 证书查询 | 工具';
+const description = '查询域名的 SSL 证书信息。';
+---
+<ToolLayout title={title} description={description}>
+  <SslCheckTool />
+</ToolLayout>

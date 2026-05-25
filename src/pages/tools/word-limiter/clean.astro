@@ -1,0 +1,9 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import WordLimiterTool from '@components/tools/WordLimiterTool.astro';
+const title = '字数限制器 | 工具';
+const description = '限制文本字数，超出部分截断或提示。';
+---
+<ToolLayout title={title} description={description}>
+  <WordLimiterTool />
+</ToolLayout>

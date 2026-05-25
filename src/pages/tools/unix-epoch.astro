@@ -1,0 +1,14 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import UnixEpochTool from '@components/tools/UnixEpochTool.astro';
+const title = 'Unix 时间工具 | 工具';
+const description = '显示当前 Unix 时间戳和可读时间。';
+---
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">Unix 时间工具</h1>
+    <p class="text-gray-600 dark:text-gray-400">显示当前 Unix 时间戳和可读时间。</p>
+  </div>
+  <UnixEpochTool cleanPath="/tools/unix-epoch/clean/" showCleanLink />
+</MainLayout>

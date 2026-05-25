@@ -1,0 +1,14 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import ApiTesterTool from '@components/tools/ApiTesterTool.astro';
+const title = 'API 测试器 | 工具';
+const description = '发送 HTTP 请求并查看响应。';
+---
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">API 测试器</h1>
+    <p class="text-gray-600 dark:text-gray-400">发送 HTTP 请求并查看响应。</p>
+  </div>
+  <ApiTesterTool cleanPath="/tools/api-tester/clean/" showCleanLink />
+</MainLayout>

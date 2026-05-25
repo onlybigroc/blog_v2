@@ -1,0 +1,27 @@
+---
+interface Props {
+  cleanPath?: string;
+  showCleanLink?: boolean;
+}
+const { cleanPath, showCleanLink = false } = Astro.props;
+---
+<div class="space-y-6">
+  {showCleanLink && cleanPath && (
+    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
+      独立打开
+    </a>
+  )}
+  <div>
+    <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">Base64 数据</label>
+    <textarea id="inp" class="w-full h-32 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="data:image/png;base64,..."></textarea>
+  </div>
+  <div id="preview" class="hidden rounded-lg border border-gray-200 dark:border-gray-700 p-4 text-center">
+    <img id="img" class="max-w-full max-h-96 mx-auto rounded" />
+    <a id="dl" download="image.png" class="mt-3 inline-block px-4 py-2 rounded-lg bg-primary-600 text-white text-sm">下载图片</a>
+  </div>
+</div>
+<script>
+var inp=document.getElementById('inp'),img=document.getElementById('img'),dl=document.getElementById('dl'),preview=document.getElementById('preview');
+inp.addEventListener('input',function(){var v=inp.value.trim();if(!v){preview.classList.add('hidden');return}if(v.indexOf('data:')!==0)v='data:image/png;base64,'+v;img.src=v;dl.href=v;preview.classList.remove('hidden')});
+</script>

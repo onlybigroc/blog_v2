@@ -1,0 +1,14 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import TextAlignTool from '@components/tools/TextAlignTool.astro';
+const title = '文本对齐工具 | 工具';
+const description = '左对齐、右对齐、居中对齐文本。';
+---
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">文本对齐工具</h1>
+    <p class="text-gray-600 dark:text-gray-400">左对齐、右对齐、居中对齐文本。</p>
+  </div>
+  <TextAlignTool cleanPath="/tools/text-align/clean/" showCleanLink />
+</MainLayout>
