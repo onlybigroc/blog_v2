@@ -1,0 +1,11 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import UaParseTool from '@components/tools/UaParseTool.astro';
+
+const title = 'User-Agent 解析 | 工具';
+const description = '解析浏览器 UA 字符串，展示浏览器、OS、设备信息。';
+---
+
+<ToolLayout title={title} description={description}>
+  <UaParseTool />
+</ToolLayout>

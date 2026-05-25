@@ -1,0 +1,51 @@
+---
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
+const { cleanPath, showCleanLink = false } = Astro.props;
+---
+<div class="space-y-6" id="jwt-decode-tool">
+  {showCleanLink && cleanPath && (
+    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
+      独立打开
+    </a>
+  )}
+  <div>
+    <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">粘贴 JWT Token</label>
+    <textarea id="jwt-input" class="w-full h-24 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y" placeholder="eyJhbGciOiJIUzI1NiIs..."></textarea>
+  </div>
+  <div id="jwt-result" class="hidden space-y-4">
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 mb-1">Header</div>
+      <pre id="jwt-header" class="font-mono text-sm whitespace-pre-wrap text-primary-600"></pre>
+    </div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 mb-1">Payload</div>
+      <pre id="jwt-payload" class="font-mono text-sm whitespace-pre-wrap text-primary-600"></pre>
+    </div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 mb-1">Signature</div>
+      <pre id="jwt-sig" class="font-mono text-sm break-all text-gray-600 dark:text-gray-400"></pre>
+    </div>
+  </div>
+  <div id="jwt-status" class="hidden rounded-lg p-3 text-sm"></div>
+</div>
+<script>
+  const input = document.getElementById('jwt-input') as HTMLTextAreaElement;
+  const result = document.getElementById('jwt-result')!;
+  const statusEl = document.getElementById('jwt-status')!;
+  function decodePart(str: string) { return JSON.parse(atob(str.replace(/-/g, '+').replace(/_/g, '/'))); }
+  input.addEventListener('input', () => {
+    const token = input.value.trim();
+    if (!token) { result.classList.add('hidden'); statusEl.classList.add('hidden'); return; }
+    const parts = token.split('.');
+    if (parts.length !== 3) { statusEl.textContent = '❌ 无效的 JWT 格式'; statusEl.className = 'rounded-lg p-3 text-sm bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'; statusEl.classList.remove('hidden'); result.classList.add('hidden'); return; }
+    try {
+      const header = decodePart(parts[0]);
+      const payload = decodePart(parts[1]);
+      document.getElementById('jwt-header')!.textContent = JSON.stringify(header, null, 2);
+      document.getElementById('jwt-payload')!.textContent = JSON.stringify(payload, null, 2);
+      document.getElementById('jwt-sig')!.textContent = parts[2];
+      result.classList.remove('hidden'); statusEl.classList.add('hidden');
+    } catch { statusEl.textContent = '❌ 解码失败'; statusEl.className = 'rounded-lg p-3 text-sm bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'; statusEl.classList.remove('hidden'); result.classList.add('hidden'); }
+  });
+</script>

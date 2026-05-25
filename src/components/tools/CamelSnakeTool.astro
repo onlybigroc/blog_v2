@@ -1,0 +1,71 @@
+---
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
+const { cleanPath, showCleanLink = false } = Astro.props;
+---
+<div class="space-y-6" id="camel-snake-tool">
+  {showCleanLink && cleanPath && (
+    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
+      独立打开
+    </a>
+  )}
+  <div>
+    <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入变量名</label>
+    <input type="text" id="cs-input" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2 font-mono text-sm" placeholder="hello_world / helloWorld / hello-world / HelloWord" />
+  </div>
+  <div class="space-y-3">
+    <div class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+      <span class="text-xs font-medium w-24 shrink-0">camelCase</span>
+      <code id="cs-camel" class="flex-1 font-mono text-sm text-primary-600"></code>
+      <button class="cs-copy shrink-0 px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-xs">📋</button>
+    </div>
+    <div class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+      <span class="text-xs font-medium w-24 shrink-0">PascalCase</span>
+      <code id="cs-pascal" class="flex-1 font-mono text-sm text-primary-600"></code>
+      <button class="cs-copy shrink-0 px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-xs">📋</button>
+    </div>
+    <div class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+      <span class="text-xs font-medium w-24 shrink-0">snake_case</span>
+      <code id="cs-snake" class="flex-1 font-mono text-sm text-primary-600"></code>
+      <button class="cs-copy shrink-0 px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-xs">📋</button>
+    </div>
+    <div class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+      <span class="text-xs font-medium w-24 shrink-0">kebab-case</span>
+      <code id="cs-kebab" class="flex-1 font-mono text-sm text-primary-600"></code>
+      <button class="cs-copy shrink-0 px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-xs">📋</button>
+    </div>
+    <div class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+      <span class="text-xs font-medium w-24 shrink-0">CONSTANT</span>
+      <code id="cs-constant" class="flex-1 font-mono text-sm text-primary-600"></code>
+      <button class="cs-copy shrink-0 px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-xs">📋</button>
+    </div>
+  </div>
+</div>
+<script>
+  const input = document.getElementById('cs-input') as HTMLInputElement;
+  function splitWords(s: string): string[] {
+    return s.replace(/([a-z])([A-Z])/g, '$1_$2').replace(/[-\s]+/g, '_').split('_').filter(Boolean).map(w => w.toLowerCase());
+  }
+  function toCamel(words: string[]) { return words.map((w, i) => i === 0 ? w : w[0].toUpperCase() + w.slice(1)).join(''); }
+  function toPascal(words: string[]) { return words.map(w => w[0].toUpperCase() + w.slice(1)).join(''); }
+  function toSnake(words: string[]) { return words.join('_'); }
+  function toKebab(words: string[]) { return words.join('-'); }
+  function toConstant(words: string[]) { return words.map(w => w.toUpperCase()).join('_'); }
+  function update() {
+    const v = input.value.trim();
+    if (!v) { ['cs-camel','cs-pascal','cs-snake','cs-kebab','cs-constant'].forEach(id => document.getElementById(id)!.textContent = ''); return; }
+    const words = splitWords(v);
+    document.getElementById('cs-camel')!.textContent = toCamel(words);
+    document.getElementById('cs-pascal')!.textContent = toPascal(words);
+    document.getElementById('cs-snake')!.textContent = toSnake(words);
+    document.getElementById('cs-kebab')!.textContent = toKebab(words);
+    document.getElementById('cs-constant')!.textContent = toConstant(words);
+  }
+  input.addEventListener('input', update);
+  document.querySelectorAll('.cs-copy').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const code = (btn as HTMLElement).closest('.flex')?.querySelector('code');
+      if (code?.textContent) { await navigator.clipboard.writeText(code.textContent); btn.textContent = '✅'; setTimeout(() => btn.textContent = '📋', 1500); }
+    });
+  });
+</script>

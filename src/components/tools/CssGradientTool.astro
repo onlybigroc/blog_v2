@@ -1,0 +1,90 @@
+---
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
+const { cleanPath, showCleanLink = false } = Astro.props;
+---
+<div class="space-y-6" id="css-gradient-tool">
+  {showCleanLink && cleanPath && (
+    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
+      独立打开
+    </a>
+  )}
+  <div id="cgrad-preview" class="h-40 rounded-xl border border-gray-200 dark:border-gray-700" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)"></div>
+  <div class="flex flex-wrap gap-3">
+    <button id="cgrad-random" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">🎲 随机渐变</button>
+    <select id="cgrad-type" class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
+      <option value="linear">线性渐变</option>
+      <option value="radial">径向渐变</option>
+      <option value="conic">锥形渐变</option>
+    </select>
+    <select id="cgrad-dir" class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
+      <option value="135deg">→ ↘ 135°</option>
+      <option value="90deg">→ 90°</option>
+      <option value="180deg">↓ 180°</option>
+      <option value="45deg">↗ 45°</option>
+      <option value="0deg">↑ 0°</option>
+      <option value="270deg">← 270°</option>
+    </select>
+    <button id="cgrad-add" class="px-3 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-sm">+ 加色</button>
+  </div>
+  <div id="cgrad-colors" class="flex flex-wrap gap-2">
+    <input type="color" value="#667eea" class="cgrad-color h-10 w-16 rounded cursor-pointer" />
+    <input type="color" value="#764ba2" class="cgrad-color h-10 w-16 rounded cursor-pointer" />
+  </div>
+  <div>
+    <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">CSS 代码</label>
+    <textarea id="cgrad-css" class="w-full h-20 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" readonly></textarea>
+  </div>
+  <button id="cgrad-copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">📋 复制 CSS</button>
+</div>
+<script>
+  const preview = document.getElementById('cgrad-preview')!;
+  const cssOut = document.getElementById('cgrad-css') as HTMLTextAreaElement;
+  const colorsDiv = document.getElementById('cgrad-colors')!;
+  const typeSel = document.getElementById('cgrad-type') as HTMLSelectElement;
+  const dirSel = document.getElementById('cgrad-dir') as HTMLSelectElement;
+
+  function randColor() { return '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6,'0'); }
+
+  function getColors(): string[] {
+    return Array.from(colorsDiv.querySelectorAll('.cgrad-color')).map((el) => (el as HTMLInputElement).value);
+  }
+
+  function updateGradient() {
+    const colors = getColors();
+    const type = typeSel.value;
+    const dir = dirSel.value;
+    const stops = colors.map((c, i) => `${c} ${Math.round(i/(colors.length-1)*100)}%`).join(', ');
+    let css = '';
+    if (type === 'linear') css = `linear-gradient(${dir}, ${stops})`;
+    else if (type === 'radial') css = `radial-gradient(circle, ${stops})`;
+    else css = `conic-gradient(from ${dir}, ${stops})`;
+    preview.style.background = css;
+    cssOut.value = `background: ${css};`;
+  }
+
+  document.getElementById('cgrad-random')?.addEventListener('click', () => {
+    const inputs = colorsDiv.querySelectorAll('.cgrad-color');
+    inputs.forEach((el) => { (el as HTMLInputElement).value = randColor(); });
+    updateGradient();
+  });
+
+  document.getElementById('cgrad-add')?.addEventListener('click', () => {
+    const inp = document.createElement('input');
+    inp.type = 'color'; inp.value = randColor(); inp.className = 'cgrad-color h-10 w-16 rounded cursor-pointer';
+    colorsDiv.appendChild(inp);
+    inp.addEventListener('input', updateGradient);
+    updateGradient();
+  });
+
+  document.getElementById('cgrad-copy')?.addEventListener('click', async () => {
+    await navigator.clipboard.writeText(cssOut.value);
+    document.getElementById('cgrad-copy')!.textContent = '✅ 已复制';
+    setTimeout(() => document.getElementById('cgrad-copy')!.textContent = '📋 复制 CSS', 1500);
+  });
+
+  colorsDiv.addEventListener('input', updateGradient);
+  typeSel.addEventListener('change', updateGradient);
+  dirSel.addEventListener('change', updateGradient);
+  updateGradient();
+</script>

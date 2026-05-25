@@ -1,0 +1,11 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import JwtDecodeTool from '@components/tools/JwtDecodeTool.astro';
+
+const title = 'JWT 解析 | 工具';
+const description = '解码 JWT Token，展示 Header / Payload / Signature。';
+---
+
+<ToolLayout title={title} description={description}>
+  <JwtDecodeTool />
+</ToolLayout>

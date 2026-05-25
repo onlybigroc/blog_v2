@@ -1,0 +1,11 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import CssGradientTool from '@components/tools/CssGradientTool.astro';
+
+const title = 'CSS 渐变生成器 | 工具';
+const description = '可视化创建 CSS 线性/径向渐变，实时预览并复制代码。';
+---
+
+<ToolLayout title={title} description={description}>
+  <CssGradientTool />
+</ToolLayout>

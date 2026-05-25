@@ -1,0 +1,69 @@
+---
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
+const { cleanPath, showCleanLink = false } = Astro.props;
+---
+
+<div class="space-y-6" id="css-unit-tool">
+  {showCleanLink && cleanPath && (
+    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
+      独立打开
+    </a>
+  )}
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div>
+      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">数值</label>
+      <input type="number" id="cu-value" value="16" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2 text-sm" />
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">基准字号 (px)</label>
+      <input type="number" id="cu-base" value="16" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2 text-sm" />
+    </div>
+  </div>
+  <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 mb-1">rem</div>
+      <div id="cu-rem" class="text-xl font-mono font-bold text-primary-600">1rem</div>
+    </div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 mb-1">em</div>
+      <div id="cu-em" class="text-xl font-mono font-bold text-primary-600">1em</div>
+    </div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 mb-1">px</div>
+      <div id="cu-px" class="text-xl font-mono font-bold text-primary-600">16px</div>
+    </div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 mb-1">vw (1440px)</div>
+      <div id="cu-vw" class="text-xl font-mono font-bold text-primary-600">1.111vw</div>
+    </div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 mb-1">pt</div>
+      <div id="cu-pt" class="text-xl font-mono font-bold text-primary-600">12pt</div>
+    </div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 mb-1">%</div>
+      <div id="cu-pct" class="text-xl font-mono font-bold text-primary-600">100%</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const valInput = document.getElementById('cu-value') as HTMLInputElement;
+  const baseInput = document.getElementById('cu-base') as HTMLInputElement;
+
+  function update() {
+    const px = parseFloat(valInput.value) || 0;
+    const base = parseFloat(baseInput.value) || 16;
+    document.getElementById('cu-rem')!.textContent = (px / base).toFixed(4).replace(/\.?0+$/, '') + 'rem';
+    document.getElementById('cu-em')!.textContent = (px / base).toFixed(4).replace(/\.?0+$/, '') + 'em';
+    document.getElementById('cu-px')!.textContent = px + 'px';
+    document.getElementById('cu-vw')!.textContent = (px / 1440 * 100).toFixed(3).replace(/\.?0+$/, '') + 'vw';
+    document.getElementById('cu-pt')!.textContent = (px * 0.75).toFixed(2).replace(/\.?0+$/, '') + 'pt';
+    document.getElementById('cu-pct')!.textContent = (px / base * 100).toFixed(2).replace(/\.?0+$/, '') + '%';
+  }
+
+  valInput.addEventListener('input', update);
+  baseInput.addEventListener('input', update);
+  update();
+</script>

@@ -1,0 +1,11 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import CamelSnakeTool from '@components/tools/CamelSnakeTool.astro';
+
+const title = '驼峰下划线转换 | 工具';
+const description = 'camelCase / snake_case / kebab-case 等命名格式互转。';
+---
+
+<ToolLayout title={title} description={description}>
+  <CamelSnakeTool />
+</ToolLayout>

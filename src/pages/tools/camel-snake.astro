@@ -1,0 +1,17 @@
+---
+import MainLayout from '@layouts/MainLayout.astro';
+import CamelSnakeTool from '@components/tools/CamelSnakeTool.astro';
+
+const title = '驼峰下划线转换 | 工具';
+const description = 'camelCase / snake_case / kebab-case 等命名格式互转。';
+---
+
+<MainLayout title={title} description={description}>
+  <div class="mb-8">
+    <a href="/tools" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">← 返回工具列表</a>
+    <h1 class="text-3xl font-bold mt-3 mb-2">驼峰下划线转换</h1>
+    <p class="text-gray-600 dark:text-gray-400">camelCase / snake_case / kebab-case 等命名格式互转。</p>
+  </div>
+
+  <CamelSnakeTool cleanPath="/tools/camel-snake/clean/" showCleanLink />
+</MainLayout>

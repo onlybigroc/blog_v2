@@ -1,0 +1,61 @@
+---
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
+const { cleanPath, showCleanLink = false } = Astro.props;
+---
+<div class="space-y-6" id="hash-gen-tool">
+  {showCleanLink && cleanPath && (
+    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
+      独立打开
+    </a>
+  )}
+  <div>
+    <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入文本</label>
+    <textarea id="hash-input" class="w-full h-32 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y" placeholder="要计算哈希的文本..."></textarea>
+  </div>
+  <div class="space-y-3" id="hash-results">
+    <div class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+      <span class="text-xs font-medium w-16 shrink-0">SHA-1</span>
+      <code id="hash-sha1" class="flex-1 font-mono text-sm break-all text-primary-600"></code>
+      <button class="hash-copy shrink-0 px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-xs" title="复制">📋</button>
+    </div>
+    <div class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+      <span class="text-xs font-medium w-16 shrink-0">SHA-256</span>
+      <code id="hash-sha256" class="flex-1 font-mono text-sm break-all text-primary-600"></code>
+      <button class="hash-copy shrink-0 px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-xs" title="复制">📋</button>
+    </div>
+    <div class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+      <span class="text-xs font-medium w-16 shrink-0">SHA-384</span>
+      <code id="hash-sha384" class="flex-1 font-mono text-sm break-all text-primary-600"></code>
+      <button class="hash-copy shrink-0 px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-xs" title="复制">📋</button>
+    </div>
+    <div class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+      <span class="text-xs font-medium w-16 shrink-0">SHA-512</span>
+      <code id="hash-sha512" class="flex-1 font-mono text-sm break-all text-primary-600"></code>
+      <button class="hash-copy shrink-0 px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-xs" title="复制">📋</button>
+    </div>
+  </div>
+</div>
+<script>
+  const input = document.getElementById('hash-input') as HTMLTextAreaElement;
+  async function hash(algo: string, data: string) {
+    const enc = new TextEncoder().encode(data);
+    const buf = await crypto.subtle.digest(algo, enc);
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+  async function update() {
+    const v = input.value;
+    if (!v) { ['hash-sha1','hash-sha256','hash-sha384','hash-sha512'].forEach(id => document.getElementById(id)!.textContent = ''); return; }
+    document.getElementById('hash-sha1')!.textContent = await hash('SHA-1', v);
+    document.getElementById('hash-sha256')!.textContent = await hash('SHA-256', v);
+    document.getElementById('hash-sha384')!.textContent = await hash('SHA-384', v);
+    document.getElementById('hash-sha512')!.textContent = await hash('SHA-512', v);
+  }
+  input.addEventListener('input', update);
+  document.querySelectorAll('.hash-copy').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const code = (btn as HTMLElement).closest('.flex')?.querySelector('code');
+      if (code?.textContent) { await navigator.clipboard.writeText(code.textContent); btn.textContent = '✅'; setTimeout(() => btn.textContent = '📋', 1500); }
+    });
+  });
+</script>

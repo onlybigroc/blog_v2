@@ -1,0 +1,71 @@
+---
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
+const { cleanPath, showCleanLink = false } = Astro.props;
+---
+<div class="space-y-6" id="case-convert-tool">
+  {showCleanLink && cleanPath && (
+    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
+      独立打开
+    </a>
+  )}
+  <div>
+    <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入文本</label>
+    <textarea id="cc-input" class="w-full h-32 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm resize-y" placeholder="输入要转换的文本..."></textarea>
+  </div>
+  <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <button class="cc-btn px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 text-left" data-fn="upper">
+      <div class="text-xs text-gray-500 mb-1">全部大写</div><div class="cc-preview font-mono text-sm truncate"></div>
+    </button>
+    <button class="cc-btn px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 text-left" data-fn="lower">
+      <div class="text-xs text-gray-500 mb-1">全部小写</div><div class="cc-preview font-mono text-sm truncate"></div>
+    </button>
+    <button class="cc-btn px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 text-left" data-fn="title">
+      <div class="text-xs text-gray-500 mb-1">首字母大写</div><div class="cc-preview font-mono text-sm truncate"></div>
+    </button>
+    <button class="cc-btn px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 text-left" data-fn="sentence">
+      <div class="text-xs text-gray-500 mb-1">句首大写</div><div class="cc-preview font-mono text-sm truncate"></div>
+    </button>
+    <button class="cc-btn px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 text-left" data-fn="toggle">
+      <div class="text-xs text-gray-500 mb-1">大小写反转</div><div class="cc-preview font-mono text-sm truncate"></div>
+    </button>
+    <button class="cc-btn px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 text-left" data-fn="alternate">
+      <div class="text-xs text-gray-500 mb-1">交替大小写</div><div class="cc-preview font-mono text-sm truncate"></div>
+    </button>
+  </div>
+  <div id="cc-status" class="hidden rounded-lg p-3 text-sm bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400"></div>
+</div>
+<script>
+  const input = document.getElementById('cc-input') as HTMLTextAreaElement;
+  const fns: Record<string, (s: string) => string> = {
+    upper: s => s.toUpperCase(),
+    lower: s => s.toLowerCase(),
+    title: s => s.replace(/\b\w/g, c => c.toUpperCase()),
+    sentence: s => s.replace(/(^\s*|[.!?]\s+)(\w)/g, (m, p, c) => p + c.toUpperCase()),
+    toggle: s => s.split('').map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join(''),
+    alternate: s => s.split('').map((c, i) => i % 2 === 0 ? c.toUpperCase() : c.toLowerCase()).join(''),
+  };
+
+  function update() {
+    const v = input.value;
+    document.querySelectorAll('.cc-btn').forEach(btn => {
+      const fn = fns[(btn as HTMLElement).dataset.fn!];
+      const preview = btn.querySelector('.cc-preview')!;
+      preview.textContent = v ? fn(v).slice(0, 50) : '—';
+    });
+  }
+
+  document.querySelectorAll('.cc-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const v = input.value;
+      if (!v) return;
+      const fn = fns[(btn as HTMLElement).dataset.fn!];
+      await navigator.clipboard.writeText(fn(v));
+      const s = document.getElementById('cc-status')!;
+      s.textContent = '✅ 已复制到剪贴板'; s.classList.remove('hidden');
+      setTimeout(() => s.classList.add('hidden'), 2000);
+    });
+  });
+
+  input.addEventListener('input', update);
+</script>

@@ -1,0 +1,71 @@
+---
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
+const { cleanPath, showCleanLink = false } = Astro.props;
+---
+<div class="space-y-6" id="ua-parse-tool">
+  {showCleanLink && cleanPath && (
+    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
+      独立打开
+    </a>
+  )}
+  <button id="ua-current" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">🔍 检测当前浏览器</button>
+  <div>
+    <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">或粘贴 User-Agent</label>
+    <input type="text" id="ua-input" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2 text-sm font-mono" placeholder="Mozilla/5.0 ..." />
+  </div>
+  <div id="ua-result" class="hidden grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700"><div class="text-xs text-gray-500 mb-1">浏览器</div><div id="ua-browser" class="text-lg font-semibold text-primary-600"></div></div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700"><div class="text-xs text-gray-500 mb-1">版本</div><div id="ua-version" class="text-lg font-semibold text-primary-600"></div></div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700"><div class="text-xs text-gray-500 mb-1">操作系统</div><div id="ua-os" class="text-lg font-semibold text-primary-600"></div></div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700"><div class="text-xs text-gray-500 mb-1">设备类型</div><div id="ua-device" class="text-lg font-semibold text-primary-600"></div></div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700"><div class="text-xs text-gray-500 mb-1">引擎</div><div id="ua-engine" class="text-lg font-semibold text-primary-600"></div></div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700"><div class="text-xs text-gray-500 mb-1">CPU 架构</div><div id="ua-arch" class="text-lg font-semibold text-primary-600"></div></div>
+  </div>
+  <div id="ua-raw" class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-900 text-xs font-mono break-all text-gray-600 dark:text-gray-400"></div>
+</div>
+<script>
+  function parseUA(ua: string) {
+    const r: Record<string, string> = {};
+    // Browser
+    let m = ua.match(/(Firefox|Edg|OPR|Chrome|Safari|MSIE|Trident)\/?([\d.]+)/);
+    if (ua.includes('Edg')) { r.browser = 'Edge'; r.version = (ua.match(/Edg\/([\d.]+)/) || [])[1] || ''; }
+    else if (ua.includes('OPR')) { r.browser = 'Opera'; r.version = (ua.match(/OPR\/([\d.]+)/) || [])[1] || ''; }
+    else if (ua.includes('Firefox')) { r.browser = 'Firefox'; r.version = (ua.match(/Firefox\/([\d.]+)/) || [])[1] || ''; }
+    else if (ua.includes('Chrome') && !ua.includes('Edg')) { r.browser = 'Chrome'; r.version = (ua.match(/Chrome\/([\d.]+)/) || [])[1] || ''; }
+    else if (ua.includes('Safari') && !ua.includes('Chrome')) { r.browser = 'Safari'; r.version = (ua.match(/Version\/([\d.]+)/) || [])[1] || ''; }
+    else { r.browser = m ? m[1] : 'Unknown'; r.version = m ? m[2] : ''; }
+    // OS
+    if (ua.includes('Windows')) r.os = 'Windows';
+    else if (ua.includes('Mac OS X')) { r.os = 'macOS'; const v = ua.match(/Mac OS X ([\d_]+)/); r.os += v ? ' ' + v[1].replace(/_/g, '.') : ''; }
+    else if (ua.includes('Android')) { r.os = 'Android'; const v = ua.match(/Android ([\d.]+)/); r.os += v ? ' ' + v[1] : ''; }
+    else if (ua.includes('iPhone') || ua.includes('iPad')) { r.os = 'iOS'; const v = ua.match(/OS ([\d_]+)/); r.os += v ? ' ' + v[1].replace(/_/g, '.') : ''; }
+    else if (ua.includes('Linux')) r.os = 'Linux';
+    else r.os = 'Unknown';
+    // Device
+    r.device = ua.includes('Mobile') ? 'Mobile' : ua.includes('Tablet') ? 'Tablet' : 'Desktop';
+    // Engine
+    if (ua.includes('Gecko') && ua.includes('Firefox')) r.engine = 'Gecko';
+    else if (ua.includes('AppleWebKit')) r.engine = 'WebKit/Blink';
+    else r.engine = 'Unknown';
+    // Arch
+    if (ua.includes('x86_64') || ua.includes('Win64') || ua.includes('x64')) r.arch = 'x86_64';
+    else if (ua.includes('arm') || ua.includes('aarch64')) r.arch = 'ARM';
+    else r.arch = 'Unknown';
+    return r;
+  }
+  function show(ua: string) {
+    const r = parseUA(ua);
+    document.getElementById('ua-browser')!.textContent = r.browser;
+    document.getElementById('ua-version')!.textContent = r.version;
+    document.getElementById('ua-os')!.textContent = r.os;
+    document.getElementById('ua-device')!.textContent = r.device;
+    document.getElementById('ua-engine')!.textContent = r.engine;
+    document.getElementById('ua-arch')!.textContent = r.arch;
+    document.getElementById('ua-raw')!.textContent = ua;
+    document.getElementById('ua-result')!.classList.remove('hidden');
+    document.getElementById('ua-raw')!.classList.remove('hidden');
+  }
+  document.getElementById('ua-current')?.addEventListener('click', () => show(navigator.userAgent));
+  (document.getElementById('ua-input') as HTMLInputElement).addEventListener('input', (e) => { const v = (e.target as HTMLInputElement).value; if (v) show(v); });
+</script>

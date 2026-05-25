@@ -1,0 +1,49 @@
+---
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
+const { cleanPath, showCleanLink = false } = Astro.props;
+---
+<div class="space-y-6" id="base-convert-tool">
+  {showCleanLink && cleanPath && (
+    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
+      独立打开
+    </a>
+  )}
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div>
+      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入数值</label>
+      <input type="text" id="bc-input" value="255" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2 font-mono text-sm" />
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入进制</label>
+      <select id="bc-from" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
+        <option value="10" selected>十进制</option><option value="2">二进制</option><option value="8">八进制</option><option value="16">十六进制</option>
+      </select>
+    </div>
+  </div>
+  <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700"><div class="text-xs text-gray-500 mb-1">十进制</div><div id="bc-dec" class="text-lg font-mono font-bold text-primary-600">255</div></div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700"><div class="text-xs text-gray-500 mb-1">二进制</div><div id="bc-bin" class="text-lg font-mono font-bold text-primary-600">11111111</div></div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700"><div class="text-xs text-gray-500 mb-1">八进制</div><div id="bc-oct" class="text-lg font-mono font-bold text-primary-600">377</div></div>
+    <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700"><div class="text-xs text-gray-500 mb-1">十六进制</div><div id="bc-hex" class="text-lg font-mono font-bold text-primary-600">FF</div></div>
+  </div>
+  <div id="bc-status" class="hidden rounded-lg p-3 text-sm"></div>
+</div>
+<script>
+  const inp = document.getElementById('bc-input') as HTMLInputElement;
+  const fromSel = document.getElementById('bc-from') as HTMLSelectElement;
+  const statusEl = document.getElementById('bc-status')!;
+  function convert() {
+    const from = parseInt(fromSel.value);
+    const dec = parseInt(inp.value, from);
+    if (isNaN(dec)) { statusEl.textContent = '❌ 无效输入'; statusEl.className = 'rounded-lg p-3 text-sm bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'; statusEl.classList.remove('hidden'); return; }
+    statusEl.classList.add('hidden');
+    document.getElementById('bc-dec')!.textContent = dec.toString(10);
+    document.getElementById('bc-bin')!.textContent = dec.toString(2);
+    document.getElementById('bc-oct')!.textContent = dec.toString(8);
+    document.getElementById('bc-hex')!.textContent = dec.toString(16).toUpperCase();
+  }
+  inp.addEventListener('input', convert);
+  fromSel.addEventListener('change', convert);
+  convert();
+</script>
