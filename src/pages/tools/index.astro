@@ -5,6 +5,7 @@ import {
   Clock, Users, Swords, Braces, Lock, Palette, KeyRound, Search,
   ArrowRightLeft, Type, GitCompare, Eye, Table, Fingerprint, Pilcrow,
   Link, Code, RotateCcw, Wrench, FileText, Shield, Heart, Gamepad2,
+  X,
 } from 'lucide-astro';
 
 const iconMap: Record<string, any> = {
@@ -21,7 +22,6 @@ const categoryOrder: ToolCategory[] = ['dev', 'text', 'security', 'time', 'life'
 const readyTools = tools.filter((t) => t.status !== 'draft');
 const draftTools = tools.filter((t) => t.status === 'draft');
 
-// 按分组整理
 const grouped: { key: ToolCategory; label: string; icon: any; items: typeof readyTools }[] = [];
 for (const cat of categoryOrder) {
   const items = readyTools.filter((t) => t.category === cat);
@@ -37,11 +37,53 @@ for (const cat of categoryOrder) {
 ---
 
 <MainLayout title={title} description={description}>
-  <div class="mb-10">
+  <div class="mb-6">
     <h1 class="text-4xl font-bold mb-3">工具</h1>
     <p class="text-gray-600 dark:text-gray-400">
       常用在线工具集合，按功能分组，方便查找。
     </p>
+  </div>
+
+  <!-- 搜索框 -->
+  <div class="relative mb-5">
+    <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+      <Search class="w-5 h-5 text-gray-400" />
+    </div>
+    <input
+      id="tool-search"
+      type="text"
+      placeholder="搜索工具名称或描述…"
+      autocomplete="off"
+      class="w-full pl-12 pr-10 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-shadow"
+    />
+    <button
+      id="search-clear"
+      class="absolute inset-y-0 right-0 flex items-center pr-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hidden"
+      aria-label="清除搜索"
+      type="button"
+    >
+      <X class="w-5 h-5" />
+    </button>
+  </div>
+
+  <!-- 分类标签导航 -->
+  <div id="cat-nav" class="flex flex-wrap gap-2 mb-8">
+    {grouped.map((group) => (
+      <button
+        type="button"
+        data-cat={group.key}
+        class="cat-tag px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+      >
+        {group.label}
+        <span class="ml-1.5 text-gray-400 dark:text-gray-500">({group.items.length})</span>
+      </button>
+    ))}
+  </div>
+
+  <!-- 无结果提示 -->
+  <div id="no-results" class="hidden rounded-xl border border-dashed border-gray-300 dark:border-gray-700 p-10 text-center">
+    <p class="text-gray-500 dark:text-gray-400 text-lg mb-1">没有匹配的工具</p>
+    <p class="text-gray-400 dark:text-gray-500 text-sm">试试其他关键词</p>
   </div>
 
   {grouped.length === 0 ? (
@@ -54,7 +96,7 @@ for (const cat of categoryOrder) {
     </section>
   ) : (
     grouped.map((group) => (
-      <section class="mb-10">
+      <section id={`cat-${group.key}`} class="tool-group mb-10">
         <div class="flex items-center gap-3 mb-5">
           {group.icon && <group.icon class="w-6 h-6 text-primary-600 dark:text-primary-400" />}
           <h2 class="text-2xl font-bold">{group.label}</h2>
@@ -64,6 +106,8 @@ for (const cat of categoryOrder) {
           {group.items.map((tool) => (
             <a
               href={tool.path}
+              data-tool-name={tool.name}
+              data-tool-desc={tool.description}
               class="block rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:border-primary-500 dark:hover:border-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
             >
               <div class="flex items-center gap-3 mb-2">
@@ -95,3 +139,64 @@ for (const cat of categoryOrder) {
     </section>
   )}
 </MainLayout>
+
+<script>
+  const searchInput = document.getElementById('tool-search') as HTMLInputElement;
+  const clearBtn = document.getElementById('search-clear') as HTMLButtonElement;
+  const catTags = document.querySelectorAll<HTMLButtonElement>('.cat-tag');
+  const noResults = document.getElementById('no-results') as HTMLDivElement;
+  const toolGroups = document.querySelectorAll<HTMLElement>('.tool-group');
+
+  function filterTools(query: string) {
+    const q = query.toLowerCase().trim();
+
+    clearBtn.classList.toggle('hidden', !q);
+
+    let anyVisible = false;
+
+    document.querySelectorAll<HTMLElement>('[data-tool-name]').forEach((card) => {
+      const name = (card.dataset.toolName || '').toLowerCase();
+      const desc = (card.dataset.toolDesc || '').toLowerCase();
+      const match = !q || name.includes(q) || desc.includes(q);
+      card.classList.toggle('hidden', !match);
+      if (match) anyVisible = true;
+    });
+
+    toolGroups.forEach((group) => {
+      const visibleCards = group.querySelectorAll<HTMLElement>('[data-tool-name]:not(.hidden)');
+      group.classList.toggle('hidden', visibleCards.length === 0);
+    });
+
+    catTags.forEach((tag) => {
+      const cat = tag.dataset.cat;
+      const group = document.getElementById(`cat-${cat}`);
+      const hasVisible = group ? group.querySelectorAll<HTMLElement>('[data-tool-name]:not(.hidden)').length > 0 : true;
+      tag.classList.toggle('opacity-40', !hasVisible && !!q);
+      tag.classList.toggle('pointer-events-none', !hasVisible && !!q);
+    });
+
+    noResults.classList.toggle('hidden', anyVisible || !q);
+  }
+
+  searchInput.addEventListener('input', (e) => {
+    filterTools((e.target as HTMLInputElement).value);
+  });
+
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    filterTools('');
+    searchInput.focus();
+  });
+
+  catTags.forEach((tag) => {
+    tag.addEventListener('click', () => {
+      const cat = tag.dataset.cat!;
+      searchInput.value = '';
+      filterTools('');
+      const section = document.getElementById(`cat-${cat}`);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
