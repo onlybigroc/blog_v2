@@ -1,35 +1,27 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入重量..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
+  <div class="flex flex-wrap items-end gap-4">
+    <div class="flex-1 min-w-[120px]"><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">数值</label><input id="val" type="number" value="1" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" /></div>
+    <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">从</label><select id="from" class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm"></select></div>
+    <button id="swap" class="px-3 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-sm">⇄</button>
+    <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">到</label><select id="to" class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm"></select></div>
   </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">换算</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
-  </div>
+  <div id="result" class="text-2xl font-bold text-center py-4 text-primary-600 dark:text-primary-400"></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const units: [string, number][] = [['千克 (kg)',1],['克 (g)',0.001],['毫克 (mg)',0.000001],['吨 (t)',1000],['磅 (lb)',0.453592],['盎司 (oz)',0.0283495],['斤',0.5],['两',0.05]];
+const fromEl=document.getElementById('from')as HTMLSelectElement,toEl=document.getElementById('to')as HTMLSelectElement;
+units.forEach(([n],i)=>{fromEl.innerHTML+=`<option ${i===0?'selected':''}>${n}</option>`;toEl.innerHTML+=`<option ${i===4?'selected':''}>${n}</option>`;});
+const convert=()=>{const v=parseFloat((document.getElementById('val')as HTMLInputElement).value)||0;const r=v*units[fromEl.selectedIndex][1]/units[toEl.selectedIndex][1];document.getElementById('result')!.textContent=`${v} ${units[fromEl.selectedIndex][0]} = ${r.toPrecision(8).replace(/\.?0+$/,'')} ${units[toEl.selectedIndex][0]}`;};
+[fromEl,toEl].forEach(e=>e.addEventListener('change',convert));
+document.getElementById('val')?.addEventListener('input',convert);
+document.getElementById('swap')?.addEventListener('click',()=>{const t=fromEl.selectedIndex;fromEl.selectedIndex=toEl.selectedIndex;toEl.selectedIndex=t;convert();});
+convert();
 </script>

@@ -1,35 +1,51 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
-  {showCleanLink && cleanPath && (
-    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
-  )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="粘贴 .env 内容..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
-  </div>
+  {showCleanLink && cleanPath && (<a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>)}
+  <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-mono" placeholder={`# 配置文件\nDB_HOST=localhost\nDB_PORT=5432\nAPI_KEY="secret-key"\nDEBUG=true\n# 注释行`}></textarea>
   <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">解析</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+    <input id="search" type="text" class="flex-1 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" placeholder="搜索变量..." />
+    <label class="flex items-center gap-1 text-sm"><input id="hide-vals" type="checkbox" class="rounded" /><span class="text-gray-500">隐藏值</span></label>
   </div>
+  <div id="table" class="overflow-auto"><table class="w-full text-sm"><thead><tr class="border-b dark:border-gray-700"><th class="text-left py-2 px-3">变量名</th><th class="text-left py-2 px-3">值</th><th class="text-left py-2 px-3">类型</th></tr></thead><tbody id="tbody"></tbody></table></div>
+  <div id="count" class="text-sm text-gray-500"></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const inp = document.getElementById('inp') as HTMLTextAreaElement;
+const searchInput = document.getElementById('search') as HTMLInputElement;
+let vars: {key: string, value: string, type: string}[] = [];
+
+function parse() {
+  vars = [];
+  for (const rawLine of inp.value.split('\n')) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith('#')) continue;
+    const eqIdx = line.indexOf('=');
+    if (eqIdx === -1) continue;
+    const key = line.slice(0, eqIdx).trim();
+    let value = line.slice(eqIdx + 1).trim();
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) value = value.slice(1, -1);
+    let type = '字符串';
+    if (value === 'true' || value === 'false') type = '布尔';
+    else if (/^-?\d+(\.\d+)?$/.test(value)) type = '数字';
+    vars.push({ key, value, type });
+  }
+  render();
+}
+
+function render() {
+  const q = searchInput.value.toLowerCase();
+  const hide = (document.getElementById('hide-vals') as HTMLInputElement).checked;
+  const filtered = vars.filter(v => !q || v.key.toLowerCase().includes(q) || v.value.toLowerCase().includes(q));
+  document.getElementById('tbody')!.innerHTML = filtered.map(v =>
+    `<tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50"><td class="py-2 px-3 font-mono font-medium">${v.key}</td><td class="py-2 px-3 font-mono">${hide ? '••••••' : v.value}</td><td class="py-2 px-3"><span class="px-2 py-0.5 rounded text-xs ${v.type==='布尔'?'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400':v.type==='数字'?'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400':'bg-gray-100 dark:bg-gray-700'}">${v.type}</span></td></tr>`
+  ).join('');
+  document.getElementById('count')!.textContent = `${filtered.length} / ${vars.length} 个变量`;
+}
+
+inp.addEventListener('input', parse);
+searchInput.addEventListener('input', render);
+document.getElementById('hide-vals')?.addEventListener('change', render);
 </script>

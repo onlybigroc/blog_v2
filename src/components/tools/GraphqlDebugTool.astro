@@ -12,24 +12,109 @@ const { cleanPath, showCleanLink = false } = Astro.props;
       独立打开
     </a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
+  <div class="flex flex-wrap items-center gap-3">
+    <button id="format" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">格式化</button>
+    <button id="validate" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">校验语法</button>
+    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制</button>
+  </div>
+  <div class="grid gap-4 lg:grid-cols-2">
     <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="粘贴 GraphQL 查询..."></textarea>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">GraphQL 查询</label>
+      <textarea id="gql-input" class="w-full h-72 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y" placeholder={`query GetUser($id: ID!) {
+  user(id: $id) {
+    name
+    email
+  }
+}`}></textarea>
     </div>
     <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">格式化结果</label>
+      <textarea id="gql-output" class="w-full h-72 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm resize-y" readonly></textarea>
     </div>
   </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">格式化</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+  <div>
+    <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">变量 (JSON)</label>
+    <textarea id="gql-vars" class="w-full h-28 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y" placeholder={'{"id": "1"}'}></textarea>
   </div>
+  <div id="status" class="hidden rounded-lg p-3 text-sm"></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const input = document.getElementById('gql-input') as HTMLTextAreaElement;
+const output = document.getElementById('gql-output') as HTMLTextAreaElement;
+const vars = document.getElementById('gql-vars') as HTMLTextAreaElement;
+const status = document.getElementById('status');
+
+function showStatus(msg: string, type: 'success' | 'error') {
+  if (!status) return;
+  status.textContent = msg;
+  status.className = `rounded-lg p-3 text-sm ${type === 'success' ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'}`;
+  status.classList.remove('hidden');
+}
+
+function formatGql(code: string): string {
+  let r = '', indent = 0, inStr = false, strCh = '';
+  for (let i = 0; i < code.length; i++) {
+    const c = code[i];
+    if (inStr) { r += c; if (c === strCh && code[i-1] !== '\\') inStr = false; continue; }
+    if (c === '"' || c === "'") { inStr = true; strCh = c; r += c; continue; }
+    if (c === '{') { r = r.trimEnd() + ' {\n'; indent++; r += '  '.repeat(indent); }
+    else if (c === '}') { indent = Math.max(0, indent - 1); r = r.trimEnd() + '\n' + '  '.repeat(indent) + '}'; if (indent === 0) r += '\n'; }
+    else if (c === '(') { r += '('; }
+    else if (c === ')') { r += ')'; }
+    else if (c === ',') { r += ',\n' + '  '.repeat(indent); }
+    else if (c === '\n' || c === '\r') { const t = r.trimEnd(); if (t.endsWith('{') || t.endsWith('}') || t.endsWith(',')) continue; r = t + '\n' + '  '.repeat(indent); }
+    else if (c === ' ' && r.endsWith(' ')) continue;
+    else r += c;
+  }
+  return r.replace(/\n\s*\n/g, '\n').trim();
+}
+
+function validateGql(code: string): string[] {
+  const errs: string[] = [];
+  if (!code.trim()) { errs.push('查询不能为空'); return errs; }
+  const kw = ['query','mutation','subscription','fragment','type','input','enum','interface','union','scalar','schema','extend'];
+  const first = code.trim().split(/[\s({]/)[0].toLowerCase();
+  if (!kw.includes(first)) errs.push('应以关键字开头：' + kw.join(', '));
+  let b = 0, p = 0, inS = false, sC = '';
+  for (let i = 0; i < code.length; i++) {
+    const c = code[i];
+    if (inS) { if (c === sC && code[i-1] !== '\\') inS = false; continue; }
+    if (c === '"' || c === "'") { inS = true; sC = c; continue; }
+    if (c === '{') b++; if (c === '}') b--;
+    if (c === '(') p++; if (c === ')') p--;
+  }
+  if (b !== 0) errs.push('花括号不匹配');
+  if (p !== 0) errs.push('圆括号不匹配');
+  return errs;
+}
+
+document.getElementById('format')?.addEventListener('click', () => {
+  const code = input.value.trim();
+  if (!code) { showStatus('请输入 GraphQL 查询', 'error'); return; }
+  const errs = validateGql(code);
+  if (errs.length) { showStatus('语法错误：' + errs.join('；'), 'error'); return; }
+  output.value = formatGql(code);
+  showStatus('格式化成功', 'success');
+});
+
+document.getElementById('validate')?.addEventListener('click', () => {
+  const code = input.value.trim();
+  if (!code) { showStatus('请输入 GraphQL 查询', 'error'); return; }
+  const errs = validateGql(code);
+  showStatus(errs.length === 0 ? '语法校验通过' : '发现 ' + errs.length + ' 个问题：' + errs.join('；'), errs.length ? 'error' : 'success');
+});
+
+document.getElementById('copy')?.addEventListener('click', async () => {
+  const text = output.value || input.value;
+  if (!text) return;
+  await navigator.clipboard.writeText(text);
+  showStatus('已复制', 'success');
+});
+
+vars?.addEventListener('blur', () => {
+  const v = vars.value.trim();
+  if (!v) return;
+  try { JSON.parse(v); vars.style.borderColor = ''; }
+  catch { vars.style.borderColor = '#ef4444'; }
+});
 </script>

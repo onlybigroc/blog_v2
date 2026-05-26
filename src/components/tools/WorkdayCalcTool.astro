@@ -1,35 +1,39 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入起始日期..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
-  </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">计算</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+  <div class="space-y-4">
+    <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">开始日期</label><input id="start" type="date" class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" /></div>
+    <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">结束日期</label><input id="end" type="date" class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" /></div>
+    <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">假期（每行一个日期 YYYY-MM-DD）</label><textarea id="holidays" class="w-full h-20 p-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-mono" placeholder="2026-01-01\n2026-01-29"></textarea></div>
+    <button id="calc" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">计算</button>
+    <div id="result" class="hidden rounded-lg border border-gray-200 dark:border-gray-700 p-4 space-y-2 text-sm"></div>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+document.getElementById('calc')?.addEventListener('click', () => {
+  const start = new Date((document.getElementById('start') as HTMLInputElement).value);
+  const end = new Date((document.getElementById('end') as HTMLInputElement).value);
+  if (isNaN(start.getTime()) || isNaN(end.getTime())) return;
+  const holidays = new Set((document.getElementById('holidays') as HTMLTextAreaElement).value.split('\n').map(s => s.trim()).filter(Boolean));
+  let total = 0, workdays = 0, weekends = 0, holDays = 0;
+  const d = new Date(start);
+  while (d <= end) {
+    total++;
+    const dow = d.getDay();
+    const dateStr = d.toISOString().slice(0, 10);
+    if (dow === 0 || dow === 6) weekends++;
+    else if (holidays.has(dateStr)) { holDays++; weekends++; }
+    else workdays++;
+    d.setDate(d.getDate() + 1);
+  }
+  const el = document.getElementById('result')!;
+  el.classList.remove('hidden');
+  el.innerHTML = `<div class="flex justify-between"><span>总天数</span><span class="font-bold">${total}</span></div><div class="flex justify-between"><span>工作日</span><span class="font-bold text-green-600">${workdays}</span></div><div class="flex justify-between"><span>周末</span><span>${weekends - holDays}</span></div><div class="flex justify-between"><span>假期</span><span>${holDays}</span></div>`;
+});
 </script>

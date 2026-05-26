@@ -1,23 +1,93 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="text-center py-8">
-    <p id="display" class="text-4xl mb-4">🎮</p>
-    <button id="run" class="px-6 py-3 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-lg font-medium">旋转</button>
-    <p id="result" class="mt-4 text-xl font-bold text-primary-600 dark:text-primary-400"></p>
+  <div class="flex items-end gap-3">
+    <div class="flex-1">
+      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">选项（每行一个）</label>
+      <textarea id="opts" class="w-full h-32 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm" placeholder={`选项 A\n选项 B\n选项 C\n选项 D`}></textarea>
+    </div>
+    <button id="spin" class="px-6 py-3 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">转！</button>
   </div>
+  <div class="flex justify-center">
+    <div class="relative" style="width:320px;height:320px">
+      <canvas id="wheel" width="320" height="320"></canvas>
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 w-0 h-0 border-l-[12px] border-r-[12px] border-t-[20px] border-l-transparent border-r-transparent border-t-primary-600"></div>
+    </div>
+  </div>
+  <div id="result" class="hidden text-center text-xl font-bold py-4 rounded-lg bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300"></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){document.getElementById('result').textContent='功能就绪！'};
+const canvas = document.getElementById('wheel') as HTMLCanvasElement;
+const ctx = canvas.getContext('2d')!;
+const optsInput = document.getElementById('opts') as HTMLTextAreaElement;
+const resultDiv = document.getElementById('result')!;
+const colors = ['#ef4444','#f97316','#eab308','#22c55e','#3b82f6','#8b5cf6','#ec4899','#06b6d4','#f59e0b','#10b981'];
+let rotation = 0;
+let spinning = false;
+
+function getOptions(): string[] {
+  return optsInput.value.split('\n').map(s => s.trim()).filter(Boolean);
+}
+
+function drawWheel(angle: number) {
+  const opts = getOptions();
+  if (opts.length === 0) { ctx.clearRect(0,0,320,320); ctx.fillStyle='#9ca3af'; ctx.font='14px sans-serif'; ctx.textAlign='center'; ctx.fillText('请输入选项',160,160); return; }
+  const cx = 160, cy = 160, r = 150;
+  const sliceAngle = (2 * Math.PI) / opts.length;
+  ctx.clearRect(0,0,320,320);
+  opts.forEach((opt, i) => {
+    const start = angle + i * sliceAngle;
+    const end = start + sliceAngle;
+    ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,r,start,end); ctx.closePath();
+    ctx.fillStyle = colors[i % colors.length]; ctx.fill();
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.save(); ctx.translate(cx,cy); ctx.rotate(start + sliceAngle/2);
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center';
+    const textR = r * 0.65;
+    const txt = opt.length > 8 ? opt.slice(0,8)+'…' : opt;
+    ctx.fillText(txt, textR, 5);
+    ctx.restore();
+  });
+  ctx.beginPath(); ctx.arc(cx,cy,20,0,2*Math.PI); ctx.fillStyle='#fff'; ctx.fill();
+  ctx.beginPath(); ctx.arc(cx,cy,20,0,2*Math.PI); ctx.strokeStyle='#d1d5db'; ctx.lineWidth=2; ctx.stroke();
+}
+
+function spin() {
+  if (spinning) return;
+  const opts = getOptions();
+  if (opts.length < 2) { resultDiv.textContent = '请至少输入 2 个选项'; resultDiv.classList.remove('hidden'); return; }
+  spinning = true;
+  resultDiv.classList.add('hidden');
+  const totalSpin = Math.PI * 2 * (5 + Math.random() * 5);
+  const duration = 4000;
+  const startAngle = rotation;
+  const start = performance.now();
+  function animate(now: number) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    rotation = startAngle + totalSpin * ease;
+    drawWheel(rotation);
+    if (progress < 1) requestAnimationFrame(animate);
+    else {
+      spinning = false;
+      const sliceAngle = (2 * Math.PI) / opts.length;
+      const normalized = ((2 * Math.PI - (rotation % (2 * Math.PI))) % (2 * Math.PI));
+      const idx = Math.floor(normalized / sliceAngle) % opts.length;
+      resultDiv.textContent = '结果：' + opts[idx];
+      resultDiv.classList.remove('hidden');
+    }
+  }
+  requestAnimationFrame(animate);
+}
+
+document.getElementById('spin')?.addEventListener('click', spin);
+optsInput.value = '选项 A\n选项 B\n选项 C\n选项 D\n选项 E';
+drawWheel(0);
 </script>

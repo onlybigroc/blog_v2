@@ -1,23 +1,66 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="text-center py-8">
-    <p id="display" class="text-4xl mb-4">🎮</p>
-    <button id="run" class="px-6 py-3 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-lg font-medium">出拳</button>
-    <p id="result" class="mt-4 text-xl font-bold text-primary-600 dark:text-primary-400"></p>
+  <div class="text-center space-y-6">
+    <div class="flex justify-center gap-8">
+      <div class="text-center space-y-2">
+        <div class="text-sm text-gray-500">你</div>
+        <div id="player-choice" class="text-6xl h-24 flex items-center justify-center">❓</div>
+      </div>
+      <div class="text-4xl self-center">⚡</div>
+      <div class="text-center space-y-2">
+        <div class="text-sm text-gray-500">电脑</div>
+        <div id="cpu-choice" class="text-6xl h-24 flex items-center justify-center">❓</div>
+      </div>
+    </div>
+    <div id="result-text" class="text-lg font-bold h-8"></div>
+    <div class="flex justify-center gap-4">
+      <button data-choice="rock" class="rps-btn px-6 py-4 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all text-4xl hover:scale-110">🪨</button>
+      <button data-choice="paper" class="rps-btn px-6 py-4 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all text-4xl hover:scale-110">📄</button>
+      <button data-choice="scissors" class="rps-btn px-6 py-4 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all text-4xl hover:scale-110">✂️</button>
+    </div>
+    <div class="flex justify-center gap-8 text-sm">
+      <span class="text-green-600 dark:text-green-400">胜: <span id="wins">0</span></span>
+      <span class="text-gray-500">平: <span id="draws">0</span></span>
+      <span class="text-red-600 dark:text-red-400">负: <span id="losses">0</span></span>
+    </div>
+    <button id="reset" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">重置分数</button>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){document.getElementById('result').textContent='功能就绪！'};
+const emojis: Record<string, string> = { rock: '🪨', paper: '📄', scissors: '✂️' };
+const beats: Record<string, string> = { rock: 'scissors', paper: 'rock', scissors: 'paper' };
+let wins = 0, draws = 0, losses = 0;
+
+document.querySelectorAll('.rps-btn').forEach(btn => btn.addEventListener('click', () => {
+  const player = (btn as HTMLElement).dataset.choice!;
+  const cpu = ['rock','paper','scissors'][Math.floor(Math.random() * 3)];
+  const pEl = document.getElementById('player-choice')!;
+  const cEl = document.getElementById('cpu-choice')!;
+  const rEl = document.getElementById('result-text')!;
+  pEl.textContent = emojis[player];
+  cEl.textContent = emojis[cpu];
+  if (player === cpu) { draws++; rEl.textContent = '平局！'; rEl.className = 'text-lg font-bold h-8 text-gray-500'; }
+  else if (beats[player] === cpu) { wins++; rEl.textContent = '你赢了！'; rEl.className = 'text-lg font-bold h-8 text-green-600 dark:text-green-400'; }
+  else { losses++; rEl.textContent = '你输了！'; rEl.className = 'text-lg font-bold h-8 text-red-600 dark:text-red-400'; }
+  document.getElementById('wins')!.textContent = String(wins);
+  document.getElementById('draws')!.textContent = String(draws);
+  document.getElementById('losses')!.textContent = String(losses);
+}));
+
+document.getElementById('reset')?.addEventListener('click', () => {
+  wins = 0; draws = 0; losses = 0;
+  document.getElementById('wins')!.textContent = '0';
+  document.getElementById('draws')!.textContent = '0';
+  document.getElementById('losses')!.textContent = '0';
+  document.getElementById('player-choice')!.textContent = '❓';
+  document.getElementById('cpu-choice')!.textContent = '❓';
+  document.getElementById('result-text')!.textContent = '';
+});
 </script>

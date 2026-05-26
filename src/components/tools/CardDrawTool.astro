@@ -1,23 +1,70 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="text-center py-8">
-    <p id="display" class="text-4xl mb-4">🎮</p>
-    <button id="run" class="px-6 py-3 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-lg font-medium">抽卡</button>
-    <p id="result" class="mt-4 text-xl font-bold text-primary-600 dark:text-primary-400"></p>
+  <div class="flex flex-wrap items-center gap-3">
+    <button id="draw" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">抽一张牌</button>
+    <button id="draw5" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">抽五张</button>
+    <button id="shuffle" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">洗牌</button>
+    <span id="remaining" class="text-sm text-gray-500 ml-auto"></span>
   </div>
+  <div id="cards" class="flex flex-wrap gap-3 justify-center min-h-[180px]"></div>
+  <div id="history" class="space-y-1 text-sm text-gray-500 dark:text-gray-400"></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){document.getElementById('result').textContent='功能就绪！'};
+const suits = ['♠','♥','♦','♣'];
+const ranks = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+let deck: string[] = [];
+const drawn: string[] = [];
+const cardsDiv = document.getElementById('cards')!;
+const historyDiv = document.getElementById('history')!;
+const remaining = document.getElementById('remaining')!;
+
+function initDeck() {
+  deck = [];
+  for (const s of suits) for (const r of ranks) deck.push(r + s);
+  for (let i = deck.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [deck[i], deck[j]] = [deck[j], deck[i]]; }
+  drawn.length = 0;
+  update();
+}
+
+function cardHtml(card: string): string {
+  const suit = card.slice(-1);
+  const rank = card.slice(0, -1);
+  const isRed = suit === '♥' || suit === '♦';
+  const color = isRed ? 'text-red-600 dark:text-red-400' : 'text-gray-900 dark:text-gray-100';
+  return `<div class="w-20 h-28 rounded-lg border-2 ${isRed ? 'border-red-300 dark:border-red-700' : 'border-gray-300 dark:border-gray-600'} bg-white dark:bg-gray-800 flex flex-col items-center justify-center shadow-sm ${color} hover:scale-105 transition-transform cursor-default">
+    <span class="text-2xl">${suit}</span>
+    <span class="text-lg font-bold">${rank}</span>
+  </div>`;
+}
+
+function update() {
+  remaining.textContent = `剩余 ${deck.length} 张`;
+}
+
+function drawCards(n: number) {
+  const drawnNow: string[] = [];
+  for (let i = 0; i < n && deck.length > 0; i++) {
+    const card = deck.pop()!;
+    drawn.push(card);
+    drawnNow.push(card);
+  }
+  if (drawnNow.length === 0) return;
+  cardsDiv.innerHTML = drawnNow.map(cardHtml).join('');
+  const log = document.createElement('div');
+  log.textContent = `抽取: ${drawnNow.join(', ')}`;
+  historyDiv.prepend(log);
+  update();
+}
+
+document.getElementById('draw')?.addEventListener('click', () => drawCards(1));
+document.getElementById('draw5')?.addEventListener('click', () => drawCards(5));
+document.getElementById('shuffle')?.addEventListener('click', () => { initDeck(); cardsDiv.innerHTML = ''; historyDiv.innerHTML = ''; });
+initDeck();
 </script>

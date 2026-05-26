@@ -1,23 +1,130 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="text-center py-8">
-    <p id="display" class="text-4xl mb-4">🎮</p>
-    <button id="run" class="px-6 py-3 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-lg font-medium">生成迷宫</button>
-    <p id="result" class="mt-4 text-xl font-bold text-primary-600 dark:text-primary-400"></p>
+  <div class="flex flex-wrap items-center gap-3">
+    <select id="size" class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
+      <option value="10">10×10</option>
+      <option value="15" selected>15×15</option>
+      <option value="20">20×20</option>
+    </select>
+    <button id="gen" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">生成迷宫</button>
+    <button id="solve" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">显示解法</button>
+  </div>
+  <div class="flex justify-center overflow-auto">
+    <canvas id="maze" class="border border-gray-300 dark:border-gray-600 rounded"></canvas>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){document.getElementById('result').textContent='功能就绪！'};
+const canvas = document.getElementById('maze') as HTMLCanvasElement;
+const ctx = canvas.getContext('2d')!;
+let grid: boolean[][][] = [];
+let mazeW = 0, mazeH = 0;
+const CELL = 16;
+
+function generate(w: number, h: number) {
+  mazeW = w; mazeH = h;
+  grid = Array.from({length: h}, () => Array.from({length: w}, () => [true, true, true, true])); // top, right, bottom, left
+  const visited = Array.from({length: h}, () => Array(w).fill(false));
+  const stack: [number, number][] = [[0, 0]];
+  visited[0][0] = true;
+  const dirs = [[0,-1],[1,0],[0,1],[-1,0]];
+  const opp = [2,3,0,1];
+  while (stack.length > 0) {
+    const [cx, cy] = stack[stack.length - 1];
+    const neighbors: [number, number, number][] = [];
+    for (let d = 0; d < 4; d++) {
+      const nx = cx + dirs[d][0], ny = cy + dirs[d][1];
+      if (nx >= 0 && nx < w && ny >= 0 && ny < h && !visited[ny][nx]) neighbors.push([nx, ny, d]);
+    }
+    if (neighbors.length === 0) { stack.pop(); continue; }
+    const [nx, ny, d] = neighbors[Math.floor(Math.random() * neighbors.length)];
+    grid[cy][cx][d] = false;
+    grid[ny][nx][opp[d]] = false;
+    visited[ny][nx] = true;
+    stack.push([nx, ny]);
+  }
+  draw();
+}
+
+function draw() {
+  const w = mazeW, h = mazeH;
+  canvas.width = w * CELL + 2;
+  canvas.height = h * CELL + 2;
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeStyle = '#374151';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const px = x * CELL + 1, py = y * CELL + 1;
+      const [t, r, b, l] = grid[y][x];
+      if (t) { ctx.moveTo(px, py); ctx.lineTo(px + CELL, py); }
+      if (r) { ctx.moveTo(px + CELL, py); ctx.lineTo(px + CELL, py + CELL); }
+      if (b) { ctx.moveTo(px, py + CELL); ctx.lineTo(px + CELL, py + CELL); }
+      if (l) { ctx.moveTo(px, py); ctx.lineTo(px, py + CELL); }
+    }
+  }
+  ctx.stroke();
+  // start & end
+  ctx.fillStyle = '#22c55e';
+  ctx.fillRect(1, 1, CELL - 1, CELL - 1);
+  ctx.fillStyle = '#ef4444';
+  ctx.fillRect((w-1)*CELL+1, (h-1)*CELL+1, CELL-1, CELL-1);
+}
+
+function solve() {
+  const w = mazeW, h = mazeH;
+  const visited = Array.from({length: h}, () => Array(w).fill(false));
+  const parent: [number, number][][] = Array.from({length: h}, () => Array.from({length: w}, () => [-1, -1] as [number, number]));
+  const queue: [number, number][] = [[0, 0]];
+  visited[0][0] = true;
+  const dirs = [[0,-1],[1,0],[0,1],[-1,0]];
+  while (queue.length > 0) {
+    const [cx, cy] = queue.shift()!;
+    if (cx === w - 1 && cy === h - 1) break;
+    for (let d = 0; d < 4; d++) {
+      if (grid[cy][cx][d]) continue;
+      const nx = cx + dirs[d][0], ny = cy + dirs[d][1];
+      if (nx >= 0 && nx < w && ny >= 0 && ny < h && !visited[ny][nx]) {
+        visited[ny][nx] = true;
+        parent[ny][nx] = [cx, cy];
+        queue.push([nx, ny]);
+      }
+    }
+  }
+  // trace path
+  const path: [number, number][] = [];
+  let cx = w - 1, cy = h - 1;
+  while (cx !== -1 && cy !== -1) {
+    path.push([cx, cy]);
+    const [px, py] = parent[cy][cx];
+    cx = px; cy = py;
+  }
+  path.reverse();
+  // draw path
+  ctx.strokeStyle = '#3b82f6';
+  ctx.lineWidth = CELL / 3;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  ctx.beginPath();
+  path.forEach(([x, y], i) => {
+    const px = x * CELL + CELL / 2 + 1, py = y * CELL + CELL / 2 + 1;
+    if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+  });
+  ctx.stroke();
+}
+
+document.getElementById('gen')?.addEventListener('click', () => {
+  const s = parseInt((document.getElementById('size') as HTMLSelectElement).value);
+  generate(s, s);
+});
+document.getElementById('solve')?.addEventListener('click', solve);
+generate(15, 15);
 </script>

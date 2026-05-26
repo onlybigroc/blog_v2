@@ -12,24 +12,96 @@ const { cleanPath, showCleanLink = false } = Astro.props;
       独立打开
     </a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入 IP 地址..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
+  <div class="flex items-center gap-3">
+    <input id="ip-input" type="text" class="flex-1 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm font-mono" placeholder="输入 IP 地址，如 8.8.8.8" />
+    <button id="lookup" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">查询</button>
+    <button id="my-ip" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">查本机</button>
+  </div>
+  <div id="loading" class="hidden text-center py-6">
+    <div class="inline-block animate-spin rounded-full h-6 w-6 border-2 border-gray-300 border-t-primary-600"></div>
+  </div>
+  <div id="result" class="hidden">
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="rounded-lg border border-gray-200 dark:border-gray-700 p-4 space-y-2">
+        <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400">基本信息</h3>
+        <div id="basic-info" class="space-y-1 text-sm"></div>
+      </div>
+      <div class="rounded-lg border border-gray-200 dark:border-gray-700 p-4 space-y-2">
+        <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400">地理位置</h3>
+        <div id="geo-info" class="space-y-1 text-sm"></div>
+      </div>
     </div>
   </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">查询</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
-  </div>
+  <div id="error" class="hidden rounded-lg p-3 text-sm bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400"></div>
+  <div class="text-xs text-gray-500 dark:text-gray-400">使用 ip-api.com 免费接口查询，受请求频率限制。</div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const ipInput = document.getElementById('ip-input') as HTMLInputElement;
+const loading = document.getElementById('loading');
+const result = document.getElementById('result');
+const error = document.getElementById('error');
+
+function classifyIP(ip: string): string {
+  const parts = ip.split('.').map(Number);
+  if (parts.length !== 4 || parts.some(p => isNaN(p) || p < 0 || p > 255)) return '无效 IPv4';
+  if (parts[0] === 127) return '环回地址';
+  if (parts[0] === 10) return '私有地址 (A 类)';
+  if (parts[0] === 172 && parts[1] >= 16 && parts[1] <= 31) return '私有地址 (B 类)';
+  if (parts[0] === 192 && parts[1] === 168) return '私有地址 (C 类)';
+  if (parts[0] === 169 && parts[1] === 254) return '链路本地地址';
+  if (parts[0] >= 224 && parts[0] <= 239) return '组播地址';
+  if (parts[0] >= 240) return '保留地址';
+  return '公网地址';
+}
+
+function getIPClass(ip: string): string {
+  const p = ip.split('.').map(Number);
+  if (p[0] < 128) return 'A 类';
+  if (p[0] < 192) return 'B 类';
+  if (p[0] < 224) return 'C 类';
+  if (p[0] < 240) return 'D 类 (组播)';
+  return 'E 类 (保留)';
+}
+
+async function doLookup(ip: string) {
+  if (!ip) return;
+  loading?.classList.remove('hidden');
+  result?.classList.add('hidden');
+  error?.classList.add('hidden');
+  try {
+    const res = await fetch(`http://ip-api.com/json/${ip}?lang=zh-CN`);
+    const data = await res.json();
+    loading?.classList.add('hidden');
+    if (data.status === 'fail') {
+      error!.textContent = '查询失败：' + data.message;
+      error?.classList.remove('hidden');
+      return;
+    }
+    result?.classList.remove('hidden');
+    document.getElementById('basic-info')!.innerHTML = `
+      <div class="flex justify-between"><span class="text-gray-500">IP 地址</span><span class="font-mono font-medium">${data.query}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">类型</span><span>${classifyIP(data.query)}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">类别</span><span>${getIPClass(data.query)}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">ISP</span><span>${data.isp || '-'}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">组织</span><span>${data.org || '-'}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">AS</span><span class="font-mono text-xs">${data.as || '-'}</span></div>
+    `;
+    document.getElementById('geo-info')!.innerHTML = `
+      <div class="flex justify-between"><span class="text-gray-500">国家</span><span>${data.country || '-'}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">地区</span><span>${data.regionName || '-'}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">城市</span><span>${data.city || '-'}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">邮编</span><span>${data.zip || '-'}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">时区</span><span>${data.timezone || '-'}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">坐标</span><span class="font-mono text-xs">${data.lat}, ${data.lon}</span></div>
+    `;
+  } catch (e) {
+    loading?.classList.add('hidden');
+    error!.textContent = '请求失败：' + (e as Error).message;
+    error?.classList.remove('hidden');
+  }
+}
+
+document.getElementById('lookup')?.addEventListener('click', () => doLookup(ipInput.value.trim()));
+document.getElementById('my-ip')?.addEventListener('click', () => doLookup(''));
+ipInput.addEventListener('keydown', e => { if (e.key === 'Enter') doLookup(ipInput.value.trim()); });
 </script>

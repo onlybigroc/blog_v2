@@ -12,24 +12,116 @@ const { cleanPath, showCleanLink = false } = Astro.props;
       独立打开
     </a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
+  <div class="space-y-4">
     <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入密码..."></textarea>
+      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">密码</label>
+      <div class="flex gap-2">
+        <input id="pwd" type="password" class="flex-1 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm font-mono" placeholder="输入要哈希的密码" />
+        <button id="toggle-vis" class="px-3 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-sm">显示</button>
+      </div>
     </div>
     <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
+      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">Salt 轮次: <span id="rounds-display">10</span></label>
+      <input id="rounds" type="range" min="4" max="14" value="10" class="w-full" />
+      <div class="flex justify-between text-xs text-gray-500"><span>4 (快)</span><span>14 (慢但更安全)</span></div>
     </div>
+    <button id="hash" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">生成哈希</button>
   </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">哈希</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+  <div id="result" class="hidden space-y-3">
+    <div>
+      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">哈希结果</label>
+      <div class="relative">
+        <pre id="hash-out" class="p-3 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-mono break-all whitespace-pre-wrap"></pre>
+        <button id="copy" class="absolute top-2 right-2 px-2 py-1 text-xs rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600">复制</button>
+      </div>
+    </div>
+    <div id="info" class="text-sm text-gray-600 dark:text-gray-400 space-y-1"></div>
+  </div>
+  <div id="verify-section" class="border-t border-gray-200 dark:border-gray-700 pt-4 space-y-3">
+    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300">验证密码</h3>
+    <div class="flex gap-2">
+      <input id="verify-pwd" type="text" class="flex-1 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" placeholder="输入密码验证" />
+      <button id="verify" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">验证</button>
+    </div>
+    <div id="verify-result" class="hidden rounded-lg p-3 text-sm"></div>
+  </div>
+  <div class="text-xs text-gray-500 dark:text-gray-400 space-y-1">
+    <p>说明：浏览器端使用 PBKDF2-SHA256 模拟 bcrypt 格式输出（$pbkdf2$）。生产环境建议使用服务端 bcrypt 库。</p>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const pwdInput = document.getElementById('pwd') as HTMLInputElement;
+const roundsInput = document.getElementById('rounds') as HTMLInputElement;
+const roundsDisplay = document.getElementById('rounds-display')!;
+const hashOut = document.getElementById('hash-out')!;
+const resultDiv = document.getElementById('result')!;
+const infoDiv = document.getElementById('info')!;
+let lastHash = '';
+
+roundsInput.addEventListener('input', () => { roundsDisplay.textContent = roundsInput.value; });
+
+document.getElementById('toggle-vis')?.addEventListener('click', () => {
+  pwdInput.type = pwdInput.type === 'password' ? 'text' : 'password';
+});
+
+async function deriveBits(password: string, salt: Uint8Array, iterations: number): Promise<ArrayBuffer> {
+  const enc = new TextEncoder();
+  const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveBits']);
+  return crypto.subtle.deriveBits({ name: 'PBKDF2', salt, iterations, hash: 'SHA-256' }, keyMaterial, 256);
+}
+
+function toB64(buf: ArrayBuffer): string {
+  const bytes = new Uint8Array(buf);
+  let s = '';
+  for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+  return btoa(s).replace(/\+/g, '.').replace(/=/g, '');
+}
+
+document.getElementById('hash')?.addEventListener('click', async () => {
+  const pwd = pwdInput.value;
+  if (!pwd) { pwdInput.focus(); return; }
+  const iterations = Math.pow(2, parseInt(roundsInput.value));
+  const salt = new Uint8Array(16);
+  crypto.getRandomValues(salt);
+  const bits = await deriveBits(pwd, salt, iterations);
+  const hash = toB64(bits);
+  const saltB64 = toB64(salt.buffer);
+  lastHash = `$pbkdf2$${iterations}$${saltB64}$${hash}`;
+  hashOut.textContent = lastHash;
+  resultDiv.classList.remove('hidden');
+  infoDiv.innerHTML = `
+    <div>算法: PBKDF2-SHA256</div>
+    <div>迭代次数: ${iterations.toLocaleString()}</div>
+    <div>Salt: ${saltB64}</div>
+    <div>哈希长度: ${hash.length} 字符 (Base64)</div>
+  `;
+});
+
+document.getElementById('copy')?.addEventListener('click', async () => {
+  if (lastHash) await navigator.clipboard.writeText(lastHash);
+});
+
+document.getElementById('verify')?.addEventListener('click', async () => {
+  const vr = document.getElementById('verify-result')!;
+  if (!lastHash) { vr.textContent = '请先生成哈希'; vr.className = 'rounded-lg p-3 text-sm bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'; vr.classList.remove('hidden'); return; }
+  const parts = lastHash.split('$');
+  const iterations = parseInt(parts[2]);
+  const saltB64 = parts[3];
+  const expectedHash = parts[4];
+  // decode salt from b64
+  const saltStr = atob(saltB64.replace(/\./g, '+'));
+  const salt = new Uint8Array(saltStr.length);
+  for (let i = 0; i < saltStr.length; i++) salt[i] = saltStr.charCodeAt(i);
+  const verifyPwd = (document.getElementById('verify-pwd') as HTMLInputElement).value;
+  const bits = await deriveBits(verifyPwd, salt, iterations);
+  const hash = toB64(bits);
+  if (hash === expectedHash) {
+    vr.textContent = '密码匹配！';
+    vr.className = 'rounded-lg p-3 text-sm bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400';
+  } else {
+    vr.textContent = '密码不匹配';
+    vr.className = 'rounded-lg p-3 text-sm bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400';
+  }
+  vr.classList.remove('hidden');
+});
 </script>

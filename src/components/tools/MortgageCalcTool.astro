@@ -1,35 +1,90 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入贷款金额 利率 年限..."></textarea>
+  <div class="grid gap-6 md:grid-cols-2">
+    <div class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">贷款总额 (万元)</label>
+        <input id="amount" type="number" value="100" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">年利率 (%)</label>
+        <input id="rate" type="number" value="3.85" step="0.01" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">贷款年限</label>
+        <input id="years" type="number" value="30" min="1" max="30" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" />
+      </div>
+      <div class="flex gap-2">
+        <label class="flex items-center gap-1 text-sm cursor-pointer"><input type="radio" name="mode" value="equal" checked /> 等额本息</label>
+        <label class="flex items-center gap-1 text-sm cursor-pointer"><input type="radio" name="mode" value="principal" /> 等额本金</label>
+      </div>
+      <button id="calc" class="w-full px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">计算</button>
     </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
+    <div class="space-y-4" id="result-area">
+      <div class="grid grid-cols-3 gap-3">
+        <div class="rounded-lg border border-gray-200 dark:border-gray-700 p-3 text-center"><div class="text-xs text-gray-500">月供</div><div id="monthly" class="text-lg font-bold text-primary-600">-</div></div>
+        <div class="rounded-lg border border-gray-200 dark:border-gray-700 p-3 text-center"><div class="text-xs text-gray-500">总还款</div><div id="total" class="text-lg font-bold">-</div></div>
+        <div class="rounded-lg border border-gray-200 dark:border-gray-700 p-3 text-center"><div class="text-xs text-gray-500">总利息</div><div id="interest" class="text-lg font-bold text-red-600">-</div></div>
+      </div>
+      <div class="text-sm text-gray-600 dark:text-gray-400">
+        <div class="flex justify-between"><span>贷款金额</span><span id="loan-amt">-</span></div>
+        <div class="flex justify-between"><span>月利率</span><span id="month-rate">-</span></div>
+      </div>
+      <div class="max-h-64 overflow-auto">
+        <table class="w-full text-sm"><thead><tr class="border-b dark:border-gray-700"><th class="text-left py-1">期数</th><th class="text-right">月供</th><th class="text-right">本金</th><th class="text-right">利息</th></tr></thead><tbody id="schedule"></tbody></table>
+      </div>
     </div>
-  </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">计算</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+document.getElementById('calc')?.addEventListener('click', () => {
+  const P = parseFloat((document.getElementById('amount') as HTMLInputElement).value) * 10000;
+  const annualRate = parseFloat((document.getElementById('rate') as HTMLInputElement).value) / 100;
+  const years = parseInt((document.getElementById('years') as HTMLInputElement).value);
+  const n = years * 12;
+  const r = annualRate / 12;
+  const mode = (document.querySelector('input[name="mode"]:checked') as HTMLInputElement).value;
+  document.getElementById('loan-amt')!.textContent = (P / 10000).toFixed(2) + ' 万';
+  document.getElementById('month-rate')!.textContent = (r * 100).toFixed(4) + '%';
+  const tbody = document.getElementById('schedule')!;
+  let monthlyPayment: number, totalPayment: number;
+  let rows = '';
+  if (mode === 'equal') {
+    monthlyPayment = P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+    totalPayment = monthlyPayment * n;
+    let balance = P;
+    for (let i = 1; i <= Math.min(n, 36); i++) {
+      const interestPart = balance * r;
+      const principalPart = monthlyPayment - interestPart;
+      balance -= principalPart;
+      rows += `<tr class="border-b border-gray-100 dark:border-gray-800"><td class="py-1">${i}</td><td class="text-right">${monthlyPayment.toFixed(2)}</td><td class="text-right">${principalPart.toFixed(2)}</td><td class="text-right">${interestPart.toFixed(2)}</td></tr>`;
+    }
+    document.getElementById('monthly')!.textContent = monthlyPayment.toFixed(2);
+  } else {
+    const principalMonthly = P / n;
+    let balance = P;
+    let total = 0;
+    const firstMonth = principalMonthly + P * r;
+    for (let i = 1; i <= Math.min(n, 36); i++) {
+      const interestPart = balance * r;
+      const mp = principalMonthly + interestPart;
+      total += mp;
+      balance -= principalMonthly;
+      rows += `<tr class="border-b border-gray-100 dark:border-gray-800"><td class="py-1">${i}</td><td class="text-right">${mp.toFixed(2)}</td><td class="text-right">${principalMonthly.toFixed(2)}</td><td class="text-right">${interestPart.toFixed(2)}</td></tr>`;
+    }
+    monthlyPayment = firstMonth;
+    totalPayment = (firstMonth + principalMonthly + P * r) / 2 * n;
+    document.getElementById('monthly')!.textContent = firstMonth.toFixed(2) + '→' + (principalMonthly + P * r * (1/n)).toFixed(0);
+  }
+  document.getElementById('total')!.textContent = (totalPayment / 10000).toFixed(2) + '万';
+  document.getElementById('interest')!.textContent = ((totalPayment - P) / 10000).toFixed(2) + '万';
+  tbody.innerHTML = rows;
+});
 </script>

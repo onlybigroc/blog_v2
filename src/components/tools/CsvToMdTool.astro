@@ -1,35 +1,32 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
-  {showCleanLink && cleanPath && (
-    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
-  )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="粘贴 CSV..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
-  </div>
+  {showCleanLink && cleanPath && (<a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>)}
   <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">转换</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+    <select id="delim" class="rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm"><option value=",">逗号</option><option value="\t">制表符</option><option value=";">分号</option></select>
+    <button id="convert" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 text-sm font-medium">转换</button>
+    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-sm">复制</button>
+  </div>
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">CSV 数据</label><textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder={`name,age,city\nAlice,30,Beijing\nBob,25,Shanghai`}></textarea></div>
+    <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">Markdown 表格</label><textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea></div>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+document.getElementById('convert')?.addEventListener('click', () => {
+  const delim = (document.getElementById('delim') as HTMLSelectElement).value.replace('\\t', '\t');
+  const lines = (document.getElementById('inp') as HTMLTextAreaElement).value.trim().split('\n').filter(Boolean);
+  if (!lines.length) return;
+  const rows = lines.map(l => l.split(delim));
+  const cols = rows[0].length;
+  const widths = Array(cols).fill(0);
+  rows.forEach(r => r.forEach((c, i) => widths[i] = Math.max(widths[i], c.length)));
+  let md = '| ' + rows[0].map((c, i) => c.padEnd(widths[i])).join(' | ') + ' |\n';
+  md += '| ' + widths.map(w => '-'.repeat(w)).join(' | ') + ' |\n';
+  for (let i = 1; i < rows.length; i++) md += '| ' + rows[i].map((c, j) => (c || '').padEnd(widths[j])).join(' | ') + ' |\n';
+  (document.getElementById('out') as HTMLTextAreaElement).value = md;
+});
+document.getElementById('copy')?.addEventListener('click', () => navigator.clipboard.writeText((document.getElementById('out') as HTMLTextAreaElement).value));
 </script>

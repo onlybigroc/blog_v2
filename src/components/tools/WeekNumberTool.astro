@@ -1,35 +1,64 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入日期..."></textarea>
+  <div class="grid gap-6 md:grid-cols-2">
+    <div class="space-y-4">
+      <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">选择日期</label><input id="date" type="date" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" /></div>
+      <div><label class="flex items-center gap-2 text-sm cursor-pointer"><input id="iso" type="checkbox" checked class="rounded" /><span class="text-gray-600 dark:text-gray-400">使用 ISO 8601 标准</span></label></div>
+      <div id="result" class="space-y-2 text-sm"></div>
     </div>
     <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
+      <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">全年周数</h3>
+      <div id="year-view" class="max-h-80 overflow-auto text-xs"></div>
     </div>
-  </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">查询</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+function getISOWeek(d: Date): number { const t = new Date(d.getFullYear(), d.getMonth(), d.getDate()); const day = t.getDay() || 7; t.setDate(t.getDate() + 4 - day); const yearStart = new Date(t.getFullYear(), 0, 1); return Math.ceil(((t.getTime() - yearStart.getTime()) / 86400000 + 1) / 7); }
+function getUSWeek(d: Date): number { const yearStart = new Date(d.getFullYear(), 0, 1); return Math.ceil(((d.getTime() - yearStart.getTime()) / 86400000 + yearStart.getDay() + 1) / 7); }
+const dateInput = document.getElementById('date') as HTMLInputElement;
+dateInput.value = new Date().toISOString().slice(0, 10);
+
+function update() {
+  const d = new Date(dateInput.value);
+  if (isNaN(d.getTime())) return;
+  const iso = (document.getElementById('iso') as HTMLInputElement).checked;
+  const week = iso ? getISOWeek(d) : getUSWeek(d);
+  const year = d.getFullYear();
+  const dayOfWeek = ['日','一','二','三','四','五','六'][d.getDay()];
+  const startOfYear = new Date(year, 0, 1);
+  const endOfYear = new Date(year, 11, 31);
+  document.getElementById('result')!.innerHTML = `
+    <div class="flex justify-between"><span class="text-gray-500">日期</span><span>${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日 星期${dayOfWeek}</span></div>
+    <div class="flex justify-between"><span class="text-gray-500">第几周</span><span class="font-bold text-lg text-primary-600">第 ${week} 周</span></div>
+    <div class="flex justify-between"><span class="text-gray-500">标准</span><span>${iso ? 'ISO 8601' : 'US 标准'}</span></div>`;
+  // Year view
+  const yearView = document.getElementById('year-view')!;
+  let html = '<div class="grid grid-cols-13 gap-1">';
+  html += '<div></div>';
+  for (let w = 1; w <= 52; w++) html += `<div class="text-center text-gray-500">${w%10===0?w:''}</div>`;
+  for (let m = 0; m < 12; m++) {
+    const monthName = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'][m];
+    html += `<div class="text-right pr-1 text-gray-500">${monthName}</div>`;
+    for (let w = 1; w <= 52; w++) {
+      const firstOfMonth = new Date(year, m, 1);
+      const weekOfFirst = iso ? getISOWeek(firstOfMonth) : getUSWeek(firstOfMonth);
+      const isCurrentWeek = m === d.getMonth() && Math.abs(w - week) === 0;
+      const isCurrentMonth = m === d.getMonth();
+      html += `<div class="w-3 h-3 rounded-sm ${isCurrentWeek ? 'bg-primary-600' : isCurrentMonth ? 'bg-primary-200 dark:bg-primary-800' : 'bg-gray-100 dark:bg-gray-800'}"></div>`;
+    }
+  }
+  html += '</div>';
+  yearView.innerHTML = html;
+}
+
+dateInput.addEventListener('change', update);
+document.getElementById('iso')?.addEventListener('change', update);
+update();
 </script>

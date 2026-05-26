@@ -12,24 +12,112 @@ const { cleanPath, showCleanLink = false } = Astro.props;
       独立打开
     </a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入 URL..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
+  <div class="flex flex-wrap gap-3">
+    <select id="method" class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm font-medium">
+      <option>GET</option><option>POST</option><option>PUT</option><option>PATCH</option><option>DELETE</option>
+    </select>
+    <input id="url" type="text" class="flex-1 min-w-0 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm font-mono" placeholder="https://api.example.com/data" />
+    <button id="send" class="px-6 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">发送</button>
   </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">发送请求</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+  <div class="border-b border-gray-200 dark:border-gray-700">
+    <nav class="flex gap-4">
+      <button class="tab-btn py-2 text-sm font-medium border-b-2 border-primary-600 text-primary-600" data-tab="headers">请求头</button>
+      <button class="tab-btn py-2 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700" data-tab="body">请求体</button>
+    </nav>
   </div>
+  <div id="tab-headers">
+    <div id="headers-list" class="space-y-2">
+      <div class="flex gap-2">
+        <input type="text" class="flex-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm" placeholder="名称" value="Content-Type" />
+        <input type="text" class="flex-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm" placeholder="值" value="application/json" />
+        <button class="del-h px-2 text-red-500 hover:text-red-700">&times;</button>
+      </div>
+    </div>
+    <button id="add-header" class="mt-2 text-sm text-primary-600 hover:text-primary-700">+ 添加请求头</button>
+  </div>
+  <div id="tab-body" class="hidden">
+    <textarea id="body" class="w-full h-36 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y" placeholder={'{"key": "value"}'}></textarea>
+  </div>
+  <div id="loading" class="hidden text-center py-4">
+    <div class="inline-block animate-spin rounded-full h-6 w-6 border-2 border-gray-300 border-t-primary-600"></div>
+    <span class="ml-2 text-sm text-gray-500">请求中...</span>
+  </div>
+  <div id="response-section" class="hidden">
+    <div class="flex items-center gap-3 mb-2">
+      <span class="text-sm font-medium text-gray-700 dark:text-gray-300">响应</span>
+      <span id="res-status" class="px-2 py-0.5 rounded text-xs font-medium"></span>
+      <span id="res-time" class="text-xs text-gray-500"></span>
+    </div>
+    <div class="border-b border-gray-200 dark:border-gray-700 mb-2">
+      <nav class="flex gap-4">
+        <button class="rtab-btn py-2 text-sm font-medium border-b-2 border-primary-600 text-primary-600" data-rtab="res-body">响应体</button>
+        <button class="rtab-btn py-2 text-sm font-medium border-b-2 border-transparent text-gray-500" data-rtab="res-headers">响应头</button>
+      </nav>
+    </div>
+    <div id="res-body"><pre id="response" class="p-4 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-mono overflow-auto max-h-96 whitespace-pre-wrap"></pre></div>
+    <div id="res-headers" class="hidden"><pre id="res-h" class="p-4 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-mono overflow-auto max-h-64 whitespace-pre-wrap"></pre></div>
+  </div>
+  <p class="text-xs text-gray-500 dark:text-gray-400">注意：浏览器端请求受 CORS 限制，部分 API 可能无法访问。</p>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const method = document.getElementById('method') as HTMLSelectElement;
+const urlEl = document.getElementById('url') as HTMLInputElement;
+const bodyEl = document.getElementById('body') as HTMLTextAreaElement;
+const loading = document.getElementById('loading');
+const resSection = document.getElementById('response-section');
+
+document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('.tab-btn').forEach(b => b.className = 'tab-btn py-2 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700');
+  btn.className = 'tab-btn py-2 text-sm font-medium border-b-2 border-primary-600 text-primary-600';
+  document.getElementById('tab-headers')?.classList.toggle('hidden', (btn as HTMLElement).dataset.tab !== 'headers');
+  document.getElementById('tab-body')?.classList.toggle('hidden', (btn as HTMLElement).dataset.tab !== 'body');
+}));
+document.querySelectorAll('.rtab-btn').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('.rtab-btn').forEach(b => b.className = 'rtab-btn py-2 text-sm font-medium border-b-2 border-transparent text-gray-500');
+  btn.className = 'rtab-btn py-2 text-sm font-medium border-b-2 border-primary-600 text-primary-600';
+  document.getElementById('res-body')?.classList.toggle('hidden', (btn as HTMLElement).dataset.rtab !== 'res-body');
+  document.getElementById('res-headers')?.classList.toggle('hidden', (btn as HTMLElement).dataset.rtab !== 'res-headers');
+}));
+
+const hl = document.getElementById('headers-list')!;
+document.getElementById('add-header')?.addEventListener('click', () => {
+  const d = document.createElement('div'); d.className = 'flex gap-2';
+  d.innerHTML = '<input type="text" class="flex-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm" placeholder="名称"/><input type="text" class="flex-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm" placeholder="值"/><button class="del-h px-2 text-red-500 hover:text-red-700">&times;</button>';
+  hl.appendChild(d);
+  d.querySelector('.del-h')?.addEventListener('click', () => d.remove());
+});
+hl.querySelectorAll('.del-h').forEach(b => b.addEventListener('click', () => (b as HTMLElement).parentElement?.remove()));
+
+document.getElementById('send')?.addEventListener('click', async () => {
+  const url = urlEl.value.trim();
+  if (!url) return;
+  loading?.classList.remove('hidden');
+  resSection?.classList.add('hidden');
+  const headers: Record<string, string> = {};
+  hl.querySelectorAll('.flex.gap-2').forEach(row => {
+    const inp = row.querySelectorAll('input');
+    const k = (inp[0] as HTMLInputElement).value.trim(), v = (inp[1] as HTMLInputElement).value.trim();
+    if (k) headers[k] = v;
+  });
+  const opts: RequestInit = { method: method.value, headers };
+  if (['POST','PUT','PATCH'].includes(method.value) && bodyEl.value.trim()) opts.body = bodyEl.value;
+  const t0 = performance.now();
+  try {
+    const res = await fetch(url, opts);
+    const ms = Math.round(performance.now() - t0);
+    loading?.classList.add('hidden');
+    resSection?.classList.remove('hidden');
+    const sc = document.getElementById('res-status');
+    if (sc) { sc.textContent = `${res.status} ${res.statusText}`; sc.className = `px-2 py-0.5 rounded text-xs font-medium ${res.ok ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400'}`; }
+    document.getElementById('res-time')!.textContent = ms + 'ms';
+    const text = await res.text();
+    try { document.getElementById('response')!.textContent = JSON.stringify(JSON.parse(text), null, 2); } catch { document.getElementById('response')!.textContent = text; }
+    const rh: string[] = []; res.headers.forEach((v, k) => rh.push(`${k}: ${v}`));
+    document.getElementById('res-h')!.textContent = rh.join('\n');
+  } catch (e) {
+    loading?.classList.add('hidden'); resSection?.classList.remove('hidden');
+    document.getElementById('res-status')!.textContent = '请求失败';
+    document.getElementById('response')!.textContent = (e as Error).message + '\n\n可能受 CORS 跨域限制。';
+  }
+});
 </script>

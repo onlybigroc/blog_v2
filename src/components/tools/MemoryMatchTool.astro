@@ -1,23 +1,99 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="text-center py-8">
-    <p id="display" class="text-4xl mb-4">🎮</p>
-    <button id="run" class="px-6 py-3 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-lg font-medium">开始游戏</button>
-    <p id="result" class="mt-4 text-xl font-bold text-primary-600 dark:text-primary-400"></p>
+  <div class="flex flex-wrap items-center gap-3">
+    <select id="difficulty" class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
+      <option value="4x3">简单 (4×3)</option>
+      <option value="4x4" selected>普通 (4×4)</option>
+      <option value="4x5">困难 (4×5)</option>
+    </select>
+    <button id="new-game" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">新游戏</button>
+    <span id="moves" class="text-sm text-gray-500">步数: 0</span>
+    <span id="pairs-left" class="text-sm text-gray-500">剩余: 0</span>
+    <span id="timer" class="text-sm text-gray-500">时间: 0s</span>
   </div>
+  <div id="board" class="flex justify-center"></div>
+  <div id="win" class="hidden text-center text-xl font-bold py-4 rounded-lg bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300"></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){document.getElementById('result').textContent='功能就绪！'};
+const emojis = ['🍎','🍊','🍋','🍇','🍉','🍓','🍒','🍑','🥝','🍍','🥭','🫐','🍌','🥑','🌽','🍆','🥕','🧅','🌸','🌺','🌻','🌹','💐','🌷'];
+const board = document.getElementById('board')!;
+const movesEl = document.getElementById('moves')!;
+const pairsLeftEl = document.getElementById('pairs-left')!;
+const timerEl = document.getElementById('timer')!;
+const winEl = document.getElementById('win')!;
+let first: HTMLElement | null = null;
+let second: HTMLElement | null = null;
+let lock = false;
+let moves = 0;
+let matched = 0;
+let totalPairs = 0;
+let startTime = 0;
+let timerInterval: number;
+
+function startTimer() {
+  startTime = Date.now();
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => { timerEl.textContent = `时间: ${Math.floor((Date.now()-startTime)/1000)}s`; }, 1000);
+}
+
+function newGame() {
+  const [cols, rows] = (document.getElementById('difficulty') as HTMLSelectElement).value.split('x').map(Number);
+  const count = cols * rows;
+  totalPairs = count / 2;
+  const selected = emojis.slice(0, totalPairs);
+  const cards = [...selected, ...selected];
+  for (let i = cards.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i+1)); [cards[i], cards[j]] = [cards[j], cards[i]]; }
+  moves = 0; matched = 0; first = null; second = null; lock = false;
+  winEl.classList.add('hidden');
+  movesEl.textContent = '步数: 0';
+  pairsLeftEl.textContent = `剩余: ${totalPairs}`;
+  startTimer();
+
+  board.innerHTML = `<div class="inline-grid gap-2" style="grid-template-columns: repeat(${cols}, 1fr)">` +
+    cards.map((emoji, i) => `<div class="card w-16 h-20 md:w-20 md:h-24 rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-primary-600 flex items-center justify-center text-2xl cursor-pointer hover:bg-primary-700 transition-all select-none" data-idx="${i}" data-emoji="${emoji}">?</div>`).join('') +
+    `</div>`;
+
+  board.querySelectorAll('.card').forEach(el => el.addEventListener('click', () => flip(el as HTMLElement)));
+}
+
+function flip(el: HTMLElement) {
+  if (lock || el.classList.contains('matched') || el === first) return;
+  el.textContent = el.dataset.emoji!;
+  el.classList.remove('bg-primary-600','hover:bg-primary-700');
+  el.classList.add('bg-white','dark:bg-gray-800');
+  if (!first) { first = el; return; }
+  second = el;
+  lock = true;
+  moves++;
+  movesEl.textContent = `步数: ${moves}`;
+  if (first.dataset.emoji === second.dataset.emoji) {
+    first.classList.add('matched'); second.classList.add('matched');
+    first.classList.add('border-green-400'); second.classList.add('border-green-400');
+    matched++;
+    pairsLeftEl.textContent = `剩余: ${totalPairs - matched}`;
+    first = null; second = null; lock = false;
+    if (matched === totalPairs) {
+      clearInterval(timerInterval);
+      const secs = Math.floor((Date.now()-startTime)/1000);
+      winEl.textContent = `恭喜！用了 ${moves} 步，${secs} 秒完成！`;
+      winEl.classList.remove('hidden');
+    }
+  } else {
+    setTimeout(() => {
+      [first, second].forEach(c => { if(c) { c.textContent = '?'; c.classList.add('bg-primary-600','hover:bg-primary-700'); c.classList.remove('bg-white','dark:bg-gray-800'); } });
+      first = null; second = null; lock = false;
+    }, 800);
+  }
+}
+
+document.getElementById('new-game')?.addEventListener('click', newGame);
+document.getElementById('difficulty')?.addEventListener('change', newGame);
+newGame();
 </script>

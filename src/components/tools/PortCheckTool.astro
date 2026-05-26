@@ -12,24 +12,98 @@ const { cleanPath, showCleanLink = false } = Astro.props;
       独立打开
     </a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入端口号..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
+  <div class="flex items-center gap-3">
+    <input id="search" type="text" class="flex-1 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" placeholder="搜索端口号或服务名称..." />
+    <select id="cat-filter" class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
+      <option value="">全部分类</option>
+      <option value="web">Web 服务</option>
+      <option value="db">数据库</option>
+      <option value="mail">邮件</option>
+      <option value="remote">远程访问</option>
+      <option value="dev">开发工具</option>
+      <option value="other">其他</option>
+    </select>
   </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">查询</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm">
+      <thead><tr class="border-b border-gray-200 dark:border-gray-700">
+        <th class="text-left py-2 px-3 font-medium text-gray-700 dark:text-gray-300">端口</th>
+        <th class="text-left py-2 px-3 font-medium text-gray-700 dark:text-gray-300">协议</th>
+        <th class="text-left py-2 px-3 font-medium text-gray-700 dark:text-gray-300">服务</th>
+        <th class="text-left py-2 px-3 font-medium text-gray-700 dark:text-gray-300">说明</th>
+        <th class="text-left py-2 px-3 font-medium text-gray-700 dark:text-gray-300">分类</th>
+      </tr></thead>
+      <tbody id="ports"></tbody>
+    </table>
   </div>
+  <p id="count" class="text-sm text-gray-500"></p>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const ports = [
+  { port: 20, proto: 'TCP', service: 'FTP Data', desc: 'FTP 数据传输', cat: 'remote' },
+  { port: 21, proto: 'TCP', service: 'FTP Control', desc: 'FTP 控制连接', cat: 'remote' },
+  { port: 22, proto: 'TCP', service: 'SSH', desc: '安全 Shell 远程登录', cat: 'remote' },
+  { port: 23, proto: 'TCP', service: 'Telnet', desc: '明文远程登录（不安全）', cat: 'remote' },
+  { port: 25, proto: 'TCP', service: 'SMTP', desc: '简单邮件传输协议', cat: 'mail' },
+  { port: 53, proto: 'TCP/UDP', service: 'DNS', desc: '域名解析系统', cat: 'other' },
+  { port: 80, proto: 'TCP', service: 'HTTP', desc: '超文本传输协议', cat: 'web' },
+  { port: 110, proto: 'TCP', service: 'POP3', desc: '邮局协议 v3（收信）', cat: 'mail' },
+  { port: 123, proto: 'UDP', service: 'NTP', desc: '网络时间协议', cat: 'other' },
+  { port: 143, proto: 'TCP', service: 'IMAP', desc: '互联网消息访问协议（收信）', cat: 'mail' },
+  { port: 443, proto: 'TCP', service: 'HTTPS', desc: '加密 HTTP 协议', cat: 'web' },
+  { port: 465, proto: 'TCP', service: 'SMTPS', desc: '加密 SMTP', cat: 'mail' },
+  { port: 587, proto: 'TCP', service: 'SMTP (Submission)', desc: '邮件提交端口', cat: 'mail' },
+  { port: 993, proto: 'TCP', service: 'IMAPS', desc: '加密 IMAP', cat: 'mail' },
+  { port: 995, proto: 'TCP', service: 'POP3S', desc: '加密 POP3', cat: 'mail' },
+  { port: 1433, proto: 'TCP', service: 'MSSQL', desc: 'Microsoft SQL Server', cat: 'db' },
+  { port: 1521, proto: 'TCP', service: 'Oracle', desc: 'Oracle 数据库', cat: 'db' },
+  { port: 3306, proto: 'TCP', service: 'MySQL', desc: 'MySQL / MariaDB 数据库', cat: 'db' },
+  { port: 3389, proto: 'TCP', service: 'RDP', desc: 'Windows 远程桌面', cat: 'remote' },
+  { port: 5432, proto: 'TCP', service: 'PostgreSQL', desc: 'PostgreSQL 数据库', cat: 'db' },
+  { port: 5672, proto: 'TCP', service: 'AMQP', desc: 'RabbitMQ 消息队列', cat: 'other' },
+  { port: 5900, proto: 'TCP', service: 'VNC', desc: '虚拟网络计算远程桌面', cat: 'remote' },
+  { port: 6379, proto: 'TCP', service: 'Redis', desc: 'Redis 内存数据库', cat: 'db' },
+  { port: 8080, proto: 'TCP', service: 'HTTP Proxy', desc: 'HTTP 代理/备用 HTTP', cat: 'web' },
+  { port: 8443, proto: 'TCP', service: 'HTTPS Alt', desc: '备用 HTTPS 端口', cat: 'web' },
+  { port: 9090, proto: 'TCP', service: 'Prometheus', desc: 'Prometheus 监控', cat: 'dev' },
+  { port: 9200, proto: 'TCP', service: 'Elasticsearch', desc: 'Elasticsearch 搜索引擎', cat: 'db' },
+  { port: 27017, proto: 'TCP', service: 'MongoDB', desc: 'MongoDB 文档数据库', cat: 'db' },
+  { port: 27018, proto: 'TCP', service: 'MongoDB Shard', desc: 'MongoDB 分片', cat: 'db' },
+  { port: 5173, proto: 'TCP', service: 'Vite', desc: 'Vite 开发服务器', cat: 'dev' },
+  { port: 3000, proto: 'TCP', service: 'Node.js', desc: '常见 Node.js 开发端口', cat: 'dev' },
+  { port: 4200, proto: 'TCP', service: 'Angular', desc: 'Angular 开发服务器', cat: 'dev' },
+  { port: 5000, proto: 'TCP', service: 'Flask', desc: 'Flask 默认端口', cat: 'dev' },
+  { port: 8000, proto: 'TCP', service: 'Django', desc: 'Django 开发服务器', cat: 'dev' },
+  { port: 8888, proto: 'TCP', service: 'Jupyter', desc: 'Jupyter Notebook', cat: 'dev' },
+  { port: 11211, proto: 'TCP/UDP', service: 'Memcached', desc: 'Memcached 缓存', cat: 'db' },
+  { port: 4369, proto: 'TCP', service: 'EPMD', desc: 'Erlang 端口映射守护进程', cat: 'other' },
+];
+
+const catLabels: Record<string, string> = { web: 'Web', db: '数据库', mail: '邮件', remote: '远程', dev: '开发', other: '其他' };
+const tbody = document.getElementById('ports')!;
+const search = document.getElementById('search') as HTMLInputElement;
+const catFilter = document.getElementById('cat-filter') as HTMLSelectElement;
+const count = document.getElementById('count');
+
+function render() {
+  const q = search.value.toLowerCase();
+  const cat = catFilter.value;
+  const filtered = ports.filter(p => {
+    if (cat && p.cat !== cat) return false;
+    if (q && !String(p.port).includes(q) && !p.service.toLowerCase().includes(q) && !p.desc.includes(q)) return false;
+    return true;
+  });
+  tbody.innerHTML = filtered.map(p => `<tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50">
+    <td class="py-2 px-3 font-mono font-medium">${p.port}</td>
+    <td class="py-2 px-3">${p.proto}</td>
+    <td class="py-2 px-3 font-medium">${p.service}</td>
+    <td class="py-2 px-3 text-gray-600 dark:text-gray-400">${p.desc}</td>
+    <td class="py-2 px-3"><span class="px-2 py-0.5 rounded text-xs bg-gray-100 dark:bg-gray-700">${catLabels[p.cat]}</span></td>
+  </tr>`).join('');
+  if (count) count.textContent = `显示 ${filtered.length} / ${ports.length} 个端口`;
+}
+
+search.addEventListener('input', render);
+catFilter.addEventListener('change', render);
+render();
 </script>

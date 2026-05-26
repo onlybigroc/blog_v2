@@ -1,35 +1,91 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入域名..."></textarea>
+  <div class="space-y-4">
+    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300">粘贴 PEM 证书</h3>
+    <textarea id="pem" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-xs resize-y" placeholder={`-----BEGIN CERTIFICATE-----\nMIIF...\n-----END CERTIFICATE-----`}></textarea>
+    <button id="decode" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">解码证书</button>
+    <div id="result" class="hidden space-y-3"></div>
+    <div id="error" class="hidden rounded-lg p-3 text-sm bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400"></div>
+    <div class="text-xs text-gray-500 dark:text-gray-400 space-y-1">
+      <p>提示：在 Chrome 中点击地址栏锁图标 → 证书 → 详细信息 → 复制到文件，可导出 PEM 格式证书。</p>
+      <p>也可以使用 `openssl s_client -connect example.com:443` 获取服务器证书。</p>
     </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
-  </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">查询</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+document.getElementById('decode')?.addEventListener('click', () => {
+  const pem = (document.getElementById('pem') as HTMLTextAreaElement).value;
+  const resultEl = document.getElementById('result')!;
+  const errorEl = document.getElementById('error')!;
+  resultEl.classList.add('hidden'); errorEl.classList.add('hidden');
+  try {
+    const b64 = pem.replace(/-----BEGIN CERTIFICATE-----/, '').replace(/-----END CERTIFICATE-----/, '').replace(/\s/g, '');
+    const der = atob(b64);
+    const bytes = new Uint8Array(der.length);
+    for (let i = 0; i < der.length; i++) bytes[i] = der.charCodeAt(i);
+    // Simple DER parser for X.509
+    function parseASN1(data: Uint8Array, offset = 0): any {
+      if (offset >= data.length) return null;
+      const tag = data[offset];
+      let pos = offset + 1;
+      let length = data[pos++];
+      if (length & 0x80) {
+        const numBytes = length & 0x7f;
+        length = 0;
+        for (let i = 0; i < numBytes; i++) length = (length << 8) | data[pos++];
+      }
+      const content = data.slice(pos, pos + length);
+      return { tag, length, content, offset, end: pos + length };
+    }
+    // Display basic info
+    const info: string[] = [];
+    info.push(`DER 数据大小: ${bytes.length} 字节`);
+    // Try to find validity dates (simplified: look for UTCTime patterns)
+    const text = Array.from(bytes).map(b => String.fromCharCode(b)).join('');
+    const datePattern = /(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})Z/g;
+    const dates: string[] = [];
+    let match;
+    while ((match = datePattern.exec(text)) !== null) {
+      if (match.index > 10) { // skip early matches
+        const [_, yy, mm, dd, hh, mi, ss] = match;
+        const year = parseInt(yy) < 50 ? '20' + yy : '19' + yy;
+        dates.push(`${year}-${mm}-${dd} ${hh}:${mi}:${ss} UTC`);
+      }
+    }
+    if (dates.length >= 2) {
+      info.push(`有效期从: ${dates[0]}`);
+      info.push(`有效期至: ${dates[1]}`);
+      const expiry = new Date(dates[1].replace(' UTC', 'Z'));
+      const now = new Date();
+      const daysLeft = Math.floor((expiry.getTime() - now.getTime()) / 86400000);
+      info.push(`剩余天数: ${daysLeft} 天`);
+      info.push(daysLeft > 30 ? `状态: ✅ 有效` : daysLeft > 0 ? `状态: ⚠️ 即将过期` : `状态: ❌ 已过期`);
+    }
+    // Find subject/issuer strings
+    const stringPattern = /[\x20-\x7E]{4,}/g;
+    let strMatch;
+    const strings: string[] = [];
+    while ((strMatch = stringPattern.exec(text)) !== null) {
+      const s = strMatch[0];
+      if (s.includes('.') && !s.includes('http') && s.length < 80) strings.push(s);
+    }
+    if (strings.length > 0) {
+      info.push(`域名/主体: ${strings[0]}`);
+      if (strings.length > 1) info.push(`可能签发者: ${strings[strings.length > 3 ? 2 : 1]}`);
+    }
+    info.push(`\n注意：这是简化解析，完整的 X.509 解析建议使用 OpenSSL 工具。`);
+    resultEl.innerHTML = info.map(i => `<div class="text-sm">${i}</div>`).join('');
+    resultEl.classList.remove('hidden');
+  } catch (e) {
+    errorEl.textContent = '解码失败: ' + (e as Error).message;
+    errorEl.classList.remove('hidden');
+  }
+});
 </script>

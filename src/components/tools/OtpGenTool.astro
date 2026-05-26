@@ -1,35 +1,87 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
+  <div class="text-center space-y-4 max-w-sm mx-auto">
     <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入密钥..."></textarea>
+      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">Secret Key (Base32)</label>
+      <div class="flex gap-2">
+        <input id="secret" type="text" class="flex-1 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm font-mono" placeholder="JBSWY3DPEHPK3PXP" value="JBSWY3DPEHPK3PXP" />
+        <button id="random-secret" class="px-3 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-sm">随机</button>
+      </div>
     </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
+    <div class="py-6">
+      <div id="otp-display" class="text-5xl font-mono font-bold tracking-widest text-primary-600 dark:text-primary-400"></div>
+      <div class="mt-3 relative h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
+        <div id="countdown-bar" class="h-full bg-primary-500 rounded-full transition-all"></div>
+      </div>
+      <div id="countdown-text" class="mt-1 text-sm text-gray-500"></div>
     </div>
-  </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">生成 OTP</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+    <div id="status" class="hidden rounded-lg p-3 text-sm"></div>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const secretInput = document.getElementById('secret') as HTMLInputElement;
+const otpDisplay = document.getElementById('otp-display')!;
+const bar = document.getElementById('countdown-bar')!;
+const countdownText = document.getElementById('countdown-text')!;
+
+function base32Decode(input: string): Uint8Array {
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
+  input = input.replace(/=+$/, '').toUpperCase();
+  let bits = '';
+  for (const c of input) { const val = alphabet.indexOf(c); if (val === -1) continue; bits += val.toString(2).padStart(5, '0'); }
+  const bytes = new Uint8Array(Math.floor(bits.length / 8));
+  for (let i = 0; i < bytes.length; i++) bytes[i] = parseInt(bits.substr(i * 8, 8), 2);
+  return bytes;
+}
+
+async function hmacSha1(key: ArrayBuffer, data: ArrayBuffer): Promise<ArrayBuffer> {
+  const cryptoKey = await crypto.subtle.importKey('raw', key, { name: 'HMAC', hash: 'SHA-1' }, false, ['sign']);
+  return crypto.subtle.sign('HMAC', cryptoKey, data);
+}
+
+async function generateTOTP(secret: string, timeStep = 30): Promise<{ otp: string; remaining: number }> {
+  const key = base32Decode(secret);
+  const epoch = Math.floor(Date.now() / 1000);
+  const counter = Math.floor(epoch / timeStep);
+  const remaining = timeStep - (epoch % timeStep);
+  const counterBuf = new ArrayBuffer(8);
+  const view = new DataView(counterBuf);
+  view.setUint32(4, counter, false);
+  const hmac = await hmacSha1(key.buffer, counterBuf);
+  const hmacBytes = new Uint8Array(hmac);
+  const offset = hmacBytes[hmacBytes.length - 1] & 0x0f;
+  const code = ((hmacBytes[offset] & 0x7f) << 24 | hmacBytes[offset + 1] << 16 | hmacBytes[offset + 2] << 8 | hmacBytes[offset + 3]) % 1000000;
+  return { otp: code.toString().padStart(6, '0'), remaining };
+}
+
+function randomBase32(len = 16): string {
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
+  const arr = new Uint8Array(len);
+  crypto.getRandomValues(arr);
+  return Array.from(arr, b => alphabet[b % 32]).join('');
+}
+
+document.getElementById('random-secret')?.addEventListener('click', () => { secretInput.value = randomBase32(); });
+
+async function tick() {
+  try {
+    const secret = secretInput.value.trim();
+    if (!secret) { otpDisplay.textContent = '------'; return; }
+    const { otp, remaining } = await generateTOTP(secret);
+    otpDisplay.textContent = otp.slice(0, 3) + ' ' + otp.slice(3);
+    bar.style.width = (remaining / 30 * 100) + '%';
+    countdownText.textContent = `${remaining}s 后刷新`;
+    bar.style.backgroundColor = remaining <= 5 ? '#ef4444' : remaining <= 10 ? '#f59e0b' : '#3b82f6';
+  } catch (e) { otpDisplay.textContent = '错误'; }
+}
+
+setInterval(tick, 1000);
+tick();
 </script>

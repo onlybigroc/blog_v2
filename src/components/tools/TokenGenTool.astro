@@ -1,35 +1,56 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入长度..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
+  <div class="flex flex-wrap items-center gap-3">
+    <label class="text-sm text-gray-600 dark:text-gray-400">长度</label>
+    <input id="len" type="range" min="8" max="128" value="32" class="w-40" />
+    <span id="len-display" class="text-sm font-mono w-8">32</span>
+    <label class="text-sm text-gray-600 dark:text-gray-400">数量</label>
+    <input id="count" type="number" value="5" min="1" max="20" class="w-16 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm" />
+    <button id="gen" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">生成</button>
   </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">生成 Token</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+  <div class="flex flex-wrap gap-3 text-sm">
+    <label class="flex items-center gap-1 cursor-pointer"><input id="opt-upper" type="checkbox" checked class="rounded" /><span>大写 A-Z</span></label>
+    <label class="flex items-center gap-1 cursor-pointer"><input id="opt-lower" type="checkbox" checked class="rounded" /><span>小写 a-z</span></label>
+    <label class="flex items-center gap-1 cursor-pointer"><input id="opt-digit" type="checkbox" checked class="rounded" /><span>数字 0-9</span></label>
+    <label class="flex items-center gap-1 cursor-pointer"><input id="opt-symbol" type="checkbox" checked class="rounded" /><span>符号 !@#$</span></label>
   </div>
+  <div id="result" class="space-y-2"></div>
+  <div id="status" class="hidden rounded-lg p-3 text-sm bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400"></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const lenInput = document.getElementById('len') as HTMLInputElement;
+lenInput.addEventListener('input', () => document.getElementById('len-display')!.textContent = lenInput.value);
+
+function generate(len: number): string {
+  let chars = '';
+  if ((document.getElementById('opt-upper') as HTMLInputElement).checked) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  if ((document.getElementById('opt-lower') as HTMLInputElement).checked) chars += 'abcdefghijklmnopqrstuvwxyz';
+  if ((document.getElementById('opt-digit') as HTMLInputElement).checked) chars += '0123456789';
+  if ((document.getElementById('opt-symbol') as HTMLInputElement).checked) chars += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+  if (!chars) chars = 'abcdefghijklmnopqrstuvwxyz';
+  const arr = new Uint32Array(len);
+  crypto.getRandomValues(arr);
+  return Array.from(arr, v => chars[v % chars.length]).join('');
+}
+
+document.getElementById('gen')?.addEventListener('click', () => {
+  const len = parseInt(lenInput.value);
+  const count = Math.min(20, parseInt((document.getElementById('count') as HTMLInputElement).value) || 5);
+  const tokens: string[] = [];
+  for (let i = 0; i < count; i++) tokens.push(generate(len));
+  document.getElementById('result')!.innerHTML = tokens.map(t => `<div class="flex items-center gap-2 p-2 rounded bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700"><code class="flex-1 font-mono text-sm break-all">${t}</code><button class="copy-btn shrink-0 px-2 py-1 text-xs rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600" data-token="${t}">复制</button></div>`).join('');
+  document.querySelectorAll('.copy-btn').forEach(btn => btn.addEventListener('click', async () => {
+    await navigator.clipboard.writeText((btn as HTMLElement).dataset.token!);
+    btn.textContent = '✓'; setTimeout(() => btn.textContent = '复制', 1000);
+  }));
+});
+
+document.getElementById('gen')?.click();
 </script>

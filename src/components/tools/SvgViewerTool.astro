@@ -12,24 +12,104 @@ const { cleanPath, showCleanLink = false } = Astro.props;
       独立打开
     </a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="粘贴 SVG 代码..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
+  <div class="flex flex-wrap items-center gap-3">
+    <button id="render" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">渲染预览</button>
+    <button id="download" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">下载 SVG</button>
+    <button id="copy-svg" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制代码</button>
+    <div class="flex items-center gap-2 ml-auto text-sm">
+      <label class="text-gray-600 dark:text-gray-400">宽度</label>
+      <input type="number" id="svg-w" value="400" class="w-20 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm" />
+      <label class="text-gray-600 dark:text-gray-400">高度</label>
+      <input type="number" id="svg-h" value="300" class="w-20 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm" />
     </div>
   </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">预览</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">SVG 代码</label>
+      <textarea id="svg-input" class="w-full h-80 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y" placeholder="粘贴 SVG 代码..."></textarea>
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">预览</label>
+      <div id="svg-preview" class="w-full h-80 p-4 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 overflow-auto flex items-center justify-center" style="background-image: linear-gradient(45deg, #e5e7eb 25%, transparent 25%), linear-gradient(-45deg, #e5e7eb 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e5e7eb 75%), linear-gradient(-45deg, transparent 75%, #e5e7eb 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px;"></div>
+    </div>
   </div>
+  <div id="status" class="hidden rounded-lg p-3 text-sm"></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const input = document.getElementById('svg-input') as HTMLTextAreaElement;
+const preview = document.getElementById('svg-preview');
+const status = document.getElementById('status');
+const wInput = document.getElementById('svg-w') as HTMLInputElement;
+const hInput = document.getElementById('svg-h') as HTMLInputElement;
+
+function showStatus(msg: string, type: 'success' | 'error') {
+  if (!status) return;
+  status.textContent = msg;
+  status.className = `rounded-lg p-3 text-sm ${type === 'success' ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'}`;
+  status.classList.remove('hidden');
+}
+
+function sanitizeSvg(code: string): string {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = code;
+  tmp.querySelectorAll('script').forEach(s => s.remove());
+  tmp.querySelectorAll('*').forEach(el => {
+    for (const attr of Array.from(el.attributes)) {
+      if (attr.name.startsWith('on')) el.removeAttribute(attr.name);
+    }
+  });
+  return tmp.innerHTML;
+}
+
+document.getElementById('render')?.addEventListener('click', () => {
+  const code = input.value.trim();
+  if (!code) { showStatus('请输入 SVG 代码', 'error'); return; }
+  try {
+    const sanitized = sanitizeSvg(code);
+    const w = parseInt(wInput.value) || 400;
+    const h = parseInt(hInput.value) || 300;
+    if (preview) {
+      preview.innerHTML = '';
+      const wrapper = document.createElement('div');
+      wrapper.style.maxWidth = w + 'px';
+      wrapper.style.maxHeight = h + 'px';
+      wrapper.style.overflow = 'auto';
+      wrapper.innerHTML = sanitized;
+      const svg = wrapper.querySelector('svg');
+      if (svg) {
+        if (!svg.getAttribute('width') && !svg.getAttribute('viewBox')) {
+          svg.setAttribute('width', String(w));
+          svg.setAttribute('height', String(h));
+        }
+      }
+      preview.appendChild(wrapper);
+    }
+    showStatus('渲染成功', 'success');
+  } catch (e) {
+    showStatus('SVG 代码无效：' + (e as Error).message, 'error');
+  }
+});
+
+document.getElementById('download')?.addEventListener('click', () => {
+  const code = input.value.trim();
+  if (!code) return;
+  const blob = new Blob([code], { type: 'image/svg+xml' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'image.svg'; a.click();
+  URL.revokeObjectURL(url);
+  showStatus('下载已开始', 'success');
+});
+
+document.getElementById('copy-svg')?.addEventListener('click', async () => {
+  if (!input.value) return;
+  await navigator.clipboard.writeText(input.value);
+  showStatus('已复制 SVG 代码', 'success');
+});
+
+input.addEventListener('input', () => {
+  if (input.value.trim().startsWith('<svg')) {
+    document.getElementById('render')?.click();
+  }
+});
 </script>

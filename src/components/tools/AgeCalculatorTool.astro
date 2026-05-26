@@ -1,35 +1,60 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
+  <div class="max-w-md mx-auto space-y-4">
     <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入出生日期..."></textarea>
+      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">出生日期</label>
+      <input id="dob" type="date" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" />
     </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
+    <button id="calc" class="w-full px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">计算年龄</button>
+    <div id="result" class="hidden space-y-3">
+      <div class="grid grid-cols-3 gap-3 text-center">
+        <div class="rounded-lg border border-gray-200 dark:border-gray-700 p-3"><div class="text-2xl font-bold" id="years"></div><div class="text-xs text-gray-500">岁</div></div>
+        <div class="rounded-lg border border-gray-200 dark:border-gray-700 p-3"><div class="text-2xl font-bold" id="months"></div><div class="text-xs text-gray-500">月</div></div>
+        <div class="rounded-lg border border-gray-200 dark:border-gray-700 p-3"><div class="text-2xl font-bold" id="days"></div><div class="text-xs text-gray-500">天</div></div>
+      </div>
+      <div class="rounded-lg border border-gray-200 dark:border-gray-700 p-4 space-y-2 text-sm">
+        <div class="flex justify-between"><span class="text-gray-500">总天数</span><span id="total-days"></span></div>
+        <div class="flex justify-between"><span class="text-gray-500">星座</span><span id="zodiac"></span></div>
+        <div class="flex justify-between"><span class="text-gray-500">下一个生日</span><span id="next-bday"></span></div>
+        <div class="flex justify-between"><span class="text-gray-500">距今</span><span id="days-to-bday"></span></div>
+      </div>
     </div>
-  </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">计算</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+function getZodiac(m: number, d: number): string {
+  const z = [[1,20,'水瓶座'],[2,19,'双鱼座'],[3,21,'白羊座'],[4,20,'金牛座'],[5,21,'双子座'],[6,21,'巨蟹座'],[7,23,'狮子座'],[8,23,'处女座'],[9,23,'天秤座'],[10,23,'天蝎座'],[11,22,'射手座'],[12,22,'摩羯座']];
+  for (let i = 0; i < z.length; i++) { if (m < z[i][0] || (m === z[i][0] && d <= z[i][1])) return z[i][2] as string; }
+  return '摩羯座';
+}
+document.getElementById('calc')?.addEventListener('click', () => {
+  const dob = new Date((document.getElementById('dob') as HTMLInputElement).value);
+  if (isNaN(dob.getTime())) return;
+  const now = new Date();
+  let years = now.getFullYear() - dob.getFullYear();
+  let months = now.getMonth() - dob.getMonth();
+  let days = now.getDate() - dob.getDate();
+  if (days < 0) { months--; days += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); }
+  if (months < 0) { years--; months += 12; }
+  const totalDays = Math.floor((now.getTime() - dob.getTime()) / 86400000);
+  const result = document.getElementById('result')!;
+  result.classList.remove('hidden');
+  document.getElementById('years')!.textContent = String(years);
+  document.getElementById('months')!.textContent = String(months);
+  document.getElementById('days')!.textContent = String(days);
+  document.getElementById('total-days')!.textContent = totalDays.toLocaleString() + ' 天';
+  document.getElementById('zodiac')!.textContent = getZodiac(dob.getMonth() + 1, dob.getDate());
+  const thisYearBday = new Date(now.getFullYear(), dob.getMonth(), dob.getDate());
+  const nextBday = thisYearBday < now ? new Date(now.getFullYear() + 1, dob.getMonth(), dob.getDate()) : thisYearBday;
+  const months12 = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+  document.getElementById('next-bday')!.textContent = `${nextBday.getFullYear()}年${months12[nextBday.getMonth()]}${nextBday.getDate()}日`;
+  document.getElementById('days-to-bday')!.textContent = Math.ceil((nextBday.getTime() - now.getTime()) / 86400000) + ' 天';
+});
 </script>

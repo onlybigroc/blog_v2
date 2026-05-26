@@ -1,35 +1,92 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入文本..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
+  <div>
+    <label class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">输入文本</label>
+    <textarea id="input" class="w-full h-40 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm resize-y" placeholder="输入要计算校验和的文本..."></textarea>
   </div>
   <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">计算</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+    <button id="calc" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">计算</button>
+    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制全部</button>
+  </div>
+  <div id="results" class="hidden space-y-2"></div>
+  <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">验证校验和</h3>
+    <div class="flex gap-2">
+      <input id="verify-hash" type="text" class="flex-1 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm font-mono" placeholder="粘贴已知哈希值" />
+      <select id="verify-algo" class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
+        <option value="SHA-256">SHA-256</option><option value="SHA-1">SHA-1</option><option value="SHA-384">SHA-384</option><option value="SHA-512">SHA-512</option><option value="MD5">MD5</option>
+      </select>
+      <button id="verify" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-sm font-medium">验证</button>
+    </div>
+    <div id="verify-result" class="hidden mt-2 rounded-lg p-3 text-sm"></div>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+function md5(str: string): string {
+  function L(k: number, d: number) { return (k << d) | (k >>> (32 - d)); }
+  function K(G: number, k: number) { let I, d, F, H, x; F = (G & 2147483648); H = (k & 2147483648); I = (G & 1073741824); d = (k & 1073741824); x = (G & 1073741823) + (k & 1073741823); if (I & d) return (x ^ 2147483648 ^ F ^ H); if (I | d) { if (x & 1073741824) return (x ^ 3221225472 ^ F ^ H); else return (x ^ 1073741824 ^ F ^ H); } else return (x ^ F ^ H); }
+  function aa(a: number, b: number, c: number, d: number, x: number, s: number, ac: number) { a = K(a, K(K(b & c | ~b & d, x), ac)); return K(L(a, s), b); }
+  function bb(a: number, b: number, c: number, d: number, x: number, s: number, ac: number) { a = K(a, K(K(b & d | c & ~d, x), ac)); return K(L(a, s), b); }
+  function cc(a: number, b: number, c: number, d: number, x: number, s: number, ac: number) { a = K(a, K(K(b ^ c ^ d, x), ac)); return K(L(a, s), b); }
+  function dd(a: number, b: number, c: number, d: number, x: number, s: number, ac: number) { a = K(a, K(K(c ^ (b | ~d), x), ac)); return K(L(a, s), b); }
+  function ConvertToWordArray(s: string) { let lWordCount, lMessageLength = s.length, lNumberOfWords_temp1 = lMessageLength + 8, lNumberOfWords_temp2 = (lNumberOfWords_temp1 - (lNumberOfWords_temp1 % 64)) / 64, lNumberOfWords = (lNumberOfWords_temp2 + 1) * 16, lWordArray = Array(lNumberOfWords - 1), lBytePosition = 0, lByteCount = 0; while (lByteCount < lMessageLength) { lWordCount = (lByteCount - (lByteCount % 4)) / 4; lBytePosition = (lByteCount % 4) * 8; lWordArray[lWordCount] = (lWordArray[lWordCount] | (s.charCodeAt(lByteCount) << lBytePosition)); lByteCount++; } lWordCount = (lByteCount - (lByteCount % 4)) / 4; lBytePosition = (lByteCount % 4) * 8; lWordArray[lWordCount] = lWordArray[lWordCount] | (128 << lBytePosition); lWordArray[lNumberOfWords - 2] = lMessageLength << 3; lWordArray[lNumberOfWords - 1] = lMessageLength >>> 29; return lWordArray; }
+  function WordToHex(lValue: number) { let WordToHexValue = '', WordToHexValue_temp = '', lByte, lCount; for (lCount = 0; lCount <= 3; lCount++) { lByte = (lValue >>> (lCount * 8)) & 255; WordToHexValue_temp = '0' + lByte.toString(16); WordToHexValue += WordToHexValue_temp.substr(WordToHexValue_temp.length - 2, 2); } return WordToHexValue; }
+  let x = ConvertToWordArray(str), a = 0x67452301, b = 0xEFCDAB89, c = 0x98BADCFE, d = 0x10325476;
+  for (let k = 0; k < x.length; k += 16) {
+    let AA = a, BB = b, CC = c, DD = d;
+    a=aa(a,b,c,d,x[k],0xD76AA478,7);d=aa(d,a,b,c,x[k+1],0xE8C7B756,12);c=aa(c,d,a,b,x[k+2],0x242070DB,17);b=aa(b,c,d,a,x[k+3],0xC1BDCEEE,22);a=aa(a,b,c,d,x[k+4],0xF57C0FAF,7);d=aa(d,a,b,c,x[k+5],0x4787C62A,12);c=aa(c,d,a,b,x[k+6],0xA8304613,17);b=aa(b,c,d,a,x[k+7],0xFD469501,22);a=aa(a,b,c,d,x[k+8],0x698098D8,7);d=aa(d,a,b,c,x[k+9],0x8B44F7AF,12);c=aa(c,d,a,b,x[k+10],0xFFFF5BB1,17);b=aa(b,c,d,a,x[k+11],0x895CD7BE,22);a=aa(a,b,c,d,x[k+12],0x6B901122,7);d=aa(d,a,b,c,x[k+13],0xFD987193,12);c=aa(c,d,a,b,x[k+14],0xA679438E,17);b=aa(b,c,d,a,x[k+15],0x49B40821,22);
+    a=bb(a,b,c,d,x[k+1],0xF61E2562,5);d=bb(d,a,b,c,x[k+6],0xC040B340,9);c=bb(c,d,a,b,x[k+11],0x265E5A51,14);b=bb(b,c,d,a,x[k],0xE9B6C7AA,20);a=bb(a,b,c,d,x[k+5],0xD62F105D,5);d=bb(d,a,b,c,x[k+10],0x2441453,9);c=bb(c,d,a,b,x[k+15],0xD8A1E681,14);b=bb(b,c,d,a,x[k+4],0xE7D3FBC8,20);a=bb(a,b,c,d,x[k+9],0x21E1CDE6,5);d=bb(d,a,b,c,x[k+14],0xC33707D6,9);c=bb(c,d,a,b,x[k+3],0xF4D50D87,14);b=bb(b,c,d,a,x[k+8],0x455A14ED,20);a=bb(a,b,c,d,x[k+13],0xA9E3E905,5);d=bb(d,a,b,c,x[k+2],0xFCEFA3F8,9);c=bb(c,d,a,b,x[k+7],0x676F02D9,14);b=bb(b,c,d,a,x[k+12],0x8D2A4C8A,20);
+    a=cc(a,b,c,d,x[k+5],0xFFFA3942,4);d=cc(d,a,b,c,x[k+8],0x8771F681,11);c=cc(c,d,a,b,x[k+11],0x6D9D6122,16);b=cc(b,c,d,a,x[k+14],0xFDE5380C,23);a=cc(a,b,c,d,x[k],0xA4BEEA44,4);d=cc(d,a,b,c,x[k+3],0x4BDECFA9,11);c=cc(c,d,a,b,x[k+6],0xF6BB4B60,16);b=cc(b,c,d,a,x[k+9],0xBEBFBC70,23);a=cc(a,b,c,d,x[k+12],0x289B7EC6,4);d=cc(d,a,b,c,x[k+15],0xEAA127FA,11);c=cc(c,d,a,b,x[k+2],0xD4EF3085,16);b=cc(b,c,d,a,x[k+8],0x4881D05,23);
+    a=dd(a,b,c,d,x[k],0xF9E4C0AA,6);d=dd(d,a,b,c,x[k+7],0x676F02D9,10);c=dd(c,d,a,b,x[k+14],0x8D2A4C8A,15);b=dd(b,c,d,a,x[k+5],0xFFFA3942,21);a=dd(a,b,c,d,x[k+12],0x8771F681,6);d=dd(d,a,b,c,x[k+3],0x6D9D6122,10);c=dd(c,d,a,b,x[k+10],0xFDE5380C,15);b=dd(b,c,d,a,x[k],0xA4BEEA44,21);a=dd(a,b,c,d,x[k+7],0x4BDECFA9,6);d=dd(d,a,b,c,x[k+14],0xF6BB4B60,10);c=dd(c,d,a,b,x[k+5],0xBEBFBC70,15);b=dd(b,c,d,a,x[k+2],0x289B7EC6,21);
+    a=K(a,AA);b=K(b,BB);c=K(c,CC);d=K(d,DD);
+  }
+  return (WordToHex(a)+WordToHex(b)+WordToHex(c)+WordToHex(d)).toLowerCase();
+}
+
+async function calcHash(algo: string, data: string): Promise<string> {
+  if (algo === 'MD5') return md5(data);
+  const enc = new TextEncoder();
+  const buf = await crypto.subtle.digest(algo, enc.encode(data));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+document.getElementById('calc')?.addEventListener('click', async () => {
+  const text = (document.getElementById('input') as HTMLTextAreaElement).value;
+  if (!text) return;
+  const algos = ['MD5', 'SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'];
+  const results: Record<string, string> = {};
+  for (const a of algos) results[a] = await calcHash(a, text);
+  const el = document.getElementById('results')!;
+  el.classList.remove('hidden');
+  el.innerHTML = Object.entries(results).map(([algo, hash]) => `<div class="flex items-center gap-2 p-2 rounded bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700"><span class="w-20 text-sm font-medium text-gray-500">${algo}</span><code class="flex-1 font-mono text-sm break-all">${hash}</code><button class="shrink-0 px-2 py-1 text-xs rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300" onclick="navigator.clipboard.writeText('${hash}')">复制</button></div>`).join('');
+});
+
+document.getElementById('copy')?.addEventListener('click', async () => {
+  const text = Array.from(document.querySelectorAll('#results code')).map(el => el.textContent).join('\n');
+  if (text) await navigator.clipboard.writeText(text);
+});
+
+document.getElementById('verify')?.addEventListener('click', async () => {
+  const text = (document.getElementById('input') as HTMLTextAreaElement).value;
+  const expected = (document.getElementById('verify-hash') as HTMLInputElement).value.trim().toLowerCase();
+  const algo = (document.getElementById('verify-algo') as HTMLSelectElement).value;
+  if (!text || !expected) return;
+  const hash = await calcHash(algo, text);
+  const vr = document.getElementById('verify-result')!;
+  vr.classList.remove('hidden');
+  if (hash === expected) {
+    vr.textContent = `✅ 校验通过！${algo}: ${hash}`;
+    vr.className = 'mt-2 rounded-lg p-3 text-sm bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400';
+  } else {
+    vr.textContent = `❌ 校验不匹配。期望: ${expected}\n实际: ${hash}`;
+    vr.className = 'mt-2 rounded-lg p-3 text-sm bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400';
+  }
+});
 </script>

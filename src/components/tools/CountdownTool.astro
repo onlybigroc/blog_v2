@@ -1,35 +1,87 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入目标时间..."></textarea>
+  <div class="max-w-md mx-auto space-y-4">
+    <div class="flex flex-wrap gap-2">
+      <button data-preset="eod" class="preset-btn px-3 py-1 rounded bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm">今天结束</button>
+      <button data-preset="eow" class="preset-btn px-3 py-1 rounded bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm">本周结束</button>
+      <button data-preset="ny" class="preset-btn px-3 py-1 rounded bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm">新年</button>
     </div>
     <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
+      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">目标时间</label>
+      <input id="target" type="datetime-local" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" />
     </div>
-  </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">开始倒计时</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+    <div class="flex gap-2">
+      <button id="start" class="flex-1 px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">开始倒计时</button>
+      <button id="reset" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-sm font-medium">重置</button>
+    </div>
+    <div id="countdown" class="hidden text-center py-8 space-y-4">
+      <div class="grid grid-cols-4 gap-3">
+        <div class="rounded-lg bg-primary-50 dark:bg-primary-900/20 p-3"><div class="text-3xl font-bold text-primary-600" id="cd-days">0</div><div class="text-xs text-gray-500">天</div></div>
+        <div class="rounded-lg bg-primary-50 dark:bg-primary-900/20 p-3"><div class="text-3xl font-bold text-primary-600" id="cd-hours">0</div><div class="text-xs text-gray-500">时</div></div>
+        <div class="rounded-lg bg-primary-50 dark:bg-primary-900/20 p-3"><div class="text-3xl font-bold text-primary-600" id="cd-mins">0</div><div class="text-xs text-gray-500">分</div></div>
+        <div class="rounded-lg bg-primary-50 dark:bg-primary-900/20 p-3"><div class="text-3xl font-bold text-primary-600" id="cd-secs">0</div><div class="text-xs text-gray-500">秒</div></div>
+      </div>
+      <div class="h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden"><div id="cd-bar" class="h-full bg-primary-500 rounded-full transition-all"></div></div>
+    </div>
+    <div id="done" class="hidden text-center text-2xl font-bold py-8 text-green-600 dark:text-green-400">🎉 时间到！</div>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+let interval: number | null = null;
+let startTime = 0;
+
+function setPreset(name: string) {
+  let target: Date;
+  const now = new Date();
+  if (name === 'eod') target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+  else if (name === 'eow') { const d = 7 - now.getDay(); target = new Date(now.getFullYear(), now.getMonth(), now.getDate() + d, 23, 59, 59); }
+  else target = new Date(now.getFullYear() + 1, 0, 1, 0, 0, 0);
+  (document.getElementById('target') as HTMLInputElement).value = target.toISOString().slice(0, 16);
+}
+
+document.querySelectorAll('.preset-btn').forEach(btn => btn.addEventListener('click', () => setPreset((btn as HTMLElement).dataset.preset!)));
+
+function startCountdown() {
+  const target = new Date((document.getElementById('target') as HTMLInputElement).value);
+  if (isNaN(target.getTime())) return;
+  startTime = Date.now();
+  const totalMs = target.getTime() - startTime;
+  if (totalMs <= 0) return;
+  if (interval) clearInterval(interval);
+  document.getElementById('countdown')!.classList.remove('hidden');
+  document.getElementById('done')!.classList.add('hidden');
+  function tick() {
+    const remaining = target.getTime() - Date.now();
+    if (remaining <= 0) {
+      if (interval) clearInterval(interval);
+      document.getElementById('countdown')!.classList.add('hidden');
+      document.getElementById('done')!.classList.remove('hidden');
+      return;
+    }
+    const d = Math.floor(remaining / 86400000);
+    const h = Math.floor((remaining % 86400000) / 3600000);
+    const m = Math.floor((remaining % 3600000) / 60000);
+    const s = Math.floor((remaining % 60000) / 1000);
+    document.getElementById('cd-days')!.textContent = String(d);
+    document.getElementById('cd-hours')!.textContent = String(h);
+    document.getElementById('cd-mins')!.textContent = String(m);
+    document.getElementById('cd-secs')!.textContent = String(s);
+    document.getElementById('cd-bar')!.style.width = ((1 - remaining / totalMs) * 100) + '%';
+  }
+  tick();
+  interval = setInterval(tick, 1000);
+}
+
+document.getElementById('start')?.addEventListener('click', startCountdown);
+document.getElementById('reset')?.addEventListener('click', () => { if (interval) clearInterval(interval); document.getElementById('countdown')!.classList.add('hidden'); document.getElementById('done')!.classList.add('hidden'); });
+// Default: 1 hour from now
+const defaultTarget = new Date(Date.now() + 3600000);
+(document.getElementById('target') as HTMLInputElement).value = defaultTarget.toISOString().slice(0, 16);
 </script>

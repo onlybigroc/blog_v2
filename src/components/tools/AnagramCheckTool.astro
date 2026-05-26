@@ -1,35 +1,40 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
-  {showCleanLink && cleanPath && (
-    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
-  )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入两个文本..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
-  </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">检测</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+  {showCleanLink && cleanPath && (<a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>)}
+  <div class="max-w-md mx-auto space-y-4">
+    <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">单词 1</label><input id="w1" type="text" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" placeholder="listen" /></div>
+    <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">单词 2</label><input id="w2" type="text" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" placeholder="silent" /></div>
+    <label class="flex items-center gap-2 text-sm cursor-pointer"><input id="ignore" type="checkbox" class="rounded" checked /><span class="text-gray-600 dark:text-gray-400">忽略空格和标点</span></label>
+    <button id="check" class="w-full px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 text-sm font-medium">检测</button>
+    <div id="result" class="hidden text-center py-4 rounded-lg text-lg font-bold"></div>
+    <div id="detail" class="hidden rounded-lg border border-gray-200 dark:border-gray-700 p-4 text-sm"></div>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+document.getElementById('check')?.addEventListener('click', () => {
+  let w1 = (document.getElementById('w1') as HTMLInputElement).value;
+  let w2 = (document.getElementById('w2') as HTMLInputElement).value;
+  const ignore = (document.getElementById('ignore') as HTMLInputElement).checked;
+  if (ignore) { w1 = w1.replace(/[^a-zA-Z]/g, '').toLowerCase(); w2 = w2.replace(/[^a-zA-Z]/g, '').toLowerCase(); }
+  const result = document.getElementById('result')!;
+  const detail = document.getElementById('detail')!;
+  result.classList.remove('hidden');
+  detail.classList.remove('hidden');
+  const isAnagram = w1.split('').sort().join('') === w2.split('').sort().join('');
+  result.className = `text-center py-4 rounded-lg text-lg font-bold ${isAnagram ? 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400' : 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400'}`;
+  result.textContent = isAnagram ? '✅ 是变位词！' : '❌ 不是变位词';
+  const sorted1 = w1.split('').sort().join('');
+  const sorted2 = w2.split('').sort().join('');
+  detail.innerHTML = `<div class="text-center mb-2"><span class="font-mono">${sorted1}</span> <span class="text-gray-400">vs</span> <span class="font-mono">${sorted2}</span></div>`;
+  // Frequency comparison
+  const freq1: Record<string, number> = {}, freq2: Record<string, number> = {};
+  for (const c of w1) freq1[c] = (freq1[c] || 0) + 1;
+  for (const c of w2) freq2[c] = (freq2[c] || 0) + 1;
+  const allChars = new Set([...Object.keys(freq1), ...Object.keys(freq2)]);
+  detail.innerHTML += '<table class="w-full mt-2"><tr class="border-b dark:border-gray-700"><th class="text-left py-1">字符</th><th class="text-center">单词1</th><th class="text-center">单词2</th></tr>' +
+    Array.from(allChars).sort().map(c => `<tr class="border-b border-gray-100 dark:border-gray-800"><td class="py-1 font-mono">${c}</td><td class="text-center">${freq1[c]||0}</td><td class="text-center">${freq2[c]||0}</td></tr>`).join('') + '</table>';
+});
 </script>

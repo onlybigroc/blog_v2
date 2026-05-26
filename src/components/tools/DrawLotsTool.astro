@@ -1,35 +1,50 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
+  <div class="space-y-4">
     <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="每行一个选项..."></textarea>
+      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">名单（每行一项）</label>
+      <textarea id="items" class="w-full h-40 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm" placeholder={`张三\n李四\n王五\n赵六\n钱七`}></textarea>
     </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
+    <div class="flex items-center gap-3">
+      <label class="text-sm text-gray-600 dark:text-gray-400">抽取数量</label>
+      <input id="draw-count" type="number" value="1" min="1" class="w-20 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm" />
+      <label class="flex items-center gap-1 text-sm cursor-pointer"><input id="no-repeat" type="checkbox" class="rounded" checked /><span class="text-gray-600 dark:text-gray-400">不重复</span></label>
+      <button id="draw" class="px-6 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">抽签！</button>
     </div>
   </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">抽签</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+  <div id="result" class="hidden text-center space-y-3">
+    <div class="text-4xl">🎉</div>
+    <div id="drawn-items" class="text-xl font-bold text-primary-600 dark:text-primary-400"></div>
   </div>
+  <div id="history" class="space-y-1 text-sm text-gray-500"></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const drawn = new Set<string>();
+document.getElementById('draw')?.addEventListener('click', () => {
+  const text = (document.getElementById('items') as HTMLTextAreaElement).value;
+  let items = text.split('\n').map(s => s.trim()).filter(Boolean);
+  const count = Math.min(parseInt((document.getElementById('draw-count') as HTMLInputElement).value) || 1, items.length);
+  const noRepeat = (document.getElementById('no-repeat') as HTMLInputElement).checked;
+  if (noRepeat) items = items.filter(i => !drawn.has(i));
+  if (items.length === 0) return;
+  const picked: string[] = [];
+  for (let i = 0; i < count && items.length > 0; i++) {
+    const idx = Math.floor(Math.random() * items.length);
+    picked.push(items[idx]);
+    if (noRepeat) { drawn.add(items[idx]); items.splice(idx, 1); }
+  }
+  const result = document.getElementById('result')!;
+  result.classList.remove('hidden');
+  document.getElementById('drawn-items')!.textContent = picked.join('、');
+  const log = document.createElement('div');
+  log.textContent = `抽中: ${picked.join(', ')}`;
+  document.getElementById('history')!.prepend(log);
+});
 </script>

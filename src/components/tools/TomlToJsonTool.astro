@@ -1,35 +1,68 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
-  {showCleanLink && cleanPath && (
-    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
-  )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="粘贴 TOML..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
-  </div>
+  {showCleanLink && cleanPath && (<a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>)}
   <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">转换</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+    <button id="convert" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 text-sm font-medium">转换</button>
+    <button id="copy" class="px-3 py-1.5 rounded bg-gray-200 dark:bg-gray-700 text-sm ml-auto">复制 JSON</button>
   </div>
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">TOML 输入</label><textarea id="inp" class="w-full h-64 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-mono resize-y" placeholder={`[server]\nhost = "localhost"\nport = 8080\n\n[database]\nurl = "postgres://localhost/mydb"`}></textarea></div>
+    <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">JSON 输出</label><textarea id="out" class="w-full h-64 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 text-sm font-mono resize-y" readonly></textarea></div>
+  </div>
+  <div id="error" class="hidden rounded-lg p-3 text-sm bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400"></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+function parseToml(toml: string): any {
+  const root: any = {};
+  let current = root;
+  for (const rawLine of toml.split('\n')) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith('#')) continue;
+    // Section [name]
+    const sectionMatch = line.match(/^\[(.+)\]$/);
+    if (sectionMatch) {
+      const keys = sectionMatch[1].split('.');
+      current = root;
+      for (const k of keys) {
+        if (!current[k]) current[k] = {};
+        current = current[k];
+      }
+      continue;
+    }
+    // Key = Value
+    const eqIdx = line.indexOf('=');
+    if (eqIdx === -1) continue;
+    const key = line.slice(0, eqIdx).trim();
+    const val = line.slice(eqIdx + 1).trim();
+    current[key] = parseTomlValue(val);
+  }
+  return root;
+}
+
+function parseTomlValue(v: string): any {
+  if (v === 'true') return true;
+  if (v === 'false') return false;
+  if (/^-?\d+$/.test(v)) return parseInt(v);
+  if (/^-?\d+\.\d+$/.test(v)) return parseFloat(v);
+  if (v.startsWith('[') && v.endsWith(']')) {
+    const inner = v.slice(1, -1).trim();
+    if (!inner) return [];
+    return inner.split(',').map(s => parseTomlValue(s.trim()));
+  }
+  if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) return v.slice(1, -1);
+  return v;
+}
+
+document.getElementById('convert')?.addEventListener('click', () => {
+  const error = document.getElementById('error')!;
+  error.classList.add('hidden');
+  try {
+    const result = parseToml((document.getElementById('inp') as HTMLTextAreaElement).value);
+    (document.getElementById('out') as HTMLTextAreaElement).value = JSON.stringify(result, null, 2);
+  } catch (e) { error.textContent = '解析错误: ' + (e as Error).message; error.classList.remove('hidden'); }
+});
+document.getElementById('copy')?.addEventListener('click', () => navigator.clipboard.writeText((document.getElementById('out') as HTMLTextAreaElement).value));
 </script>

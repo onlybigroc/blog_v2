@@ -1,35 +1,70 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入参会时区..."></textarea>
+  <div class="space-y-4">
+    <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">选择参与者的时区</label>
+      <div id="tz-list" class="flex flex-wrap gap-2"></div>
     </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
+    <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">你的会议时间</label><input id="meeting-time" type="datetime-local" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" /></div>
+    <button id="plan" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">规划会议</button>
+    <div id="result" class="hidden rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+      <table class="w-full text-sm"><thead><tr class="bg-gray-50 dark:bg-gray-800"><th class="text-left py-2 px-3">时区</th><th class="text-left py-2 px-3">当地时间</th><th class="text-center py-2 px-3">工作时间?</th></tr></thead><tbody id="tz-body"></tbody></table>
     </div>
-  </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">规划</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+    <div id="suggestion" class="hidden rounded-lg p-3 text-sm bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300"></div>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const zones = [
+  { tz: 'Asia/Shanghai', label: '北京/上海' },
+  { tz: 'Asia/Tokyo', label: '东京' },
+  { tz: 'Asia/Seoul', label: '首尔' },
+  { tz: 'Asia/Singapore', label: '新加坡' },
+  { tz: 'Asia/Kolkata', label: '孟买' },
+  { tz: 'Asia/Dubai', label: '迪拜' },
+  { tz: 'Europe/London', label: '伦敦' },
+  { tz: 'Europe/Paris', label: '巴黎' },
+  { tz: 'Europe/Berlin', label: '柏林' },
+  { tz: 'America/New_York', label: '纽约' },
+  { tz: 'America/Chicago', label: '芝加哥' },
+  { tz: 'America/Los_Angeles', label: '洛杉矶' },
+  { tz: 'Australia/Sydney', label: '悉尼' },
+];
+const selected = new Set(['Asia/Shanghai', 'America/New_York', 'Europe/London']);
+const listEl = document.getElementById('tz-list')!;
+function renderTzList() {
+  listEl.innerHTML = zones.map(z => `<label class="flex items-center gap-1 cursor-pointer"><input type="checkbox" class="rounded tz-check" value="${z.tz}" ${selected.has(z.tz)?'checked':''} /><span class="text-sm">${z.label}</span></label>`).join('');
+  listEl.querySelectorAll('.tz-check').forEach(cb => cb.addEventListener('change', () => {
+    const v = (cb as HTMLInputElement).value;
+    (cb as HTMLInputElement).checked ? selected.add(v) : selected.delete(v);
+  }));
+}
+renderTzList();
+
+(document.getElementById('meeting-time') as HTMLInputElement).value = new Date().toISOString().slice(0, 16);
+
+document.getElementById('plan')?.addEventListener('click', () => {
+  const dt = new Date((document.getElementById('meeting-time') as HTMLInputElement).value);
+  if (isNaN(dt.getTime())) return;
+  const tbody = document.getElementById('tz-body')!;
+  const result = document.getElementById('result')!;
+  result.classList.remove('hidden');
+  let allBusiness = true;
+  tbody.innerHTML = Array.from(selected).map(tz => {
+    const local = dt.toLocaleString('zh-CN', { timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: false });
+    const hour = parseInt(local);
+    const isBiz = hour >= 9 && hour <= 17;
+    if (!isBiz) allBusiness = false;
+    const label = zones.find(z => z.tz === tz)?.label || tz;
+    return `<tr class="border-t border-gray-100 dark:border-gray-800"><td class="py-2 px-3">${label}</td><td class="py-2 px-3 font-mono">${local}</td><td class="py-2 px-3 text-center">${isBiz ? '✅' : '⚠️'}</td></tr>`;
+  }).join('');
+  const sg = document.getElementById('suggestion')!;
+  sg.classList.remove('hidden');
+  sg.textContent = allBusiness ? '所有参与者都在工作时间内！' : '部分参与者不在工作时间（9:00-17:00），建议调整。';
+});
 </script>

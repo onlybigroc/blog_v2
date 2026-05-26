@@ -1,35 +1,71 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
-  {showCleanLink && cleanPath && (
-    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
-  )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入颜色值..."></textarea>
+  {showCleanLink && cleanPath && (<a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>)}
+  <div class="grid gap-6 md:grid-cols-2">
+    <div class="space-y-4">
+      <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">颜色选择</label><input id="color" type="color" value="#3b82f6" class="w-full h-12 rounded-lg cursor-pointer" /></div>
+      <div class="grid grid-cols-3 gap-2 text-sm">
+        <div><label class="text-gray-500">HEX</label><input id="hex" type="text" class="w-full rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 font-mono" /></div>
+        <div><label class="text-gray-500">RGB</label><input id="rgb" type="text" class="w-full rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 font-mono" readonly /></div>
+        <div><label class="text-gray-500">HSL</label><input id="hsl" type="text" class="w-full rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 font-mono" readonly /></div>
+      </div>
+      <div><h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">配色方案</h3>
+        <div class="flex gap-2 mb-2">
+          <button data-scheme="complement" class="scheme-btn px-2 py-1 rounded text-xs bg-gray-200 dark:bg-gray-700">互补</button>
+          <button data-scheme="analogous" class="scheme-btn px-2 py-1 rounded text-xs bg-gray-200 dark:bg-gray-700">类似</button>
+          <button data-scheme="triadic" class="scheme-btn px-2 py-1 rounded text-xs bg-gray-200 dark:bg-gray-700">三元</button>
+        </div>
+        <div id="scheme-colors" class="flex gap-2"></div>
+      </div>
+      <div><h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">对比度检测</h3>
+        <div class="flex gap-3">
+          <div class="flex-1 p-3 rounded text-center text-sm font-bold" id="contrast-white" style="background:#3b82f6;color:#fff">白底文字 Aa</div>
+          <div class="flex-1 p-3 rounded text-center text-sm font-bold" id="contrast-black" style="background:#3b82f6;color:#000">黑底文字 Aa</div>
+        </div>
+      </div>
     </div>
     <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
+      <div id="swatch" class="w-full h-48 rounded-lg shadow-inner mb-4" style="background:#3b82f6"></div>
+      <div id="history-section" class="hidden"><h3 class="text-sm font-medium mb-2">历史</h3><div id="history" class="flex flex-wrap gap-2"></div></div>
     </div>
-  </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">解析</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const hist: string[] = [];
+function hexToRgb(h: string) { return [parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)] as [number,number,number]; }
+function rgbToHsl(r: number, g: number, b: number): [number,number,number] { r/=255;g/=255;b/=255;const mx=Math.max(r,g,b),mn=Math.min(r,g,b),l=(mx+mn)/2;if(mx===mn)return[0,0,Math.round(l*100)];const d=mx-mn;const s=l>0.5?d/(2-mx-mn):d/(mx+mn);let h=0;if(mx===r)h=((g-b)/d+(g<b?6:0))/6;else if(mx===g)h=((b-r)/d+2)/6;else h=((r-g)/d+4)/6;return[Math.round(h*360),Math.round(s*100),Math.round(l*100)];}
+function hslToHex(h: number, s: number, l: number): string { l/=100;const a=s*Math.min(l,1-l)/100;const f=(n: number)=>{const k=(n+h/30)%12;return l-a*Math.max(Math.min(k-3,9-k,1),-1);};return `#${Math.round(f(0)*255).toString(16).padStart(2,'0')}${Math.round(f(8)*255).toString(16).padStart(2,'0')}${Math.round(f(4)*255).toString(16).padStart(2,'0')}`;}
+
+function update() {
+  const hex = (document.getElementById('color') as HTMLInputElement).value;
+  const [r,g,b] = hexToRgb(hex);
+  const [h,s,l] = rgbToHsl(r,g,b);
+  (document.getElementById('hex') as HTMLInputElement).value = hex;
+  document.getElementById('rgb')!.textContent = `${r},${g},${b}`;
+  document.getElementById('hsl')!.textContent = `${h}°,${s}%,${l}%`;
+  document.getElementById('swatch')!.style.background = hex;
+  document.getElementById('contrast-white')!.style.background = hex;
+  document.getElementById('contrast-black')!.style.background = hex;
+  if (!hist.includes(hex)) { hist.unshift(hex); if (hist.length > 12) hist.pop(); }
+  document.getElementById('history-section')!.classList.remove('hidden');
+  document.getElementById('history')!.innerHTML = hist.map(c => `<div class="w-8 h-8 rounded cursor-pointer hover:scale-110 transition-transform" style="background:${c}" title="${c}"></div>`).join('');
+  showScheme('complement');
+}
+
+function showScheme(type: string) {
+  const hex = (document.getElementById('color') as HTMLInputElement).value;
+  const [h,s,l] = rgbToHsl(...hexToRgb(hex));
+  let colors: string[];
+  if (type === 'complement') colors = [hslToHex((h+180)%360,s,l)];
+  else if (type === 'analogous') colors = [hslToHex((h+30)%360,s,l), hslToHex((h+330)%360,s,l)];
+  else colors = [hslToHex((h+120)%360,s,l), hslToHex((h+240)%360,s,l)];
+  document.getElementById('scheme-colors')!.innerHTML = [hex, ...colors].map(c => `<div class="w-12 h-12 rounded-lg cursor-pointer hover:scale-110 transition-transform" style="background:${c}" title="${c}"></div>`).join('');
+}
+
+document.getElementById('color')?.addEventListener('input', update);
+document.querySelectorAll('.scheme-btn').forEach(btn => btn.addEventListener('click', () => showScheme((btn as HTMLElement).dataset.scheme!)));
+update();
 </script>

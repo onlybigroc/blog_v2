@@ -1,23 +1,81 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="text-center py-8">
-    <p id="display" class="text-4xl mb-4">🎮</p>
-    <button id="run" class="px-6 py-3 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-lg font-medium">猜</button>
-    <p id="result" class="mt-4 text-xl font-bold text-primary-600 dark:text-primary-400"></p>
+  <div class="text-center space-y-6 max-w-md mx-auto">
+    <div class="text-sm text-gray-500">猜一个 1-100 的数字</div>
+    <div id="range-bar" class="relative h-8 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+      <div id="range-fill" class="absolute h-full bg-primary-200 dark:bg-primary-800 rounded-full transition-all" style="left:0%;width:100%"></div>
+      <span id="range-text" class="absolute inset-0 flex items-center justify-center text-sm font-medium">1 - 100</span>
+    </div>
+    <div class="flex gap-2 justify-center">
+      <input id="guess" type="number" min="1" max="100" class="w-32 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-center text-lg font-mono" placeholder="?" />
+      <button id="submit" class="px-6 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">猜！</button>
+    </div>
+    <div id="hint" class="text-lg font-medium h-8"></div>
+    <div id="attempts" class="text-sm text-gray-500">已猜 0 次</div>
+    <div id="win-msg" class="hidden text-xl font-bold py-4 rounded-lg bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300"></div>
+    <button id="new-game" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">新游戏</button>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){document.getElementById('result').textContent='功能就绪！'};
+let target = 0, attempts = 0, low = 1, high = 100, gameOver = false;
+const guessInput = document.getElementById('guess') as HTMLInputElement;
+const hint = document.getElementById('hint')!;
+const attemptsEl = document.getElementById('attempts')!;
+const winMsg = document.getElementById('win-msg')!;
+const rangeFill = document.getElementById('range-fill')!;
+const rangeText = document.getElementById('range-text')!;
+
+function newGame() {
+  target = Math.floor(Math.random() * 100) + 1;
+  attempts = 0; low = 1; high = 100; gameOver = false;
+  hint.textContent = ''; hint.className = 'text-lg font-medium h-8';
+  attemptsEl.textContent = '已猜 0 次';
+  winMsg.classList.add('hidden');
+  guessInput.value = '';
+  updateRange();
+}
+
+function updateRange() {
+  const l = ((low - 1) / 100) * 100;
+  const r = ((100 - high) / 100) * 100;
+  rangeFill.style.left = l + '%';
+  rangeFill.style.width = (100 - l - r) + '%';
+  rangeText.textContent = `${low} - ${high}`;
+}
+
+document.getElementById('submit')?.addEventListener('click', () => {
+  if (gameOver) return;
+  const g = parseInt(guessInput.value);
+  if (isNaN(g) || g < 1 || g > 100) { hint.textContent = '请输入 1-100 的数字'; hint.className = 'text-lg font-medium h-8 text-orange-500'; return; }
+  attempts++;
+  attemptsEl.textContent = `已猜 ${attempts} 次`;
+  if (g === target) {
+    gameOver = true;
+    hint.textContent = ''; hint.className = 'text-lg font-medium h-8';
+    winMsg.textContent = `恭喜！答案就是 ${target}，用了 ${attempts} 次！`;
+    winMsg.classList.remove('hidden');
+  } else if (g < target) {
+    low = Math.max(low, g + 1);
+    hint.textContent = '📈 太小了！往上猜';
+    hint.className = 'text-lg font-medium h-8 text-blue-600 dark:text-blue-400';
+  } else {
+    high = Math.min(high, g - 1);
+    hint.textContent = '📉 太大了！往下猜';
+    hint.className = 'text-lg font-medium h-8 text-orange-600 dark:text-orange-400';
+  }
+  updateRange();
+  guessInput.value = '';
+  guessInput.focus();
+});
+
+guessInput.addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('submit')?.click(); });
+document.getElementById('new-game')?.addEventListener('click', newGame);
+newGame();
 </script>

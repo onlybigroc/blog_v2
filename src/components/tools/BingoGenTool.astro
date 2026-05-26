@@ -1,23 +1,55 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="text-center py-8">
-    <p id="display" class="text-4xl mb-4">🎮</p>
-    <button id="run" class="px-6 py-3 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-lg font-medium">生成</button>
-    <p id="result" class="mt-4 text-xl font-bold text-primary-600 dark:text-primary-400"></p>
+  <div class="flex flex-wrap items-center gap-3">
+    <button id="gen" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">生成新卡片</button>
+    <button id="print" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">打印</button>
   </div>
+  <div class="flex justify-center">
+    <div id="bingo-card" class="inline-grid grid-cols-5 gap-1 text-center"></div>
+  </div>
+  <p class="text-sm text-gray-500 text-center">B:1-15 | I:16-30 | N:31-45 | G:46-60 | O:61-75</p>
 </div>
 <script>
-document.getElementById('run').onclick=function(){document.getElementById('result').textContent='功能就绪！'};
+const headers = ['B','I','N','G','O'];
+const ranges = [[1,15],[16,30],[31,45],[46,60],[61,75]];
+const card = document.getElementById('bingo-card')!;
+
+function randRange(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function generate() {
+  const numbers: number[][] = [];
+  for (let c = 0; c < 5; c++) {
+    const nums: number[] = [];
+    while (nums.length < 5) {
+      const n = randRange(ranges[c][0], ranges[c][1]);
+      if (!nums.includes(n)) nums.push(n);
+    }
+    numbers.push(nums);
+  }
+  let html = '';
+  for (const h of headers) html += `<div class="w-16 h-10 flex items-center justify-center font-bold text-lg bg-primary-600 text-white rounded-t-lg">${h}</div>`;
+  for (let r = 0; r < 5; r++) {
+    for (let c = 0; c < 5; c++) {
+      if (r === 2 && c === 2) {
+        html += `<div class="w-16 h-14 flex items-center justify-center text-sm font-bold bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 border border-gray-200 dark:border-gray-700">FREE</div>`;
+      } else {
+        html += `<div class="w-16 h-14 flex items-center justify-center text-sm font-medium bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition-colors">${numbers[c][r]}</div>`;
+      }
+    }
+  }
+  card.innerHTML = html;
+}
+
+document.getElementById('gen')?.addEventListener('click', generate);
+document.getElementById('print')?.addEventListener('click', () => window.print());
+generate();
 </script>

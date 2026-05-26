@@ -1,35 +1,83 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
-  {showCleanLink && cleanPath && (
-    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
-  )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="粘贴 tsconfig..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
+  {showCleanLink && cleanPath && (<a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>)}
+  <div class="flex flex-wrap gap-2">
+    <button class="preset px-3 py-1.5 rounded bg-gray-200 dark:bg-gray-700 text-sm" data-preset="strict">Strict</button>
+    <button class="preset px-3 py-1.5 rounded bg-gray-200 dark:bg-gray-700 text-sm" data-preset="node">Node.js</button>
+    <button class="preset px-3 py-1.5 rounded bg-gray-200 dark:bg-gray-700 text-sm" data-preset="react">React</button>
+    <button class="preset px-3 py-1.5 rounded bg-gray-200 dark:bg-gray-700 text-sm" data-preset="library">Library</button>
   </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">解析</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+  <div class="grid gap-6 md:grid-cols-2">
+    <div class="space-y-4" id="options"></div>
+    <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">tsconfig.json</label><textarea id="out" class="w-full h-96 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 text-sm font-mono" readonly></textarea><button id="copy" class="mt-2 px-3 py-1.5 rounded bg-gray-200 dark:bg-gray-700 text-sm">复制</button></div>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const opts = [
+  { key: 'strict', label: 'strict 模式', def: true, section: '严格检查' },
+  { key: 'noImplicitAny', label: 'noImplicitAny', def: true, section: '严格检查' },
+  { key: 'strictNullChecks', label: 'strictNullChecks', def: true, section: '严格检查' },
+  { key: 'strictFunctionTypes', label: 'strictFunctionTypes', def: true, section: '严格检查' },
+  { key: 'esModuleInterop', label: 'esModuleInterop', def: true, section: '模块' },
+  { key: 'moduleResolution', label: 'moduleResolution', def: 'bundler', type: 'select', options: ['node','bundler','node16'], section: '模块' },
+  { key: 'module', label: 'module', def: 'ESNext', type: 'select', options: ['CommonJS','ESNext','NodeNext','Node16'], section: '模块' },
+  { key: 'target', label: 'target', def: 'ES2020', type: 'select', options: ['ES5','ES6','ES2017','ES2020','ESNext'], section: '编译' },
+  { key: 'jsx', label: 'jsx', def: 'react-jsx', type: 'select', options: ['react','react-jsx','preserve'], section: '编译' },
+  { key: 'outDir', label: 'outDir', def: './dist', type: 'text', section: '输出' },
+  { key: 'declaration', label: 'declaration', def: false, section: '输出' },
+  { key: 'sourceMap', label: 'sourceMap', def: true, section: '输出' },
+  { key: 'skipLibCheck', label: 'skipLibCheck', def: true, section: '其他' },
+  { key: 'forceConsistentCasingInFileNames', label: 'forceConsistentCasingInFileNames', def: true, section: '其他' },
+];
+
+const presets: Record<string, Record<string, any>> = {
+  strict: { strict: true, noImplicitAny: true, strictNullChecks: true, target: 'ESNext' },
+  node: { strict: true, module: 'NodeNext', moduleResolution: 'node16', target: 'ES2022', jsx: undefined },
+  react: { strict: true, jsx: 'react-jsx', module: 'ESNext', target: 'ES2020' },
+  library: { strict: true, declaration: true, module: 'ESNext', target: 'ES2017' },
+};
+
+const state: Record<string, any> = {};
+opts.forEach(o => state[o.key] = o.def);
+
+function renderOptions() {
+  const el = document.getElementById('options')!;
+  let lastSection = '';
+  let html = '';
+  for (const o of opts) {
+    if (o.section !== lastSection) { html += `<h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mt-2">${o.section}</h3>`; lastSection = o.section; }
+    if (o.type === 'select') html += `<div class="flex items-center gap-2"><label class="text-sm w-48">${o.label}</label><select class="opt rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm flex-1" data-key="${o.key}">${o.options!.map(v => `<option ${state[o.key]===v?'selected':''}>${v}</option>`).join('')}</select></div>`;
+    else if (o.type === 'text') html += `<div class="flex items-center gap-2"><label class="text-sm w-48">${o.label}</label><input type="text" class="opt flex-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm" data-key="${o.key}" value="${state[o.key]}" /></div>`;
+    else html += `<label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="opt rounded" data-key="${o.key}" ${state[o.key]?'checked':''} /><span>${o.label}</span></label>`;
+  }
+  el.innerHTML = html;
+  el.querySelectorAll('.opt').forEach(input => input.addEventListener('change', () => {
+    const key = (input as HTMLElement).dataset.key!;
+    if ((input as HTMLInputElement).type === 'checkbox') state[key] = (input as HTMLInputElement).checked;
+    else if ((input as HTMLSelectElement).tagName === 'SELECT') state[key] = (input as HTMLSelectElement).value;
+    else state[key] = (input as HTMLInputElement).value;
+    generate();
+  }));
+}
+
+function generate() {
+  const compilerOptions: Record<string, any> = {};
+  for (const o of opts) {
+    const v = state[o.key];
+    if (v !== o.def && v !== '' && v !== undefined) compilerOptions[o.key] = v;
+  }
+  (document.getElementById('out') as HTMLTextAreaElement).value = JSON.stringify({ compilerOptions }, null, 2);
+}
+
+document.querySelectorAll('.preset').forEach(btn => btn.addEventListener('click', () => {
+  const p = presets[(btn as HTMLElement).dataset.preset!];
+  opts.forEach(o => state[o.key] = p[o.key] !== undefined ? p[o.key] : o.def);
+  renderOptions(); generate();
+}));
+
+document.getElementById('copy')?.addEventListener('click', () => navigator.clipboard.writeText((document.getElementById('out') as HTMLTextAreaElement).value));
+renderOptions(); generate();
 </script>

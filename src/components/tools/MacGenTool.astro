@@ -12,24 +12,76 @@ const { cleanPath, showCleanLink = false } = Astro.props;
       独立打开
     </a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入数量..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
+  <div class="flex flex-wrap items-center gap-3">
+    <label class="text-sm text-gray-600 dark:text-gray-400">数量</label>
+    <input id="count" type="number" value="5" min="1" max="100" class="w-20 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm" />
+    <label class="text-sm text-gray-600 dark:text-gray-400">格式</label>
+    <select id="fmt" class="rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm">
+      <option value="colon">冒号分隔 (AA:BB:CC:DD:EE:FF)</option>
+      <option value="dash">横杠分隔 (AA-BB-CC-DD-EE-FF)</option>
+      <option value="none">无分隔 (AABBCCDDEEFF)</option>
+      <option value="dot">点分隔 (AABB.CCDD.EEFF)</option>
+    </select>
+    <select id="case-opt" class="rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm">
+      <option value="upper">大写</option>
+      <option value="lower">小写</option>
+    </select>
+    <button id="gen" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">生成</button>
+    <button id="copy-all" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">全部复制</button>
   </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">生成 MAC</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
-  </div>
+  <div id="result" class="space-y-1 font-mono text-sm"></div>
+  <div id="status" class="hidden rounded-lg p-3 text-sm"></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const countInput = document.getElementById('count') as HTMLInputElement;
+const fmtSelect = document.getElementById('fmt') as HTMLSelectElement;
+const caseSelect = document.getElementById('case-opt') as HTMLSelectElement;
+const resultDiv = document.getElementById('result')!;
+const status = document.getElementById('status');
+
+function showStatus(msg: string) {
+  if (!status) return;
+  status.textContent = msg;
+  status.className = 'rounded-lg p-3 text-sm bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400';
+  status.classList.remove('hidden');
+}
+
+function randomHex(): string {
+  const arr = new Uint8Array(6);
+  crypto.getRandomValues(arr);
+  return Array.from(arr).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function formatMac(hex: string, fmt: string, cs: string): string {
+  const mac = cs === 'upper' ? hex.toUpperCase() : hex.toLowerCase();
+  switch (fmt) {
+    case 'colon': return mac.match(/.{2}/g)!.join(':');
+    case 'dash': return mac.match(/.{2}/g)!.join('-');
+    case 'dot': return mac.match(/.{4}/g)!.join('.');
+    default: return mac;
+  }
+}
+
+document.getElementById('gen')?.addEventListener('click', () => {
+  const n = Math.min(100, Math.max(1, parseInt(countInput.value) || 5));
+  const fmt = fmtSelect.value;
+  const cs = caseSelect.value;
+  const macs: string[] = [];
+  for (let i = 0; i < n; i++) macs.push(formatMac(randomHex(), fmt, cs));
+  resultDiv.innerHTML = macs.map(m => `<div class="flex items-center gap-2 py-1 px-3 rounded hover:bg-gray-50 dark:hover:bg-gray-800"><span class="flex-1">${m}</span><button class="copy-one text-xs text-primary-600 hover:text-primary-700" data-mac="${m}">复制</button></div>`).join('');
+  resultDiv.querySelectorAll('.copy-one').forEach(btn => btn.addEventListener('click', async () => {
+    await navigator.clipboard.writeText((btn as HTMLElement).dataset.mac!);
+    btn.textContent = '已复制';
+    setTimeout(() => btn.textContent = '复制', 1000);
+  }));
+});
+
+document.getElementById('copy-all')?.addEventListener('click', async () => {
+  const macs = Array.from(resultDiv.querySelectorAll('[data-mac]')).map(el => (el as HTMLElement).dataset.mac!).join('\n');
+  if (!macs) return;
+  await navigator.clipboard.writeText(macs);
+  showStatus('已复制全部 MAC 地址');
+});
+
+document.getElementById('gen')?.click();
 </script>

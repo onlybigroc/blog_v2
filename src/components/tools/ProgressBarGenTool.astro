@@ -12,24 +12,96 @@ const { cleanPath, showCleanLink = false } = Astro.props;
       独立打开
     </a>
   )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入百分比..."></textarea>
+  <div class="grid gap-6 md:grid-cols-2">
+    <div class="space-y-4">
+      <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300">配置</h3>
+      <div>
+        <label class="block text-sm text-gray-600 dark:text-gray-400 mb-1">进度值: <span id="val-display">65</span>%</label>
+        <input id="progress" type="range" min="0" max="100" value="65" class="w-full" />
+      </div>
+      <div>
+        <label class="block text-sm text-gray-600 dark:text-gray-400 mb-1">高度: <span id="h-display">20</span>px</label>
+        <input id="height" type="range" min="4" max="60" value="20" class="w-full" />
+      </div>
+      <div>
+        <label class="block text-sm text-gray-600 dark:text-gray-400 mb-1">圆角: <span id="r-display">10</span>px</label>
+        <input id="radius" type="range" min="0" max="30" value="10" class="w-full" />
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-sm text-gray-600 dark:text-gray-400 mb-1">背景色</label>
+          <input id="bg-color" type="color" value="#e5e7eb" class="w-full h-8 rounded cursor-pointer" />
+        </div>
+        <div>
+          <label class="block text-sm text-gray-600 dark:text-gray-400 mb-1">填充色</label>
+          <input id="fill-color" type="color" value="#3b82f6" class="w-full h-8 rounded cursor-pointer" />
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <label class="flex items-center gap-2 text-sm cursor-pointer">
+          <input id="striped" type="checkbox" class="rounded" />
+          <span class="text-gray-600 dark:text-gray-400">条纹动画</span>
+        </label>
+        <label class="flex items-center gap-2 text-sm cursor-pointer">
+          <input id="show-label" type="checkbox" checked class="rounded" />
+          <span class="text-gray-600 dark:text-gray-400">显示百分比</span>
+        </label>
+      </div>
     </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
+    <div class="space-y-4">
+      <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300">预览</h3>
+      <div class="flex items-center justify-center p-8 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+        <div id="preview" class="w-full"></div>
+      </div>
+      <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300">生成代码</h3>
+      <div class="relative">
+        <pre id="code" class="p-3 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-mono overflow-auto"></pre>
+        <button id="copy" class="absolute top-2 right-2 px-2 py-1 text-xs rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600">复制</button>
+      </div>
     </div>
-  </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">生成</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const progress = document.getElementById('progress') as HTMLInputElement;
+const heightEl = document.getElementById('height') as HTMLInputElement;
+const radiusEl = document.getElementById('radius') as HTMLInputElement;
+const bgColor = document.getElementById('bg-color') as HTMLInputElement;
+const fillColor = document.getElementById('fill-color') as HTMLInputElement;
+const stripedEl = document.getElementById('striped') as HTMLInputElement;
+const showLabel = document.getElementById('show-label') as HTMLInputElement;
+const preview = document.getElementById('preview')!;
+const codeEl = document.getElementById('code')!;
+
+function update() {
+  const pct = parseInt(progress.value);
+  const h = parseInt(heightEl.value);
+  const r = parseInt(radiusEl.value);
+  const bg = bgColor.value;
+  const fill = fillColor.value;
+  const striped = stripedEl.checked;
+  const label = showLabel.checked;
+
+  document.getElementById('val-display')!.textContent = String(pct);
+  document.getElementById('h-display')!.textContent = String(h);
+  document.getElementById('r-display')!.textContent = String(r);
+
+  const stripeStyle = striped ? `background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent); background-size: 1rem 1rem; animation: progress-stripes 1s linear infinite;` : '';
+
+  preview.innerHTML = `<div style="position:relative;background:${bg};border-radius:${r}px;height:${h}px;overflow:hidden;">
+    <div style="width:${pct}%;height:100%;background:${fill};border-radius:${r}px;transition:width 0.3s;${stripeStyle}"></div>
+    ${label ? `<span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:${Math.max(10, h-6)}px;font-weight:600;color:${pct > 50 ? '#fff' : '#333'}">${pct}%</span>` : ''}
+  </div>`;
+
+  let css = `.progress-bar {\n  background: ${bg};\n  border-radius: ${r}px;\n  height: ${h}px;\n  overflow: hidden;\n}\n.progress-fill {\n  width: ${pct}%;\n  height: 100%;\n  background: ${fill};\n  border-radius: ${r}px;\n  transition: width 0.3s;`;
+  if (striped) css += `\n  background-image: linear-gradient(45deg, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);\n  background-size: 1rem 1rem;\n  animation: progress-stripes 1s linear infinite;`;
+  css += `\n}`;
+  if (striped) css += `\n\n@keyframes progress-stripes {\n  from { background-position: 1rem 0; }\n  to { background-position: 0 0; }\n}`;
+  codeEl.textContent = css;
+}
+
+[progress, heightEl, radiusEl, bgColor, fillColor, stripedEl, showLabel].forEach(el => el.addEventListener('input', update));
+document.getElementById('copy')?.addEventListener('click', async () => {
+  await navigator.clipboard.writeText(codeEl.textContent!);
+});
+update();
 </script>

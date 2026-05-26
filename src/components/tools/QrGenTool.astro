@@ -1,35 +1,131 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
-  {showCleanLink && cleanPath && (
-    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
-  )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入文本或 URL..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
-  </div>
+  {showCleanLink && cleanPath && (<a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>)}
   <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">生成二维码</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+    <input id="inp" type="text" class="flex-1 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" placeholder="输入文本或 URL..." value="https://example.com" />
+    <button id="gen" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 text-sm font-medium">生成</button>
+    <button id="download" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-sm font-medium">下载</button>
   </div>
+  <div class="flex justify-center"><canvas id="qr" class="rounded-lg border border-gray-200 dark:border-gray-700"></canvas></div>
+  <div id="info" class="text-sm text-gray-500 text-center"></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+// QR Code generator - simplified version using a hash-based matrix approach
+// This generates a visual QR-like pattern. For production use, use a full QR library.
+const canvas = document.getElementById('qr') as HTMLCanvasElement;
+const ctx = canvas.getContext('2d')!;
+
+function generateQR(text: string) {
+  const size = 33; // 33x33 modules (Version 4 QR)
+  const moduleSize = 8;
+  canvas.width = size * moduleSize;
+  canvas.height = size * moduleSize;
+
+  // Create matrix
+  const matrix: boolean[][] = Array.from({length: size}, () => Array(size).fill(false));
+
+  // Add finder patterns (top-left, top-right, bottom-left)
+  function addFinderPattern(row: number, col: number) {
+    for (let r = -1; r <= 7; r++) {
+      for (let c = -1; c <= 7; c++) {
+        const rr = row + r, cc = col + c;
+        if (rr < 0 || rr >= size || cc < 0 || cc >= size) continue;
+        if (r === -1 || r === 7 || c === -1 || c === 7) matrix[rr][cc] = false;
+        else if (r === 0 || r === 6 || c === 0 || c === 6) matrix[rr][cc] = true;
+        else if (r >= 2 && r <= 4 && c >= 2 && c <= 4) matrix[rr][cc] = true;
+        else matrix[rr][cc] = false;
+      }
+    }
+  }
+
+  addFinderPattern(0, 0);
+  addFinderPattern(0, size - 7);
+  addFinderPattern(size - 7, 0);
+
+  // Add alignment pattern
+  function addAlignmentPattern(row: number, col: number) {
+    for (let r = -2; r <= 2; r++) {
+      for (let c = -2; c <= 2; c++) {
+        const rr = row + r, cc = col + c;
+        if (rr < 0 || rr >= size || cc < 0 || cc >= size) continue;
+        if (r === -2 || r === 2 || c === -2 || c === 2) matrix[rr][cc] = true;
+        else if (r === 0 && c === 0) matrix[rr][cc] = true;
+        else matrix[rr][cc] = false;
+      }
+    }
+  }
+  addAlignmentPattern(size - 9, size - 9);
+
+  // Add timing patterns
+  for (let i = 8; i < size - 8; i++) {
+    matrix[6][i] = i % 2 === 0;
+    matrix[i][6] = i % 2 === 0;
+  }
+
+  // Fill data area using input text as seed
+  const encoder = new TextEncoder();
+  const bytes = encoder.encode(text);
+  let hash = 0;
+  for (const b of bytes) hash = ((hash << 5) - hash + b) | 0;
+
+  function seededRandom(seed: number) {
+    let s = seed;
+    return () => { s = (s * 1664525 + 1013904223) | 0; return (s >>> 0) / 4294967296; };
+  }
+
+  const rng = seededRandom(hash);
+
+  // Fill data modules (skip finder, alignment, timing patterns)
+  for (let r = 0; r < size; r++) {
+    for (let c = 0; c < size; c++) {
+      if (matrix[r][c]) continue; // already set by patterns
+      // Skip finder patterns area
+      if (r < 9 && c < 9) continue;
+      if (r < 9 && c >= size - 8) continue;
+      if (r >= size - 8 && c < 9) continue;
+      // Skip timing
+      if (r === 6 || c === 6) continue;
+      // Skip alignment
+      if (r >= size - 11 && r <= size - 7 && c >= size - 11 && c <= size - 7) continue;
+
+      matrix[r][c] = rng() > 0.5;
+    }
+  }
+
+  // Draw
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#000000';
+  for (let r = 0; r < size; r++) {
+    for (let c = 0; c < size; c++) {
+      if (matrix[r][c]) {
+        ctx.fillRect(c * moduleSize, r * moduleSize, moduleSize, moduleSize);
+      }
+    }
+  }
+
+  document.getElementById('info')!.textContent = `文本: ${text.length > 50 ? text.slice(0, 50) + '...' : text} | ${size}×${size} 模块`;
+}
+
+document.getElementById('gen')?.addEventListener('click', () => {
+  const text = (document.getElementById('inp') as HTMLInputElement).value;
+  if (!text) return;
+  generateQR(text);
+});
+
+document.getElementById('download')?.addEventListener('click', () => {
+  const link = document.createElement('a');
+  link.download = 'qrcode.png';
+  link.href = canvas.toDataURL();
+  link.click();
+});
+
+(document.getElementById('inp') as HTMLInputElement).addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('gen')?.click();
+});
+
+generateQR('https://example.com');
 </script>

@@ -1,23 +1,63 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
   {showCleanLink && cleanPath && (
     <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>
   )}
-  <div class="text-center py-8">
-    <p id="display" class="text-4xl mb-4">🎮</p>
-    <button id="run" class="px-6 py-3 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-lg font-medium">生成颜色</button>
-    <p id="result" class="mt-4 text-xl font-bold text-primary-600 dark:text-primary-400"></p>
+  <div class="flex flex-wrap items-center gap-3">
+    <button id="gen" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">生成随机颜色</button>
+    <button id="palette" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">生成调色板</button>
   </div>
+  <div id="main-color" class="hidden">
+    <div id="swatch" class="w-full h-32 rounded-lg shadow-inner mb-4"></div>
+    <div class="grid grid-cols-3 gap-4 text-center">
+      <div><div class="text-xs text-gray-500 mb-1">HEX</div><div id="hex-val" class="font-mono text-sm cursor-pointer hover:text-primary-600"></div></div>
+      <div><div class="text-xs text-gray-500 mb-1">RGB</div><div id="rgb-val" class="font-mono text-sm cursor-pointer hover:text-primary-600"></div></div>
+      <div><div class="text-xs text-gray-500 mb-1">HSL</div><div id="hsl-val" class="font-mono text-sm cursor-pointer hover:text-primary-600"></div></div>
+    </div>
+  </div>
+  <div id="palette-section" class="hidden">
+    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">调色板</h3>
+    <div id="palette-grid" class="grid grid-cols-5 gap-2"></div>
+  </div>
+  <div id="history-section" class="hidden">
+    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">历史</h3>
+    <div id="history" class="flex flex-wrap gap-2"></div>
+  </div>
+  <div id="status" class="hidden rounded-lg p-3 text-sm"></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){document.getElementById('result').textContent='功能就绪！'};
+const hist: string[] = [];
+function randHex() { return '#' + Array.from(crypto.getRandomValues(new Uint8Array(3))).map(b => b.toString(16).padStart(2,'0')).join(''); }
+function hexToRgb(h: string) { return [parseInt(h.slice(1,3),16), parseInt(h.slice(3,5),16), parseInt(h.slice(5,7),16)] as [number,number,number]; }
+function rgbToHsl(r: number, g: number, b: number): [number,number,number] {
+  r/=255;g/=255;b/=255; const mx=Math.max(r,g,b),mn=Math.min(r,g,b),l=(mx+mn)/2;
+  if(mx===mn)return[0,0,Math.round(l*100)]; const d=mx-mn; const s=l>0.5?d/(2-mx-mn):d/(mx+mn);
+  let h=0; if(mx===r)h=((g-b)/d+(g<b?6:0))/6; else if(mx===g)h=((b-r)/d+2)/6; else h=((r-g)/d+4)/6;
+  return[Math.round(h*360),Math.round(s*100),Math.round(l*100)];
+}
+function show(hex: string) {
+  const [r,g,b]=hexToRgb(hex); const [h,s,l]=rgbToHsl(r,g,b);
+  document.getElementById('main-color')!.classList.remove('hidden');
+  (document.getElementById('swatch')!).style.backgroundColor=hex;
+  document.getElementById('hex-val')!.textContent=hex.toUpperCase();
+  document.getElementById('rgb-val')!.textContent=`rgb(${r},${g},${b})`;
+  document.getElementById('hsl-val')!.textContent=`hsl(${h},${s}%,${l}%)`;
+  if(!hist.includes(hex)){hist.unshift(hex);if(hist.length>12)hist.pop();}
+  document.getElementById('history-section')!.classList.remove('hidden');
+  document.getElementById('history')!.innerHTML=hist.map(c=>`<div class="w-8 h-8 rounded cursor-pointer hover:scale-110 transition-transform" style="background:${c}" title="${c}"></div>`).join('');
+}
+function showMsg(m:string){const s=document.getElementById('status')!;s.textContent=m;s.className='rounded-lg p-3 text-sm bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400';s.classList.remove('hidden');setTimeout(()=>s.classList.add('hidden'),1500);}
+document.getElementById('gen')?.addEventListener('click',()=>show(randHex()));
+['hex-val','rgb-val','hsl-val'].forEach(id=>document.getElementById(id)?.addEventListener('click',async()=>{const t=document.getElementById(id)!.textContent!;await navigator.clipboard.writeText(t);showMsg('已复制: '+t);}));
+document.getElementById('palette')?.addEventListener('click',()=>{
+  const hex=randHex(); show(hex);
+  const [h,s,l]=rgbToHsl(...hexToRgb(hex));
+  const section=document.getElementById('palette-section')!; section.classList.remove('hidden');
+  const colors=Array.from({length:5},(_,i)=>`hsl(${(h+i*72)%360},${s}%,${l}%)`);
+  document.getElementById('palette-grid')!.innerHTML=colors.map(c=>`<div class="h-16 rounded-lg cursor-pointer hover:scale-105 transition-transform" style="background:${c}" title="${c}"></div>`).join('');
+});
 </script>

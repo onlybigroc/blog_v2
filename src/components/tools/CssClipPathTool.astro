@@ -1,35 +1,47 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
-  {showCleanLink && cleanPath && (
-    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
-  )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="选择形状..."></textarea>
+  {showCleanLink && cleanPath && (<a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>)}
+  <div class="grid gap-6 md:grid-cols-2">
+    <div class="space-y-4">
+      <div class="flex flex-wrap gap-2">
+        <button class="shape-btn px-3 py-1 rounded text-sm bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300" data-shape="circle">circle</button>
+        <button class="shape-btn px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-700" data-shape="ellipse">ellipse</button>
+        <button class="shape-btn px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-700" data-shape="polygon">polygon</button>
+        <button class="shape-btn px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-700" data-shape="inset">inset</button>
+      </div>
+      <div id="circle-controls"><label class="block text-sm text-gray-500 mb-1">半径: <span id="r-val">50</span>%</label><input id="radius" type="range" min="10" max="50" value="50" class="w-full" /></div>
+      <div id="ellipse-controls" class="hidden"><label class="block text-sm text-gray-500 mb-1">X 半径: <span id="rx-val">50</span>%</label><input id="rx" type="range" min="10" max="50" value="50" class="w-full" /><label class="block text-sm text-gray-500 mb-1">Y 半径: <span id="ry-val">30</span>%</label><input id="ry" type="range" min="10" max="50" value="30" class="w-full" /></div>
+      <div id="inset-controls" class="hidden"><label class="block text-sm text-gray-500 mb-1">上: <span id="it-val">10</span>%</label><input id="inset-top" type="range" min="0" max="40" value="10" class="w-full" /><label class="block text-sm text-gray-500 mb-1">右: <span id="ir-val">20</span>%</label><input id="inset-right" type="range" min="0" max="40" value="20" class="w-full" /><label class="block text-sm text-gray-500 mb-1">下: <span id="ib-val">30</span>%</label><input id="inset-bottom" type="range" min="0" max="40" value="30" class="w-full" /><label class="block text-sm text-gray-500 mb-1">左: <span id="il-val">10</span>%</label><input id="inset-left" type="range" min="0" max="40" value="10" class="w-full" /></div>
     </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
+    <div class="space-y-4">
+      <div class="flex items-center justify-center h-48 rounded-lg bg-gray-100 dark:bg-gray-800"><div id="preview" class="w-36 h-36 bg-primary-400" style="clip-path:circle(50%)"></div></div>
+      <div class="relative"><pre id="code" class="p-3 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-mono"></pre><button id="copy" class="absolute top-2 right-2 px-2 py-1 text-xs rounded bg-gray-200 dark:bg-gray-700">复制</button></div>
     </div>
-  </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">生成代码</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
   </div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+let currentShape = 'circle';
+function update() {
+  let value = '';
+  if (currentShape === 'circle') { const r = (document.getElementById('radius') as HTMLInputElement).value; document.getElementById('r-val')!.textContent = r; value = `circle(${r}%)`; }
+  else if (currentShape === 'ellipse') { const rx = (document.getElementById('rx') as HTMLInputElement).value; const ry = (document.getElementById('ry') as HTMLInputElement).value; document.getElementById('rx-val')!.textContent = rx; document.getElementById('ry-val')!.textContent = ry; value = `ellipse(${rx}% ${ry}%)`; }
+  else if (currentShape === 'inset') { const t=(document.getElementById('inset-top')as HTMLInputElement).value;const r=(document.getElementById('inset-right')as HTMLInputElement).value;const b=(document.getElementById('inset-bottom')as HTMLInputElement).value;const l=(document.getElementById('inset-left')as HTMLInputElement).value;document.getElementById('it-val')!.textContent=t;document.getElementById('ir-val')!.textContent=r;document.getElementById('ib-val')!.textContent=b;document.getElementById('il-val')!.textContent=l;value=`inset(${t}% ${r}% ${b}% ${l}%)`;}
+  else value = 'polygon(50% 0%, 100% 100%, 0% 100%)';
+  document.getElementById('preview')!.style.clipPath = value;
+  document.getElementById('code')!.textContent = `clip-path: ${value};`;
+}
+document.querySelectorAll('.shape-btn').forEach(btn => btn.addEventListener('click', () => {
+  currentShape = (btn as HTMLElement).dataset.shape!;
+  document.querySelectorAll('.shape-btn').forEach(b => b.className = 'shape-btn px-3 py-1 rounded text-sm bg-gray-200 dark:bg-gray-700');
+  btn.className = 'shape-btn px-3 py-1 rounded text-sm bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300';
+  ['circle-controls','ellipse-controls','inset-controls'].forEach(id => document.getElementById(id)!.classList.add('hidden'));
+  if (currentShape !== 'polygon') document.getElementById(currentShape + '-controls')!.classList.remove('hidden');
+  update();
+}));
+['radius','rx','ry','inset-top','inset-right','inset-bottom','inset-left'].forEach(k => document.getElementById(k)?.addEventListener('input', update));
+document.getElementById('copy')?.addEventListener('click', () => navigator.clipboard.writeText(document.getElementById('code')!.textContent!));
+update();
 </script>

@@ -1,35 +1,45 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
-  {showCleanLink && cleanPath && (
-    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
-  )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="粘贴 package.json..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
-  </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">解析</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
-  </div>
+  {showCleanLink && cleanPath && (<a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>)}
+  <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-mono" placeholder="粘贴 package.json 内容..."></textarea>
+  <button id="parse" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 text-sm font-medium">解析</button>
+  <input id="search" type="text" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm hidden" placeholder="搜索依赖..." />
+  <div id="result" class="hidden space-y-4"></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+document.getElementById('parse')?.addEventListener('click', () => {
+  try {
+    const pkg = JSON.parse((document.getElementById('inp') as HTMLTextAreaElement).value);
+    const result = document.getElementById('result')!;
+    const search = document.getElementById('search')!;
+    result.classList.remove('hidden');
+    search.classList.remove('hidden');
+    let html = '';
+    if (pkg.name || pkg.version) html += `<div class="rounded-lg border border-gray-200 dark:border-gray-700 p-4"><div class="text-lg font-bold">${pkg.name || '-'}</div><div class="text-sm text-gray-500">v${pkg.version || '-'} ${pkg.description ? '· ' + pkg.description : ''}</div></div>`;
+    if (pkg.scripts && Object.keys(pkg.scripts).length) {
+      html += '<div class="rounded-lg border border-gray-200 dark:border-gray-700 p-4"><h3 class="text-sm font-medium mb-2">脚本</h3><table class="w-full text-sm"><tbody>';
+      for (const [k, v] of Object.entries(pkg.scripts)) html += `<tr class="border-b border-gray-100 dark:border-gray-800"><td class="py-1 font-mono text-primary-600">${k}</td><td class="py-1 font-mono">${v}</td></tr>`;
+      html += '</tbody></table></div>';
+    }
+    function renderDeps(deps: Record<string, string>, title: string) {
+      if (!deps || !Object.keys(deps).length) return '';
+      let h = `<div class="dep-section rounded-lg border border-gray-200 dark:border-gray-700 p-4"><h3 class="text-sm font-medium mb-2">${title} (${Object.keys(deps).length})</h3><table class="w-full text-sm"><tbody>`;
+      for (const [k, v] of Object.entries(deps)) h += `<tr class="dep-row border-b border-gray-100 dark:border-gray-800"><td class="py-1 font-medium dep-name">${k}</td><td class="py-1 font-mono">${v}</td></tr>`;
+      h += '</tbody></table></div>';
+      return h;
+    }
+    html += renderDeps(pkg.dependencies, '依赖');
+    html += renderDeps(pkg.devDependencies, '开发依赖');
+    result.innerHTML = html;
+    document.getElementById('search')?.addEventListener('input', () => {
+      const q = (document.getElementById('search') as HTMLInputElement).value.toLowerCase();
+      result.querySelectorAll('.dep-row').forEach(row => {
+        (row as HTMLElement).style.display = (row.querySelector('.dep-name')?.textContent?.toLowerCase().includes(q)) ? '' : 'none';
+      });
+    });
+  } catch { alert('无效的 JSON'); }
+});
 </script>

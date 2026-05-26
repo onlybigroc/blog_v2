@@ -1,35 +1,75 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
-  {showCleanLink && cleanPath && (
-    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
-  )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="输入文本..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
-  </div>
+  {showCleanLink && cleanPath && (<a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>)}
   <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">生成</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
+    <input id="text" type="text" maxlength="12" class="flex-1 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" placeholder="输入文字 (A-Z, 0-9)" value="HELLO" />
+    <select id="font-size" class="rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm"><option value="small">小</option><option value="medium" selected>中</option><option value="large">大</option></select>
+    <button id="copy" class="px-3 py-1.5 rounded bg-gray-200 dark:bg-gray-700 text-sm">复制</button>
   </div>
+  <pre id="output" class="p-4 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm font-mono overflow-auto whitespace-pre leading-tight"></pre>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+const fonts: Record<string, string[][]> = {
+  A: [['  █  ',' █ █ ','█████','█   █','█   █'],[' ██ ','█  █','████','█  █','█  █']],
+  B: [['████ ','█   █','████ ','█   █','████ '],['███ ','█  █','███ ','█  █','███ ']],
+  C: [[' ████','█    ','█    ','█    ',' ████'],[' ██','█  ','█  ','█  ',' ██']],
+  D: [['████ ','█   █','█   █','█   █','████ '],['███ ','█  █','█  █','█  █','███ ']],
+  E: [['█████','█    ','████ ','█    ','█████'],['████','█   ','███ ','█   ','████']],
+  F: [['█████','█    ','████ ','█    ','█    '],['████','█   ','███ ','█   ','█   ']],
+  G: [[' ████','█    ','█  ██','█   █',' ████'],[' ██','█  ','█ ██','█  █',' ██']],
+  H: [['█   █','█   █','█████','█   █','█   █'],['█  █','█  █','████','█  █','█  █']],
+  I: [['█████','  █  ','  █  ','  █  ','█████'],['████',' █  ',' █  ',' █  ','████']],
+  J: [['█████','   █ ','   █ ','█  █ ',' ██  '],['████','  █ ','  █ ','█ █ ',' ██ ']],
+  K: [['█   █','█  █ ','███  ','█  █ ','█   █'],['█  █','█ █ ','██  ','█ █ ','█  █']],
+  L: [['█    ','█    ','█    ','█    ','█████'],['█   ','█   ','█   ','█   ','████']],
+  M: [['█   █','██ ██','█ █ █','█   █','█   █'],['█   █','██ ██','█ █ █','█   █','█   █']],
+  N: [['█   █','██  █','█ █ █','█  ██','█   █'],['█  █','██ █','█ █ ','█  █','█  █']],
+  O: [[' ███ ','█   █','█   █','█   █',' ███ '],[' ██ ','█  █','█  █','█  █',' ██ ']],
+  P: [['████ ','█   █','████ ','█    ','█    '],['███ ','█  █','███ ','█   ','█   ']],
+  Q: [[' ███ ','█   █','█ █ █','█  █ ',' ██ █'],[' ██ ','█  █','█ █ ','█  █',' ██ █']],
+  R: [['████ ','█   █','████ ','█  █ ','█   █'],['███ ','█  █','███ ','█ █ ','█  █']],
+  S: [[' ████','█    ',' ███ ','    █','████ '],[' ██','█   ',' ██ ','   █','██ ']],
+  T: [['█████','  █  ','  █  ','  █  ','  █  '],['████',' █  ',' █  ',' █  ',' █  ']],
+  U: [['█   █','█   █','█   █','█   █',' ███ '],['█  █','█  █','█  █','█  █',' ██ ']],
+  V: [['█   █','█   █','█   █',' █ █ ','  █  '],['█  █','█  █','█  █',' ██ ',' █  ']],
+  W: [['█   █','█   █','█ █ █','██ ██','█   █'],['█   █','█   █','█ █ █','██ ██','█   █']],
+  X: [['█   █',' █ █ ','  █  ',' █ █ ','█   █'],['█  █',' ██ ',' █  ',' ██ ','█  █']],
+  Y: [['█   █',' █ █ ','  █  ','  █  ','  █  '],['█  █',' ██ ',' █  ',' █  ',' █  ']],
+  Z: [['█████','   █ ','  █  ',' █   ','█████'],['████','  █ ',' █  ','█   ','████']],
+  '0': [[' ███ ','█   █','█   █','█   █',' ███ '],[' ██ ','█  █','█  █','█  █',' ██ ']],
+  '1': [['  █  ',' ██  ','  █  ','  █  ','████ '],[' █  ','██  ',' █  ',' █  ','████']],
+  '2': [[' ███ ','█   █','  ██ ',' █   ','█████'],[' ██ ','█  █','  █ ',' █  ','████']],
+  '3': [[' ███ ','█   █','  ██ ','█   █',' ███ '],[' ██ ','█  █','  ██','█  █',' ██ ']],
+  '4': [['█   █','█   █','█████','    █','    █'],['█  █','█  █','████','   █','   █']],
+  '5': [['█████','█    ','████ ','    █','████ '],['████','█   ','███ ','   █','███ ']],
+  '6': [[' ████','█    ','████ ','█   █',' ███ '],[' ██ ','█   ','███ ','█  █',' ██ ']],
+  '7': [['█████','    █','   █ ','  █  ','  █  '],['████','   █','  █ ',' █  ',' █  ']],
+  '8': [[' ███ ','█   █',' ███ ','█   █',' ███ '],[' ██ ','█  █',' ██ ','█  █',' ██ ']],
+  '9': [[' ███ ','█   █',' ████','    █',' ███ '],[' ██ ','█  █',' ███','   █',' ██ ']],
+  ' ': [['     ','     ','     ','     ','     '],['   ','   ','   ','   ','   ']],
+};
+
+const textInput = document.getElementById('text') as HTMLInputElement;
+const output = document.getElementById('output')!;
+
+function render() {
+  const text = textInput.value.toUpperCase();
+  const size = (document.getElementById('font-size') as HTMLSelectElement).value;
+  const variant = size === 'large' ? 0 : size === 'medium' ? 0 : 1;
+  const lines = ['', '', '', '', ''];
+  for (const ch of text) {
+    const glyph = fonts[ch];
+    if (!glyph) continue;
+    const rows = glyph[variant] || glyph[0];
+    for (let i = 0; i < 5; i++) lines[i] += (rows[i] || '     ') + '  ';
+  }
+  output.textContent = lines.join('\n');
+}
+textInput.addEventListener('input', render);
+document.getElementById('font-size')?.addEventListener('change', render);
+document.getElementById('copy')?.addEventListener('click', () => navigator.clipboard.writeText(output.textContent!));
+render();
 </script>

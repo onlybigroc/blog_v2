@@ -1,35 +1,55 @@
 ---
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-}
+interface Props { cleanPath?: string; showCleanLink?: boolean; }
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
-  {showCleanLink && cleanPath && (
-    <a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>
-      独立打开
-    </a>
-  )}
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输入</label>
-      <textarea id="inp" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 font-mono text-sm" placeholder="粘贴 Markdown..."></textarea>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">输出</label>
-      <textarea id="out" class="w-full h-48 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 font-mono text-sm" readonly></textarea>
-    </div>
+  {showCleanLink && cleanPath && (<a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>)}
+  <div class="flex gap-2 border-b border-gray-200 dark:border-gray-700">
+    <button id="tab-edit" class="tab py-2 px-4 text-sm font-medium border-b-2 border-primary-600 text-primary-600">编辑</button>
+    <button id="tab-preview" class="tab py-2 px-4 text-sm font-medium border-b-2 border-transparent text-gray-500">预览</button>
+    <button id="tab-html" class="tab py-2 px-4 text-sm font-medium border-b-2 border-transparent text-gray-500">HTML</button>
+    <button id="copy" class="ml-auto px-3 py-1 my-1 rounded bg-gray-200 dark:bg-gray-700 text-sm">复制 HTML</button>
   </div>
-  <div class="flex gap-3">
-    <button id="run" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium">转换</button>
-    <button id="copy" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">复制结果</button>
-    <button id="swap" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm font-medium">⇄ 互换</button>
-  </div>
+  <div id="view-edit"><textarea id="inp" class="w-full h-80 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-mono" placeholder="# 标题\n\n正文内容，**加粗** 和 *斜体*。"></textarea></div>
+  <div id="view-preview" class="hidden prose dark:prose-invert max-w-none p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"></div>
+  <div id="view-html" class="hidden"><textarea id="html-out" class="w-full h-80 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 text-sm font-mono" readonly></textarea></div>
 </div>
 <script>
-document.getElementById('run').onclick=function(){var v=document.getElementById('inp').value;if(!v){document.getElementById('out').value='请输入内容';return}document.getElementById('out').value='处理完成：'+v.length+' 字符'};
-document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(document.getElementById('out').value)};
-document.getElementById('swap').onclick=function(){var a=document.getElementById('inp'),b=document.getElementById('out');var t=a.value;a.value=b.value;b.value=t};
+function md2html(md: string): string {
+  let html = md
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>').replace(/^## (.+)$/gm, '<h2>$1</h2>').replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+    .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/~~(.+?)~~/g, '<del>$1</del>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" />')
+    .replace(/^---$/gm, '<hr />')
+    .replace(/^(\d+)\. (.+)$/gm, '<li>$2</li>')
+    .replace(/^[-*] (.+)$/gm, '<li>$1</li>');
+  // Convert newlines
+  html = html.split(/\n\n+/).map(block => {
+    block = block.trim();
+    if (!block) return '';
+    if (block.startsWith('<h') || block.startsWith('<blockquote') || block.startsWith('<pre') || block.startsWith('<hr') || block.startsWith('<li')) return block;
+    return `<p>${block.replace(/\n/g, '<br />')}</p>`;
+  }).join('\n');
+  return html;
+}
+const inp = document.getElementById('inp') as HTMLTextAreaElement;
+function update() {
+  const html = md2html(inp.value);
+  document.getElementById('view-preview')!.innerHTML = html;
+  (document.getElementById('html-out') as HTMLTextAreaElement).value = html;
+}
+inp.addEventListener('input', update);
+document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(b => b.className = 'tab py-2 px-4 text-sm font-medium border-b-2 border-transparent text-gray-500');
+  btn.className = 'tab py-2 px-4 text-sm font-medium border-b-2 border-primary-600 text-primary-600';
+  const id = (btn as HTMLElement).id.replace('tab-', 'view-');
+  ['edit','preview','html'].forEach(v => document.getElementById('view-'+v)!.classList.toggle('hidden', 'view-'+v !== id));
+  if (id === 'view-preview' || id === 'view-html') update();
+}));
+document.getElementById('copy')?.addEventListener('click', async () => { update(); await navigator.clipboard.writeText((document.getElementById('html-out') as HTMLTextAreaElement).value); });
 </script>
