@@ -8,6 +8,10 @@
 
 基于 Astro + Tailwind CSS 构建的静态博客，自动同步博客园文章。全部代码由 AI 大模型生成，零手写代码。
 
+🔗 **在线演示**：[qinrenjihe.com](https://qinrenjihe.com)
+
+![博客预览](./public/images/screenshot.png)
+
 ## 🚀 快速开始
 
 ### 安装依赖
