@@ -23,11 +23,22 @@ export async function getStaticPaths() {
 }
 
 const { tag, posts } = Astro.props;
+const siteURL = Astro.site?.toString() || 'https://bigroc.cn';
 const title = `标签: ${tag}`;
-const description = `包含标签 ${tag} 的所有文章`;
+const description = `大鹏的Log 标签「${tag}」下的所有技术文章，共 ${posts.length} 篇。涵盖 ${tag} 相关的编程经验、技术分享和开发实践。`;
+const canonicalURL = new URL(`/tags/${encodeURIComponent(tag)}`, siteURL).toString();
 ---
 
-<MainLayout title={title} description={description}>
+<MainLayout
+  title={title}
+  description={description}
+  canonicalURL={canonicalURL}
+  breadcrumbs={[
+    { name: '首页', url: siteURL },
+    { name: '标签', url: `${siteURL}tags` },
+    { name: tag, url: canonicalURL }
+  ]}
+>
   <div class="mb-8">
     <nav class="text-sm text-gray-600 mb-6 dark:text-gray-400 flex items-center gap-2">
       <a href="/" class="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-1">

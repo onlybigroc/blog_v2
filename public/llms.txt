@@ -1,0 +1,22 @@
+# 大鹏的Log
+
+> 大鹏的Log 是一个个人技术博客，记录正在发生的技术事。涵盖 Java、JavaScript、Go、Docker、数据库、AI 资讯等领域，分享编程、开发和技术经验。
+
+## 主要内容
+
+- [博客文章](https://bigroc.cn/posts): 87+ 篇技术文章，涵盖 Java、JavaScript、Go、Spring Boot、Vue、React、Astro、数据库、算法、数据结构等主题
+- [AI 资讯](https://bigroc.cn/ai-news): 每日 AI 行业动态和技术资讯汇总
+- [在线工具](https://bigroc.cn/tools): 100+ 个免费在线开发者工具，包括 Base64 编解码、JSON 格式化、正则测试、代码高亮等
+- [标签索引](https://bigroc.cn/tags): 按技术标签分类浏览所有文章
+- [归档](https://bigroc.cn/archives): 按年月归档的完整文章列表
+
+## 关于作者
+
+- 作者: bigroc
+- 关于页面: https://bigroc.cn/about
+- 联系方式: https://bigroc.cn/contact
+- 原博客: https://www.cnblogs.com/bigroc
+
+## 订阅
+
+- RSS 订阅: https://bigroc.cn/rss.xml

@@ -54,6 +54,14 @@ const wordCount = calculateWordCount(contentSource);
   canonicalURL={canonicalURL}
   publishedTime={item.publishedAt}
   modifiedTime={item.lastSeenAt}
+  wordCount={wordCount}
+  section="AI 资讯"
+  keywords={item.tags.join(',')}
+  breadcrumbs={[
+    { name: '首页', url: siteURL },
+    { name: 'AI 资讯', url: `${siteURL}ai-news` },
+    { name: item.titleZh || item.title, url: canonicalURL }
+  ]}
 >
   <article class="prose prose-lg mx-auto max-w-none dark:prose-invert">
     <header class="mb-8 pb-8 border-b border-gray-200 dark:border-gray-800">

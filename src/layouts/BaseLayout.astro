@@ -10,6 +10,11 @@ import {
   withBrandSuffix,
 } from '@utils/site';
 
+interface Breadcrumb {
+  name: string;
+  url: string;
+}
+
 interface Props {
   title: string;
   description?: string;
@@ -21,6 +26,10 @@ interface Props {
   publishedTime?: Date | string;
   modifiedTime?: Date | string;
   author?: string;
+  wordCount?: number;
+  section?: string;
+  keywords?: string;
+  breadcrumbs?: Breadcrumb[];
 }
 
 const {
@@ -34,6 +43,10 @@ const {
   publishedTime,
   modifiedTime,
   author = 'bigroc',
+  wordCount,
+  section,
+  keywords,
+  breadcrumbs,
 } = Astro.props;
 const siteURL = Astro.site?.toString() || 'https://bigroc.cn';
 const currentURL = canonicalURL || new URL(Astro.url.pathname, siteURL).toString();
@@ -43,6 +56,8 @@ const socialImage = getSocialImageUrl(image, siteURL);
 const socialImageType = getImageMimeType(image);
 const publishedDate = publishedTime ? new Date(publishedTime).toISOString() : undefined;
 const modifiedDate = modifiedTime ? new Date(modifiedTime).toISOString() : publishedDate;
+const isToolPage = Astro.url.pathname.startsWith('/tools/') && Astro.url.pathname !== '/tools';
+const tags = keywords ? keywords.split(',').map(t => t.trim()).filter(Boolean) : [];
 ---
 
 <!doctype html>
@@ -55,7 +70,7 @@ const modifiedDate = modifiedTime ? new Date(modifiedTime).toISOString() : publi
     
     <title>{fullTitle}</title>
     <meta name="description" content={metaDescription} />
-    <meta name="keywords" content={SITE_KEYWORDS} />
+    <meta name="keywords" content={keywords || SITE_KEYWORDS} />
     <meta name="author" content="bigroc" />
     <meta name="robots" content={robots} />
     <meta name="language" content="zh-CN" />
@@ -79,6 +94,11 @@ const modifiedDate = modifiedTime ? new Date(modifiedTime).toISOString() : publi
     <meta property="og:locale" content="zh_CN" />
     {type === 'article' && publishedDate && <meta property="article:published_time" content={publishedDate} />}
     {type === 'article' && modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
+    {type === 'article' && <meta property="article:author" content={author} />}
+    {type === 'article' && section && <meta property="article:section" content={section} />}
+    {type === 'article' && tags.map((tag) => (
+      <meta property="article:tag" content={tag} />
+    ))}
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -94,14 +114,37 @@ const modifiedDate = modifiedTime ? new Date(modifiedTime).toISOString() : publi
     {type === 'article' ? (
       <script type="application/ld+json" set:html={JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': 'Article',
+        '@type': 'BlogPosting',
         'headline': fullTitle,
         'description': metaDescription,
         'url': currentURL,
         'image': socialImage,
         'datePublished': publishedDate,
         'dateModified': modifiedDate,
-        'author': { '@type': 'Person', 'name': author },
+        'author': { '@type': 'Person', 'name': author, 'url': `${siteURL}about` },
+        'publisher': {
+          '@type': 'Organization',
+          'name': SITE_NAME,
+          'logo': { '@type': 'ImageObject', 'url': `${siteURL}favicon.svg` }
+        },
+        'mainEntityOfPage': { '@type': 'WebPage', '@id': currentURL },
+        'inLanguage': 'zh-CN',
+        ...(wordCount ? { 'wordCount': wordCount } : {}),
+        ...(section ? { 'articleSection': section } : {}),
+        ...(tags.length > 0 ? { 'keywords': tags.join(', ') } : {})
+      })} />
+    ) : isToolPage ? (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        'name': title,
+        'url': currentURL,
+        'description': metaDescription,
+        'applicationCategory': 'DeveloperApplication',
+        'operatingSystem': 'Web Browser',
+        'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'CNY' },
+        'inLanguage': 'zh-CN',
+        'author': { '@type': 'Person', 'name': author, 'url': `${siteURL}about` },
         'publisher': {
           '@type': 'Organization',
           'name': SITE_NAME,
@@ -115,15 +158,36 @@ const modifiedDate = modifiedTime ? new Date(modifiedTime).toISOString() : publi
         'name': SITE_NAME,
         'url': siteURL,
         'description': metaDescription,
+        'inLanguage': 'zh-CN',
         'publisher': {
           '@type': 'Organization',
           'name': SITE_NAME,
           'logo': { '@type': 'ImageObject', 'url': `${siteURL}favicon.svg` }
+        },
+        'potentialAction': {
+          '@type': 'SearchAction',
+          'target': { '@type': 'EntryPoint', 'urlTemplate': `${siteURL}search?q={search_term_string}` },
+          'query-input': 'required name=search_term_string'
         }
+      })} />
+    )}
+
+    {breadcrumbs && breadcrumbs.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': breadcrumbs.map((crumb, index) => ({
+          '@type': 'ListItem',
+          'position': index + 1,
+          'name': crumb.name,
+          'item': crumb.url
+        }))
       })} />
     )}
     
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME} RSS`} href="/rss.xml" />
+    <link rel="llms-txt" href="/llms.txt" />
     
     {loadAds && (
       <script is:inline>

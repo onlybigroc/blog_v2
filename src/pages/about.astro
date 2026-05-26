@@ -2,10 +2,34 @@
 import MainLayout from '@layouts/MainLayout.astro';
 
 const title = '关于';
-const description = '关于本博客和作者的介绍';
+const description = '关于大鹏的Log博客和作者 bigroc 的介绍。一名热爱技术的开发者，分享 Java、JavaScript、Go、Docker、AI 等领域的编程经验。';
+const siteURL = Astro.site?.toString() || 'https://bigroc.cn';
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  'name': 'bigroc',
+  'url': `${siteURL}about`,
+  'jobTitle': '软件开发者',
+  'description': '热爱技术的开发者，持续分享 Java、JavaScript、Go、Docker、AI 等领域的编程经验和技术思考。',
+  'sameAs': [
+    'https://www.cnblogs.com/bigroc'
+  ],
+  'worksFor': {
+    '@type': 'Organization',
+    'name': '大鹏的Log'
+  }
+};
 ---
 
-<MainLayout title={title} description={description}>
+<MainLayout
+  title={title}
+  description={description}
+  breadcrumbs={[
+    { name: '首页', url: siteURL },
+    { name: '关于', url: `${siteURL}about` }
+  ]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
   <article class="prose prose-lg dark:prose-invert max-w-none">
     <h1>关于本站</h1>
     

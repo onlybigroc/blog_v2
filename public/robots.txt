@@ -3,4 +3,23 @@ Allow: /
 Disallow: /search
 Disallow: /404
 
-Sitemap: /sitemap-index.xml
+# AI 爬虫
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+Sitemap: https://bigroc.cn/sitemap-index.xml
