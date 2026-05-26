@@ -9,8 +9,3 @@ data/sync-cache.json
 # Cloudflare
 .wrangler/
 wrangler.toml.bak
-
-# AI News 构建产物（由 sync 脚本生成，不进 git）
-public/images/ai-news/
-public/images/posts/
-public/images/promotions/
