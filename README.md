@@ -1,6 +1,12 @@
 # 个人博客 v2
 
-基于 Astro + Tailwind CSS 构建的静态博客，自动同步博客园文章。
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![AI Generated](https://img.shields.io/badge/🤖_AI_Generated-100%25-blueviolet)](#)
+[![Built with Astro](https://img.shields.io/badge/Built_with-Astro-BC52EE?logo=astro&logoColor=white)](https://astro.build/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Deploy on Cloudflare Pages](https://img.shields.io/badge/Deploy-Cloudflare_Pages-F38020?logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
+
+基于 Astro + Tailwind CSS 构建的静态博客，自动同步博客园文章。全部代码由 AI 大模型生成，零手写代码。
 
 ## 🚀 快速开始
 
