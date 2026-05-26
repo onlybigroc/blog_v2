@@ -10,7 +10,8 @@
     "sync:ai-news": "node scripts/sync-ai-news.mjs",
     "sync:history": "node scripts/sync-cnblogs.mjs --history",
     "sync:all": "node scripts/sync-cnblogs.mjs --history --pages=50",
-    "diagnose": "node scripts/diagnose-d1.mjs"
+    "diagnose": "node scripts/diagnose-d1.mjs",
+    "check:images": "node scripts/check-post-images.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.14",

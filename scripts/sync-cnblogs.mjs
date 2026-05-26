@@ -101,11 +101,22 @@ async function processImages(html, postSlug) {
   const images = dom.window.document.querySelectorAll('img');
 
   for (const img of images) {
-    const src = img.getAttribute('src');
+    const src = [
+      img.getAttribute('src'),
+      img.getAttribute('data-src'),
+      img.getAttribute('data-original'),
+      img.getAttribute('originalsrc'),
+    ].find((value) => value && !value.startsWith('data:'));
+
     if (src && src.startsWith('http')) {
       const localPath = await downloadImage(src, postSlug);
       img.setAttribute('src', localPath);
     }
+
+    img.removeAttribute('data-src');
+    img.removeAttribute('data-original');
+    img.removeAttribute('originalsrc');
+    img.classList.remove('lazy');
   }
 
   return dom.window.document.body.innerHTML;
