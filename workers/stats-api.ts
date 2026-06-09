@@ -13,6 +13,9 @@ interface PostStats {
   user_liked?: boolean;
 }
 
+const DEFAULT_POPULAR_LIMIT = 10;
+const MAX_POPULAR_LIMIT = 100;
+
 // CORS 头设置
 const corsHeaders = (origin: string) => ({
   'Access-Control-Allow-Origin': origin,
@@ -40,6 +43,34 @@ function checkOrigin(request: Request, env: Env): string {
   return allowedOrigins[0]; // 默认返回第一个允许的域名
 }
 
+function decodePathSegment(value: string): string | null {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return null;
+  }
+}
+
+function getStatsPostId(pathname: string): string | null {
+  const match = pathname.match(/^\/stats\/(.+)$/);
+  return match?.[1] ? decodePathSegment(match[1]) : null;
+}
+
+function getPostActionId(pathname: string, action: 'view' | 'like'): string | null {
+  const match = pathname.match(new RegExp(`^/stats/(.+)/${action}$`));
+  return match?.[1] ? decodePathSegment(match[1]) : null;
+}
+
+function getPopularLimit(url: URL): number {
+  const requestedLimit = Number(url.searchParams.get('limit') || DEFAULT_POPULAR_LIMIT);
+
+  if (!Number.isInteger(requestedLimit)) {
+    return DEFAULT_POPULAR_LIMIT;
+  }
+
+  return Math.min(Math.max(requestedLimit, 1), MAX_POPULAR_LIMIT);
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
@@ -51,9 +82,25 @@ export default {
     }
 
     try {
+      // GET /stats/popular - 获取热门文章
+      if (request.method === 'GET' && url.pathname === '/stats/popular') {
+        const limit = getPopularLimit(url);
+        const results = await env.DB.prepare(
+          'SELECT post_id, views, likes FROM post_stats ORDER BY views DESC LIMIT ?'
+        ).bind(limit).all<PostStats>();
+
+        return new Response(JSON.stringify(results.results || []), {
+          headers: {
+            'Content-Type': 'application/json',
+            ...corsHeaders(origin),
+          },
+        });
+      }
+
       // GET /stats/:postId - 获取文章统计
-      if (request.method === 'GET' && url.pathname.startsWith('/stats/')) {
-        const postId = url.pathname.split('/stats/')[1];
+      const statsPostId = getStatsPostId(url.pathname);
+      if (request.method === 'GET' && statsPostId) {
+        const postId = statsPostId;
         const userId = getUserId(request);
 
         const stats = await env.DB.prepare(
@@ -78,8 +125,9 @@ export default {
       }
 
       // POST /stats/:postId/view - 记录阅读
-      if (request.method === 'POST' && url.pathname.endsWith('/view')) {
-        const postId = url.pathname.split('/stats/')[1].replace('/view', '');
+      const viewPostId = getPostActionId(url.pathname, 'view');
+      if (request.method === 'POST' && viewPostId) {
+        const postId = viewPostId;
 
         await env.DB.prepare(`
           INSERT INTO post_stats (post_id, views, likes)
@@ -106,8 +154,9 @@ export default {
       }
 
       // POST /stats/:postId/like - 切换点赞
-      if (request.method === 'POST' && url.pathname.endsWith('/like')) {
-        const postId = url.pathname.split('/stats/')[1].replace('/like', '');
+      const likePostId = getPostActionId(url.pathname, 'like');
+      if (request.method === 'POST' && likePostId) {
+        const postId = likePostId;
         const userId = getUserId(request);
 
         // 检查是否已点赞
@@ -152,21 +201,6 @@ export default {
           likes: stats?.likes || 0,
           user_liked: !existingLike,
         }), {
-          headers: {
-            'Content-Type': 'application/json',
-            ...corsHeaders(origin),
-          },
-        });
-      }
-
-      // GET /stats/popular - 获取热门文章
-      if (request.method === 'GET' && url.pathname === '/stats/popular') {
-        const limit = parseInt(url.searchParams.get('limit') || '10');
-        const results = await env.DB.prepare(
-          'SELECT post_id, views, likes FROM post_stats ORDER BY views DESC LIMIT ?'
-        ).bind(limit).all<PostStats>();
-
-        return new Response(JSON.stringify(results.results || []), {
           headers: {
             'Content-Type': 'application/json',
             ...corsHeaders(origin),

@@ -15,18 +15,37 @@ const { cleanPath, showCleanLink = false } = Astro.props;
 <script>
 const inp = document.getElementById('inp') as HTMLTextAreaElement;
 const keyword = document.getElementById('keyword') as HTMLInputElement;
+const preview = document.getElementById('preview') as HTMLElement;
+const count = document.getElementById('count') as HTMLElement;
+
 function highlight() {
   const text = inp.value;
   const kw = keyword.value;
-  if (!kw || !text) { document.getElementById('preview')!.textContent = text; document.getElementById('count')!.textContent = ''; return; }
+  preview.textContent = '';
+  if (!kw || !text) { preview.textContent = text; count.textContent = ''; return; }
   const cs = (document.getElementById('cs') as HTMLInputElement).checked;
   const flags = cs ? 'g' : 'gi';
   const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const regex = new RegExp(escaped, flags);
-  let count = 0;
-  const html = text.replace(regex, m => { count++; return `<mark class="bg-yellow-200 dark:bg-yellow-800 px-0.5 rounded">${m}</mark>`; });
-  document.getElementById('preview')!.innerHTML = html;
-  document.getElementById('count')!.textContent = `${count} 处匹配`;
+  let matchCount = 0;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = regex.exec(text)) !== null) {
+    const [matchedText] = match;
+    preview.append(document.createTextNode(text.slice(lastIndex, match.index)));
+
+    const marker = document.createElement('mark');
+    marker.className = 'bg-yellow-200 dark:bg-yellow-800 px-0.5 rounded';
+    marker.textContent = matchedText;
+    preview.append(marker);
+
+    matchCount++;
+    lastIndex = match.index + matchedText.length;
+  }
+
+  preview.append(document.createTextNode(text.slice(lastIndex)));
+  count.textContent = `${matchCount} 处匹配`;
 }
 inp.addEventListener('input', highlight);
 keyword.addEventListener('input', highlight);

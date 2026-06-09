@@ -37,6 +37,8 @@ export interface AINewsItem {
   coverImage: string;
   coverImageOriginal: string;
   coverImageAlt: string;
+  coverImageWidth?: number;
+  coverImageHeight?: number;
   originalContentText: string;
   originalContentAvailable: boolean;
   originalContentWarning: string;
@@ -66,23 +68,28 @@ export function getAiNewsDigest(): AINewsDigest {
   return aiNewsDigest as AINewsDigest;
 }
 
+const digest = getAiNewsDigest();
+const sortedItems = [...digest.items].sort(
+  (left, right) => new Date(right.publishedAt).getTime() - new Date(left.publishedAt).getTime()
+);
+const itemById = new Map(digest.items.map((item) => [item.id, item]));
+const latestItems = digest.latestIds
+  .map((id) => itemById.get(id))
+  .filter((item): item is AINewsItem => Boolean(item));
+const itemsByRegion = {
+  cn: sortedItems.filter((item) => item.sourceRegion === 'cn'),
+  global: sortedItems.filter((item) => item.sourceRegion === 'global'),
+} as const;
+
 export function getAiNewsItems(): AINewsItem[] {
-  return [...getAiNewsDigest().items].sort(
-    (left, right) => new Date(right.publishedAt).getTime() - new Date(left.publishedAt).getTime()
-  );
+  return sortedItems;
 }
 
 export function getAiNewsById(id: string): AINewsItem | undefined {
-  return getAiNewsDigest().items.find((item) => item.id === id);
+  return itemById.get(id);
 }
 
 export function getLatestAiNews(limit = 6, preferredRegion: 'cn' | 'global' | 'all' = 'cn'): AINewsItem[] {
-  const digest = getAiNewsDigest();
-  const itemMap = new Map(digest.items.map((item) => [item.id, item]));
-  const latestItems = digest.latestIds
-    .map((id) => itemMap.get(id))
-    .filter((item): item is AINewsItem => Boolean(item));
-
   if (preferredRegion === 'all') {
     return latestItems.slice(0, limit);
   }
@@ -94,5 +101,5 @@ export function getLatestAiNews(limit = 6, preferredRegion: 'cn' | 'global' | 'a
 }
 
 export function getAiNewsByRegion(region: 'cn' | 'global'): AINewsItem[] {
-  return getAiNewsItems().filter((item) => item.sourceRegion === region);
+  return itemsByRegion[region];
 }

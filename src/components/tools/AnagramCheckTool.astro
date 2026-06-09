@@ -14,6 +14,8 @@ const { cleanPath, showCleanLink = false } = Astro.props;
   </div>
 </div>
 <script>
+import { escapeHtml } from '@utils/safeHtml';
+
 document.getElementById('check')?.addEventListener('click', () => {
   let w1 = (document.getElementById('w1') as HTMLInputElement).value;
   let w2 = (document.getElementById('w2') as HTMLInputElement).value;
@@ -28,13 +30,13 @@ document.getElementById('check')?.addEventListener('click', () => {
   result.textContent = isAnagram ? '✅ 是变位词！' : '❌ 不是变位词';
   const sorted1 = w1.split('').sort().join('');
   const sorted2 = w2.split('').sort().join('');
-  detail.innerHTML = `<div class="text-center mb-2"><span class="font-mono">${sorted1}</span> <span class="text-gray-400">vs</span> <span class="font-mono">${sorted2}</span></div>`;
+  detail.innerHTML = `<div class="text-center mb-2"><span class="font-mono">${escapeHtml(sorted1)}</span> <span class="text-gray-400">vs</span> <span class="font-mono">${escapeHtml(sorted2)}</span></div>`;
   // Frequency comparison
   const freq1: Record<string, number> = {}, freq2: Record<string, number> = {};
   for (const c of w1) freq1[c] = (freq1[c] || 0) + 1;
   for (const c of w2) freq2[c] = (freq2[c] || 0) + 1;
   const allChars = new Set([...Object.keys(freq1), ...Object.keys(freq2)]);
   detail.innerHTML += '<table class="w-full mt-2"><tr class="border-b dark:border-gray-700"><th class="text-left py-1">字符</th><th class="text-center">单词1</th><th class="text-center">单词2</th></tr>' +
-    Array.from(allChars).sort().map(c => `<tr class="border-b border-gray-100 dark:border-gray-800"><td class="py-1 font-mono">${c}</td><td class="text-center">${freq1[c]||0}</td><td class="text-center">${freq2[c]||0}</td></tr>`).join('') + '</table>';
+    Array.from(allChars).sort().map(c => `<tr class="border-b border-gray-100 dark:border-gray-800"><td class="py-1 font-mono">${escapeHtml(c)}</td><td class="text-center">${freq1[c]||0}</td><td class="text-center">${freq2[c]||0}</td></tr>`).join('') + '</table>';
 });
 </script>

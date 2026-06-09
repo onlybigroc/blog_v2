@@ -19,11 +19,13 @@ const { cleanPath, showCleanLink = false } = Astro.props;
   <div id="result" class="rounded-lg border border-gray-200 dark:border-gray-700 p-4 min-h-[4rem] text-sm"></div>
 </div>
 <script>
+import { escapeHtml } from '@utils/safeHtml';
+
 var reEl=document.getElementById('regex'),txEl=document.getElementById('text'),res=document.getElementById('result');
 function update(){var p=reEl.value.trim(),t=txEl.value;if(!p||!t){res.innerHTML='<span class="text-gray-400">输入正则和文本后自动匹配</span>';return}
 try{var body=p.replace(/^\//,'').replace(/\/[gimsuy]*$/,'');var flags='g';var m=p.match(/\/([gimsuy]*)$/);if(m)flags=m[1];var re=new RegExp(body,flags+'g');var matches=[];var mm;while(mm=re.exec(t)){matches.push(mm);if(!flags.includes('g'))break}
-var h=t.replace(/[<&>]/g,function(c){return{'<':'&lt;','>':'&gt;','&':'&amp;'}[c]});
+var h=escapeHtml(t);
 res.innerHTML='<p class="mb-2 text-sm text-gray-500">找到 '+matches.length+' 个匹配</p><pre class="whitespace-pre-wrap">'+h+'</pre>'}
-catch(e){res.innerHTML='<span class="text-red-500">'+e.message+'</span>'}}
+catch(e){res.innerHTML='<span class="text-red-500">'+escapeHtml(e.message)+'</span>'}}
 reEl.addEventListener('input',update);txEl.addEventListener('input',update);
 </script>

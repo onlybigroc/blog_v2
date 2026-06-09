@@ -11,15 +11,22 @@ export async function getStaticPaths() {
   const pageSize = 20;
   const totalPages = Math.ceil(allPosts.length / pageSize);
 
-  return Array.from({ length: totalPages }, (_, index) => ({
-    params: { page: String(index + 1) },
-    props: {
-      posts: allPosts.slice(index * pageSize, (index + 1) * pageSize),
-      currentPage: index + 1,
-      totalPages,
-      totalPosts: allPosts.length,
-    },
-  }));
+  if (totalPages <= 1) {
+    return [];
+  }
+
+  return Array.from({ length: totalPages - 1 }, (_, index) => {
+    const currentPage = index + 2;
+    return {
+      params: { page: String(currentPage) },
+      props: {
+        posts: allPosts.slice((currentPage - 1) * pageSize, currentPage * pageSize),
+        currentPage,
+        totalPages,
+        totalPosts: allPosts.length,
+      },
+    };
+  });
 }
 
 const { posts, currentPage, totalPages, totalPosts } = Astro.props;

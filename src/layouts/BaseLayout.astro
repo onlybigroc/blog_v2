@@ -218,8 +218,17 @@ const tags = keywords ? keywords.split(',').map(t => t.trim()).filter(Boolean) :
     )}
     
     <script is:inline>
-      const theme = localStorage.getItem('theme') || 'dark';
-      document.documentElement.classList.toggle('dark', theme === 'dark');
+      (() => {
+        let theme = 'dark';
+
+        try {
+          theme = localStorage.getItem('theme') || theme;
+        } catch {
+          theme = 'dark';
+        }
+
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+      })();
     </script>
   </head>
   <body id="top" class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">

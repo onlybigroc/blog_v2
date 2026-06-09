@@ -26,7 +26,15 @@ function check() {
   result.textContent = isPalin ? '✅ 是回文！' : '❌ 不是回文';
   const visual = document.getElementById('visual')!;
   visual.classList.remove('hidden');
-  visual.innerHTML = `<span>${text}</span> <span class="text-gray-400">vs</span> <span>${text.split('').reverse().join('')}</span>`;
+  visual.textContent = '';
+  const original = document.createElement('span');
+  original.textContent = text;
+  const separator = document.createElement('span');
+  separator.className = 'text-gray-400';
+  separator.textContent = ' vs ';
+  const reversedText = document.createElement('span');
+  reversedText.textContent = text.split('').reverse().join('');
+  visual.append(original, separator, reversedText);
 }
 inp.addEventListener('input', check);
 ignoreCheck.addEventListener('change', check);

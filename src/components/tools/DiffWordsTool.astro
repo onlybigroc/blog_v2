@@ -12,6 +12,8 @@ const { cleanPath, showCleanLink = false } = Astro.props;
   <div id="result" class="hidden rounded-lg border border-gray-200 dark:border-gray-700 p-4 font-mono text-sm whitespace-pre-wrap leading-relaxed"></div>
 </div>
 <script>
+import { escapeHtml } from '@utils/safeHtml';
+
 document.getElementById('diff')?.addEventListener('click', () => {
   const wordsA = (document.getElementById('a') as HTMLTextAreaElement).value.split(/(\s+)/);
   const wordsB = (document.getElementById('b') as HTMLTextAreaElement).value.split(/(\s+)/);
@@ -23,9 +25,9 @@ document.getElementById('diff')?.addEventListener('click', () => {
   const result: string[] = [];
   let i = m, j = n;
   while (i > 0 || j > 0) {
-    if (i > 0 && j > 0 && wordsA[i-1] === wordsB[j-1]) { result.unshift(wordsA[i-1]); i--; j--; }
-    else if (j > 0 && (i === 0 || dp[i][j-1] >= dp[i-1][j])) { result.unshift(`<ins class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-0.5 rounded">${wordsB[j-1]}</ins>`); j--; }
-    else { result.unshift(`<del class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 px-0.5 rounded line-through">${wordsA[i-1]}</del>`); i--; }
+    if (i > 0 && j > 0 && wordsA[i-1] === wordsB[j-1]) { result.unshift(escapeHtml(wordsA[i-1])); i--; j--; }
+    else if (j > 0 && (i === 0 || dp[i][j-1] >= dp[i-1][j])) { result.unshift(`<ins class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-0.5 rounded">${escapeHtml(wordsB[j-1])}</ins>`); j--; }
+    else { result.unshift(`<del class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 px-0.5 rounded line-through">${escapeHtml(wordsA[i-1])}</del>`); i--; }
   }
   const el = document.getElementById('result')!;
   el.classList.remove('hidden');

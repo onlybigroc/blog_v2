@@ -15,6 +15,8 @@ export function getStaticPaths() {
 const { item } = Astro.props;
 const contentSource = item.originalContentText || item.summaryZh || item.summary || item.titleZh || item.title;
 const displayImage = item.coverImage || item.coverImageOriginal;
+const coverImageWidth = item.coverImageWidth || 1200;
+const coverImageHeight = item.coverImageHeight || 800;
 const formattedPublishedDate = formatChineseDateTime(item.publishedAt);
 const formattedArchiveDate = formatChineseDateTime(item.archiveFirstSeenAt);
 const rawContentBlocks = item.originalContentText
@@ -104,6 +106,8 @@ const wordCount = calculateWordCount(contentSource);
         <img
           src={displayImage}
           alt={item.coverImageAlt || item.titleZh || item.title}
+          width={coverImageWidth}
+          height={coverImageHeight}
           class="w-full max-h-[460px] object-cover"
           loading="lazy"
         />

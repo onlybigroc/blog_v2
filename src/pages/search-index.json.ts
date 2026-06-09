@@ -8,7 +8,7 @@ export async function GET() {
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
     .map((post) => ({
-      id: getPostUrl(post.id),
+      id: getPostUrl(post),
       title: post.data.title,
       date: post.data.date.toISOString(),
       dateFormatted: post.data.date.toLocaleDateString('zh-CN', {

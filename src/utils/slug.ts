@@ -1,5 +1,24 @@
-export function getPostUrl(id: string): string {
-  return id.replace(/\.md$/, '');
+type PostLike = {
+  id: string;
+  data?: {
+    slug?: string;
+  };
+};
+
+export function normalizePostSlug(value: string): string {
+  return value
+    .trim()
+    .replace(/^\/?posts\//, '')
+    .replace(/\.mdx?$/, '')
+    .replace(/^\/+|\/+$/g, '');
+}
+
+export function getPostUrl(postOrId: string | PostLike): string {
+  if (typeof postOrId === 'string') {
+    return normalizePostSlug(postOrId);
+  }
+
+  return normalizePostSlug(postOrId.data?.slug || postOrId.id);
 }
 
 export function encodePathSegment(value: string): string {

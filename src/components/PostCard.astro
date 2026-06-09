@@ -22,7 +22,7 @@ const {
 } = Astro.props;
 
 const HeadingTag = headingTag;
-const postHref = `/posts/${getPostUrl(post.id)}`;
+const postHref = `/posts/${getPostUrl(post)}`;
 const visibleTags = post.data.tags.slice(0, tagLimit);
 const summary = post.data.summary.trim();
 const formattedDate = post.data.date.toLocaleDateString('zh-CN', {

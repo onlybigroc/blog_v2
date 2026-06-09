@@ -24,7 +24,7 @@ export async function GET(context) {
 
   const items = posts
     .map((post) => {
-      const postUrl = new URL(`/posts/${getPostUrl(post.id)}`, site).toString();
+      const postUrl = new URL(`/posts/${getPostUrl(post)}`, site).toString();
       const categories = [...post.data.categories, ...post.data.tags]
         .map((category) => `<category>${escapeXml(category)}</category>`)
         .join('');

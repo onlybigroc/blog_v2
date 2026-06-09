@@ -46,6 +46,7 @@ const isPromotionsSubpage = pathname.startsWith('/promotions/') && pathname !== 
 const showSubpageFeedback = isToolsSubpage || isPromotionsSubpage;
 const defaultType = isArticlePath(pathname) ? 'article' : 'website';
 const shouldLoadAds = loadAds ?? isArticlePath(pathname);
+const showReadingProgress = isArticlePath(pathname);
 ---
 
 <BaseLayout
@@ -70,8 +71,9 @@ const shouldLoadAds = loadAds ?? isArticlePath(pathname);
     跳到正文
   </a>
   
-  <!-- 阅读进度条 -->
-  <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-primary-600 z-50 transition-all duration-300"></div>
+  {showReadingProgress && (
+    <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-primary-600 z-50 transition-all duration-300"></div>
+  )}
   <header class="border-b border-gray-200 dark:border-gray-800">
     <nav class="max-w-4xl mx-auto px-4 py-4 md:py-6 flex items-center justify-between">
       <a href="/" class="text-lg md:text-2xl font-bold text-primary-600 dark:text-primary-400 truncate mr-2">大鹏的Log</a>
@@ -177,7 +179,11 @@ const shouldLoadAds = loadAds ?? isArticlePath(pathname);
     // Theme toggle (desktop + mobile)
     const applyTheme = (dark: boolean) => {
       document.documentElement.classList.toggle('dark', dark);
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      try {
+        localStorage.setItem('theme', dark ? 'dark' : 'light');
+      } catch {
+        // Ignore storage failures in private or restricted browser contexts.
+      }
     };
     document.getElementById('theme-toggle')?.addEventListener('click', () => {
       applyTheme(!document.documentElement.classList.contains('dark'));
@@ -225,18 +231,18 @@ const shouldLoadAds = loadAds ?? isArticlePath(pathname);
     });
 
     // 阅读进度条
+    const progressBar = document.getElementById('reading-progress');
     const updateReadingProgress = () => {
-      const progressBar = document.getElementById('reading-progress');
       if (!progressBar) return;
 
       const totalHeight = document.body.scrollHeight - window.innerHeight;
-      const progress = (window.scrollY / totalHeight) * 100;
+      const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
       progressBar.style.width = `${progress}%`;
     };
 
-    // 监听滚动事件
-    window.addEventListener('scroll', updateReadingProgress);
-    // 初始加载时更新一次
-    window.addEventListener('load', updateReadingProgress);
+    if (progressBar) {
+      window.addEventListener('scroll', updateReadingProgress, { passive: true });
+      window.addEventListener('load', updateReadingProgress, { once: true });
+    }
   </script>
 </BaseLayout>

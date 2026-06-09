@@ -1,9 +1,10 @@
 /**
- * 图片压缩脚本 - 在构建前运行
+ * 图片压缩脚本 - 按需手动运行
  * 将 public/images/ai-news/ 下的大图压缩，减少 dist 体积
  * PNG→JPG 转换时自动更新 ai-news.json 中的引用
  *
- * 用法: node scripts/compress-images.mjs
+ * 用法: npm run compress:images
+ * 或: node scripts/compress-images.mjs
  * 加 --dry-run 可预览不实际修改
  */
 import sharp from 'sharp';

@@ -26,10 +26,12 @@ const { cleanPath, showCleanLink = false } = Astro.props;
   </div>
 </div>
 <script>
+import { escapeHtml, escapeHtmlAttribute } from '@utils/safeHtml';
+
 let members = ['甲', '乙'];
 function renderMembers() {
   const el = document.getElementById('members')!;
-  el.innerHTML = members.map((m, i) => `<div class="flex gap-2"><input type="text" value="${m}" class="flex-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm member-name" data-idx="${i}" /><input type="number" placeholder="消费" min="0" class="w-28 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm member-expense" data-idx="${i}" />${members.length>1?`<button class="del-member px-2 text-red-500" data-idx="${i}">&times;</button>`:''}</div>`).join('');
+  el.innerHTML = members.map((m, i) => `<div class="flex gap-2"><input type="text" value="${escapeHtmlAttribute(m)}" class="flex-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm member-name" data-idx="${i}" /><input type="number" placeholder="消费" min="0" class="w-28 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm member-expense" data-idx="${i}" />${members.length>1?`<button class="del-member px-2 text-red-500" data-idx="${i}">&times;</button>`:''}</div>`).join('');
   el.querySelectorAll('.del-member').forEach(b => b.addEventListener('click', () => { members.splice(parseInt((b as HTMLElement).dataset.idx!),1); renderMembers(); }));
 }
 document.getElementById('add-member')?.addEventListener('click', () => { members.push('成员' + (members.length+1)); renderMembers(); });
@@ -42,12 +44,12 @@ document.getElementById('split')?.addEventListener('click', () => {
   resultDiv.classList.remove('hidden');
   if (!hasExpenses) {
     const pp = total / names.length;
-    resultDiv.innerHTML = `<div class="text-sm font-medium mb-2">平均分摊</div>` + names.map(n => `<div class="flex justify-between text-sm"><span>${n}</span><span class="font-mono font-bold">¥${pp.toFixed(2)}</span></div>`).join('');
+    resultDiv.innerHTML = `<div class="text-sm font-medium mb-2">平均分摊</div>` + names.map(n => `<div class="flex justify-between text-sm"><span>${escapeHtml(n)}</span><span class="font-mono font-bold">¥${pp.toFixed(2)}</span></div>`).join('');
   } else {
     const totalExp = expenses.reduce((a, b) => a + b, 0);
     const diff = total - totalExp;
     const share = diff / names.length;
-    resultDiv.innerHTML = `<div class="text-sm font-medium mb-2">按消费分摊（公共部分平均）</div><div class="text-xs text-gray-500 mb-2">公共消费: ¥${diff.toFixed(2)}，每人分摊 ¥${share.toFixed(2)}</div>` + names.map((n, i) => `<div class="flex justify-between text-sm"><span>${n} (消费 ¥${expenses[i].toFixed(2)})</span><span class="font-mono font-bold">¥${(expenses[i]+share).toFixed(2)}</span></div>`).join('');
+    resultDiv.innerHTML = `<div class="text-sm font-medium mb-2">按消费分摊（公共部分平均）</div><div class="text-xs text-gray-500 mb-2">公共消费: ¥${diff.toFixed(2)}，每人分摊 ¥${share.toFixed(2)}</div>` + names.map((n, i) => `<div class="flex justify-between text-sm"><span>${escapeHtml(n)} (消费 ¥${expenses[i].toFixed(2)})</span><span class="font-mono font-bold">¥${(expenses[i]+share).toFixed(2)}</span></div>`).join('');
   }
 });
 renderMembers();

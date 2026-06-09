@@ -15,19 +15,41 @@ const { cleanPath, showCleanLink = false } = Astro.props;
   <div id="view-html" class="hidden"><textarea id="html-out" class="w-full h-80 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 text-sm font-mono" readonly></textarea></div>
 </div>
 <script>
+import { escapeHtml, normalizeSafeUrl } from '@utils/safeHtml';
+
 function md2html(md: string): string {
+  const codeBlocks: string[] = [];
+  const inlineCodes: string[] = [];
   let html = md
+    .replace(/```([\s\S]*?)```/g, (_m, code) => {
+      const idx = codeBlocks.length;
+      codeBlocks.push(`<pre><code>${escapeHtml(code.replace(/\n$/, ''))}</code></pre>`);
+      return `@@CODEBLOCK${idx}@@`;
+    })
+    .replace(/`([^`]+)`/g, (_m, code) => {
+      const idx = inlineCodes.length;
+      inlineCodes.push(`<code>${escapeHtml(code)}</code>`);
+      return `@@INLINECODE${idx}@@`;
+    });
+
+  html = escapeHtml(html)
     .replace(/^### (.+)$/gm, '<h3>$1</h3>').replace(/^## (.+)$/gm, '<h2>$1</h2>').replace(/^# (.+)$/gm, '<h1>$1</h1>')
     .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
-    .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>')
     .replace(/~~(.+?)~~/g, '<del>$1</del>')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
-    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" />')
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_m, alt, src) => `<img src="${normalizeSafeUrl(src)}" alt="${alt.replace(/`/g, '&#96;')}" />`)
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, label, href) => `<a href="${normalizeSafeUrl(href)}">${label}</a>`)
     .replace(/^---$/gm, '<hr />')
     .replace(/^(\d+)\. (.+)$/gm, '<li>$2</li>')
     .replace(/^[-*] (.+)$/gm, '<li>$1</li>');
+
+  codeBlocks.forEach((block, i) => {
+    html = html.replace(`@@CODEBLOCK${i}@@`, block);
+  });
+  inlineCodes.forEach((code, i) => {
+    html = html.replace(`@@INLINECODE${i}@@`, code);
+  });
+
   // Convert newlines
   html = html.split(/\n\n+/).map(block => {
     block = block.trim();

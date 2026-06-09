@@ -2,7 +2,7 @@
 import GiscusComments from '@components/GiscusComments.astro';
 import MainLayout from '@layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
-import { getPostUrl, getTagUrl } from '@utils/slug';
+import { getPostUrl, getTagUrl, normalizePostSlug } from '@utils/slug';
 import { calculateReadingTime, calculateWordCount } from '@utils/site';
 
 export async function getStaticPaths() {
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
       return null;
     }
 
-    return slug;
+    return normalizePostSlug(slug);
   };
 
   const posts = await getCollection('posts');
@@ -27,32 +27,51 @@ export async function getStaticPaths() {
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-  // 为每篇文章生成相关文章
-  const getRelatedPosts = (currentPost: any, allPosts: any[]) => {
-    return allPosts
-      .filter((p) => p.id !== currentPost.id && !p.data.draft)
-      .map((p) => {
-        // 计算标签匹配度
-        const commonTags = p.data.tags.filter((tag: string) => 
-          currentPost.data.tags.includes(tag)
-        );
-        return {
-          ...p,
-          matchScore: commonTags.length
-        };
-      })
-      .filter((p) => p.matchScore > 0)
-      .sort((a, b) => b.matchScore - a.matchScore)
-      .slice(0, 3);
-  };
+  const postsByTag = new Map<string, typeof sortedPosts>();
+  for (const post of sortedPosts) {
+    for (const tag of post.data.tags) {
+      const tagPosts = postsByTag.get(tag) || [];
+      tagPosts.push(post);
+      postsByTag.set(tag, tagPosts);
+    }
+  }
+
+  const relatedPostsById = new Map<string, typeof sortedPosts>();
+  for (const post of sortedPosts) {
+    const scores = new Map<string, { post: (typeof sortedPosts)[number]; matchScore: number }>();
+
+    for (const tag of post.data.tags) {
+      for (const candidate of postsByTag.get(tag) || []) {
+        if (candidate.id === post.id) {
+          continue;
+        }
+
+        const scored = scores.get(candidate.id);
+        if (scored) {
+          scored.matchScore += 1;
+        } else {
+          scores.set(candidate.id, { post: candidate, matchScore: 1 });
+        }
+      }
+    }
+
+    relatedPostsById.set(
+      post.id,
+      [...scores.values()]
+        .sort((a, b) => b.matchScore - a.matchScore || b.post.data.date.getTime() - a.post.data.date.getTime())
+        .slice(0, 3)
+        .map(({ post }) => post)
+    );
+  }
 
   return sortedPosts.flatMap((post, index) => {
     const prevPost = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null;
     const nextPost = index > 0 ? sortedPosts[index - 1] : null;
-    const relatedPosts = getRelatedPosts(post, sortedPosts);
-    const canonicalSlug = getPostUrl(post.id);
+    const relatedPosts = relatedPostsById.get(post.id) || [];
+    const canonicalSlug = getPostUrl(post);
+    const fileSlug = getPostUrl(post.id);
     const aliasSlug = getInternalOriginPostSlug(post.data.originUrl);
-    const slugs = aliasSlug && aliasSlug !== canonicalSlug ? [canonicalSlug, aliasSlug] : [canonicalSlug];
+    const slugs = [...new Set([canonicalSlug, fileSlug, aliasSlug].filter(Boolean))];
 
     return slugs.map((slug) => ({
       params: { slug },
@@ -70,7 +89,7 @@ const { post, prevPost, nextPost, relatedPosts } = Astro.props;
 const { Content } = await post.render();
 const summary = post.data.summary.trim();
 const siteURL = Astro.site?.toString() || 'https://bigroc.cn';
-const canonicalURL = new URL(`/posts/${getPostUrl(post.id)}`, siteURL).toString();
+const canonicalURL = new URL(`/posts/${getPostUrl(post)}`, siteURL).toString();
 const readingTime = calculateReadingTime(post.body);
 const wordCount = calculateWordCount(post.body);
 ---
@@ -175,7 +194,7 @@ const wordCount = calculateWordCount(post.body);
       <nav class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         {prevPost ? (
           <a
-            href={`/posts/${getPostUrl(prevPost.id)}`}
+            href={`/posts/${getPostUrl(prevPost)}`}
             class="group p-4 rounded-lg border border-gray-200 transition-all hover:shadow-md hover:border-primary-500 dark:border-gray-700 dark:hover:border-primary-500"
           >
             <div class="text-sm text-gray-500 mb-1 dark:text-gray-400">← 上一篇</div>
@@ -192,7 +211,7 @@ const wordCount = calculateWordCount(post.body);
 
         {nextPost ? (
           <a
-            href={`/posts/${getPostUrl(nextPost.id)}`}
+            href={`/posts/${getPostUrl(nextPost)}`}
             class="group p-4 rounded-lg border border-gray-200 text-right transition-all hover:shadow-md hover:border-primary-500 dark:border-gray-700 dark:hover:border-primary-500"
           >
             <div class="text-sm text-gray-500 mb-1 dark:text-gray-400">下一篇 →</div>
@@ -217,7 +236,7 @@ const wordCount = calculateWordCount(post.body);
               <article key={relatedPost.id} class="border-b border-gray-200 pb-6 last:border-0 dark:border-gray-800">
                 <h4 class="text-xl font-bold mb-2">
                   <a 
-                    href={`/posts/${getPostUrl(relatedPost.id)}`} 
+                    href={`/posts/${getPostUrl(relatedPost)}`}
                     class="text-primary-600 hover:underline dark:text-primary-400"
                   >
                     {relatedPost.data.title}

@@ -12,6 +12,8 @@ const formattedDate = formatChineseDateTime(item.publishedAt);
 const archiveHref = `/ai-news/${item.id}`;
 const regionLabel = item.sourceRegion === 'cn' ? '中文' : '国际';
 const displayImage = item.coverImage || item.coverImageOriginal;
+const coverImageWidth = item.coverImageWidth || 600;
+const coverImageHeight = item.coverImageHeight || 400;
 
 const importanceStyles = {
   '重点': 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300',
@@ -32,6 +34,8 @@ const regionStyles = {
         <img
           src={displayImage}
           alt={item.coverImageAlt || item.titleZh || item.title}
+          width={coverImageWidth}
+          height={coverImageHeight}
           class="h-44 w-full object-cover transition duration-300 hover:scale-[1.02]"
           loading="lazy"
         />
@@ -139,6 +143,8 @@ const regionStyles = {
           <img
             src={displayImage}
             alt={item.coverImageAlt || item.titleZh || item.title}
+            width={coverImageWidth}
+            height={coverImageHeight}
             class="h-40 w-full object-cover"
             loading="lazy"
           />
