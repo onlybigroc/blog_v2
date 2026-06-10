@@ -2,7 +2,7 @@
 import GiscusComments from '@components/GiscusComments.astro';
 import MainLayout from '@layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
-import { getPostUrl, getTagUrl, normalizePostSlug } from '@utils/slug';
+import { getExternalOriginUrl, getPostPath, getPostUrl, getTagUrl, normalizePostSlug } from '@utils/slug';
 import { calculateReadingTime, calculateWordCount } from '@utils/site';
 
 export async function getStaticPaths() {
@@ -89,7 +89,9 @@ const { post, prevPost, nextPost, relatedPosts } = Astro.props;
 const { Content } = await post.render();
 const summary = post.data.summary.trim();
 const siteURL = Astro.site?.toString() || 'https://bigroc.cn';
-const canonicalURL = new URL(`/posts/${getPostUrl(post)}`, siteURL).toString();
+const postPath = getPostPath(post);
+const canonicalURL = new URL(postPath, siteURL).toString();
+const externalOriginUrl = getExternalOriginUrl(post.data.originUrl);
 const readingTime = calculateReadingTime(post.body);
 const wordCount = calculateWordCount(post.body);
 ---
@@ -143,14 +145,20 @@ const wordCount = calculateWordCount(post.body);
           <span id="view-count">0</span>
         </span>
 
-        <a
-          href={post.data.originUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary-600 hover:underline dark:text-primary-400"
-        >
-          查看原文 →
+        <a href={postPath} class="text-primary-600 hover:underline dark:text-primary-400">
+          本文链接
         </a>
+
+        {externalOriginUrl && (
+          <a
+            href={externalOriginUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary-600 hover:underline dark:text-primary-400"
+          >
+            原始出处 →
+          </a>
+        )}
       </div>
 
       {post.data.tags.length > 0 && (
@@ -194,7 +202,7 @@ const wordCount = calculateWordCount(post.body);
       <nav class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         {prevPost ? (
           <a
-            href={`/posts/${getPostUrl(prevPost)}`}
+            href={getPostPath(prevPost)}
             class="group p-4 rounded-lg border border-gray-200 transition-all hover:shadow-md hover:border-primary-500 dark:border-gray-700 dark:hover:border-primary-500"
           >
             <div class="text-sm text-gray-500 mb-1 dark:text-gray-400">← 上一篇</div>
@@ -211,7 +219,7 @@ const wordCount = calculateWordCount(post.body);
 
         {nextPost ? (
           <a
-            href={`/posts/${getPostUrl(nextPost)}`}
+            href={getPostPath(nextPost)}
             class="group p-4 rounded-lg border border-gray-200 text-right transition-all hover:shadow-md hover:border-primary-500 dark:border-gray-700 dark:hover:border-primary-500"
           >
             <div class="text-sm text-gray-500 mb-1 dark:text-gray-400">下一篇 →</div>
@@ -236,7 +244,7 @@ const wordCount = calculateWordCount(post.body);
               <article key={relatedPost.id} class="border-b border-gray-200 pb-6 last:border-0 dark:border-gray-800">
                 <h4 class="text-xl font-bold mb-2">
                   <a 
-                    href={`/posts/${getPostUrl(relatedPost)}`}
+                    href={getPostPath(relatedPost)}
                     class="text-primary-600 hover:underline dark:text-primary-400"
                   >
                     {relatedPost.data.title}

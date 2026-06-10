@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { getPostUrl, getTagUrl } from '@utils/slug';
+import { getPostPath, getTagUrl } from '@utils/slug';
 import { calculateReadingTime, calculateWordCount } from '@utils/site';
 
 interface Props {
@@ -22,7 +22,7 @@ const {
 } = Astro.props;
 
 const HeadingTag = headingTag;
-const postHref = `/posts/${getPostUrl(post)}`;
+const postHref = getPostPath(post);
 const visibleTags = post.data.tags.slice(0, tagLimit);
 const summary = post.data.summary.trim();
 const formattedDate = post.data.date.toLocaleDateString('zh-CN', {

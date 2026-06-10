@@ -21,6 +21,25 @@ export function getPostUrl(postOrId: string | PostLike): string {
   return normalizePostSlug(postOrId.data?.slug || postOrId.id);
 }
 
+export function getPostPath(postOrId: string | PostLike): string {
+  return `/posts/${getPostUrl(postOrId)}`;
+}
+
+export function getExternalOriginUrl(value: string): string | null {
+  const trimmed = value.trim();
+
+  if (!trimmed) {
+    return null;
+  }
+
+  try {
+    const url = new URL(trimmed);
+    return url.protocol === 'http:' || url.protocol === 'https:' ? trimmed : null;
+  } catch {
+    return null;
+  }
+}
+
 export function encodePathSegment(value: string): string {
   return encodeURIComponent(value);
 }
