@@ -5,6 +5,10 @@ type PostLike = {
   };
 };
 
+export function normalizePath(pathname: string): string {
+  return pathname.replace(/\/+$/, '') || '/';
+}
+
 export function normalizePostSlug(value: string): string {
   return value
     .trim()
