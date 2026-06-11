@@ -36,8 +36,9 @@ jobs:
 
       - name: Show digest summary
         run: |
-          node <<'NODE'
-          const digest = require('./src/data/ai-news.json');
+          node --input-type=module <<'NODE'
+          import fs from 'fs';
+          const digest = JSON.parse(fs.readFileSync('./src/data/ai-news.json', 'utf-8'));
           console.log(`updatedAt=${digest.updatedAt}`);
           console.log(`totalItems=${digest.stats.totalItems}`);
           console.log(`recent24h=${digest.stats.recent24h}`);
