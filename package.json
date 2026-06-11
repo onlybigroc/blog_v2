@@ -8,7 +8,7 @@
     "preview": "astro preview",
     "compress:images": "node scripts/compress-images.mjs",
     "sync": "node scripts/sync-cnblogs.mjs",
-    "sync:ai-news": "node scripts/sync-ai-news.mjs",
+    "sync:ai-news": "node scripts/ai-news/index.mjs",
     "sync:history": "node scripts/sync-cnblogs.mjs --history",
     "sync:all": "node scripts/sync-cnblogs.mjs --history --pages=50",
     "diagnose": "node scripts/diagnose-d1.mjs",
