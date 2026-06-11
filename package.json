@@ -12,7 +12,9 @@
     "sync:history": "node scripts/sync-cnblogs.mjs --history",
     "sync:all": "node scripts/sync-cnblogs.mjs --history --pages=50",
     "diagnose": "node scripts/diagnose-d1.mjs",
-    "check:images": "node scripts/check-post-images.mjs"
+    "check:images": "node scripts/check-post-images.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.14",
@@ -22,10 +24,14 @@
     "astro": "^5.18.1",
     "jsdom": "^27.4.0",
     "lucide-astro": "^0.556.0",
+    "qrcode": "^1.5.4",
     "rss-parser": "^3.13.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.19",
     "turndown": "^7.2.4",
     "unist-util-visit": "^5.1.0"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.8"
   }
 }
