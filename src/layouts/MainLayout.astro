@@ -3,11 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import GiscusComments from '@components/GiscusComments.astro';
 import PageLikeButton from '@components/PageLikeButton.astro';
 import { isArticlePath } from '@utils/site';
-
-interface Breadcrumb {
-  name: string;
-  url: string;
-}
+import type { Breadcrumb } from '../types';
 
 interface Props {
   title: string;
@@ -43,7 +39,7 @@ const {
 const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const isToolsSubpage = pathname.startsWith('/tools/') && pathname !== '/tools';
 const isPromotionsSubpage = pathname.startsWith('/promotions/') && pathname !== '/promotions';
-const showSubpageFeedback = isToolsSubpage || isPromotionsSubpage;
+const showSubpageFeedback = isPromotionsSubpage;
 const defaultType = isArticlePath(pathname) ? 'article' : 'website';
 const shouldLoadAds = loadAds ?? isArticlePath(pathname);
 const showReadingProgress = isArticlePath(pathname);
@@ -132,7 +128,7 @@ const showReadingProgress = isArticlePath(pathname);
     </nav>
 
     <!-- Mobile menu panel -->
-    <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0 transform translate-y-[-10px]">
+    <div id="mobile-menu" class="md:hidden mobile-menu">
       <div class="border-t border-gray-200 dark:border-gray-800 px-4 py-3 flex flex-col gap-1">
         <a href="/posts" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200">文章</a>
         <a href="/ai-news" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200">AI资讯</a>
@@ -198,19 +194,6 @@ const showReadingProgress = isArticlePath(pathname);
     menuToggle?.addEventListener('click', () => {
       const isOpen = mobileMenu?.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', String(isOpen));
-      if (mobileMenu) {
-        if (isOpen) {
-          // 打开菜单
-          mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
-          mobileMenu.style.opacity = '1';
-          mobileMenu.style.transform = 'translateY(0)';
-        } else {
-          // 关闭菜单
-          mobileMenu.style.maxHeight = '0';
-          mobileMenu.style.opacity = '0';
-          mobileMenu.style.transform = 'translateY(-10px)';
-        }
-      }
       menuToggle.querySelector('.menu-open')?.classList.toggle('hidden', isOpen);
       menuToggle.querySelector('.menu-close')?.classList.toggle('hidden', !isOpen);
     });
@@ -218,12 +201,7 @@ const showReadingProgress = isArticlePath(pathname);
     // Close mobile menu on navigation
     mobileMenu?.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        if (mobileMenu) {
-          mobileMenu.style.maxHeight = '0';
-          mobileMenu.style.opacity = '0';
-          mobileMenu.style.transform = 'translateY(-10px)';
-          mobileMenu.classList.remove('open');
-        }
+        mobileMenu?.classList.remove('open');
         menuToggle?.setAttribute('aria-expanded', 'false');
         menuToggle?.querySelector('.menu-open')?.classList.remove('hidden');
         menuToggle?.querySelector('.menu-close')?.classList.add('hidden');
@@ -245,4 +223,19 @@ const showReadingProgress = isArticlePath(pathname);
       window.addEventListener('load', updateReadingProgress, { once: true });
     }
   </script>
+
+  <style>
+    .mobile-menu {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      transform: translateY(-10px);
+    }
+    .mobile-menu.open {
+      max-height: 500px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </BaseLayout>

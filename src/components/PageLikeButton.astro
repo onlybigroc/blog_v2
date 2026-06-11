@@ -28,16 +28,9 @@ const { className = '' } = Astro.props;
 
 <script>
   import { formatCount, getPostStats, toggleLike } from '@utils/stats';
+  import { normalizePath } from '@utils/slug';
 
   const INIT_FLAG = '__blogPageLikeButtonInit__';
-
-  function normalizePath(pathname: string) {
-    if (!pathname || pathname === '/') {
-      return '/';
-    }
-    const trimmed = pathname.replace(/\/+$/, '');
-    return trimmed || '/';
-  }
 
   function applyLikeState(stats: { likes?: number; liked?: boolean }, likeCountEl: Element | null, likeIcon: Element | null) {
     if (likeCountEl) {
@@ -70,8 +63,9 @@ const { className = '' } = Astro.props;
     });
   }
 
-  if (!(window as any)[INIT_FLAG]) {
-    (window as any)[INIT_FLAG] = true;
+  const win = window as unknown as Record<string, boolean>;
+  if (!win[INIT_FLAG]) {
+    win[INIT_FLAG] = true;
 
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {

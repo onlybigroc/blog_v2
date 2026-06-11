@@ -1,0 +1,66 @@
+---
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  basePath: string;
+  ariaLabel?: string;
+}
+
+const { currentPage, totalPages, basePath, ariaLabel = '分页导航' } = Astro.props;
+
+if (totalPages <= 1) return;
+
+const pageNumbers: number[] = [];
+for (let page = 1; page <= totalPages; page++) {
+  if (page === 1 || page === totalPages || (page >= currentPage - 2 && page <= currentPage + 2)) {
+    pageNumbers.push(page);
+  } else if (page === currentPage - 3 || page === currentPage + 3) {
+    pageNumbers.push(-1);
+  }
+}
+
+function getPageHref(page: number): string {
+  if (page === 1) return basePath;
+  return `${basePath}/${page}`;
+}
+---
+
+<nav class="mt-12 flex justify-center gap-2 flex-wrap" aria-label={ariaLabel}>
+  {currentPage > 1 && (
+    <a
+      href={getPageHref(currentPage - 1)}
+      class="px-4 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+    >
+      ← 上一页
+    </a>
+  )}
+
+  {pageNumbers.map((page, index) => (
+    <Fragment key={page === -1 ? `ellipsis-${index}` : `page-${page}`}>
+      {page === -1 ? (
+        <span class="px-2 py-2 text-gray-500">...</span>
+      ) : (
+        <a
+          href={getPageHref(page)}
+          class={
+            page === currentPage
+              ? 'px-4 py-2 bg-primary-600 text-white rounded'
+              : 'px-4 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
+          }
+          aria-current={page === currentPage ? 'page' : undefined}
+        >
+          {page}
+        </a>
+      )}
+    </Fragment>
+  ))}
+
+  {currentPage < totalPages && (
+    <a
+      href={getPageHref(currentPage + 1)}
+      class="px-4 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+    >
+      下一页 →
+    </a>
+  )}
+</nav>

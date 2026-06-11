@@ -5,18 +5,11 @@ import sitemap from '@astrojs/sitemap';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { basename, extname, join } from 'node:path';
 import { remarkImagePath } from './src/plugins/remark-image-path.mjs';
+import { normalizePostSlug } from './src/utils/slug.ts';
 
 const SITE_URL = process.env.SITE_URL || process.env.CF_PAGES_URL || 'https://bigroc.cn';
 const CONTENT_POSTS_DIR = 'src/content/posts';
 const AI_NEWS_JSON = 'src/data/ai-news.json';
-
-function normalizePostSlug(value) {
-  return value
-    .trim()
-    .replace(/^\/?posts\//, '')
-    .replace(/\.mdx?$/, '')
-    .replace(/^\/+|\/+$/g, '');
-}
 
 function readFrontmatterValue(frontmatter, key) {
   const match = frontmatter.match(new RegExp(`^${key}:\\s*(.+)$`, 'm'));

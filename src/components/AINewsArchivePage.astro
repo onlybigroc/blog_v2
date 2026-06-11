@@ -1,5 +1,6 @@
 ---
 import AINewsCard from '@components/AINewsCard.astro';
+import Pagination from '@components/Pagination.astro';
 import type { AINewsDigest, AINewsItem } from '@data/aiNews';
 import { formatChineseDateTime } from '@utils/site';
 
@@ -15,19 +16,6 @@ const { digest, items, currentPage, totalPages, totalItems } = Astro.props;
 const cnItems = items.filter((item) => item.sourceRegion === 'cn');
 const globalItems = items.filter((item) => item.sourceRegion === 'global');
 const formattedUpdatedAt = formatChineseDateTime(digest.updatedAt) || '暂无数据';
-
-const pageNumbers = [];
-for (let page = 1; page <= totalPages; page += 1) {
-  if (page === 1 || page === totalPages || (page >= currentPage - 2 && page <= currentPage + 2)) {
-    pageNumbers.push(page);
-  } else if (page === currentPage - 3 || page === currentPage + 3) {
-    pageNumbers.push(-1);
-  }
-}
-
-function getPageHref(page: number) {
-  return page === 1 ? '/ai-news' : `/ai-news/page/${page}`;
-}
 ---
 
 <section class="mb-10 rounded-3xl border border-primary-100 bg-gradient-to-br from-primary-50 via-white to-sky-50 p-8 dark:border-primary-900/40 dark:from-gray-900 dark:via-gray-900 dark:to-sky-950/40">
@@ -139,48 +127,7 @@ function getPageHref(page: number) {
       </section>
     </div>
 
-    {totalPages > 1 && (
-      <nav class="mt-12 flex flex-wrap justify-center gap-2" aria-label="AI 资讯分页导航">
-        {currentPage > 1 && (
-          <a
-            href={getPageHref(currentPage - 1)}
-            class="ai-news-pagination-link px-4 py-2 rounded bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-          >
-            ← 上一页
-          </a>
-        )}
-
-        {pageNumbers.map((page, index) => (
-          <Fragment key={page === -1 ? `ellipsis-${index}` : `page-${page}`}>
-            {page === -1 ? (
-              <span class="px-2 py-2 text-gray-500">...</span>
-            ) : (
-              <a
-                href={getPageHref(page)}
-                class:list={[
-                  'ai-news-pagination-link px-4 py-2 rounded',
-                  page === currentPage
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700',
-                ]}
-                aria-current={page === currentPage ? 'page' : undefined}
-              >
-                {page}
-              </a>
-            )}
-          </Fragment>
-        ))}
-
-        {currentPage < totalPages && (
-          <a
-            href={getPageHref(currentPage + 1)}
-            class="ai-news-pagination-link px-4 py-2 rounded bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-          >
-            下一页 →
-          </a>
-        )}
-      </nav>
-    )}
+    <Pagination currentPage={currentPage} totalPages={totalPages} basePath="/ai-news/page" ariaLabel="AI 资讯分页导航" />
   </>
 )}
 
