@@ -80,7 +80,10 @@ async function downloadImage(url, postSlug) {
     }
 
     console.log(`  ↓ 下载图片: ${url}`);
-    const response = await fetch(url);
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
+    const response = await fetch(url, { signal: controller.signal });
+    clearTimeout(timeout);
     if (!response.ok) return url;
 
     const buffer = await response.arrayBuffer();

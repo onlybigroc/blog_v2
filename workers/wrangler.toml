@@ -10,4 +10,4 @@ database_id = "c17b3001-356d-417e-8a60-3d6e6a92e13e"  # 公开安全：需要 Cl
 
 # 环境变量
 [vars]
-ALLOWED_ORIGINS = "*"
+ALLOWED_ORIGINS = "https://bigroc.cn,https://www.bigroc.cn,https://qinrenjihe.com,https://www.qinrenjihe.com"

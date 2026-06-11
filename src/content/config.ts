@@ -12,6 +12,8 @@ const postsCollection = defineCollection({
     cover: z.string().optional(),
     originUrl: z.string(),
     draft: z.boolean().default(false),
+    author: z.string().default('bigroc'),
+    updated: z.coerce.date().optional(),
   }),
 });
 

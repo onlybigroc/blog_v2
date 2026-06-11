@@ -1,0 +1,2 @@
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://giscus.app; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://blog-stats-api.bigroc.cn https://blog-stats-api.qinrenjihe.com; frame-src https://giscus.app; font-src 'self';
