@@ -1,11 +1,10 @@
 ---
 // 文本差异对比工具
 
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-  showPageMeta?: boolean;
-}
+import type { ToolWrapperProps } from '../../types/tool';
+import ToolCleanLink from './ToolCleanLink.astro';
+
+interface Props extends ToolWrapperProps {}
 
 const {
   cleanPath,
@@ -15,18 +14,7 @@ const {
 ---
 
 <div class="space-y-6" id="text-diff-tool">
-    {showCleanLink && cleanPath && (
-      <a
-        href={cleanPath}
-        title="打开可单独收藏的工具页面"
-        class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"
-      >
-        <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" />
-        </svg>
-        独立打开
-      </a>
-    )}
+    {showCleanLink && cleanPath && <ToolCleanLink cleanPath={cleanPath} />}
   <div class="flex flex-wrap items-center gap-3">
     <button
       id="btn-compare"
@@ -110,6 +98,8 @@ const {
 </div>
 
 <script>
+  import { escapeHtml } from '@utils/safeHtml';
+
   const leftEl = document.getElementById('diff-left') as HTMLTextAreaElement;
   const rightEl = document.getElementById('diff-right') as HTMLTextAreaElement;
   const resultEl = document.getElementById('diff-result');
@@ -166,10 +156,6 @@ const {
       }
     }
     return result;
-  }
-
-  function escapeHtml(s: string): string {
-    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
   function renderDiff(diffs: DiffLine[]): string {

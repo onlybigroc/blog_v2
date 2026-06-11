@@ -1,9 +1,12 @@
 ---
-interface Props { cleanPath?: string; showCleanLink?: boolean; }
+import type { ToolWrapperProps } from '../../types/tool';
+import ToolCleanLink from './ToolCleanLink.astro';
+
+interface Props extends ToolWrapperProps {}
 const { cleanPath, showCleanLink = false } = Astro.props;
 ---
 <div class="space-y-6">
-  {showCleanLink && cleanPath && (<a href={cleanPath} title="独立打开" class="mb-4 inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m8 0h4v4M4 16v4h4m12-4v4h-4" /></svg>独立打开</a>)}
+  {showCleanLink && cleanPath && <ToolCleanLink cleanPath={cleanPath} />}
   <div class="grid gap-6 md:grid-cols-2">
     <div class="space-y-4">
       <div><label class="block text-sm text-gray-500 mb-1">X 偏移: <span id="ox-val">4</span>px</label><input id="ox" type="range" min="-50" max="50" value="4" class="w-full" /></div>

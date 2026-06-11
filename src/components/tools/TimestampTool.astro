@@ -1,11 +1,9 @@
 ---
 import PageViewCounter from '@components/PageViewCounter.astro';
 
-interface Props {
-  cleanPath?: string;
-  showCleanLink?: boolean;
-  showPageMeta?: boolean;
-}
+import type { ToolWrapperProps } from '../../types/tool';
+
+interface Props extends ToolWrapperProps {}
 
 const {
   cleanPath,
