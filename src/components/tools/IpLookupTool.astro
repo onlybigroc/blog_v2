@@ -31,6 +31,8 @@ const { cleanPath, showCleanLink = false } = Astro.props;
   <div class="text-xs text-gray-500 dark:text-gray-400">使用 ip-api.com 免费接口查询，受请求频率限制。</div>
 </div>
 <script>
+import { escapeHtml } from '@utils/safeHtml';
+
 const ipInput = document.getElementById('ip-input') as HTMLInputElement;
 const loading = document.getElementById('loading');
 const result = document.getElementById('result');
@@ -74,20 +76,20 @@ async function doLookup(ip: string) {
     }
     result?.classList.remove('hidden');
     document.getElementById('basic-info')!.innerHTML = `
-      <div class="flex justify-between"><span class="text-gray-500">IP 地址</span><span class="font-mono font-medium">${data.query}</span></div>
-      <div class="flex justify-between"><span class="text-gray-500">类型</span><span>${classifyIP(data.query)}</span></div>
-      <div class="flex justify-between"><span class="text-gray-500">类别</span><span>${getIPClass(data.query)}</span></div>
-      <div class="flex justify-between"><span class="text-gray-500">ISP</span><span>${data.isp || '-'}</span></div>
-      <div class="flex justify-between"><span class="text-gray-500">组织</span><span>${data.org || '-'}</span></div>
-      <div class="flex justify-between"><span class="text-gray-500">AS</span><span class="font-mono text-xs">${data.as || '-'}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">IP 地址</span><span class="font-mono font-medium">${escapeHtml(data.query)}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">类型</span><span>${escapeHtml(classifyIP(data.query))}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">类别</span><span>${escapeHtml(getIPClass(data.query))}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">ISP</span><span>${escapeHtml(data.isp || '-')}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">组织</span><span>${escapeHtml(data.org || '-')}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">AS</span><span class="font-mono text-xs">${escapeHtml(data.as || '-')}</span></div>
     `;
     document.getElementById('geo-info')!.innerHTML = `
-      <div class="flex justify-between"><span class="text-gray-500">国家</span><span>${data.country || '-'}</span></div>
-      <div class="flex justify-between"><span class="text-gray-500">地区</span><span>${data.regionName || '-'}</span></div>
-      <div class="flex justify-between"><span class="text-gray-500">城市</span><span>${data.city || '-'}</span></div>
-      <div class="flex justify-between"><span class="text-gray-500">邮编</span><span>${data.zip || '-'}</span></div>
-      <div class="flex justify-between"><span class="text-gray-500">时区</span><span>${data.timezone || '-'}</span></div>
-      <div class="flex justify-between"><span class="text-gray-500">坐标</span><span class="font-mono text-xs">${data.lat}, ${data.lon}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">国家</span><span>${escapeHtml(data.country || '-')}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">地区</span><span>${escapeHtml(data.regionName || '-')}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">城市</span><span>${escapeHtml(data.city || '-')}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">邮编</span><span>${escapeHtml(data.zip || '-')}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">时区</span><span>${escapeHtml(data.timezone || '-')}</span></div>
+      <div class="flex justify-between"><span class="text-gray-500">坐标</span><span class="font-mono text-xs">${escapeHtml(String(data.lat))}, ${escapeHtml(String(data.lon))}</span></div>
     `;
   } catch (e) {
     loading?.classList.add('hidden');

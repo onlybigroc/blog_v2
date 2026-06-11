@@ -20,6 +20,8 @@ const { cleanPath, showCleanLink = false } = Astro.props;
   </div>
 </div>
 <script>
+import { escapeHtml } from '@utils/safeHtml';
+
 document.getElementById('decode')?.addEventListener('click', () => {
   const pem = (document.getElementById('pem') as HTMLTextAreaElement).value;
   const resultEl = document.getElementById('result')!;
@@ -81,7 +83,7 @@ document.getElementById('decode')?.addEventListener('click', () => {
       if (strings.length > 1) info.push(`可能签发者: ${strings[strings.length > 3 ? 2 : 1]}`);
     }
     info.push(`\n注意：这是简化解析，完整的 X.509 解析建议使用 OpenSSL 工具。`);
-    resultEl.innerHTML = info.map(i => `<div class="text-sm">${i}</div>`).join('');
+    resultEl.innerHTML = info.map(i => `<div class="text-sm">${escapeHtml(i)}</div>`).join('');
     resultEl.classList.remove('hidden');
   } catch (e) {
     errorEl.textContent = '解码失败: ' + (e as Error).message;
