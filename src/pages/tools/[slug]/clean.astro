@@ -1,0 +1,286 @@
+---
+import ToolLayout from '@layouts/ToolLayout.astro';
+import { tools } from '@data/tools';
+
+// Import all tool components statically
+import AesEncryptTool from '@components/tools/AesEncryptTool.astro';
+import AgeCalculatorTool from '@components/tools/AgeCalculatorTool.astro';
+import AnagramCheckTool from '@components/tools/AnagramCheckTool.astro';
+import AnimationKeyframeTool from '@components/tools/AnimationKeyframeTool.astro';
+import ApiTesterTool from '@components/tools/ApiTesterTool.astro';
+import AsciiArtTool from '@components/tools/AsciiArtTool.astro';
+import Base64Tool from '@components/tools/Base64Tool.astro';
+import Base64ImageTool from '@components/tools/Base64ImageTool.astro';
+import BaseConvertTool from '@components/tools/BaseConvertTool.astro';
+import BcryptHashTool from '@components/tools/BcryptHashTool.astro';
+import BingoGenTool from '@components/tools/BingoGenTool.astro';
+import BmiCalcTool from '@components/tools/BmiCalcTool.astro';
+import BorderRadiusGenTool from '@components/tools/BorderRadiusGenTool.astro';
+import BoxShadowGenTool from '@components/tools/BoxShadowGenTool.astro';
+import CalendarGenTool from '@components/tools/CalendarGenTool.astro';
+import CamelSnakeTool from '@components/tools/CamelSnakeTool.astro';
+import CardDrawTool from '@components/tools/CardDrawTool.astro';
+import CaseConvertTool from '@components/tools/CaseConvertTool.astro';
+import CharFrequencyTool from '@components/tools/CharFrequencyTool.astro';
+import ChecksumVerifyTool from '@components/tools/ChecksumVerifyTool.astro';
+import CodeFormatTool from '@components/tools/CodeFormatTool.astro';
+import CodeMinifyTool from '@components/tools/CodeMinifyTool.astro';
+import CoinFlipTool from '@components/tools/CoinFlipTool.astro';
+import ColorTool from '@components/tools/ColorTool.astro';
+import ColorPickerAdvancedTool from '@components/tools/ColorPickerAdvancedTool.astro';
+import CountdownTool from '@components/tools/CountdownTool.astro';
+import CssClipPathTool from '@components/tools/CssClipPathTool.astro';
+import CssGradientTool from '@components/tools/CssGradientTool.astro';
+import CssUnitTool from '@components/tools/CssUnitTool.astro';
+import CssVariableExtractTool from '@components/tools/CssVariableExtractTool.astro';
+import CsvToMdTool from '@components/tools/CsvToMdTool.astro';
+import CsvViewerTool from '@components/tools/CsvViewerTool.astro';
+import CurrencyConvertTool from '@components/tools/CurrencyConvertTool.astro';
+import DateCalculatorTool from '@components/tools/DateCalculatorTool.astro';
+import DiceRollTool from '@components/tools/DiceRollTool.astro';
+import DiffWordsTool from '@components/tools/DiffWordsTool.astro';
+import DistanceConvertTool from '@components/tools/DistanceConvertTool.astro';
+import DrawLotsTool from '@components/tools/DrawLotsTool.astro';
+import EnvParserTool from '@components/tools/EnvParserTool.astro';
+import FlexboxPlaygroundTool from '@components/tools/FlexboxPlaygroundTool.astro';
+import FontPreviewTool from '@components/tools/FontPreviewTool.astro';
+import GitignoreGenTool from '@components/tools/GitignoreGenTool.astro';
+import GraphqlDebugTool from '@components/tools/GraphqlDebugTool.astro';
+import GridGeneratorTool from '@components/tools/GridGeneratorTool.astro';
+import HashGeneratorTool from '@components/tools/HashGeneratorTool.astro';
+import HexEncodeTool from '@components/tools/HexEncodeTool.astro';
+import HtmlEntityTool from '@components/tools/HtmlEntityTool.astro';
+import HtmlToJsxTool from '@components/tools/HtmlToJsxTool.astro';
+import IpLookupTool from '@components/tools/IpLookupTool.astro';
+import JsonCsvTool from '@components/tools/JsonCsvTool.astro';
+import JsonFormatTool from '@components/tools/JsonFormatTool.astro';
+import JsonSchemaGenTool from '@components/tools/JsonSchemaGenTool.astro';
+import JwtDecodeTool from '@components/tools/JwtDecodeTool.astro';
+import LicenseGenTool from '@components/tools/LicenseGenTool.astro';
+import LineNumberTool from '@components/tools/LineNumberTool.astro';
+import LoremIpsumTool from '@components/tools/LoremIpsumTool.astro';
+import MacGenTool from '@components/tools/MacGenTool.astro';
+import MarkdownPreviewTool from '@components/tools/MarkdownPreviewTool.astro';
+import MazeGenTool from '@components/tools/MazeGenTool.astro';
+import MdToHtmlTool from '@components/tools/MdToHtmlTool.astro';
+import MeetingPlannerTool from '@components/tools/MeetingPlannerTool.astro';
+import MemoryMatchTool from '@components/tools/MemoryMatchTool.astro';
+import MortgageCalcTool from '@components/tools/MortgageCalcTool.astro';
+import NumberGuessTool from '@components/tools/NumberGuessTool.astro';
+import OtpGenTool from '@components/tools/OtpGenTool.astro';
+import PackageJsonViewerTool from '@components/tools/PackageJsonViewerTool.astro';
+import PalindromeCheckTool from '@components/tools/PalindromeCheckTool.astro';
+import ParagraphMergeTool from '@components/tools/ParagraphMergeTool.astro';
+import PasswordTool from '@components/tools/PasswordTool.astro';
+import PasswordStrengthTool from '@components/tools/PasswordStrengthTool.astro';
+import PortCheckTool from '@components/tools/PortCheckTool.astro';
+import ProgressBarGenTool from '@components/tools/ProgressBarGenTool.astro';
+import QrGenTool from '@components/tools/QrGenTool.astro';
+import QuoteWrapTool from '@components/tools/QuoteWrapTool.astro';
+import RandomColorTool from '@components/tools/RandomColorTool.astro';
+import RandomNumberTool from '@components/tools/RandomNumberTool.astro';
+import RandomSortTool from '@components/tools/RandomSortTool.astro';
+import ReadmeGenTool from '@components/tools/ReadmeGenTool.astro';
+import RegexTool from '@components/tools/RegexTool.astro';
+import RegexVisualizerTool from '@components/tools/RegexVisualizerTool.astro';
+import RemoveBlankLinesTool from '@components/tools/RemoveBlankLinesTool.astro';
+import RemoveDupsTool from '@components/tools/RemoveDupsTool.astro';
+import RockPaperScissorsTool from '@components/tools/RockPaperScissorsTool.astro';
+import RollCallTool from '@components/tools/RollCallTool.astro';
+import RulerTool from '@components/tools/RulerTool.astro';
+import ScoreBoardTool from '@components/tools/ScoreBoardTool.astro';
+import SlugifyTool from '@components/tools/SlugifyTool.astro';
+import SplitBillTool from '@components/tools/SplitBillTool.astro';
+import SqlFormatTool from '@components/tools/SqlFormatTool.astro';
+import SslCheckTool from '@components/tools/SslCheckTool.astro';
+import StringReverseWordsTool from '@components/tools/StringReverseWordsTool.astro';
+import SvgViewerTool from '@components/tools/SvgViewerTool.astro';
+import TemperatureConvertTool from '@components/tools/TemperatureConvertTool.astro';
+import TextAlignTool from '@components/tools/TextAlignTool.astro';
+import TextDiffTool from '@components/tools/TextDiffTool.astro';
+import TextEncryptTool from '@components/tools/TextEncryptTool.astro';
+import TextExtractTool from '@components/tools/TextExtractTool.astro';
+import TextHighlightTool from '@components/tools/TextHighlightTool.astro';
+import TextPadTool from '@components/tools/TextPadTool.astro';
+import TextRepeatTool from '@components/tools/TextRepeatTool.astro';
+import TextReverseTool from '@components/tools/TextReverseTool.astro';
+import TextTruncateTool from '@components/tools/TextTruncateTool.astro';
+import TextWrapTool from '@components/tools/TextWrapTool.astro';
+import TimeDiffTool from '@components/tools/TimeDiffTool.astro';
+import TimestampTool from '@components/tools/TimestampTool.astro';
+import TimezoneConvertTool from '@components/tools/TimezoneConvertTool.astro';
+import TipCalcTool from '@components/tools/TipCalcTool.astro';
+import TokenGenTool from '@components/tools/TokenGenTool.astro';
+import TomlToJsonTool from '@components/tools/TomlToJsonTool.astro';
+import TruncateUrlTool from '@components/tools/TruncateUrlTool.astro';
+import TsconfigHelperTool from '@components/tools/TsconfigHelperTool.astro';
+import UaParseTool from '@components/tools/UaParseTool.astro';
+import UnitConvertTool from '@components/tools/UnitConvertTool.astro';
+import UnixEpochTool from '@components/tools/UnixEpochTool.astro';
+import UrlEncodeTool from '@components/tools/UrlEncodeTool.astro';
+import UrlSafeBase64Tool from '@components/tools/UrlSafeBase64Tool.astro';
+import UuidTool from '@components/tools/UuidTool.astro';
+import VolumeConvertTool from '@components/tools/VolumeConvertTool.astro';
+import WeekNumberTool from '@components/tools/WeekNumberTool.astro';
+import WeightConvertTool from '@components/tools/WeightConvertTool.astro';
+import WheelSpinTool from '@components/tools/WheelSpinTool.astro';
+import WinterTroopCalculatorTool from '@components/tools/WinterTroopCalculatorTool.astro';
+import WordCountTool from '@components/tools/WordCountTool.astro';
+import WordLimiterTool from '@components/tools/WordLimiterTool.astro';
+import WorkdayCalcTool from '@components/tools/WorkdayCalcTool.astro';
+import XmlFormatTool from '@components/tools/XmlFormatTool.astro';
+import YamlToJsonTool from '@components/tools/YamlToJsonTool.astro';
+
+const componentMap: Record<string, any> = {
+  'aes-encrypt': AesEncryptTool,
+  'age-calculator': AgeCalculatorTool,
+  'anagram-check': AnagramCheckTool,
+  'animation-keyframe': AnimationKeyframeTool,
+  'api-tester': ApiTesterTool,
+  'ascii-art': AsciiArtTool,
+  'base64': Base64Tool,
+  'base64-image': Base64ImageTool,
+  'base-convert': BaseConvertTool,
+  'bcrypt-hash': BcryptHashTool,
+  'bingo-gen': BingoGenTool,
+  'bmi-calc': BmiCalcTool,
+  'border-radius-gen': BorderRadiusGenTool,
+  'box-shadow-gen': BoxShadowGenTool,
+  'calendar-gen': CalendarGenTool,
+  'camel-snake': CamelSnakeTool,
+  'card-draw': CardDrawTool,
+  'case-convert': CaseConvertTool,
+  'char-frequency': CharFrequencyTool,
+  'checksum-verify': ChecksumVerifyTool,
+  'code-format': CodeFormatTool,
+  'code-minify': CodeMinifyTool,
+  'coin-flip': CoinFlipTool,
+  'color': ColorTool,
+  'color-picker-advanced': ColorPickerAdvancedTool,
+  'countdown': CountdownTool,
+  'css-clip-path': CssClipPathTool,
+  'css-gradient': CssGradientTool,
+  'css-unit': CssUnitTool,
+  'css-variable-extract': CssVariableExtractTool,
+  'csv-to-md': CsvToMdTool,
+  'csv-viewer': CsvViewerTool,
+  'currency-convert': CurrencyConvertTool,
+  'date-calculator': DateCalculatorTool,
+  'dice-roll': DiceRollTool,
+  'diff-words': DiffWordsTool,
+  'distance-convert': DistanceConvertTool,
+  'draw-lots': DrawLotsTool,
+  'env-parser': EnvParserTool,
+  'flexbox-playground': FlexboxPlaygroundTool,
+  'font-preview': FontPreviewTool,
+  'gitignore-gen': GitignoreGenTool,
+  'graphql-debug': GraphqlDebugTool,
+  'grid-generator': GridGeneratorTool,
+  'hash-generator': HashGeneratorTool,
+  'hex-encode': HexEncodeTool,
+  'html-entity': HtmlEntityTool,
+  'html-to-jsx': HtmlToJsxTool,
+  'ip-lookup': IpLookupTool,
+  'json-csv': JsonCsvTool,
+  'json-format': JsonFormatTool,
+  'json-schema-gen': JsonSchemaGenTool,
+  'jwt-decode': JwtDecodeTool,
+  'license-gen': LicenseGenTool,
+  'line-number': LineNumberTool,
+  'lorem-ipsum': LoremIpsumTool,
+  'mac-gen': MacGenTool,
+  'markdown-preview': MarkdownPreviewTool,
+  'maze-gen': MazeGenTool,
+  'md-to-html': MdToHtmlTool,
+  'meeting-planner': MeetingPlannerTool,
+  'memory-match': MemoryMatchTool,
+  'mortgage-calc': MortgageCalcTool,
+  'number-guess': NumberGuessTool,
+  'otp-gen': OtpGenTool,
+  'package-json-viewer': PackageJsonViewerTool,
+  'palindrome-check': PalindromeCheckTool,
+  'paragraph-merge': ParagraphMergeTool,
+  'password': PasswordTool,
+  'password-strength': PasswordStrengthTool,
+  'port-check': PortCheckTool,
+  'progress-bar-gen': ProgressBarGenTool,
+  'qr-gen': QrGenTool,
+  'quote-wrap': QuoteWrapTool,
+  'random-color': RandomColorTool,
+  'random-number': RandomNumberTool,
+  'random-sort': RandomSortTool,
+  'readme-gen': ReadmeGenTool,
+  'regex': RegexTool,
+  'regex-visualizer': RegexVisualizerTool,
+  'remove-blank-lines': RemoveBlankLinesTool,
+  'remove-dups': RemoveDupsTool,
+  'rock-paper-scissors': RockPaperScissorsTool,
+  'roll-call': RollCallTool,
+  'ruler': RulerTool,
+  'score-board': ScoreBoardTool,
+  'slugify': SlugifyTool,
+  'split-bill': SplitBillTool,
+  'sql-format': SqlFormatTool,
+  'ssl-check': SslCheckTool,
+  'string-reverse-words': StringReverseWordsTool,
+  'svg-viewer': SvgViewerTool,
+  'temperature-convert': TemperatureConvertTool,
+  'text-align': TextAlignTool,
+  'text-diff': TextDiffTool,
+  'text-encrypt': TextEncryptTool,
+  'text-extract': TextExtractTool,
+  'text-highlight': TextHighlightTool,
+  'text-pad': TextPadTool,
+  'text-repeat': TextRepeatTool,
+  'text-reverse': TextReverseTool,
+  'text-truncate': TextTruncateTool,
+  'text-wrap': TextWrapTool,
+  'time-diff': TimeDiffTool,
+  'timestamp': TimestampTool,
+  'timezone-convert': TimezoneConvertTool,
+  'tip-calc': TipCalcTool,
+  'token-gen': TokenGenTool,
+  'toml-to-json': TomlToJsonTool,
+  'truncate-url': TruncateUrlTool,
+  'tsconfig-helper': TsconfigHelperTool,
+  'ua-parse': UaParseTool,
+  'unit-convert': UnitConvertTool,
+  'unix-epoch': UnixEpochTool,
+  'url-encode': UrlEncodeTool,
+  'url-safe-base64': UrlSafeBase64Tool,
+  'uuid': UuidTool,
+  'volume-convert': VolumeConvertTool,
+  'week-number': WeekNumberTool,
+  'weight-convert': WeightConvertTool,
+  'wheel-spin': WheelSpinTool,
+  'winter-troops': WinterTroopCalculatorTool,
+  'word-count': WordCountTool,
+  'word-limiter': WordLimiterTool,
+  'workday-calc': WorkdayCalcTool,
+  'xml-format': XmlFormatTool,
+  'yaml-to-json': YamlToJsonTool,
+};
+
+export async function getStaticPaths() {
+  return tools
+    .filter(tool => tool.status !== 'draft')
+    .map(tool => ({
+      params: { slug: tool.id },
+      props: { tool },
+    }));
+}
+
+const { tool } = Astro.props;
+const ToolComponent = componentMap[tool.id];
+
+if (!ToolComponent) {
+  throw new Error(`Tool component not found for: ${tool.id}`);
+}
+
+const title = `${tool.name} | 工具`;
+const description = tool.description;
+---
+
+<ToolLayout title={title} description={description}>
+  <ToolComponent />
+</ToolLayout>
