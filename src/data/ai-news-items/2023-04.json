@@ -1,0 +1,107 @@
+[
+  {
+    "id": "13286317bc85",
+    "title": "New ways to manage your data in ChatGPT",
+    "titleZh": "在ChatGPT中管理数据的新方法",
+    "link": "https://openai.com/index/new-ways-to-manage-your-data-in-chatgpt",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-04-25T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "ChatGPT users can now turn off chat history, allowing you to choose which conversations can be used to train our models.",
+    "summaryZh": "ChatGPT用户现在可以关闭聊天记录，让您选择可以使用哪些对话来训练我们的模型。",
+    "highlights": [
+      "ChatGPT users can now turn off chat history, allowing you to choose which conversations can be used to train our models."
+    ],
+    "highlightsZh": [
+      "ChatGPT用户现在可以关闭聊天记录，让您选择可以使用哪些对话来训练我们的模型。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "04acd1311398",
+    "title": "Announcing OpenAI’s Bug Bounty Program",
+    "titleZh": "宣布OpenAI漏洞赏金计划",
+    "link": "https://openai.com/index/bug-bounty-program",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-04-11T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "This initiative is essential to our commitment to develop safe and advanced AI. As we create technology and services that are secure, reliable, and trustworthy, we need your help.",
+    "summaryZh": "这一举措对于我们致力于开发安全和先进的人工智能至关重要。在我们创建安全、可靠和值得信赖的技术和服务时，我们需要您的帮助。",
+    "highlights": [
+      "This initiative is essential to our commitment to develop safe and advanced AI.",
+      "As we create technology and services that are secure, reliable, and trustworthy, we need your help."
+    ],
+    "highlightsZh": [
+      "这一举措对于我们致力于开发安全和先进的人工智能至关重要。在我们创建安全、可靠和值得信赖的技术和服务时，我们需要您的帮助。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "226ad6874ea4",
+    "title": "Our approach to AI safety",
+    "titleZh": "我们的人工智能安全方法",
+    "link": "https://openai.com/index/our-approach-to-ai-safety",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-04-05T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Ensuring that AI systems are built, deployed, and used safely is critical to our mission.",
+    "summaryZh": "确保人工智能系统的安全构建、部署和使用对我们的使命至关重要。",
+    "highlights": [
+      "Ensuring that AI systems are built, deployed, and used safely is critical to our mission."
+    ],
+    "highlightsZh": [
+      "确保人工智能系统的安全构建、部署和使用对我们的使命至关重要。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

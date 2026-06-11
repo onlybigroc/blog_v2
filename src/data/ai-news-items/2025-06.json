@@ -1,0 +1,578 @@
+[
+  {
+    "id": "e0b6b080df7a",
+    "title": "AI in Australia—OpenAI’s Economic Blueprint",
+    "titleZh": "澳大利亚的人工智能--OpenAI的经济蓝图",
+    "link": "https://openai.com/global-affairs/openais-australia-economic-blueprint",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-06-30T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Today, OpenAI, in partnership with Mandala Partners, is sharing the OpenAI AI Economic Blueprint for Australia. At a time when boosting productivity has emerged as a national priority for Australia, the Blueprint provides a clear, actionable plan for how Australia can unlock the full economic and social potential of ar",
+    "summaryZh": "今天， OpenAI与Mandala Partners合作，分享澳大利亚OpenAI AI经济蓝图。在提高生产力已成为澳大利亚的国家优先事项之际，蓝图为澳大利亚如何释放AR的全部经济和社会潜力提供了一个清晰、可行的计划",
+    "highlights": [
+      "Today, OpenAI, in partnership with Mandala Partners, is sharing the OpenAI AI Economic Blueprint for Australia.",
+      "At a time when boosting productivity has emerged as a national priority for Australia, the Blueprint provides a clear, actionable plan for how Australia can unlock the full economi"
+    ],
+    "highlightsZh": [
+      "今天， OpenAI与Mandala Partners合作，分享澳大利亚OpenAI AI经济蓝图。在提高生产力已成为澳大利亚的国家优先事项之际，蓝图为澳大利亚如何释放AR的全部经济和社会潜力提供了一个清晰、可行的计划"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "d42fb1eb3362",
+    "title": "Customizable, no-code voice agent automation with GPT-4o",
+    "titleZh": "借助GPT-4o实现可定制的无代码语音座席自动化",
+    "link": "https://openai.com/index/retell-ai",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-06-26T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Retell AI is transforming the call center with AI voice automation powered by GPT-4o and GPT-4.1. Its no-code platform enables businesses to launch natural, real-time voice agents that cut call costs, boost CSAT, and automate customer conversations—without scripts or hold times.",
+    "summaryZh": "Retell AI正在通过基于GPT-4o和GPT-4.1的AI语音自动化改造呼叫中心。其无代码平台使企业能够启动自然、实时的语音座席，从而降低通话成本、提高CSAT和自动化客户对话，而无需脚本或等待时间。",
+    "highlights": [
+      "Retell AI is transforming the call center with AI voice automation powered by GPT-4o and GPT-4.1.",
+      "Its no-code platform enables businesses to launch natural, real-time voice agents that cut call costs, boost CSAT, and automate customer conversations—without scripts or hold times"
+    ],
+    "highlightsZh": [
+      "Retell AI正在通过基于GPT-4o和GPT-4.1的AI语音自动化改造呼叫中心。其无代码平台使企业能够启动自然、实时的语音座席，从而降低通话成本、提高CSAT和自动化客户对话，而无需脚本或等待时间。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具"
+    ],
+    "score": 94,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a2a61ee0a4cf",
+    "title": "AlphaGenome: AI for better understanding the genome",
+    "titleZh": "AlphaGenome ：用于更好地了解基因组的人工智能",
+    "link": "https://deepmind.google/blog/alphagenome-ai-for-better-understanding-the-genome/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-06-25T13:59:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Introducing a new, unifying DNA sequence model that advances regulatory variant-effect prediction and promises to shed new light on genome function — now available via API.",
+    "summaryZh": "介绍一种新的统一DNA序列模型，该模型推进了调控变异效应预测，并有望揭示基因组功能的新亮点—现在可通过API获得。",
+    "highlights": [
+      "Introducing a new, unifying DNA sequence model that advances regulatory variant-effect prediction and promises to shed new light on genome function — now available via API."
+    ],
+    "highlightsZh": [
+      "介绍一种新的统一DNA序列模型，该模型推进了调控变异效应预测，并有望揭示基因组功能的新亮点—现在可通过API获得。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具"
+    ],
+    "score": 90,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "9f6bdc5d4dfb",
+    "title": "Gemini Robotics On-Device brings AI to local robotic devices",
+    "titleZh": "Gemini Robotics On-Device将人工智能引入本地机器人设备",
+    "link": "https://deepmind.google/blog/gemini-robotics-on-device-brings-ai-to-local-robotic-devices/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-06-24T14:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re introducing an efficient, on-device robotics model with general-purpose dexterity and fast task adaptation.",
+    "summaryZh": "我们正在引入一种具有通用灵活性和快速任务适应性的高效设备上机器人模型。",
+    "highlights": [
+      "We’re introducing an efficient, on-device robotics model with general-purpose dexterity and fast task adaptation."
+    ],
+    "highlightsZh": [
+      "我们正在引入一种具有通用灵活性和快速任务适应性的高效设备上机器人模型。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "feaffe445117",
+    "title": "Driving scalable growth with OpenAI o3, GPT-4.1, and CUA",
+    "titleZh": "通过OpenAI o3、GPT-4.1和CUA推动可扩展增长",
+    "link": "https://openai.com/index/unify",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-06-24T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Unify, an AI-powered GTM platform, uses OpenAI’s o3, GPT-4.1, and CUA to automate prospecting, research, and outreach. With hyper-personalized messaging and an always-on workflow, Unify helps teams generate pipeline at scale while focusing on high-impact customer interactions.",
+    "summaryZh": "Unify是一个人工智能驱动的GTM平台，使用OpenAI的o3、GPT-4.1和CUA来自动化勘探、研究和外联。借助超个性化的消息传递和始终在线的工作流程， Unify可帮助团队大规模生成渠道，同时专注于高影响力的客户互动。",
+    "highlights": [
+      "Unify, an AI-powered GTM platform, uses OpenAI’s o3, GPT-4.1, and CUA to automate prospecting, research, and outreach.",
+      "With hyper-personalized messaging and an always-on workflow, Unify helps teams generate pipeline at scale while focusing on high-impact customer interactions."
+    ],
+    "highlightsZh": [
+      "Unify是一个人工智能驱动的GTM平台，使用OpenAI的o3、GPT-4.1和CUA来自动化勘探、研究和外联。借助超个性化的消息传递和始终在线的工作流程， Unify可帮助团队大规模生成渠道，同时专注于高影响力的客户互动。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "e0c68f21f48f",
+    "title": "Toward understanding and preventing misalignment generalization",
+    "titleZh": "了解并防止错位泛化",
+    "link": "https://openai.com/index/emergent-misalignment",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-06-18T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We study how training on incorrect responses can cause broader misalignment in language models and identify an internal feature driving this behavior—one that can be reversed with minimal fine-tuning.",
+    "summaryZh": "我们研究了关于错误回答的培训如何导致语言模型中更广泛的不一致，并确定了导致这种行为的内部特征，这种特征可以通过最小的微调来逆转。",
+    "highlights": [
+      "We study how training on incorrect responses can cause broader misalignment in language models and identify an internal feature driving this behavior—one that can be reversed with "
+    ],
+    "highlightsZh": [
+      "我们研究了关于错误回答的培训如何导致语言模型中更广泛的不一致，并确定了导致这种行为的内部特征，这种特征可以通过最小的微调来逆转。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "0962d4aa67a9",
+    "title": "Preparing for future AI risks in biology",
+    "titleZh": "为生物学领域未来的人工智能风险做好准备",
+    "link": "https://openai.com/index/preparing-for-future-ai-capabilities-in-biology",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-06-18T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Advanced AI can transform biology and medicine—but also raises biosecurity risks. We’re proactively assessing capabilities and implementing safeguards to prevent misuse.",
+    "summaryZh": "先进的人工智能可以改变生物学和医学，但也会提高生物安全风险。我们正在积极评估各项功能并实施保障措施，以防止滥用。",
+    "highlights": [
+      "Advanced AI can transform biology and medicine—but also raises biosecurity risks.",
+      "We’re proactively assessing capabilities and implementing safeguards to prevent misuse."
+    ],
+    "highlightsZh": [
+      "先进的人工智能可以改变生物学和医学，但也会提高生物安全风险。我们正在积极评估各项功能并实施保障措施，以防止滥用。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "df882fb751a5",
+    "title": "We’re expanding our Gemini 2.5 family of models",
+    "titleZh": "我们正在扩展我们的Gemini 2.5系列车型",
+    "link": "https://deepmind.google/blog/were-expanding-our-gemini-25-family-of-models/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-06-17T16:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Gemini 2.5 Flash and Pro are now generally available, and we’re introducing 2.5 Flash-Lite, our most cost-efficient and fastest 2.5 model yet.",
+    "summaryZh": "Gemini 2.5 Flash和Pro现已正式上市，我们正在推出2.5 Flash-Lite ，这是我们迄今为止最具成本效益和最快的2.5型号。",
+    "highlights": [
+      "Gemini 2.5 Flash and Pro are now generally available, and we’re introducing 2.5 Flash-Lite, our most cost-efficient and fastest 2.5 model yet."
+    ],
+    "highlightsZh": [
+      "Gemini 2.5 Flash和Pro现已正式上市，我们正在推出2.5 Flash-Lite ，这是我们迄今为止最具成本效益和最快的2.5型号。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c529fac0c8ec",
+    "title": "Gemini 2.5: Updates to our family of thinking models",
+    "titleZh": "Gemini 2.5 ：我们的思维模式系列更新",
+    "link": "https://deepmind.google/blog/gemini-25-updates-to-our-family-of-thinking-models/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-06-17T16:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Explore the latest Gemini 2.5 model updates with enhanced performance and accuracy: Gemini 2.5 Pro now stable, Flash generally available, and the new Flash-Lite in preview.",
+    "summaryZh": "探索具有增强性能和准确性的最新Gemini 2.5型号更新： Gemini 2.5 Pro现已稳定， Flash正式推出，全新Flash-Lite预览版。",
+    "highlights": [
+      "Explore the latest Gemini 2.5 model updates with enhanced performance and accuracy: Gemini 2.5 Pro now stable, Flash generally available, and the new Flash-Lite in preview."
+    ],
+    "highlightsZh": [
+      "探索具有增强性能和准确性的最新Gemini 2.5型号更新： Gemini 2.5 Pro现已稳定， Flash正式推出，全新Flash-Lite预览版。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "0c778567339a",
+    "title": "Introducing OpenAI for Government",
+    "titleZh": "OpenAI政府版简介",
+    "link": "https://openai.com/global-affairs/introducing-openai-for-government",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-06-16T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re launching OpenAI for Government, a new initiative focused on bringing our most advanced AI tools to public servants across the United States. We're supporting the U.S. government's efforts in adopting best-in-class technology and deploying these tools in service of the public good.",
+    "summaryZh": "我们正在推出OpenAI for Government ，这是一项新举措，专注于将我们最先进的人工智能工具带给美国各地的公务员。我们正在支持美国政府努力采用一流的技术，并部署这些工具为公共利益服务。",
+    "highlights": [
+      "We’re launching OpenAI for Government, a new initiative focused on bringing our most advanced AI tools to public servants across the United States.",
+      "We're supporting the U.S. government's efforts in adopting best-in-class technology and deploying these tools in service of the public good."
+    ],
+    "highlightsZh": [
+      "我们正在推出OpenAI for Government ，这是一项新举措，专注于将我们最先进的人工智能工具带给美国各地的公务员。我们正在支持美国政府努力采用一流的技术，并部署这些工具为公共利益服务。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "2b5f6a6d76cb",
+    "title": "How we're supporting better tropical cyclone prediction with AI",
+    "titleZh": "我们如何利用人工智能更好地预测热带气旋",
+    "link": "https://deepmind.google/blog/how-were-supporting-better-tropical-cyclone-prediction-with-ai/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-06-12T15:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re launching Weather Lab, featuring our experimental cyclone predictions, and we’re partnering with the U.S. National Hurricane Center to support their forecasts and warnings this cyclone season.",
+    "summaryZh": "我们正在推出气象实验室，以实验性气旋预测为特色，并与美国国家飓风中心合作，以支持他们在这个气旋季节的预测和警报。",
+    "highlights": [
+      "We’re launching Weather Lab, featuring our experimental cyclone predictions, and we’re partnering with the U.S.",
+      "National Hurricane Center to support their forecasts and warnings this cyclone season."
+    ],
+    "highlightsZh": [
+      "我们正在推出气象实验室，以实验性气旋预测为特色，并与美国国家飓风中心合作，以支持他们在这个气旋季节的预测和警报。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c0a6c0b2e875",
+    "title": "Bringing the magic of AI to Mattel’s iconic brands",
+    "titleZh": "将人工智能的魔力带入美泰的标志性品牌",
+    "link": "https://openai.com/index/mattels-iconic-brands",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-06-12T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Mattel are partnering to integrate AI into iconic brands such as Barbie and Hot Wheels, aiming to enhance creative development, streamline workflows, and create new ways for fans to engage.",
+    "summaryZh": "OpenAI和美泰正在合作将人工智能整合到芭比娃娃和风火轮等标志性品牌中，旨在加强创意开发，简化工作流程，并为粉丝创造新的互动方式。",
+    "highlights": [
+      "OpenAI and Mattel are partnering to integrate AI into iconic brands such as Barbie and Hot Wheels, aiming to enhance creative development, streamline workflows, and create new ways"
+    ],
+    "highlightsZh": [
+      "OpenAI和美泰正在合作将人工智能整合到芭比娃娃和风火轮等标志性品牌中，旨在加强创意开发，简化工作流程，并为粉丝创造新的互动方式。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "01654d4b5cae",
+    "title": "Scaling security with responsible disclosure",
+    "titleZh": "通过负责任的披露来扩展安全性",
+    "link": "https://openai.com/index/scaling-coordinated-vulnerability-disclosure",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-06-09T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI introduces its Outbound Coordinated Disclosure Policy to guide how it responsibly reports vulnerabilities in third-party software—emphasizing integrity, collaboration, and proactive security at scale.",
+    "summaryZh": "OpenAI推出其出站协调披露政策，以指导其如何负责任地报告第三方软件中的漏洞，强调大规模的完整性、协作和主动安全性。",
+    "highlights": [
+      "OpenAI introduces its Outbound Coordinated Disclosure Policy to guide how it responsibly reports vulnerabilities in third-party software—emphasizing integrity, collaboration, and p"
+    ],
+    "highlightsZh": [
+      "OpenAI推出其出站协调披露政策，以指导其如何负责任地报告第三方软件中的漏洞，强调大规模的完整性、协作和主动安全性。"
+    ],
+    "tags": [
+      "发布",
+      "监管"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "cbcb201cb2d9",
+    "title": "How we’re responding to The New York Times’ data demands in order to protect user privacy",
+    "titleZh": "我们如何响应《纽约时报》的数据需求，以保护用户隐私",
+    "link": "https://openai.com/index/response-to-nyt-data-demands",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-06-05T16:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI is fighting a court order at the demands of The New York Times and plaintiffs, which involves retention of consumer ChatGPT and API user data indefinitely. Learn how we’re working to uphold user privacy, address legal requirements, and stay true to our data protection commitments.",
+    "summaryZh": "OpenAI正在根据《纽约时报》和原告的要求与法院命令作斗争，其中涉及无限期保留消费者ChatGPT和API用户数据。了解我们如何努力维护用户隐私，满足法律要求，并恪守我们的数据保护承诺。",
+    "highlights": [
+      "OpenAI is fighting a court order at the demands of The New York Times and plaintiffs, which involves retention of consumer ChatGPT and API user data indefinitely.",
+      "Learn how we’re working to uphold user privacy, address legal requirements, and stay true to our data protection commitments."
+    ],
+    "highlightsZh": [
+      "OpenAI正在根据《纽约时报》和原告的要求与法院命令作斗争，其中涉及无限期保留消费者ChatGPT和API用户数据。了解我们如何努力维护用户隐私，满足法律要求，并恪守我们的数据保护承诺。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 72,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c0011b894af0",
+    "title": "Disrupting malicious uses of AI: June 2025",
+    "titleZh": "颠覆人工智能的恶意使用： 2025年6月",
+    "link": "https://openai.com/global-affairs/disrupting-malicious-uses-of-ai-june-2025",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-06-05T02:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our latest report featuring case studies of how we’re detecting and preventing malicious uses of AI.",
+    "summaryZh": "我们的最新报告介绍了我们如何检测和防止恶意使用人工智能的案例研究。",
+    "highlights": [
+      "Our latest report featuring case studies of how we’re detecting and preventing malicious uses of AI."
+    ],
+    "highlightsZh": [
+      "我们的最新报告介绍了我们如何检测和防止恶意使用人工智能的案例研究。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "87b1132b360b",
+    "title": "Advanced audio dialog and generation with Gemini 2.5",
+    "titleZh": "使用Gemini 2.5进行高级音频对话和生成",
+    "link": "https://deepmind.google/blog/advanced-audio-dialog-and-generation-with-gemini-25/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-06-03T17:15:47.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Gemini 2.5 has new capabilities in AI-powered audio dialog and generation.",
+    "summaryZh": "Gemini 2.5在人工智能驱动的音频对话和生成方面具有新功能。",
+    "highlights": [
+      "Gemini 2.5 has new capabilities in AI-powered audio dialog and generation."
+    ],
+    "highlightsZh": [
+      "Gemini 2.5在人工智能驱动的音频对话和生成方面具有新功能。"
+    ],
+    "tags": [],
+    "score": 46,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-10T14:31:04.069Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "使用Gemini 2.5进行高级音频对话和生成"
+  }
+]

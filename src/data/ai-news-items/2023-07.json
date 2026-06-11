@@ -1,0 +1,210 @@
+[
+  {
+    "id": "3fe00ac124e9",
+    "title": "Frontier Model Forum",
+    "titleZh": "前沿模特论坛",
+    "link": "https://openai.com/index/frontier-model-forum",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-07-26T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re forming a new industry body to promote the safe and responsible development of frontier AI systems: advancing AI safety research, identifying best practices and standards, and facilitating information sharing among policymakers and industry.",
+    "summaryZh": "我们正在组建一个新的行业机构，以促进前沿人工智能系统的安全和负责任发展：推进人工智能安全研究，确定最佳实践和标准，并促进政策制定者和行业之间的信息共享。",
+    "highlights": [
+      "We’re forming a new industry body to promote the safe and responsible development of frontier AI systems: advancing AI safety research, identifying best practices and standards, an"
+    ],
+    "highlightsZh": [
+      "我们正在组建一个新的行业机构，以促进前沿人工智能系统的安全和负责任发展：推进人工智能安全研究，确定最佳实践和标准，并促进政策制定者和行业之间的信息共享。"
+    ],
+    "tags": [
+      "模型",
+      "监管"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c62da7fb604a",
+    "title": "Moving AI governance forward",
+    "titleZh": "推进人工智能治理",
+    "link": "https://openai.com/index/moving-ai-governance-forward",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-07-21T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and other leading labs reinforce AI safety, security and trustworthiness through voluntary commitments.",
+    "summaryZh": "OpenAI和其他领先的实验室通过自愿承诺加强人工智能的安全、安保和可信赖性。",
+    "highlights": [
+      "OpenAI and other leading labs reinforce AI safety, security and trustworthiness through voluntary commitments."
+    ],
+    "highlightsZh": [
+      "OpenAI和其他领先的实验室通过自愿承诺加强人工智能的安全、安保和可信赖性。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c5060237c25b",
+    "title": "Custom instructions for ChatGPT",
+    "titleZh": "ChatGPT的自定义说明",
+    "link": "https://openai.com/index/custom-instructions-for-chatgpt",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-07-20T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re rolling out custom instructions to give you more control over how ChatGPT responds. Set your preferences, and ChatGPT will keep them in mind for all future conversations.",
+    "summaryZh": "我们正在推出自定义说明，让您更好地控制ChatGPT的响应方式。设置您的偏好， ChatGPT将在未来的所有对话中记住这些偏好。",
+    "highlights": [
+      "We’re rolling out custom instructions to give you more control over how ChatGPT responds.",
+      "Set your preferences, and ChatGPT will keep them in mind for all future conversations."
+    ],
+    "highlightsZh": [
+      "我们正在推出自定义说明，让您更好地控制ChatGPT的响应方式。设置您的偏好， ChatGPT将在未来的所有对话中记住这些偏好。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "db253aecaed2",
+    "title": "Partnership with American Journalism Project to support local news",
+    "titleZh": "与美国新闻项目合作，支持当地新闻",
+    "link": "https://openai.com/index/partnership-with-american-journalism-project-to-support-local-news",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-07-18T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "A new $5+ million partnership aims to explore ways the development of artificial intelligence (AI) can support a thriving, innovative local news field, and ensure local news organizations shape the future of this emerging technology.",
+    "summaryZh": "一项新的500多万美元的合作伙伴关系旨在探索人工智能（ AI ）的发展方式，以支持蓬勃发展的创新本地新闻领域，并确保本地新闻机构塑造这一新兴技术的未来。",
+    "highlights": [
+      "A new $5+ million partnership aims to explore ways the development of artificial intelligence (AI) can support a thriving, innovative local news field, and ensure local news organi"
+    ],
+    "highlightsZh": [
+      "一项新的500多万美元的合作伙伴关系旨在探索人工智能（ AI ）的发展方式，以支持蓬勃发展的创新本地新闻领域，并确保本地新闻机构塑造这一新兴技术的未来。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4550285f82f9",
+    "title": "Accurately analyzing large scale qualitative data",
+    "titleZh": "准确分析大规模定性数据",
+    "link": "https://openai.com/index/viable",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-07-07T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Viable uses GPT-4 to analyze qualitative data at a revolutionary scale with unparalleled accuracy.",
+    "summaryZh": "Viable使用GPT-4以无与伦比的准确度以革命性的规模分析定性数据。",
+    "highlights": [
+      "Viable uses GPT-4 to analyze qualitative data at a revolutionary scale with unparalleled accuracy."
+    ],
+    "highlightsZh": [
+      "Viable使用GPT-4以无与伦比的准确度以革命性的规模分析定性数据。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "082b92492277",
+    "title": "Frontier AI regulation: Managing emerging risks to public safety",
+    "titleZh": "前沿人工智能监管：管理新出现的公共安全风险",
+    "link": "https://openai.com/index/frontier-ai-regulation",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-07-06T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [
+      "监管"
+    ],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

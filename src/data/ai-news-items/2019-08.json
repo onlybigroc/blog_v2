@@ -1,0 +1,112 @@
+[
+  {
+    "id": "474907eb9030",
+    "title": "Testing robustness against unforeseen adversaries",
+    "titleZh": "测试针对不可预见对手的稳健性",
+    "link": "https://openai.com/index/testing-robustness",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-08-22T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve developed a method to assess whether a neural network classifier can reliably defend against adversarial attacks not seen during training. Our method yields a new metric, UAR (Unforeseen Attack Robustness), which evaluates the robustness of a single model against an unanticipated attack, and highlights the need t",
+    "summaryZh": "我们开发了一种方法来评估神经网络分类器是否能够可靠地抵御训练期间未见过的对抗性攻击。我们的方法产生了一个新的指标， UAR （意外攻击鲁棒性） ，它评估了单个模型对意外攻击的鲁棒性，并强调了",
+    "highlights": [
+      "We’ve developed a method to assess whether a neural network classifier can reliably defend against adversarial attacks not seen during training.",
+      "Our method yields a new metric, UAR (Unforeseen Attack Robustness), which evaluates the robustness of a single model against an unanticipated attack, and highlights the need t"
+    ],
+    "highlightsZh": [
+      "我们开发了一种方法来评估神经网络分类器是否能够可靠地抵御训练期间未见过的对抗性攻击。我们的方法产生了一个新的指标， UAR （意外攻击鲁棒性） ，它评估了单个模型对意外攻击的鲁棒性，并强调了"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b45afe9cdf74",
+    "title": "GPT-2: 6-month follow-up",
+    "titleZh": "GPT-2 ： 6个月随访",
+    "link": "https://openai.com/index/gpt-2-6-month-follow-up",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-08-20T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing the 774 million parameter GPT-2 language model after the release of our small 124M model in February, staged release of our medium 355M model in May, and subsequent research with partners and the AI community into the model’s potential for misuse and societal benefit. We’re also releasing an open-source",
+    "summaryZh": "在2月份发布我们的小型1.24亿模型后，我们将发布7.74亿参数的GPT-2语言模型， 5月份分阶段发布我们的中型3.55亿模型，随后与合作伙伴和人工智能社区一起研究该模型的滥用潜力和社会效益。我们还发布了一个开源",
+    "highlights": [
+      "We’re releasing the 774 million parameter GPT-2 language model after the release of our small 124M model in February, staged release of our medium 355M model in May, and subsequent",
+      "We’re also releasing an open-source"
+    ],
+    "highlightsZh": [
+      "在2月份发布我们的小型1.24亿模型后，我们将发布7.74亿参数的GPT-2语言模型， 5月份分阶段发布我们的中型3.55亿模型，随后与合作伙伴和人工智能社区一起研究该模型的滥用潜力和社会效益。我们还发布了一个开源"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开源"
+    ],
+    "score": 86,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "f393d2428f58",
+    "title": "Learning Day",
+    "titleZh": "学习日",
+    "link": "https://openai.com/index/learning-day",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-08-01T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "At OpenAI, each Thursday is Learning Day: a day where employees have the option to self-study technical skills that will make them better at their job but which aren’t being learned from daily work.",
+    "summaryZh": "在OpenAI ，每个星期四都是学习日：在这一天，员工可以选择自学技术技能，这些技能将使他们更好地完成工作，但却无法从日常工作中学习。",
+    "highlights": [
+      "At OpenAI, each Thursday is Learning Day: a day where employees have the option to self-study technical skills that will make them better at their job but which aren’t being learne"
+    ],
+    "highlightsZh": [
+      "在OpenAI ，每个星期四都是学习日：在这一天，员工可以选择自学技术技能，这些技能将使他们更好地完成工作，但却无法从日常工作中学习。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

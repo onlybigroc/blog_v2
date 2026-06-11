@@ -1,0 +1,39 @@
+[
+  {
+    "id": "3fa5924f0528",
+    "title": "Introducing OpenAI",
+    "titleZh": "OpenAI简介",
+    "link": "https://openai.com/index/introducing-openai",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2015-12-11T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI is a non-profit artificial intelligence research company. Our goal is to advance digital intelligence in the way that is most likely to benefit humanity as a whole, unconstrained by a need to generate financial return. Since our research is free from financial obligations, we can better focus on a positive human",
+    "summaryZh": "OpenAI是一家非营利性人工智能研究公司。我们的目标是以最有可能造福全人类的方式推进数字智能，不受产生财务回报的需求的约束。由于我们的研究没有财务义务，因此我们可以更好地关注积极的人类",
+    "highlights": [
+      "OpenAI is a non-profit artificial intelligence research company.",
+      "Our goal is to advance digital intelligence in the way that is most likely to benefit humanity as a whole, unconstrained by a need to generate financial return."
+    ],
+    "highlightsZh": [
+      "OpenAI是一家非营利性人工智能研究公司。我们的目标是以最有可能造福全人类的方式推进数字智能，不受产生财务回报的需求的约束。由于我们的研究没有财务义务，因此我们可以更好地关注积极的人类"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

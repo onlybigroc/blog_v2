@@ -1,0 +1,74 @@
+[
+  {
+    "id": "5aaeda8c927a",
+    "title": "Microsoft invests in and partners with OpenAI to support us building beneficial AGI",
+    "titleZh": "微软投资并与OpenAI合作，支持我们构建有益的AGI",
+    "link": "https://openai.com/index/microsoft-invests-in-and-partners-with-openai",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-07-22T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Microsoft is investing $1 billion in OpenAI to support us building artificial general intelligence (AGI) with widely distributed economic benefits. We’re partnering to develop a hardware and software platform within Microsoft Azure which will scale to AGI. We’ll jointly develop new Azure AI supercomputing technologies,",
+    "summaryZh": "微软正在向OpenAI投资10亿美元($ 1 billion) ，以支持我们构建具有广泛分布的经济效益的通用人工智能(AGI)。我们正在合作在Microsoft Azure内开发一个硬件和软件平台，该平台将扩展到AGI。我们将共同开发新的Azure AI超级计算技术，",
+    "highlights": [
+      "Microsoft is investing $1 billion in OpenAI to support us building artificial general intelligence (AGI) with widely distributed economic benefits.",
+      "We’re partnering to develop a hardware and software platform within Microsoft Azure which will scale to AGI."
+    ],
+    "highlightsZh": [
+      "微软正在向OpenAI投资10亿美元($ 1 billion) ，以支持我们构建具有广泛分布的经济效益的通用人工智能(AGI)。我们正在合作在Microsoft Azure内开发一个硬件和软件平台，该平台将扩展到AGI。我们将共同开发新的Azure AI超级计算技术，"
+    ],
+    "tags": [],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8163f038f67e",
+    "title": "Why responsible AI development needs cooperation on safety",
+    "titleZh": "为什么负责任的人工智能开发需要在安全方面进行合作",
+    "link": "https://openai.com/index/cooperation-on-safety",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-07-10T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve written a policy research paper identifying four strategies that can be used today to improve the likelihood of long-term industry cooperation on safety norms in AI: communicating risks and benefits, technical collaboration, increased transparency, and incentivizing standards. Our analysis shows that industry coo",
+    "summaryZh": "我们撰写了一份政策研究论文，确定了当今可用于提高人工智能安全规范长期行业合作可能性的四种策略：沟通风险和收益、技术合作、提高透明度和激励标准。我们的分析显示，行业COO",
+    "highlights": [
+      "We’ve written a policy research paper identifying four strategies that can be used today to improve the likelihood of long-term industry cooperation on safety norms in AI: communic",
+      "Our analysis shows that industry coo"
+    ],
+    "highlightsZh": [
+      "我们撰写了一份政策研究论文，确定了当今可用于提高人工智能安全规范长期行业合作可能性的四种策略：沟通风险和收益、技术合作、提高透明度和激励标准。我们的分析显示，行业COO"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

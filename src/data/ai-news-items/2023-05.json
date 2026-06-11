@@ -1,0 +1,185 @@
+[
+  {
+    "id": "fc560e48f630",
+    "title": "Improving mathematical reasoning with process supervision",
+    "titleZh": "通过过程监督改进数学推理",
+    "link": "https://openai.com/index/improving-mathematical-reasoning-with-process-supervision",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-05-31T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We've trained a model to achieve a new state-of-the-art in mathematical problem solving by rewarding each correct step of reasoning (“process supervision”) instead of simply rewarding the correct final answer (“outcome supervision”). In addition to boosting performance relative to outcome supervision, process supervisi",
+    "summaryZh": "我们训练了一个模型，通过奖励每个正确的推理步骤（ “过程监督” ） ，而不是简单地奖励正确的最终答案（ “结果监督” ） ，来实现新的最先进的数学问题解决方法。除了提高与结果监督相关的绩效外，流程监督",
+    "highlights": [
+      "We've trained a model to achieve a new state-of-the-art in mathematical problem solving by rewarding each correct step of reasoning (“process supervision”) instead of simply reward",
+      "In addition to boosting performance relative to outcome supervision, process supervisi"
+    ],
+    "highlightsZh": [
+      "我们训练了一个模型，通过奖励每个正确的推理步骤（ “过程监督” ） ，而不是简单地奖励正确的最终答案（ “结果监督” ） ，来实现新的最先进的数学问题解决方法。除了提高与结果监督相关的绩效外，流程监督"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "288f57ae9a98",
+    "title": "Democratic inputs to AI",
+    "titleZh": "对人工智能的民主投入",
+    "link": "https://openai.com/index/democratic-inputs-to-ai",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-05-25T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our nonprofit organization, OpenAI, Inc., is launching a program to award ten $100,000 grants to fund experiments in setting up a democratic process for deciding what rules AI systems should follow, within the bounds defined by the law.",
+    "summaryZh": "我们的非营利组织OpenAI, Inc.正在启动一项计划，在法律规定的范围内，提供10 $ 100,000的赠款，用于资助建立民主程序的实验，以决定人工智能系统应遵循的规则。",
+    "highlights": [
+      "Our nonprofit organization, OpenAI, Inc., is launching a program to award ten $100,000 grants to fund experiments in setting up a democratic process for deciding what rules AI syst"
+    ],
+    "highlightsZh": [
+      "我们的非营利组织OpenAI, Inc.正在启动一项计划，在法律规定的范围内，提供10 $ 100,000的赠款，用于资助建立民主程序的实验，以决定人工智能系统应遵循的规则。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a5fcaa517072",
+    "title": "Governance of superintelligence",
+    "titleZh": "超级智能的治理",
+    "link": "https://openai.com/index/governance-of-superintelligence",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-05-22T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Now is a good time to start thinking about the governance of superintelligence—future AI systems dramatically more capable than even AGI.",
+    "summaryZh": "现在是开始思考超级智能治理的好时机--未来的人工智能系统甚至比AGI更强大。",
+    "highlights": [
+      "Now is a good time to start thinking about the governance of superintelligence—future AI systems dramatically more capable than even AGI."
+    ],
+    "highlightsZh": [
+      "现在是开始思考超级智能治理的好时机--未来的人工智能系统甚至比AGI更强大。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "d352ffcb749a",
+    "title": "Introducing the ChatGPT app for iOS",
+    "titleZh": "推出适用于iOS的ChatGPT应用程序",
+    "link": "https://openai.com/index/introducing-the-chatgpt-app-for-ios",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-05-18T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "The ChatGPT app syncs your conversations, supports voice input, and brings our latest model improvements to your fingertips.",
+    "summaryZh": "ChatGPT应用程序可以同步您的对话，支持语音输入，并将我们最新的模型改进带到您的指尖。",
+    "highlights": [
+      "The ChatGPT app syncs your conversations, supports voice input, and brings our latest model improvements to your fingertips."
+    ],
+    "highlightsZh": [
+      "ChatGPT应用程序可以同步您的对话，支持语音输入，并将我们最新的模型改进带到您的指尖。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 76,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "0031e98f51e1",
+    "title": "Language models can explain neurons in language models",
+    "titleZh": "语言模型可以解释语言模型中的神经元",
+    "link": "https://openai.com/index/language-models-can-explain-neurons-in-language-models",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-05-09T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We use GPT-4 to automatically write explanations for the behavior of neurons in large language models and to score those explanations. We release a dataset of these (imperfect) explanations and scores for every neuron in GPT-2.",
+    "summaryZh": "我们使用GPT-4自动编写大型语言模型中神经元行为的解释，并对这些解释进行评分。我们发布了GPT-2中每个神经元的这些（不完美）解释和分数的数据集。",
+    "highlights": [
+      "We use GPT-4 to automatically write explanations for the behavior of neurons in large language models and to score those explanations.",
+      "We release a dataset of these (imperfect) explanations and scores for every neuron in GPT-2."
+    ],
+    "highlightsZh": [
+      "我们使用GPT-4自动编写大型语言模型中神经元行为的解释，并对这些解释进行评分。我们发布了GPT-2中每个神经元的这些（不完美）解释和分数的数据集。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

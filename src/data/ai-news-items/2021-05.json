@@ -1,0 +1,77 @@
+[
+  {
+    "id": "be5e89a9eb45",
+    "title": "OpenAI Scholars 2021: Final projects",
+    "titleZh": "2021年OpenAI学者：最终项目",
+    "link": "https://openai.com/index/openai-scholars-2021-final-projects",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-05-10T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re proud to announce that the 2021 class of OpenAI Scholars has completed our six-month mentorship program and have produced an open-source research project with stipends and support from OpenAI.",
+    "summaryZh": "我们自豪地宣布， 2021届OpenAI学者已经完成了我们为期六个月的指导计划，并制作了一个由OpenAI提供津贴和支持的开源研究项目。",
+    "highlights": [
+      "We’re proud to announce that the 2021 class of OpenAI Scholars has completed our six-month mentorship program and have produced an open-source research project with stipends and su"
+    ],
+    "highlightsZh": [
+      "我们自豪地宣布， 2021届OpenAI学者已经完成了我们为期六个月的指导计划，并制作了一个由OpenAI提供津贴和支持的开源研究项目。"
+    ],
+    "tags": [
+      "发布",
+      "开源"
+    ],
+    "score": 80,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "5f8437c56d72",
+    "title": "Will Hurd joins OpenAI’s board of directors",
+    "titleZh": "Will Hurd加入OpenAI董事会",
+    "link": "https://openai.com/index/will-hurd-joins",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-05-03T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI is committed to developing general-purpose artificial intelligence that benefits all humanity, and we believe that achieving our goal requires expertise in public policy as well as technology. So, we’re delighted to announce that Congressman Will Hurd has joined our board of directors.",
+    "summaryZh": "OpenAI致力于开发造福全人类的通用人工智能，我们相信，实现我们的目标需要公共政策和技术方面的专业知识。因此，我们很高兴地宣布，国会议员威尔·赫德（ Will Hurd ）已加入我们的董事会。",
+    "highlights": [
+      "OpenAI is committed to developing general-purpose artificial intelligence that benefits all humanity, and we believe that achieving our goal requires expertise in public policy as ",
+      "So, we’re delighted to announce that Congressman Will Hurd has joined our board of directors."
+    ],
+    "highlightsZh": [
+      "OpenAI致力于开发造福全人类的通用人工智能，我们相信，实现我们的目标需要公共政策和技术方面的专业知识。因此，我们很高兴地宣布，国会议员威尔·赫德（ Will Hurd ）已加入我们的董事会。"
+    ],
+    "tags": [
+      "发布",
+      "监管"
+    ],
+    "score": 78,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

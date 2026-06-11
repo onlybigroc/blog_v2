@@ -1,0 +1,458 @@
+[
+  {
+    "id": "e181ae0bae56",
+    "title": "We’re bringing the Financial Times’ world-class journalism to ChatGPT",
+    "titleZh": "我们将《金融时报》的世界级新闻报道引入ChatGPT",
+    "link": "https://openai.com/index/content-partnership-with-financial-times",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-04-29T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We will also collaborate on new AI experiences for FT readers.",
+    "summaryZh": "我们还将合作为《金融时报》读者提供新的人工智能体验。",
+    "highlights": [
+      "We will also collaborate on new AI experiences for FT readers."
+    ],
+    "highlightsZh": [
+      "我们还将合作为《金融时报》读者提供新的人工智能体验。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "42d334bcb04a",
+    "title": "Introducing ChatGPT and Whisper APIs",
+    "titleZh": "ChatGPT和Whisper API简介",
+    "link": "https://openai.com/index/introducing-chatgpt-and-whisper-apis",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-04-24T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b0ff3df37950",
+    "title": "GPT-4 API general availability and deprecation of older models in the Completions API",
+    "titleZh": "Completions API中较旧模型的GPT-4 API一般可用性和弃用",
+    "link": "https://openai.com/index/gpt-4-api-general-availability",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-04-24T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "GPT-3.5 Turbo, DALL·E and Whisper APIs are also generally available, and we are releasing a deprecation plan for older models of the Completions API, which will retire at the beginning of 2024.",
+    "summaryZh": "GPT-3.5 Turbo、DALL · E和Whisper API也已全面推出，我们正在发布旧版Completions API的弃用计划，该计划将于2024年初停用。",
+    "highlights": [
+      "GPT-3.5 Turbo, DALL·E and Whisper APIs are also generally available, and we are releasing a deprecation plan for older models of the Completions API, which will retire at the begin"
+    ],
+    "highlightsZh": [
+      "GPT-3.5 Turbo、DALL · E和Whisper API也已全面推出，我们正在发布旧版Completions API的弃用计划，该计划将于2024年初停用。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "d984b0f96032",
+    "title": "Accelerating the development of life-saving treatments",
+    "titleZh": "加快开发挽救生命的治疗方法",
+    "link": "https://openai.com/index/moderna",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-04-24T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Accelerating the development of life-saving treatments.",
+    "summaryZh": "加快开发挽救生命的治疗方法。",
+    "highlights": [
+      "Accelerating the development of life-saving treatments."
+    ],
+    "highlightsZh": [
+      "加快开发挽救生命的治疗方法。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "aeb06c4d81f1",
+    "title": "Introducing more enterprise-grade features for API customers",
+    "titleZh": "为API客户推出更多企业级功能",
+    "link": "https://openai.com/index/more-enterprise-grade-features-for-api-customers",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-04-23T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Increasing enterprise support with more security features and controls, updates to our Assistants API, and tools to better manage costs.",
+    "summaryZh": "通过更多安全功能和控制、我们的Assistants API更新以及更好地管理成本的工具来增加企业支持。",
+    "highlights": [
+      "Increasing enterprise support with more security features and controls, updates to our Assistants API, and tools to better manage costs."
+    ],
+    "highlightsZh": [
+      "通过更多安全功能和控制、我们的Assistants API更新以及更好地管理成本的工具来增加企业支持。"
+    ],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 82,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "940f53cf38ca",
+    "title": "OpenAI’s commitment to child safety: adopting safety by design principles",
+    "titleZh": "OpenAI对儿童安全的承诺：通过设计原则实现安全",
+    "link": "https://openai.com/index/child-safety-adopting-sbd-principles",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-04-23T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [
+      "监管"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b0446f52c29b",
+    "title": "The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions",
+    "titleZh": "教学层次结构：培训LLM优先考虑特权教学",
+    "link": "https://openai.com/index/the-instruction-hierarchy",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-04-19T19:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Today's LLMs are susceptible to prompt injections, jailbreaks, and other attacks that allow adversaries to overwrite a model's original instructions with their own malicious prompts.",
+    "summaryZh": "今天的LLM容易受到提示注入、越狱和其他攻击，这些攻击允许对手用自己的恶意提示覆盖模型的原始指令。",
+    "highlights": [
+      "Today's LLMs are susceptible to prompt injections, jailbreaks, and other attacks that allow adversaries to overwrite a model's original instructions with their own malicious prompt"
+    ],
+    "highlightsZh": [
+      "今天的LLM容易受到提示注入、越狱和其他攻击，这些攻击允许对手用自己的恶意提示覆盖模型的原始指令。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ec95b0815a6a",
+    "title": "Introducing OpenAI Japan",
+    "titleZh": "OpenAI Japan简介",
+    "link": "https://openai.com/index/introducing-openai-japan",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-04-14T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We are excited to announce our first office in Asia and we’re releasing a GPT-4 custom model optimized for the Japanese language.",
+    "summaryZh": "我们很高兴地宣布我们在亚洲的第一个办事处，我们正在发布针对日语优化的GPT-4定制型号。",
+    "highlights": [
+      "We are excited to announce our first office in Asia and we’re releasing a GPT-4 custom model optimized for the Japanese language."
+    ],
+    "highlightsZh": [
+      "我们很高兴地宣布我们在亚洲的第一个办事处，我们正在发布针对日语优化的GPT-4定制型号。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 80,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "bb4debdd6901",
+    "title": "Klarna's AI assistant does the work of 700 full-time agents",
+    "titleZh": "Klarna的人工智能助理负责700名全职代理的工作",
+    "link": "https://openai.com/index/klarna",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-04-05T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Klarna is using AI to revolutionize personal shopping, customer service, and employee productivity.",
+    "summaryZh": "Klarna正在利用人工智能彻底改变个人购物、客户服务和员工生产力。",
+    "highlights": [
+      "Klarna is using AI to revolutionize personal shopping, customer service, and employee productivity."
+    ],
+    "highlightsZh": [
+      "Klarna正在利用人工智能彻底改变个人购物、客户服务和员工生产力。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 58,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "bb1c5beb9530",
+    "title": "Introducing improvements to the fine-tuning API and expanding our custom models program",
+    "titleZh": "介绍微调API的改进并扩展我们的自定义模型计划",
+    "link": "https://openai.com/index/introducing-improvements-to-the-fine-tuning-api-and-expanding-our-custom-models-program",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-04-04T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re adding new features to help developers have more control over fine-tuning and announcing new ways to build custom models with OpenAI.",
+    "summaryZh": "我们正在添加新功能，以帮助开发人员更好地控制微调，并宣布使用OpenAI构建自定义模型的新方法。",
+    "highlights": [
+      "We’re adding new features to help developers have more control over fine-tuning and announcing new ways to build custom models with OpenAI."
+    ],
+    "highlightsZh": [
+      "我们正在添加新功能，以帮助开发人员更好地控制微调，并宣布使用OpenAI构建自定义模型的新方法。"
+    ],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 86,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ab1106d2a878",
+    "title": "Customizing models for legal professionals",
+    "titleZh": "为法律专业人士定制模型",
+    "link": "https://openai.com/index/harvey",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-04-02T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Harvey partners with OpenAI to build a custom-trained model for legal professionals.",
+    "summaryZh": "Harvey与OpenAI合作，为法律专业人士构建定制培训模型。",
+    "highlights": [
+      "Harvey partners with OpenAI to build a custom-trained model for legal professionals."
+    ],
+    "highlightsZh": [
+      "Harvey与OpenAI合作，为法律专业人士构建定制培训模型。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "9975de5e185b",
+    "title": "Reducing health insurance costs and improving care",
+    "titleZh": "降低健康保险成本并改善护理",
+    "link": "https://openai.com/index/oscar",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-04-01T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Oscar brings AI to health insurance, reducing costs and improving patient care.",
+    "summaryZh": "OSCAR将人工智能引入医疗保险，降低成本并改善患者护理。",
+    "highlights": [
+      "Oscar brings AI to health insurance, reducing costs and improving patient care."
+    ],
+    "highlightsZh": [
+      "OSCAR将人工智能引入医疗保险，降低成本并改善患者护理。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a433a59c63d0",
+    "title": "Start using ChatGPT instantly",
+    "titleZh": "立即开始使用ChatGPT",
+    "link": "https://openai.com/index/start-using-chatgpt-instantly",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-04-01T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re making it easier for people to experience the benefits of AI without needing to sign up",
+    "summaryZh": "我们让人们无需注册即可更轻松地体验人工智能的好处",
+    "highlights": [
+      "We’re making it easier for people to experience the benefits of AI without needing to sign up"
+    ],
+    "highlightsZh": [
+      "我们让人们无需注册即可更轻松地体验人工智能的好处"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "id": "a0490b7a7d51",
+    "title": "Solving Rubik’s Cube with a robot hand",
+    "titleZh": "用机器人手解魔方",
+    "link": "https://openai.com/index/solving-rubiks-cube",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-10-15T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve trained a pair of neural networks to solve the Rubik’s Cube with a human-like robot hand. The neural networks are trained entirely in simulation, using the same reinforcement learning code as OpenAI Five paired with a new technique called Automatic Domain Randomization (ADR). The system can handle situations it n",
+    "summaryZh": "我们训练了一对神经网络，用类似人类的机器人手来解决魔方。神经网络完全在模拟中训练，使用与OpenAI Five相同的强化学习代码，搭配一种名为自动域随机化（ ADR ）的新技术。系统可以处理以下情况：",
+    "highlights": [
+      "We’ve trained a pair of neural networks to solve the Rubik’s Cube with a human-like robot hand.",
+      "The neural networks are trained entirely in simulation, using the same reinforcement learning code as OpenAI Five paired with a new technique called Automatic Domain Randomization "
+    ],
+    "highlightsZh": [
+      "我们训练了一对神经网络，用类似人类的机器人手来解决魔方。神经网络完全在模拟中训练，使用与OpenAI Five相同的强化学习代码，搭配一种名为自动域随机化（ ADR ）的新技术。系统可以处理以下情况："
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "6cc176a0b596",
+    "title": "OpenAI Scholars 2020: Applications open",
+    "titleZh": "OpenAI学者2020 ：开放申请",
+    "link": "https://openai.com/index/openai-scholars-2020",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-10-11T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We are now accepting applications for our third class of OpenAI Scholars.",
+    "summaryZh": "我们现在正在接受第三类OpenAI学者的申请。",
+    "highlights": [
+      "We are now accepting applications for our third class of OpenAI Scholars."
+    ],
+    "highlightsZh": [
+      "我们现在正在接受第三类OpenAI学者的申请。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

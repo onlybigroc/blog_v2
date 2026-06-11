@@ -1,0 +1,107 @@
+[
+  {
+    "id": "b889d1eebfbb",
+    "title": "MuseNet",
+    "titleZh": "",
+    "link": "https://openai.com/index/musenet",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-04-25T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve created MuseNet, a deep neural network that can generate 4-minute musical compositions with 10 different instruments, and can combine styles from country to Mozart to the Beatles. MuseNet was not explicitly programmed with our understanding of music, but instead discovered patterns of harmony, rhythm, and style b",
+    "summaryZh": "我们创建了MuseNet ，这是一个深度神经网络，可以用10种不同的乐器生成4分钟的音乐作品，并可以结合从乡村到莫扎特到披头士的风格。MuseNet没有明确按照我们对音乐的理解进行编程，而是发现了和谐、节奏和风格b的模式",
+    "highlights": [
+      "We’ve created MuseNet, a deep neural network that can generate 4-minute musical compositions with 10 different instruments, and can combine styles from country to Mozart to the Bea",
+      "MuseNet was not explicitly programmed with our understanding of music, but instead discovered patterns of harmony, rhythm, and style b"
+    ],
+    "highlightsZh": [
+      "我们创建了MuseNet ，这是一个深度神经网络，可以用10种不同的乐器生成4分钟的音乐作品，并可以结合从乡村到莫扎特到披头士的风格。MuseNet没有明确按照我们对音乐的理解进行编程，而是发现了和谐、节奏和风格b的模式"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a85fe38670fb",
+    "title": "Generative modeling with sparse transformers",
+    "titleZh": "使用稀疏变压器进行生成建模",
+    "link": "https://openai.com/index/sparse-transformer",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-04-23T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve developed the Sparse Transformer, a deep neural network which sets new records at predicting what comes next in a sequence—whether text, images, or sound. It uses an algorithmic improvement of the attention mechanism to extract patterns from sequences 30x longer than possible previously.",
+    "summaryZh": "我们开发了稀疏变换器（ Sparse Transformer ） ，这是一个深度神经网络，它在预测序列中接下来发生的事情（无论是文本、图像还是声音）方面创造了新的记录。它使用注意力机制的算法改进，从序列中提取模式的时间比以前可能长30倍。",
+    "highlights": [
+      "We’ve developed the Sparse Transformer, a deep neural network which sets new records at predicting what comes next in a sequence—whether text, images, or sound.",
+      "It uses an algorithmic improvement of the attention mechanism to extract patterns from sequences 30x longer than possible previously."
+    ],
+    "highlightsZh": [
+      "我们开发了稀疏变换器（ Sparse Transformer ） ，这是一个深度神经网络，它在预测序列中接下来发生的事情（无论是文本、图像还是声音）方面创造了新的记录。它使用注意力机制的算法改进，从序列中提取模式的时间比以前可能长30倍。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "6d558ad723cb",
+    "title": "OpenAI Five defeats Dota 2 world champions",
+    "titleZh": "OpenAI Five击败Dota 2世界冠军",
+    "link": "https://openai.com/index/openai-five-defeats-dota-2-world-champions",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-04-15T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI Five is the first AI to beat the world champions in an esports game, having won two back-to-back games versus the world champion Dota 2 team, OG, at Finals this weekend. Both OpenAI Five and DeepMind’s AlphaStar had previously beaten good pros privately but lost their live pro matches, making this also the first",
+    "summaryZh": "OpenAI Five是第一个在电子竞技比赛中击败世界冠军的人工智能，本周末在总决赛中与世界冠军Dota 2团队OG赢得了两场背靠背比赛。OpenAI Five和DeepMind的AlphaStar之前都私下击败了优秀的专业人士，但输掉了现场比赛，这也是第一次",
+    "highlights": [
+      "OpenAI Five is the first AI to beat the world champions in an esports game, having won two back-to-back games versus the world champion Dota 2 team, OG, at Finals this weekend.",
+      "Both OpenAI Five and DeepMind’s AlphaStar had previously beaten good pros privately but lost their live pro matches, making this also the first"
+    ],
+    "highlightsZh": [
+      "OpenAI Five是第一个在电子竞技比赛中击败世界冠军的人工智能，本周末在总决赛中与世界冠军Dota 2团队OG赢得了两场背靠背比赛。OpenAI Five和DeepMind的AlphaStar之前都私下击败了优秀的专业人士，但输掉了现场比赛，这也是第一次"
+    ],
+    "tags": [],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

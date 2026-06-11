@@ -1,0 +1,38 @@
+[
+  {
+    "id": "030d5098cabd",
+    "title": "OpenAI Codex",
+    "titleZh": "",
+    "link": "https://openai.com/index/openai-codex",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-08-10T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve created an improved version of OpenAI Codex, our AI system that translates natural language to code, and we are releasing it through our API in private beta starting today.",
+    "summaryZh": "我们创建了OpenAI Codex的改进版本，这是我们将自然语言转换为代码的人工智能系统，我们从今天开始通过我们的API发布私有测试版。",
+    "highlights": [
+      "We’ve created an improved version of OpenAI Codex, our AI system that translates natural language to code, and we are releasing it through our API in private beta starting today."
+    ],
+    "highlightsZh": [
+      "我们创建了OpenAI Codex的改进版本，这是我们将自然语言转换为代码的人工智能系统，我们从今天开始通过我们的API发布私有测试版。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 72,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

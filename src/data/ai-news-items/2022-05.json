@@ -1,0 +1,141 @@
+[
+  {
+    "id": "cf349a186080",
+    "title": "Teaching models to express their uncertainty in words",
+    "titleZh": "用语言表达不确定性的教学模型",
+    "link": "https://openai.com/index/teaching-models-to-express-their-uncertainty-in-words",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-05-28T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "e91d745759ad",
+    "title": "Powering next generation applications with OpenAI Codex",
+    "titleZh": "使用OpenAI Codex为下一代应用提供支持",
+    "link": "https://openai.com/index/codex-apps",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-05-24T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Codex is now powering 70 different applications across a variety of use cases through the OpenAI API.",
+    "summaryZh": "Codex现在通过OpenAI API在各种用例中为70种不同的应用程序提供支持。",
+    "highlights": [
+      "Codex is now powering 70 different applications across a variety of use cases through the OpenAI API."
+    ],
+    "highlightsZh": [
+      "Codex现在通过OpenAI API在各种用例中为70种不同的应用程序提供支持。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "342d357a9d6f",
+    "title": "DALL·E 2 research preview update",
+    "titleZh": "DALL · E 2研究预览更新",
+    "link": "https://openai.com/index/dall-e-2-update",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-05-18T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Early users have created over 3 million images to date and helped us improve our safety processes. We’re excited to begin adding up to 1,000 new users from our waitlist each week.",
+    "summaryZh": "迄今为止，早期用户已创建了300多万张图片，并帮助我们改进了安全流程。我们很高兴每周都能从等待名单中添加多达1,000名新用户。",
+    "highlights": [
+      "Early users have created over 3 million images to date and helped us improve our safety processes.",
+      "We’re excited to begin adding up to 1,000 new users from our waitlist each week."
+    ],
+    "highlightsZh": [
+      "迄今为止，早期用户已创建了300多万张图片，并帮助我们改进了安全流程。我们很高兴每周都能从等待名单中添加多达1,000名新用户。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "863edb3d1a0f",
+    "title": "OpenAI leadership team update",
+    "titleZh": "OpenAI领导团队最新动态",
+    "link": "https://openai.com/index/leadership-team-update",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-05-05T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re happy to announce several executive role changes that reflect our recent progress and will ensure continued momentum toward our next major milestones.",
+    "summaryZh": "我们很高兴地宣布几项高管职位变动，这些变动反映了我们最近的进展，并将确保我们继续朝着下一个重要里程碑迈进。",
+    "highlights": [
+      "We’re happy to announce several executive role changes that reflect our recent progress and will ensure continued momentum toward our next major milestones."
+    ],
+    "highlightsZh": [
+      "我们很高兴地宣布几项高管职位变动，这些变动反映了我们最近的进展，并将确保我们继续朝着下一个重要里程碑迈进。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

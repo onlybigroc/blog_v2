@@ -1,0 +1,922 @@
+[
+  {
+    "id": "9e186a738c0f",
+    "title": "New funding to build towards AGI",
+    "titleZh": "为通用人工智能（ AGI ）提供新资金",
+    "link": "https://openai.com/index/march-funding-updates",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-31T15:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Today we’re announcing new funding—$40B at a $300B post-money valuation, which enables us to push the frontiers of AI research even further, scale our compute infrastructure, and deliver increasingly powerful tools for the 500 million people who use ChatGPT every week.",
+    "summaryZh": "今天，我们宣布以3000亿美元的资金后估值获得400亿美元的新资金，这使我们能够进一步推动人工智能研究的前沿，扩展我们的计算基础设施，并为每周使用ChatGPT的5亿人提供越来越强大的工具。",
+    "highlights": [
+      "Today we’re announcing new funding—$40B at a $300B post-money valuation, which enables us to push the frontiers of AI research even further, scale our compute infrastructure, and d"
+    ],
+    "highlightsZh": [
+      "今天，我们宣布以3000亿美元的资金后估值获得400亿美元的新资金，这使我们能够进一步推动人工智能研究的前沿，扩展我们的计算基础设施，并为每周使用ChatGPT的5亿人提供越来越强大的工具。"
+    ],
+    "tags": [
+      "资本",
+      "算力"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "1546edff0e08",
+    "title": "Moving from intent-based bots to proactive AI agents",
+    "titleZh": "从基于意图的机器人转变为主动的人工智能代理",
+    "link": "https://openai.com/index/zendesk",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-27T09:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Moving from intent-based bots to proactive AI agents.",
+    "summaryZh": "从基于意图的机器人转变为主动的人工智能代理。",
+    "highlights": [
+      "Moving from intent-based bots to proactive AI agents."
+    ],
+    "highlightsZh": [
+      "从基于意图的机器人转变为主动的人工智能代理。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 58,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "93ab52ac25cc",
+    "title": "Security on the path to AGI",
+    "titleZh": "通往AGI之路的安全性",
+    "link": "https://openai.com/index/security-on-the-path-to-agi",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-26T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "At OpenAI, we proactively adapt, including by building comprehensive security measures directly into our infrastructure and models.",
+    "summaryZh": "在OpenAI ，我们积极主动地进行调整，包括将全面的安全措施直接构建到我们的基础设施和模型中。",
+    "highlights": [
+      "At OpenAI, we proactively adapt, including by building comprehensive security measures directly into our infrastructure and models."
+    ],
+    "highlightsZh": [
+      "在OpenAI ，我们积极主动地进行调整，包括将全面的安全措施直接构建到我们的基础设施和模型中。"
+    ],
+    "tags": [
+      "算力"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "04253db32950",
+    "title": "Gemini 2.5: Our most intelligent AI model",
+    "titleZh": "Gemini 2.5 ：我们最智能的人工智能模型",
+    "link": "https://deepmind.google/blog/gemini-2-5-our-most-intelligent-ai-model/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-03-25T17:00:36.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Gemini 2.5 is our most intelligent AI model, now with thinking built in.",
+    "summaryZh": "Gemini 2.5是我们最智能的人工智能模型，现在内置了思维。",
+    "highlights": [
+      "Gemini 2.5 is our most intelligent AI model, now with thinking built in."
+    ],
+    "highlightsZh": [
+      "Gemini 2.5是我们最智能的人工智能模型，现在内置了思维。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-05-07T08:01:26.961Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "Gemini 2.5 ：我们最智能的人工智能模型"
+  },
+  {
+    "id": "6f9184c1fa88",
+    "title": "Introducing 4o Image Generation",
+    "titleZh": "40°图像生成简介",
+    "link": "https://openai.com/index/introducing-4o-image-generation",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-25T11:05:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "At OpenAI, we have long believed image generation should be a primary capability of our language models. That’s why we’ve built our most advanced image generator yet into GPT‑4o. The result—image generation that is not only beautiful, but useful.",
+    "summaryZh": "在OpenAI ，我们一直认为图像生成应该是我们语言模型的主要功能。这就是为什么我们在GPT-4o中构建了迄今为止最先进的图像生成器。结果图像生成不仅美观，而且有用。",
+    "highlights": [
+      "At OpenAI, we have long believed image generation should be a primary capability of our language models.",
+      "That’s why we’ve built our most advanced image generator yet into GPT‑4o."
+    ],
+    "highlightsZh": [
+      "在OpenAI ，我们一直认为图像生成应该是我们语言模型的主要功能。这就是为什么我们在GPT-4o中构建了迄今为止最先进的图像生成器。结果图像生成不仅美观，而且有用。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "700d9823667c",
+    "title": "Addendum to GPT-4o System Card: 4o image generation",
+    "titleZh": "GPT-4o系统卡附录： 40o图像生成",
+    "link": "https://openai.com/index/gpt-4o-image-generation-system-card-addendum",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-25T11:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "4o image generation is a new, significantly more capable image generation approach than our earlier DALL·E 3 series of models. It can create photorealistic output. It can take images as inputs and transform them.",
+    "summaryZh": "与我们早期的DALL · E 3系列模型相比， 4o图像生成是一种新的、功能更强大的图像生成方法。它可以创建逼真的输出。它可以将图像作为输入并进行转换。",
+    "highlights": [
+      "4o image generation is a new, significantly more capable image generation approach than our earlier DALL·E 3 series of models.",
+      "It can create photorealistic output."
+    ],
+    "highlightsZh": [
+      "与我们早期的DALL · E 3系列模型相比， 4o图像生成是一种新的、功能更强大的图像生成方法。它可以创建逼真的输出。它可以将图像作为输入并进行转换。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3ba0084eaf44",
+    "title": "Automating 90% of finance and legal work with agents",
+    "titleZh": "与代理商自动完成90%的财务和法律工作",
+    "link": "https://openai.com/index/hebbia",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-25T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Hebbia’s deep research automates 90% of finance and legal work, powered by OpenAI",
+    "summaryZh": "Hebbia的深入研究自动化了90 ％的财务和法律工作，由OpenAI提供支持",
+    "highlights": [
+      "Hebbia’s deep research automates 90% of finance and legal work, powered by OpenAI"
+    ],
+    "highlightsZh": [
+      "Hebbia的深入研究自动化了90 ％的财务和法律工作，由OpenAI提供支持"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "02f908e34540",
+    "title": "Scaling the OpenAI Academy",
+    "titleZh": "扩展OpenAI学院",
+    "link": "https://openai.com/global-affairs/scaling-the-openai-academy",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-25T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Online resource hub will support AI literacy and help people from all backgrounds access tools, best practices, and peer insights to use AI.",
+    "summaryZh": "在线资源中心将支持人工智能素养，并帮助来自各种背景的人使用人工智能工具、最佳实践和同行见解。",
+    "highlights": [
+      "Online resource hub will support AI literacy and help people from all backgrounds access tools, best practices, and peer insights to use AI."
+    ],
+    "highlightsZh": [
+      "在线资源中心将支持人工智能素养，并帮助来自各种背景的人使用人工智能工具、最佳实践和同行见解。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "扩展OpenAI学院"
+  },
+  {
+    "id": "7c6a8942986f",
+    "title": "Leadership updates",
+    "titleZh": "领导层最新动态",
+    "link": "https://openai.com/index/leadership-updates-march-2025",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-24T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI has grown a lot. We remain focused on the same core—pursuing frontier AI research that accelerates human progress–but we now also deliver products used by hundreds of millions of people.",
+    "summaryZh": "OpenAI已经发展了很多。我们仍然专注于加速人类进步的核心前沿人工智能研究，但我们现在也提供数亿人使用的产品。",
+    "highlights": [
+      "We remain focused on the same core—pursuing frontier AI research that accelerates human progress–but we now also deliver products used by hundreds of millions of people."
+    ],
+    "highlightsZh": [
+      "OpenAI已经发展了很多。我们仍然专注于加速人类进步的核心前沿人工智能研究，但我们现在也提供数亿人使用的产品。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ae6f9b081876",
+    "title": "Early methods for studying affective use and emotional well-being on ChatGPT",
+    "titleZh": "在ChatGPT上研究情感使用和情感幸福感的早期方法",
+    "link": "https://openai.com/index/affective-use-study",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-21T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "An OpenAI and MIT Media Lab Research collaboration.",
+    "summaryZh": "OpenAI和麻省理工学院媒体实验室研究合作。",
+    "highlights": [
+      "An OpenAI and MIT Media Lab Research collaboration."
+    ],
+    "highlightsZh": [
+      "OpenAI和麻省理工学院媒体实验室研究合作。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "6895bef89547",
+    "title": "Personalizing travel at scale with OpenAI",
+    "titleZh": "使用OpenAI实现大规模个性化旅行",
+    "link": "https://openai.com/index/booking-com",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-20T23:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "By integrating its data systems with OpenAI’s LLMs, Booking.com delivers smarter search, faster support, and intent-driven travel experiences.",
+    "summaryZh": "通过将其数据系统与OpenAI的LLM集成， Booking.com提供了更智能的搜索、更快的支持和意图驱动的旅行体验。",
+    "highlights": [
+      "By integrating its data systems with OpenAI’s LLMs, Booking.com delivers smarter search, faster support, and intent-driven travel experiences."
+    ],
+    "highlightsZh": [
+      "通过将其数据系统与OpenAI的LLM集成， Booking.com提供了更智能的搜索、更快的支持和意图驱动的旅行体验。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4fc436a4d689",
+    "title": "Introducing next-generation audio models in the API",
+    "titleZh": "在API中引入下一代音频模型",
+    "link": "https://openai.com/index/introducing-our-next-generation-audio-models",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-20T11:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "For the first time, developers can also instruct the text-to-speech model to speak in a specific way—for example, “talk like a sympathetic customer service agent”—unlocking a new level of customization for voice agents.",
+    "summaryZh": "开发人员还可以首次指示文本转语音模型以特定方式说话-例如， “像富有同情心的客户服务代理一样说话” -为语音代理解锁了新的定制级别。",
+    "highlights": [
+      "For the first time, developers can also instruct the text-to-speech model to speak in a specific way—for example, “talk like a sympathetic customer service agent”—unlocking a new l"
+    ],
+    "highlightsZh": [
+      "开发人员还可以首次指示文本转语音模型以特定方式说话-例如， “像富有同情心的客户服务代理一样说话” -为语音代理解锁了新的定制级别。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具"
+    ],
+    "score": 102,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "d3cb5d4d8166",
+    "title": "EliseAI improves housing and healthcare efficiency with AI",
+    "titleZh": "EliseAI通过人工智能提高住房和医疗保健效率",
+    "link": "https://openai.com/index/eliseai-minna-song",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-18T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "A conversation with Minna Song, CEO & Co-founder of EliseAI.",
+    "summaryZh": "与EliseAI首席执行官兼联合创始人Minna Song的对话。",
+    "highlights": [
+      "A conversation with Minna Song, CEO & Co-founder of EliseAI."
+    ],
+    "highlightsZh": [
+      "与EliseAI首席执行官兼联合创始人Minna Song的对话。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "40032288ed8d",
+    "title": "New in ChatGPT for Business: March 2025",
+    "titleZh": "ChatGPT for Business新功能： 2025年3月",
+    "link": "https://openai.com/business/new-in-chatgpt-for-work-march-updates-2025",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-18T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Join us as we share our latest releases and how ChatGPT is becoming more interactive, customized to the way your teams work, and agentic.",
+    "summaryZh": "加入我们，分享我们的最新版本，以及ChatGPT如何变得更具互动性、根据您的团队工作方式定制和代理。",
+    "highlights": [
+      "Join us as we share our latest releases and how ChatGPT is becoming more interactive, customized to the way your teams work, and agentic."
+    ],
+    "highlightsZh": [
+      "加入我们，分享我们的最新版本，以及ChatGPT如何变得更具互动性、根据您的团队工作方式定制和代理。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 76,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8946837d5a54",
+    "title": "The court rejects Elon’s latest attempt to slow OpenAI down",
+    "titleZh": "法院驳回了Elon放慢OpenAI速度的最新企图",
+    "link": "https://openai.com/index/court-rejects-elon",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-14T09:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We welcome the court’s March 4, 2025, decision rejecting Elon Musk’s latest attempt to slow down OpenAI for his personal benefit.",
+    "summaryZh": "我们欢迎法院2025年3月4日的决定，该决定拒绝了埃隆·马斯克（ Elon Musk ）为了个人利益而放慢OpenAI的最新企图。",
+    "highlights": [
+      "We welcome the court’s March 4, 2025, decision rejecting Elon Musk’s latest attempt to slow down OpenAI for his personal benefit."
+    ],
+    "highlightsZh": [
+      "我们欢迎法院2025年3月4日的决定，该决定拒绝了埃隆·马斯克（ Elon Musk ）为了个人利益而放慢OpenAI的最新企图。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "cb97a93cb5de",
+    "title": "OpenAI’s proposals for the U.S. AI Action Plan",
+    "titleZh": "OpenAI对美国人工智能行动计划的建议",
+    "link": "https://openai.com/global-affairs/openai-proposals-for-the-us-ai-action-plan",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-13T03:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Recommendations build on OpenAI’s Economic Blueprint to strengthen America’s AI leadership.",
+    "summaryZh": "建议基于OpenAI的经济蓝图，以加强美国的人工智能领导地位。",
+    "highlights": [
+      "Recommendations build on OpenAI’s Economic Blueprint to strengthen America’s AI leadership."
+    ],
+    "highlightsZh": [
+      "建议基于OpenAI的经济蓝图，以加强美国的人工智能领导地位。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-05-07T08:01:26.961Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "OpenAI对美国人工智能行动计划的建议"
+  },
+  {
+    "id": "511c45186436",
+    "title": "Driving growth and ‘WOW’ moments with OpenAI",
+    "titleZh": "使用OpenAI推动增长和“哇”时刻",
+    "link": "https://openai.com/index/ly-corporation",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-12T18:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "LY Corporation: Driving growth and ‘WOW’ moments with OpenAI",
+    "summaryZh": "LY Corporation ：通过OpenAI推动增长和“哇”时刻",
+    "highlights": [
+      "LY Corporation: Driving growth and ‘WOW’ moments with OpenAI"
+    ],
+    "highlightsZh": [
+      "LY Corporation ：通过OpenAI推动增长和“哇”时刻"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "89c36397dc80",
+    "title": "Gemini Robotics brings AI into the physical world",
+    "titleZh": "Gemini Robotics将人工智能带入物理世界",
+    "link": "https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-03-12T15:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Introducing Gemini Robotics and Gemini Robotics-ER, AI models designed for robots to understand, act and react to the physical world.",
+    "summaryZh": "推出Gemini Robotics和Gemini Robotics-ER ，这是专为机器人理解、行动和应对物理世界而设计的人工智能模型。",
+    "highlights": [
+      "Introducing Gemini Robotics and Gemini Robotics-ER, AI models designed for robots to understand, act and react to the physical world."
+    ],
+    "highlightsZh": [
+      "推出Gemini Robotics和Gemini Robotics-ER ，这是专为机器人理解、行动和应对物理世界而设计的人工智能模型。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-05-07T08:01:26.961Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "Gemini Robotics将人工智能带入物理世界"
+  },
+  {
+    "id": "6e0338dab9a4",
+    "title": "Experiment with Gemini 2.0 Flash native image generation",
+    "titleZh": "Gemini 2.0 Flash原生图像生成实验",
+    "link": "https://deepmind.google/blog/experiment-with-gemini-20-flash-native-image-generation/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-03-12T14:58:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Native image output is available in Gemini 2.0 Flash for developers to experiment with in Google AI Studio and the Gemini API.",
+    "summaryZh": "原生图像输出在Gemini 2.0 Flash中提供，供开发人员在Google AI Studio和Gemini API中进行实验。",
+    "highlights": [
+      "Native image output is available in Gemini 2.0 Flash for developers to experiment with in Google AI Studio and the Gemini API."
+    ],
+    "highlightsZh": [
+      "原生图像输出在Gemini 2.0 Flash中提供，供开发人员在Google AI Studio和Gemini API中进行实验。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-05-07T08:01:26.961Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "Gemini 2.0 Flash原生图像生成实验"
+  },
+  {
+    "id": "5005bf36c350",
+    "title": "Introducing Gemma 3",
+    "titleZh": "隆重推出Gemma 3",
+    "link": "https://deepmind.google/blog/introducing-gemma-3/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-03-12T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "The most capable model you can run on a single GPU or TPU.",
+    "summaryZh": "您可以在单个GPU或TPU上运行的最强大的型号。",
+    "highlights": [
+      "The most capable model you can run on a single GPU or TPU."
+    ],
+    "highlightsZh": [
+      "您可以在单个GPU或TPU上运行的最强大的型号。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "算力"
+    ],
+    "score": 82,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-05-07T08:01:26.961Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "隆重推出Gemma 3"
+  },
+  {
+    "id": "042d99531630",
+    "title": "New tools for building agents",
+    "titleZh": "建筑代理的新工具",
+    "link": "https://openai.com/index/new-tools-for-building-agents",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-11T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [
+      "模型"
+    ],
+    "score": 58,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "9460450fee4d",
+    "title": "Detecting misbehavior in frontier reasoning models",
+    "titleZh": "检测前沿推理模型中的不当行为",
+    "link": "https://openai.com/index/chain-of-thought-monitoring",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-10T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Frontier reasoning models exploit loopholes when given the chance. We show we can detect exploits using an LLM to monitor their chains-of-thought. Penalizing their “bad thoughts” doesn’t stop the majority of misbehavior—it makes them hide their intent.",
+    "summaryZh": "前沿推理模型在有机会时会利用漏洞。我们表明，我们可以使用LLM来检测漏洞利用，以监控他们的思维链。惩罚他们的「不良想法」并不能阻止大多数不当行为，这会让他们隐藏自己的意图。",
+    "highlights": [
+      "Frontier reasoning models exploit loopholes when given the chance.",
+      "We show we can detect exploits using an LLM to monitor their chains-of-thought."
+    ],
+    "highlightsZh": [
+      "前沿推理模型在有机会时会利用漏洞。我们表明，我们可以使用LLM来检测漏洞利用，以监控他们的思维链。惩罚他们的「不良想法」并不能阻止大多数不当行为，这会让他们隐藏自己的意图。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a02f59fcc6f5",
+    "title": "Nubank elevates customer experiences with OpenAI",
+    "titleZh": "Nubank借助OpenAI提升客户体验",
+    "link": "https://openai.com/index/nubank",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-07T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Nubank elevates customer experiences with OpenAI",
+    "summaryZh": "Nubank借助OpenAI提升客户体验",
+    "highlights": [
+      "Nubank elevates customer experiences with OpenAI"
+    ],
+    "highlightsZh": [
+      "Nubank借助OpenAI提升客户体验"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "974b565f4d1f",
+    "title": "Accelerating engineering cycles 20% with OpenAI",
+    "titleZh": "使用OpenAI加快20%的工程周期",
+    "link": "https://openai.com/index/factory",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-06T09:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Accelerating engineering cycles 20% with OpenAI.",
+    "summaryZh": "使用OpenAI加快20%的工程周期。",
+    "highlights": [
+      "Accelerating engineering cycles 20% with OpenAI."
+    ],
+    "highlightsZh": [
+      "使用OpenAI加快20%的工程周期。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c6f928dc2138",
+    "title": "LaunchDarkly's approach to AI-powered product management",
+    "titleZh": "LaunchDarkly的人工智能产品管理方法",
+    "link": "https://openai.com/index/launchdarkly-claire-vo",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-04T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "A conversation with Claire Vo, Chief Product Officer of LaunchDarkly, about the changing role of product managers, her anti-to-do list, and building AI-native teams.",
+    "summaryZh": "与LaunchDarkly首席产品官Claire Vo就产品经理不断变化的角色、她的反待办事项清单以及建立人工智能原生团队进行了对话。",
+    "highlights": [
+      "A conversation with Claire Vo, Chief Product Officer of LaunchDarkly, about the changing role of product managers, her anti-to-do list, and building AI-native teams."
+    ],
+    "highlightsZh": [
+      "与LaunchDarkly首席产品官Claire Vo就产品经理不断变化的角色、她的反待办事项清单以及建立人工智能原生团队进行了对话。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "876e271deeb2",
+    "title": "Introducing NextGenAI",
+    "titleZh": "NextGenAI简介",
+    "link": "https://openai.com/index/introducing-nextgenai",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-03-04T06:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI commits $50M in funding and tools to leading institutions.",
+    "summaryZh": "OpenAI承诺向领先机构提供5000万美元的资金和工具。",
+    "highlights": [
+      "OpenAI commits $50M in funding and tools to leading institutions."
+    ],
+    "highlightsZh": [
+      "OpenAI承诺向领先机构提供5000万美元的资金和工具。"
+    ],
+    "tags": [
+      "发布",
+      "资本"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

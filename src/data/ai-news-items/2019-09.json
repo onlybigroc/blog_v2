@@ -1,0 +1,76 @@
+[
+  {
+    "id": "232aa00106a0",
+    "title": "Fine-tuning GPT-2 from human preferences",
+    "titleZh": "根据人类偏好微调GPT-2",
+    "link": "https://openai.com/index/fine-tuning-gpt-2",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-09-19T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve fine-tuned the 774M parameter GPT-2 language model using human feedback for various tasks, successfully matching the preferences of the external human labelers, though those preferences did not always match our own. Specifically, for summarization tasks the labelers preferred sentences copied wholesale from the i",
+    "summaryZh": "我们使用人类对各种任务的反馈来微调774M参数GPT-2语言模型，成功地匹配了外部人类标签员的偏好，尽管这些偏好并不总是与我们自己的偏好相匹配。具体来说，对于总结任务，标签者首选的句子是从",
+    "highlights": [
+      "We’ve fine-tuned the 774M parameter GPT-2 language model using human feedback for various tasks, successfully matching the preferences of the external human labelers, though those ",
+      "Specifically, for summarization tasks the labelers preferred sentences copied wholesale from the i"
+    ],
+    "highlightsZh": [
+      "我们使用人类对各种任务的反馈来微调774M参数GPT-2语言模型，成功地匹配了外部人类标签员的偏好，尽管这些偏好并不总是与我们自己的偏好相匹配。具体来说，对于总结任务，标签者首选的句子是从"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "e81be556726a",
+    "title": "Emergent tool use from multi-agent interaction",
+    "titleZh": "多客服代表互动中紧急使用的工具",
+    "link": "https://openai.com/index/emergent-tool-use",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-09-17T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve observed agents discovering progressively more complex tool use while playing a simple game of hide-and-seek. Through training in our new simulated hide-and-seek environment, agents build a series of six distinct strategies and counterstrategies, some of which we did not know our environment supported. The self-s",
+    "summaryZh": "我们观察到代理在玩简单的捉迷藏游戏时发现了越来越复杂的工具使用。通过在我们新的模拟捉迷藏环境中进行培训，代理构建了一系列六种不同的策略和反策略，其中一些我们不知道我们的环境支持。",
+    "highlights": [
+      "We’ve observed agents discovering progressively more complex tool use while playing a simple game of hide-and-seek.",
+      "Through training in our new simulated hide-and-seek environment, agents build a series of six distinct strategies and counterstrategies, some of which we did not know our environme"
+    ],
+    "highlightsZh": [
+      "我们观察到代理在玩简单的捉迷藏游戏时发现了越来越复杂的工具使用。通过在我们新的模拟捉迷藏环境中进行培训，代理构建了一系列六种不同的策略和反策略，其中一些我们不知道我们的环境支持。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 72,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

@@ -1,0 +1,141 @@
+[
+  {
+    "id": "07d94d6636db",
+    "title": "New GPT-3 capabilities: Edit & insert",
+    "titleZh": "新的GPT-3功能：编辑和插入",
+    "link": "https://openai.com/index/gpt-3-edit-insert",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-03-15T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve released new versions of GPT-3 and Codex which can edit or insert content into existing text, rather than just completing existing text.",
+    "summaryZh": "我们发布了新版本的GPT-3和Codex ，它们可以编辑内容或将内容插入到现有文本中，而不仅仅是完成现有文本。",
+    "highlights": [
+      "We’ve released new versions of GPT-3 and Codex which can edit or insert content into existing text, rather than just completing existing text."
+    ],
+    "highlightsZh": [
+      "我们发布了新版本的GPT-3和Codex ，它们可以编辑内容或将内容插入到现有文本中，而不仅仅是完成现有文本。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "728b69f721a8",
+    "title": "Lessons learned on language model safety and misuse",
+    "titleZh": "关于语言模型安全性和滥用的经验教训",
+    "link": "https://openai.com/index/language-model-safety-and-misuse",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-03-03T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We describe our latest thinking in the hope of helping other AI developers address safety and misuse of deployed models.",
+    "summaryZh": "我们描述我们的最新想法，希望帮助其他人工智能开发人员解决部署模型的安全性和滥用问题。",
+    "highlights": [
+      "We describe our latest thinking in the hope of helping other AI developers address safety and misuse of deployed models."
+    ],
+    "highlightsZh": [
+      "我们描述我们的最新想法，希望帮助其他人工智能开发人员解决部署模型的安全性和滥用问题。"
+    ],
+    "tags": [
+      "模型",
+      "监管"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a9f55ef34c87",
+    "title": "A research agenda for assessing the economic impacts of code generation models",
+    "titleZh": "评估代码生成模型经济影响的研究议程",
+    "link": "https://openai.com/index/economic-impacts-research",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-03-03T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "d3a9fe6ab427",
+    "title": "Economic impacts research at OpenAI",
+    "titleZh": "OpenAI的经济影响研究",
+    "link": "https://openai.com/index/economic-impacts",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-03-03T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Call for expressions of interest to study the economic impacts of large language models.",
+    "summaryZh": "呼吁表达兴趣，以研究大型语言模型的经济影响。",
+    "highlights": [
+      "Call for expressions of interest to study the economic impacts of large language models."
+    ],
+    "highlightsZh": [
+      "呼吁表达兴趣，以研究大型语言模型的经济影响。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

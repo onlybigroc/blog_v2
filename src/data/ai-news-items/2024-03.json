@@ -1,0 +1,568 @@
+[
+  {
+    "id": "4f5ff55c8b44",
+    "title": "Navigating the challenges and opportunities of synthetic voices",
+    "titleZh": "驾驭合成声音的挑战和机遇",
+    "link": "https://openai.com/index/navigating-the-challenges-and-opportunities-of-synthetic-voices",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-29T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re sharing lessons from a small scale preview of Voice Engine, a model for creating custom voices.",
+    "summaryZh": "我们正在分享Voice Engine小规模预览的经验教训， Voice Engine是创建自定义语音的模型。",
+    "highlights": [
+      "We’re sharing lessons from a small scale preview of Voice Engine, a model for creating custom voices."
+    ],
+    "highlightsZh": [
+      "我们正在分享Voice Engine小规模预览的经验教训， Voice Engine是创建自定义语音的模型。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 58,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ddd95c940544",
+    "title": "Making education data accessible",
+    "titleZh": "让更多人获得教育",
+    "link": "https://openai.com/index/zelma",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-28T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Zelma uses GPT-4 to make education data accessible.",
+    "summaryZh": "Zelma使用GPT-4来访问教育数据。",
+    "highlights": [
+      "Zelma uses GPT-4 to make education data accessible."
+    ],
+    "highlightsZh": [
+      "Zelma使用GPT-4来访问教育数据。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "bab8d59e274a",
+    "title": "OpenAI’s comment to the NTIA on open model weights",
+    "titleZh": "OpenAI对NTIA关于开放模型权重的评论",
+    "link": "https://openai.com/global-affairs/openai-s-comment-to-the-ntia-on-open-model-weights",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-27T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI’s comment to the NTIA on open model weights This comment was submitted by OpenAI in response to NTIA’s March 2024 Request for Information on Dual-Use Foundation Models with Widely Available Weights.",
+    "summaryZh": "OpenAI对NTIA关于开放模型权重的评论此评论由OpenAI提交，以回应NTIA于2024年3月提出的关于具有广泛可用权重的双重用途基础模型的信息请求。",
+    "highlights": [
+      "OpenAI’s comment to the NTIA on open model weights This comment was submitted by OpenAI in response to NTIA’s March 2024 Request for Information on Dual-Use Foundation Models with "
+    ],
+    "highlightsZh": [
+      "OpenAI对NTIA关于开放模型权重的评论此评论由OpenAI提交，以回应NTIA于2024年3月提出的关于具有广泛可用权重的双重用途基础模型的信息请求。"
+    ],
+    "tags": [
+      "模型",
+      "开源"
+    ],
+    "score": 76,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "OpenAI对NTIA关于开放模型权重的评论"
+  },
+  {
+    "id": "ede2e09c2b21",
+    "title": "Sora first impressions",
+    "titleZh": "第一印象",
+    "link": "https://openai.com/index/sora-first-impressions",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-25T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Since we introduced Sora to the world last month, we’ve been working with artists to learn how Sora might aid in their creative process.",
+    "summaryZh": "自从我们上个月将Sora推向世界以来，我们一直在与艺术家合作，了解Sora如何帮助他们的创作过程。",
+    "highlights": [
+      "Since we introduced Sora to the world last month, we’ve been working with artists to learn how Sora might aid in their creative process."
+    ],
+    "highlightsZh": [
+      "自从我们上个月将Sora推向世界以来，我们一直在与艺术家合作，了解Sora如何帮助他们的创作过程。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "5cfdda08d838",
+    "title": "Embedding AI into developer software",
+    "titleZh": "将AI嵌入到开发人员软件中",
+    "link": "https://openai.com/index/jetbrains",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-21T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "JetBrains uses OpenAI’s API to build its fastest-growing product ever.",
+    "summaryZh": "JetBrains使用OpenAI的API构建其有史以来增长最快的产品。",
+    "highlights": [
+      "JetBrains uses OpenAI’s API to build its fastest-growing product ever."
+    ],
+    "highlightsZh": [
+      "JetBrains使用OpenAI的API构建其有史以来增长最快的产品。"
+    ],
+    "tags": [
+      "模型",
+      "开发工具"
+    ],
+    "score": 78,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4be87351b78d",
+    "title": "Reimagining the email experience with AI",
+    "titleZh": "用人工智能重新构想电子邮件体验",
+    "link": "https://openai.com/index/superhuman",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-18T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Superhuman introduces a new era of email with OpenAI.",
+    "summaryZh": "Superhuman通过OpenAI引入了电子邮件的新时代。",
+    "highlights": [
+      "Superhuman introduces a new era of email with OpenAI."
+    ],
+    "highlightsZh": [
+      "Superhuman通过OpenAI引入了电子邮件的新时代。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "485516201ca2",
+    "title": "Enterprise-ready trust and safety",
+    "titleZh": "企业级信任与安全",
+    "link": "https://openai.com/index/salesforce",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-18T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Salesforce integrates OpenAI’s enterprise-ready LLMs to transform customer applications.",
+    "summaryZh": "Salesforce集成了OpenAI的企业级LLM ，以转变客户应用程序。",
+    "highlights": [
+      "Salesforce integrates OpenAI’s enterprise-ready LLMs to transform customer applications."
+    ],
+    "highlightsZh": [
+      "Salesforce集成了OpenAI的企业级LLM ，以转变客户应用程序。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "dcf77a0a4ad9",
+    "title": "Building a data-driven, efficient culture with AI",
+    "titleZh": "利用人工智能构建数据驱动的高效文化",
+    "link": "https://openai.com/index/holiday-extras",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-18T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Holiday Extras rolls out ChatGPT Enterprise across every team, boosting productivity by 500 hours weekly.",
+    "summaryZh": "Holiday Extras在每个团队中推出ChatGPT Enterprise ，每周将工作效率提高500小时。",
+    "highlights": [
+      "Holiday Extras rolls out ChatGPT Enterprise across every team, boosting productivity by 500 hours weekly."
+    ],
+    "highlightsZh": [
+      "Holiday Extras在每个团队中推出ChatGPT Enterprise ，每周将工作效率提高500小时。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3b4bc5df89bd",
+    "title": "Saving lives with AI health coaching",
+    "titleZh": "通过人工智能健康教练挽救生命",
+    "link": "https://openai.com/index/healthify",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-13T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Healthify collaborates with OpenAI to improve millions of lives with sustainable weight loss.",
+    "summaryZh": "Healthify与OpenAI合作，通过可持续减肥改善数百万人的生活。",
+    "highlights": [
+      "Healthify collaborates with OpenAI to improve millions of lives with sustainable weight loss."
+    ],
+    "highlightsZh": [
+      "Healthify与OpenAI合作，通过可持续减肥改善数百万人的生活。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3735d25a0249",
+    "title": "Global news partnerships: Le Monde and Prisa Media",
+    "titleZh": "全球新闻合作伙伴： Le Monde和Prisa Media",
+    "link": "https://openai.com/index/global-news-partnerships-le-monde-and-prisa-media",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-13T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We have partnered with international news organizations Le Monde and Prisa Media to bring French and Spanish news content to ChatGPT.",
+    "summaryZh": "我们与国际新闻机构Le Monde和Prisa Media合作，将法语和西班牙语新闻内容带入ChatGPT。",
+    "highlights": [
+      "We have partnered with international news organizations Le Monde and Prisa Media to bring French and Spanish news content to ChatGPT."
+    ],
+    "highlightsZh": [
+      "我们与国际新闻机构Le Monde和Prisa Media合作，将法语和西班牙语新闻内容带入ChatGPT。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ffb7722b0906",
+    "title": "Review completed & Altman, Brockman to continue to lead OpenAI",
+    "titleZh": "审核已完成， Altman, Brockman将继续领导OpenAI",
+    "link": "https://openai.com/index/review-completed-altman-brockman-to-continue-to-lead-openai",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-08T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "New board members named and enhancements to the governance structure introduced",
+    "summaryZh": "任命新董事会成员并引入治理结构增强措施",
+    "highlights": [
+      "New board members named and enhancements to the governance structure introduced"
+    ],
+    "highlightsZh": [
+      "任命新董事会成员并引入治理结构增强措施"
+    ],
+    "tags": [
+      "发布",
+      "监管"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "22016b740015",
+    "title": "OpenAI announces new members to board of directors",
+    "titleZh": "OpenAI宣布董事会新成员",
+    "link": "https://openai.com/index/openai-announces-new-members-to-board-of-directors",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-08T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Dr. Sue Desmond-Hellmann, Nicole Seligman, Fidji Simo join; Sam Altman rejoins board",
+    "summaryZh": "Sue Desmond-Hellmann博士、Nicole Seligman、Fidji Simo加入； Sam Altman重新加入董事会",
+    "highlights": [
+      "Sue Desmond-Hellmann, Nicole Seligman, Fidji Simo join;",
+      "Sam Altman rejoins board"
+    ],
+    "highlightsZh": [
+      "Sue Desmond-Hellmann博士、Nicole Seligman、Fidji Simo加入；"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "739049f6323a",
+    "title": "Using AI to improve patient access to clinical trials",
+    "titleZh": "使用人工智能改善患者获得临床试验的机会",
+    "link": "https://openai.com/index/paradigm",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-06T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Paradigm uses OpenAI’s API to improve patient access to clinical trials.",
+    "summaryZh": "Paradigm使用OpenAI的API来改善患者对临床试验的访问。",
+    "highlights": [
+      "Paradigm uses OpenAI’s API to improve patient access to clinical trials."
+    ],
+    "highlightsZh": [
+      "Paradigm使用OpenAI的API来改善患者对临床试验的访问。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "46cbd18ea8dd",
+    "title": "Sparking a more productive company with ChatGPT Enterprise",
+    "titleZh": "通过ChatGPT Enterprise激发更高效的公司",
+    "link": "https://openai.com/index/match-group",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-06T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Match Group uses ChatGPT Enterprise to spark creativity and impact.",
+    "summaryZh": "Match Group使用ChatGPT Enterprise来激发创造力和影响力。",
+    "highlights": [
+      "Match Group uses ChatGPT Enterprise to spark creativity and impact."
+    ],
+    "highlightsZh": [
+      "Match Group使用ChatGPT Enterprise来激发创造力和影响力。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "07180d34421a",
+    "title": "Improving health literacy and patient well-being",
+    "titleZh": "提高健康素养和患者福祉",
+    "link": "https://openai.com/index/lifespan",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-06T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Lifespan uses GPT-4 to radically improve health literacy and patient outcomes.",
+    "summaryZh": "Lifespan使用GPT-4从根本上改善健康素养和患者结果。",
+    "highlights": [
+      "Lifespan uses GPT-4 to radically improve health literacy and patient outcomes."
+    ],
+    "highlightsZh": [
+      "Lifespan使用GPT-4从根本上改善健康素养和患者结果。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "9f01cdb1016c",
+    "title": "OpenAI and Elon Musk",
+    "titleZh": "OpenAI和Elon Musk",
+    "link": "https://openai.com/index/openai-elon-musk",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-03-05T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We are dedicated to the OpenAI mission and have pursued it every step of the way.",
+    "summaryZh": "我们致力于OpenAI的使命，并在每一步都追求它。",
+    "highlights": [
+      "We are dedicated to the OpenAI mission and have pursued it every step of the way."
+    ],
+    "highlightsZh": [
+      "我们致力于OpenAI的使命，并在每一步都追求它。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

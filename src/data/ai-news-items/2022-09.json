@@ -1,0 +1,71 @@
+[
+  {
+    "id": "341a35838ae8",
+    "title": "DALL·E now available without waitlist",
+    "titleZh": "DALL · E现已上线，无需等待",
+    "link": "https://openai.com/index/dall-e-now-available-without-waitlist",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-09-28T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "New users can start creating straight away. Lessons learned from deployment and improvements to our safety systems make wider availability possible.",
+    "summaryZh": "新用户可以立即开始创建。从部署和改进我们的安全系统中汲取的经验教训使更广泛的可用性成为可能。",
+    "highlights": [
+      "New users can start creating straight away.",
+      "Lessons learned from deployment and improvements to our safety systems make wider availability possible."
+    ],
+    "highlightsZh": [
+      "新用户可以立即开始创建。从部署和改进我们的安全系统中汲取的经验教训使更广泛的可用性成为可能。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "e5b62650cf92",
+    "title": "Introducing Whisper",
+    "titleZh": "隆重推出Whisper",
+    "link": "https://openai.com/index/whisper",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-09-21T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [
+      "发布"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

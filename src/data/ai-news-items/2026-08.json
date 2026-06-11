@@ -1,0 +1,36 @@
+[
+  {
+    "id": "afe6078bf106",
+    "title": "OpenAI 升级 GPT-5.5 Instant 模型，AI 回复更自然、易读",
+    "titleZh": "OpenAI 升级 GPT-5.5 Instant 模型，AI 回复更自然、易读",
+    "link": "https://www.ithome.com/0/957/437.htm",
+    "source": "IT之家 AI",
+    "sourceType": "media",
+    "sourceRegion": "cn",
+    "sourceLanguage": "zh",
+    "feedName": "IT之家 AI",
+    "sourceHomepage": "https://www.ithome.com/tag/ai/",
+    "publishedAt": "2026-08-26T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "OpenAI 公司于 5 月 28 日发布公告，宣布更新 ChatGPT 的 GPT-5.5 Instant 版本及其 API，并弃用 OpenAI o3 和 GPT-4.5 模型。",
+    "coverImage": "/images/ai-news/afe6078bf106-29af324a5108.png",
+    "coverImageOriginal": "https://img.ithome.com/newsuploadfiles/2026/5/8611966d-dc2b-4659-9f1a-decd8de812ed.png?x-bce-process=image%2Fformat%2Cf_auto",
+    "coverImageAlt": "OpenAI 升级 GPT-5.5 Instant 模型，AI 回复更自然、易读",
+    "highlights": [],
+    "highlightsZh": [
+      "OpenAI 公司于 5 月 28 日发布公告，宣布更新 ChatGPT 的 GPT-5.5 Instant 版本及其 API，并弃用 OpenAI o3 和 GPT-4.5 模型。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-05-30T07:59:22.734Z",
+    "lastSeenAt": "2026-06-02T15:14:05.021Z",
+    "originalContentText": "IT之家 5 月 30 日消息，OpenAI 公司于 5 月 28 日发布公告，宣布更新 ChatGPT 的 GPT-5.5 Instant 版本及其 API，并逐步弃用 OpenAI o3 和 GPT-4.5 模型。\n\nOpenAI 公司于 5 月 5 日推出 GPT-5.5 Instant 模型，在医学、法律和金融等高风险主题上，该模型产生的幻觉减少了 52.5%，并显著提升数学、科学和视觉推理等方面。\n\nIT之家援引博文介绍，在本次更新中，升级后的 GPT-5.5 Instant 模型回复将更加自然、易读、结构更清晰，并减少冗长的列表。\n\n此次更新后，GPT-5.5 Instant 和 GPT-5.5 Thinking 将不再提供 Canvas 功能。用户现在可以通过文字块和代码块直接在聊天回复中使用文字和代码功能。付费用户可在旧版模型停用前的一段时间内继续使用 Canvas 功能。\n\nOpenAI 还宣布在 ChatGPT 中逐步淘汰使用率较低的旧模型，在 2026 年 8 月 26 日（90 天过渡期后）移除 OpenAI o3 模型，于 2026 年 6 月 27 日（30 天过渡期后）移除 GPT-4.5。\n\n广告声明：文内含有的对外跳转链接（包括不限于超链接、二维码、口令等形式），用于传递更多信息，节省甄选时间，结果仅供参考，IT之家所有文章均包含本声明。",
+    "originalContentAvailable": true,
+    "originalContentWarning": "",
+    "snapshotFetchedAt": "2026-05-30T08:00:06.208Z"
+  }
+]

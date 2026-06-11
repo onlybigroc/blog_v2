@@ -1,0 +1,109 @@
+[
+  {
+    "id": "6652b2250462",
+    "title": "OpenAI Baselines: DQN",
+    "titleZh": "OpenAI基线： DQN",
+    "link": "https://openai.com/index/openai-baselines-dqn",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-05-24T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re open-sourcing OpenAI Baselines, our internal effort to reproduce reinforcement learning algorithms with performance on par with published results. We’ll release the algorithms over upcoming months; today’s release includes DQN and three of its variants.",
+    "summaryZh": "我们正在开源OpenAI基线，这是我们的内部工作，旨在重现强化学习算法，其性能与发布的结果相当。我们将在未来几个月内发布算法；今天的发布包括DQN及其三个变体。",
+    "highlights": [
+      "We’re open-sourcing OpenAI Baselines, our internal effort to reproduce reinforcement learning algorithms with performance on par with published results.",
+      "We’ll release the algorithms over upcoming months;"
+    ],
+    "highlightsZh": [
+      "我们正在开源OpenAI基线，这是我们的内部工作，旨在重现强化学习算法，其性能与发布的结果相当。我们将在未来几个月内发布算法；今天的发布包括DQN及其三个变体。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3b5a2cc880cb",
+    "title": "Robots that learn",
+    "titleZh": "学习的机器人",
+    "link": "https://openai.com/index/robots-that-learn",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-05-16T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve created a robotics system, trained entirely in simulation and deployed on a physical robot, which can learn a new task after seeing it done once.",
+    "summaryZh": "我们创建了一个机器人系统，完全在模拟中训练，并部署在物理机器人上，该机器人可以在完成一次任务后学习新任务。",
+    "highlights": [
+      "We’ve created a robotics system, trained entirely in simulation and deployed on a physical robot, which can learn a new task after seeing it done once."
+    ],
+    "highlightsZh": [
+      "我们创建了一个机器人系统，完全在模拟中训练，并部署在物理机器人上，该机器人可以在完成一次任务后学习新任务。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a125e3ab6a23",
+    "title": "Roboschool",
+    "titleZh": "",
+    "link": "https://openai.com/index/roboschool",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-05-15T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We are releasing Roboschool: open-source software for robot simulation, integrated with OpenAI Gym.",
+    "summaryZh": "我们正在发布Roboschool ：用于机器人模拟的开源软件，与OpenAI Gym集成。",
+    "highlights": [
+      "We are releasing Roboschool: open-source software for robot simulation, integrated with OpenAI Gym."
+    ],
+    "highlightsZh": [
+      "我们正在发布Roboschool ：用于机器人模拟的开源软件，与OpenAI Gym集成。"
+    ],
+    "tags": [
+      "开源"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

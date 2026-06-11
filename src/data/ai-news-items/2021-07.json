@@ -1,0 +1,73 @@
+[
+  {
+    "id": "e429584a9dcd",
+    "title": "Introducing Triton: Open-source GPU programming for neural networks",
+    "titleZh": "Triton简介：用于神经网络的开源GPU编程",
+    "link": "https://openai.com/index/triton",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-07-28T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing Triton 1.0, an open-source Python-like programming language which enables researchers with no CUDA experience to write highly efficient GPU code—most of the time on par with what an expert would be able to produce.",
+    "summaryZh": "我们正在发布Triton 1.0 ，这是一种类似Python的开源编程语言，它使没有CUDA经验的研究人员能够编写高效的GPU代码，大多数情况下与专家能够生产的代码相当。",
+    "highlights": [
+      "We’re releasing Triton 1.0, an open-source Python-like programming language which enables researchers with no CUDA experience to write highly efficient GPU code—most of the time on"
+    ],
+    "highlightsZh": [
+      "我们正在发布Triton 1.0 ，这是一种类似Python的开源编程语言，它使没有CUDA经验的研究人员能够编写高效的GPU代码，大多数情况下与专家能够生产的代码相当。"
+    ],
+    "tags": [
+      "发布",
+      "开发工具",
+      "开源",
+      "算力"
+    ],
+    "score": 96,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b85d24ec2d16",
+    "title": "Evaluating large language models trained on code",
+    "titleZh": "评估经过代码培训的大型语言模型",
+    "link": "https://openai.com/index/evaluating-large-language-models-trained-on-code",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-07-07T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "id": "60bf59c15726",
+    "title": "Jukebox",
+    "titleZh": "自动唱片点唱机",
+    "link": "https://openai.com/index/jukebox",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2020-04-30T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re introducing Jukebox, a neural net that generates music, including rudimentary singing, as raw audio in a variety of genres and artist styles. We’re releasing the model weights and code, along with a tool to explore the generated samples.",
+    "summaryZh": "我们正在推出自动点唱机，这是一种神经网络，可以生成音乐，包括基本的唱歌，作为各种流派和艺术家风格的原始音频。我们正在发布模型权重和代码，以及用于探索生成样本的工具。",
+    "highlights": [
+      "We’re introducing Jukebox, a neural net that generates music, including rudimentary singing, as raw audio in a variety of genres and artist styles.",
+      "We’re releasing the model weights and code, along with a tool to explore the generated samples."
+    ],
+    "highlightsZh": [
+      "我们正在推出自动点唱机，这是一种神经网络，可以生成音乐，包括基本的唱歌，作为各种流派和艺术家风格的原始音频。我们正在发布模型权重和代码，以及用于探索生成样本的工具。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具",
+      "开源"
+    ],
+    "score": 94,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "79520cd32c42",
+    "title": "Improving verifiability in AI development",
+    "titleZh": "提高人工智能开发的可验证性",
+    "link": "https://openai.com/index/improving-verifiability",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2020-04-16T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve contributed to a multi-stakeholder report by 58 co-authors at 30 organizations, including the Centre for the Future of Intelligence, Mila, Schwartz Reisman Institute for Technology and Society, Center for Advanced Study in the Behavioral Sciences, and Center for Security and Emerging Technologies. This report des",
+    "summaryZh": "我们为30个组织的58位共同作者撰写的多利益相关方报告做出了贡献，其中包括智能未来中心、MILA、Schwartz Reisman技术与社会研究所、行为科学高级研究中心以及安全和新兴技术中心。",
+    "highlights": [
+      "We’ve contributed to a multi-stakeholder report by 58 co-authors at 30 organizations, including the Centre for the Future of Intelligence, Mila, Schwartz Reisman Institute for Tech"
+    ],
+    "highlightsZh": [
+      "我们为30个组织的58位共同作者撰写的多利益相关方报告做出了贡献，其中包括智能未来中心、MILA、Schwartz Reisman技术与社会研究所、行为科学高级研究中心以及安全和新兴技术中心。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "53d4cf737709",
+    "title": "OpenAI Microscope",
+    "titleZh": "OpenAI显微镜",
+    "link": "https://openai.com/index/microscope",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2020-04-14T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re introducing OpenAI Microscope, a collection of visualizations of every significant layer and neuron of eight vision “model organisms” which are often studied in interpretability. Microscope makes it easier to analyze the features that form inside these neural networks, and we hope it will help the research commun",
+    "summaryZh": "我们正在引入OpenAI显微镜，这是八个视觉“模型生物”的每个显着层和神经元的可视化集合，通常在可解释性方面进行研究。显微镜可以更轻松地分析这些神经网络中形成的特征，我们希望它将有助于研究界",
+    "highlights": [
+      "We’re introducing OpenAI Microscope, a collection of visualizations of every significant layer and neuron of eight vision “model organisms” which are often studied in interpretabil",
+      "Microscope makes it easier to analyze the features that form inside these neural networks, and we hope it will help the research commun"
+    ],
+    "highlightsZh": [
+      "我们正在引入OpenAI显微镜，这是八个视觉“模型生物”的每个显着层和神经元的可视化集合，通常在可解释性方面进行研究。显微镜可以更轻松地分析这些神经网络中形成的特征，我们希望它将有助于研究界"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 80,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

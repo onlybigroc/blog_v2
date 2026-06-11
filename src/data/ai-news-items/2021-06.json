@@ -1,0 +1,38 @@
+[
+  {
+    "id": "296e71876a12",
+    "title": "Improving language model behavior by training on a curated dataset",
+    "titleZh": "通过在精选数据集上进行培训来改善语言模型行为",
+    "link": "https://openai.com/index/improving-language-model-behavior",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-06-10T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our latest research finds we can improve language model behavior with respect to specific behavioral values by fine-tuning on a small, curated dataset.",
+    "summaryZh": "我们的最新研究发现，通过对小型精选数据集进行微调，我们可以改善特定行为价值观方面的语言模型行为。",
+    "highlights": [
+      "Our latest research finds we can improve language model behavior with respect to specific behavioral values by fine-tuning on a small, curated dataset."
+    ],
+    "highlightsZh": [
+      "我们的最新研究发现，通过对小型精选数据集进行微调，我们可以改善特定行为价值观方面的语言模型行为。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

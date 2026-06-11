@@ -1,0 +1,1591 @@
+[
+  {
+    "id": "7fc87634da57",
+    "title": "Our agreement with the Department of War",
+    "titleZh": "我们与陆军部的协议",
+    "link": "https://openai.com/index/our-agreement-with-the-department-of-war",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-28T12:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Details on OpenAI’s contract with the Department of War, outlining safety red lines, legal protections, and how AI systems will be deployed in classified environments.",
+    "summaryZh": "有关OpenAI与战争部的合同的详细信息，概述了安全红线、法律保护以及如何在机密环境中部署人工智能系统。",
+    "highlights": [
+      "Details on OpenAI’s contract with the Department of War, outlining safety red lines, legal protections, and how AI systems will be deployed in classified environments."
+    ],
+    "highlightsZh": [
+      "有关OpenAI与战争部的合同的详细信息，概述了安全红线、法律保护以及如何在机密环境中部署人工智能系统。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "11f28611545f",
+    "title": "OpenAI and Amazon announce strategic partnership",
+    "titleZh": "OpenAI和亚马逊宣布战略合作伙伴关系",
+    "link": "https://openai.com/index/amazon-partnership",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-27T05:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Amazon announce a strategic partnership bringing OpenAI’s Frontier platform to AWS, expanding AI infrastructure, custom models, and enterprise AI agents.",
+    "summaryZh": "OpenAI和亚马逊宣布建立战略合作伙伴关系，将OpenAI的Frontier平台引入AWS ，扩展AI基础设施、自定义模型和企业AI代理。",
+    "highlights": [
+      "OpenAI and Amazon announce a strategic partnership bringing OpenAI’s Frontier platform to AWS, expanding AI infrastructure, custom models, and enterprise AI agents."
+    ],
+    "highlightsZh": [
+      "OpenAI和亚马逊宣布建立战略合作伙伴关系，将OpenAI的Frontier平台引入AWS ，扩展AI基础设施、自定义模型和企业AI代理。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "算力"
+    ],
+    "score": 86,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "0b6632a60f07",
+    "title": "Introducing the Stateful Runtime Environment for Agents in Amazon Bedrock",
+    "titleZh": "介绍Amazon Bedrock中Agent的有状态运行时环境",
+    "link": "https://openai.com/index/introducing-the-stateful-runtime-environment-for-agents-in-amazon-bedrock",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-27T05:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Stateful Runtime for Agents in Amazon Bedrock brings persistent orchestration, memory, and secure execution to multi-step AI workflows powered by OpenAI.",
+    "summaryZh": "Amazon Bedrock中的Agent状态化运行时为由OpenAI提供支持的多步骤AI工作流程带来了持久的协调、内存和安全执行。",
+    "highlights": [
+      "Stateful Runtime for Agents in Amazon Bedrock brings persistent orchestration, memory, and secure execution to multi-step AI workflows powered by OpenAI."
+    ],
+    "highlightsZh": [
+      "Amazon Bedrock中的Agent状态化运行时为由OpenAI提供支持的多步骤AI工作流程带来了持久的协调、内存和安全执行。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 80,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "794d4515e722",
+    "title": "Scaling AI for everyone",
+    "titleZh": "为所有人扩展人工智能",
+    "link": "https://openai.com/index/scaling-ai-for-everyone",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-27T05:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Today we’re announcing $110B in new investment at a $730B pre money valuation. This includes $30B from SoftBank, $30B from NVIDIA, and $50B from Amazon.",
+    "summaryZh": "今天，我们宣布以预估资金估值$ 730B的价格进行$ 110B的新投资。其中包括软银的$ 300亿、英伟达的$ 300亿和亚马逊的$ 500亿。",
+    "highlights": [
+      "Today we’re announcing $110B in new investment at a $730B pre money valuation.",
+      "This includes $30B from SoftBank, $30B from NVIDIA, and $50B from Amazon."
+    ],
+    "highlightsZh": [
+      "今天，我们宣布以预估资金估值$ 730B的价格进行$ 110B的新投资。其中包括软银的$ 300亿、英伟达的$ 300亿和亚马逊的$ 500亿。"
+    ],
+    "tags": [
+      "资本",
+      "算力"
+    ],
+    "score": 76,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8c87fa05a78c",
+    "title": "Joint Statement from OpenAI and Microsoft",
+    "titleZh": "OpenAI和微软的联合声明",
+    "link": "https://openai.com/index/continuing-microsoft-partnership",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-27T05:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Microsoft and OpenAI continue to work closely across research, engineering, and product development, building on years of deep collaboration and shared success.",
+    "summaryZh": "微软和OpenAI在多年的深度合作和共同成功的基础上，继续在研究、工程和产品开发方面密切合作。",
+    "highlights": [
+      "Microsoft and OpenAI continue to work closely across research, engineering, and product development, building on years of deep collaboration and shared success."
+    ],
+    "highlightsZh": [
+      "微软和OpenAI在多年的深度合作和共同成功的基础上，继续在研究、工程和产品开发方面密切合作。"
+    ],
+    "tags": [],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "54ea56b76bba",
+    "title": "An update on our mental health-related work",
+    "titleZh": "关于我们心理健康相关工作的最新消息",
+    "link": "https://openai.com/index/update-on-mental-health-related-work",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-27T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI shares updates on its mental health safety work, including parental controls, trusted contacts, improved distress detection, and recent litigation developments.",
+    "summaryZh": "OpenAI分享了其心理健康安全工作的最新动态，包括家长控制、受信任的联系人、改进的痛苦检测和最近的诉讼发展。",
+    "highlights": [
+      "OpenAI shares updates on its mental health safety work, including parental controls, trusted contacts, improved distress detection, and recent litigation developments."
+    ],
+    "highlightsZh": [
+      "OpenAI分享了其心理健康安全工作的最新动态，包括家长控制、受信任的联系人、改进的痛苦检测和最近的诉讼发展。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "30882baf216f",
+    "title": "AI 智能体生产力洞察：任务时间缩短 87%、总成本下降 94%",
+    "titleZh": "AI 智能体生产力洞察：任务时间缩短 87%、总成本下降 94%",
+    "link": "https://www.ithome.com/0/962/414.htm",
+    "source": "IT之家 AI",
+    "sourceType": "media",
+    "sourceRegion": "cn",
+    "sourceLanguage": "zh",
+    "feedName": "IT之家 AI",
+    "sourceHomepage": "https://www.ithome.com/tag/ai/",
+    "publishedAt": "2026-02-27T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "哈佛大学携手 Perplexity 公司，筛选 10000 组真实生产数据，指出 AI 人机协作方式下，把任务时间缩短 87%、总成本下降 94%。",
+    "coverImage": "/images/ai-news/30882baf216f-49506d46ad6c.png",
+    "coverImageOriginal": "https://img.ithome.com/newsuploadfiles/2026/6/05074631-6226-475b-bfb4-f0d391092e2e.png?x-bce-process=image%2Fformat%2Cf_auto",
+    "coverImageAlt": "AI 智能体生产力洞察：任务时间缩短 87%、总成本下降 94%",
+    "highlights": [],
+    "highlightsZh": [
+      "哈佛大学携手 Perplexity 公司，筛选 10000 组真实生产数据，指出 AI 人机协作方式下，把任务时间缩短 87%、总成本下降 94%。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 42,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-06-10T09:02:23.041Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "IT之家 6 月 10 日消息，哈佛大学携手 Perplexity 公司，筛选 10000 组真实生产数据，指出 AI 智能体人机协作方式下，把任务时间缩短 87%、总成本下降 94%。\n\n本次研究主要基于 Perplexity Search 和 Perplexity Computer 的生产环境数据。前者偏向对话式答案引擎，后者则是可规划、可执行、可调用外部工具的智能体系统。\n\n研究时间窗口为 90 天，从 2026 年 2 月 27 日至 5 月 27 日。研究从两类产品中筛出 10000 组近乎相同的任务，此外为保证 Computer 确实在“做事”，样本只保留调用执行工具的会话，例如代码执行、浏览器操作、文件写入和连接器调用，从而对比更接近同一任务在两种模式下的真实差异。\n\n在自主性方面，Computer 单次会话平均机器工作时长为 26 分钟，Search 只有 33 秒，达到 48 倍差距。不同领域差异并不完全一致，本地任务达到 75 倍，科学类任务为 26 倍。\n\n值得注意的是，自主性提高并未带来质量下滑，Computer 的有效不满率为 1.3%，低于 Search 的 2.9%。\n\n效率方面，研究估算了“Search＋人工”和“Computer＋人工”两种完成路径：前者平均每个匹配任务需要 269 分钟，后者只需 36 分钟，时间缩短 87%。\n\n成本方面，该研究估算指出总成本下降 94%。智能体虽然单任务模型成本更高，约 4 至 10 美元，而搜索约 0.05 美元，但智能体显著压低了每步的人力边际成本，从 2.05 美元降到 0.16 美元。\n\n研究指出短小、单步、可直接回答的问题，仍适合对话式搜索；步骤多、需要调用工具、跨知识域协作的工作，则更适合交给智能体。\n\nIT之家附上参考地址\n\nHow AI Agents Reshape Knowledge Work: Autonomy, Efficiency, and Scope\n\n广告声明：文内含有的对外跳转链接（包括不限于超链接、二维码、口令等形式），用于传递更多信息，节省甄选时间，结果仅供参考，IT之家所有文章均包含本声明。",
+    "originalContentAvailable": true,
+    "originalContentWarning": "",
+    "snapshotFetchedAt": "2026-06-10T09:02:59.596Z"
+  },
+  {
+    "id": "1faf160a50f7",
+    "title": "Nano Banana 2: Combining Pro capabilities with lightning-fast speed",
+    "titleZh": "Nano Banana 2 ：将PRO功能与闪电般的速度相结合",
+    "link": "https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2026-02-26T16:01:50.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our latest image generation model offers advanced world knowledge, production ready specs, subject consistency and more, all at Flash speed.",
+    "summaryZh": "我们最新的图像生成模型以闪存速度提供先进的世界知识、生产就绪规格、主题一致性等。",
+    "highlights": [
+      "Our latest image generation model offers advanced world knowledge, production ready specs, subject consistency and more, all at Flash speed."
+    ],
+    "highlightsZh": [
+      "我们最新的图像生成模型以闪存速度提供先进的世界知识、生产就绪规格、主题一致性等。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "5087a3cf6418",
+    "title": "Pacific Northwest National Laboratory and OpenAI partner to accelerate federal permitting",
+    "titleZh": "太平洋西北国家实验室和OpenAI合作加快联邦许可",
+    "link": "https://openai.com/index/pacific-northwest-national-laboratory",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-26T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Pacific Northwest National Laboratory introduce DraftNEPABench, a new benchmark evaluating how AI coding agents can accelerate federal permitting—showing potential to reduce NEPA drafting time by up to 15% and modernize infrastructure reviews.",
+    "summaryZh": "OpenAI和太平洋西北国家实验室推出了DraftNEPABench ，这是一个新的基准，评估AI编码代理如何加速联邦许可，显示出将NEPA起草时间缩短高达15 ％并实现基础设施审查现代化的潜力。",
+    "highlights": [
+      "OpenAI and Pacific Northwest National Laboratory introduce DraftNEPABench, a new benchmark evaluating how AI coding agents can accelerate federal permitting—showing potential to re"
+    ],
+    "highlightsZh": [
+      "OpenAI和太平洋西北国家实验室推出了DraftNEPABench ，这是一个新的基准，评估AI编码代理如何加速联邦许可，显示出将NEPA起草时间缩短高达15 ％并实现基础设施审查现代化的潜力。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具",
+      "算力"
+    ],
+    "score": 94,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "32604a90d1ae",
+    "title": "OpenAI Codex and Figma launch seamless code-to-design experience",
+    "titleZh": "OpenAI Codex和Figma推出无缝的代码到设计体验",
+    "link": "https://openai.com/index/figma-partnership",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-26T06:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Figma launch a new Codex integration that connects code and design, enabling teams to move between implementation and the Figma canvas to iterate and ship faster.",
+    "summaryZh": "OpenAI和Figma推出了一个连接代码和设计的新Codex集成，使团队能够在实现和Figma画布之间移动，以更快地迭代和发货。",
+    "highlights": [
+      "OpenAI and Figma launch a new Codex integration that connects code and design, enabling teams to move between implementation and the Figma canvas to iterate and ship faster."
+    ],
+    "highlightsZh": [
+      "OpenAI和Figma推出了一个连接代码和设计的新Codex集成，使团队能够在实现和Figma画布之间移动，以更快地迭代和发货。"
+    ],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "bc176ad0fcac",
+    "title": "Disrupting malicious uses of AI | February 2026",
+    "titleZh": "颠覆人工智能的恶意使用| 2026年2月",
+    "link": "https://openai.com/index/disrupting-malicious-ai-uses",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-25T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our latest threat report examines how malicious actors combine AI models with websites and social platforms—and what it means for detection and defense.",
+    "summaryZh": "我们最新的威胁报告探讨了恶意行为者如何将人工智能模型与网站和社交平台相结合，以及它对检测和防御意味着什么。",
+    "highlights": [
+      "Our latest threat report examines how malicious actors combine AI models with websites and social platforms—and what it means for detection and defense."
+    ],
+    "highlightsZh": [
+      "我们最新的威胁报告探讨了恶意行为者如何将人工智能模型与网站和社交平台相结合，以及它对检测和防御意味着什么。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c3d596fdf044",
+    "title": "Python逆天改命，开源Hermes首次击败OpenAI Codex",
+    "titleZh": "Python逆天改命，开源Hermes首次击败OpenAI Codex",
+    "link": "https://36kr.com/p/3826678293320582",
+    "source": "36Kr AI",
+    "sourceType": "media",
+    "sourceRegion": "cn",
+    "sourceLanguage": "zh",
+    "feedName": "36Kr AI",
+    "sourceHomepage": "https://36kr.com/information/AI/",
+    "publishedAt": "2026-02-25T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "一个纯Python写的开源项目，竟把OpenAI用Rust写的王牌给秒了！最终战绩6比5，Hermes直接上演工程暴力美学，解释型语言终于逆天改命。",
+    "summaryZh": "一个纯Python写的开源项目，竟把OpenAI用Rust写的王牌给秒了！最终战绩6比5，Hermes直接上演工程暴力美学，解释型语言终于逆天改命。",
+    "coverImage": "/images/ai-news/c3d596fdf044-4162b4fef973.jpg",
+    "coverImageOriginal": "https://img.36krcdn.com/hsossms/20260527/v2_7ccd8b9ffd6a421585aff63550c4492e@5091053@ai_oswg1041679oswg1053oswg495_img_png~tplv-1marlgjv7f-ai-v3:600:400:600:400:q70.jpg",
+    "coverImageAlt": "Python逆天改命，开源Hermes首次击败OpenAI Codex",
+    "highlights": [
+      "一个纯Python写的开源项目，竟把OpenAI用Rust写的王牌给秒了！最终战绩6比5，Hermes直接上演工程暴力美学，解释型语言终于逆天改命。"
+    ],
+    "highlightsZh": [
+      "一个纯Python写的开源项目，竟把OpenAI用Rust写的王牌给秒了！最终战绩6比5，Hermes直接上演工程暴力美学，解释型语言终于逆天改命。"
+    ],
+    "tags": [
+      "发布",
+      "开源"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-05-27T01:29:23.797Z",
+    "lastSeenAt": "2026-05-27T01:29:23.797Z",
+    "originalContentText": "Python逆天改命，开源Hermes首次击败OpenAI Codex\n\n一个纯Python写的开源项目，竟击溃了OpenAI王牌！\n\n今天，全网都被Hermes Agent的硬核实力狠狠刷屏了：\n\n在针对真实世界CLI任务的11项基准测试中，它以6:5的战绩，直接把Codex按在地上摩擦。\n\n在这场备受瞩目的对决中，Hermes Agent展现出了惊人的底层优化能力。\n\n通过一连串的硬核操作，成功把系统的启动时间，从701ms缩短至258ms。\n\n更让人震撼的是，Hermes完全由Python编写，而Codex是用Rust写的。\n\n这一仗，Python打赢了Rust！\n\n这在编程界，属是「逆天改命」了。\n\n三大狠招，砍掉63%启动时间\n\n就在这次优化之前，Hermes还是5-6落后的那个。\n\n这次逆转不是靠换模型、不是靠堆算力，而是靠三个纯工程优化，刀刀见血。\n\n那么，它是具体如何做到的？\n\n第一刀：Bitwarden磁盘缓存\n\n原来Hermes每次启动都会调用Bitwarden Secrets Manager的API去拉取凭据，一次就是380毫秒。\n\n问题在于，之前的缓存是「纯进程内」，连续执行两次hermes chat -q，第二次还是要重新拉。\n\n解决方案是，加了一个L2磁盘缓存。\n\n缓存文件权限锁死0600，存放在<hermes_home>/cache/bws_cache.json，默认TTL 300秒。\n\n另外，访问token本身绝不落盘，默认300秒TTL，过期才重新拉取。\n\n一刀砍掉380ms。\n\n第二刀：模型目录延迟加载\n\nhermes_cli.models._PROVIDER_MODELS，一个包含所有AI供应商模型信息的巨型字典。\n\n之前在模块加载时就急切导入，吃掉约55ms。\n\n实际上只有model_flow相关的处理函数才需要它。\n\n团队用PEP 562的模块级getattr实现了懒加载，只在真正访问模型目录时才付出这笔开销。。\n\n这一步，又省了55毫秒。\n\n第三刀：配置文件去重\n\nmain.py顶部原本读了两次config.yaml。\n\n一次yaml.safe_load用于密钥脱敏桥接，一次完整的load_config()（含深度合并）只为检查一个布尔值。\n\n合并成一次原始加载，省下17ms。\n\n这三刀加起来， 启动时间从701ms暴降至258ms，降幅63%。\n\n不得不说，这才是真正的工程暴力美学，纯靠profiling找到瓶颈，一刀一刀切掉冗余。\n\n战绩6:5，Hermes翻盘时刻\n\n最终结果，是不会说谎的。\n\n在优化前，Hermes对Codex的总战绩是5胜6负：单轮任务被Codex压制，多轮任务略有优势但不够明显。\n\n优化后，局面彻底反转。\n\n单轮任务（8项）：Hermes的中位框架开销，降到了与Codex持平甚至略低的水平。\n\n原本被Codex碾压的启动劣势，被完全抹平。\n\n多轮任务（3项）：Hermes在5轮对话的总开销上已经领先，优化后优势进一步拉大。\n\n最后的总分，6:5，Hermes实现了反超。\n\n这意味着，一个用Python写的开源项目，在框架开销——\n\n一个最考验底层功力的维度，击败了用Rust写的、背后站着万亿市值公司的闭源产品。\n\nPython，打赢了Rust\n\n真正反直觉的部分在于，Python凭什么赢下Rust？\n\n长期以来，Python在性能圈几乎是「原罪」般的存在：解释型语言、GIL锁、动态类型开销……\n\n当OpenAI选择用Rust构建Codex CLI时，所有人都觉得理所当然——\n\nRust生来，就是为性能而生的。\n\n但Hermes的这次逆袭说明了一个关键事实：\n\n在Agent这个赛道上，框架层面的架构决策，比语言层面的原始速度更重要。\n\n开发者netrunner的评论一针见血，「Python在多轮任务上打赢Rust，本质上是架构决策的胜利，而不是语言速度的胜利」。\n\n「Codex可能在上下文处理上，过度工程化了」。\n\n还有人问道，「为何不把Hermes也迁移到Rust？那不是更快」？\n\nHermes联创兼首席科学家Teknium直言，「那样就无法编辑代码，以及实时改进和迭代」\n\n也就是说，Python的优势不在于快，而在于活。\n\n对于一个需要持续进化、从每次交互中学习的Agent来说，开发者友好性和迭代速度，就是最大的性能优势。\n\nGitHub冲爆16.7万星\n\nHermes Agent的爆发速度，本身就是一组让人瞠目的数据。\n\n从2026年2月25日上线至今，仅仅三个月，GitHub星标已经突破16万。\n\n日活Token消耗量达到353B，是同类项目OpenClaw的近两倍。\n\n可以说，它是2026年增长最快的开源Agent框架，没有之一。\n\nGitHub地址：https://github.com/nousresearch/hermes-agent\n\nHermes的核心杀手锏，是一套闭环学习架构：\n\n每次完成复杂任务后，Agent会自动将解决方案提炼为可复用的Skill（技能）。\n\n下次遇到类似任务，直接调用已有技能，跳过从头推理。\n\nNousResearch内部基准测试显示，积累20个以上自创技能的Hermes实例，完成同类任务的速度比全新实例快40%。\n\n更狠的是，v0.12版本引入的自治Curator——\n\n一个后台自动运行的Agent，会定期评分、修剪、合并你的技能库。\n\n换句话说，Hermes不仅能学，还能自己整理学到的东西。\n\n语言不是天花板，架构才是\n\nPython打赢Rust这件事，看起来是一个编程语言之间的「逆袭爽剧」。\n\n但它真正揭示的东西，要深刻得多。\n\n在AI Agent的世界里，底层语言的性能差异正在变得越来越不重要。\n\nHermes这次优化砍掉的443毫秒，已经是框架层能挤出的极限了。而一次LLM调用的延迟，动辄几百毫秒甚至数秒。\n\n这意味着，在通往ASI的路上，真正的竞争从来不是「用什么语言写」，而是「怎么让Agent越用越聪明」。\n\n而Hermes这次用Python干翻Rust，恰恰证明了——\n\n在Agent进化的赛道上，开放、可编辑、可迭代的架构，比「跑得快」更接近ASI的本质。\n\nRust是一把好刀，但ASI需要的不是一把更快的刀。\n\nhttps://x.com/Teknium/status/2058885472513065471?s=20\n\nhttps://github.com/NousResearch/hermes-agent/pull/31968\n\n本文来自微信公众号“新智元”，作者：ASI启示录，编辑：桃子 David，36氪经授权发布。\n\n该文观点仅代表作者本人，36氪平台仅提供信息存储空间服务。",
+    "originalContentAvailable": true,
+    "originalContentWarning": "",
+    "snapshotFetchedAt": "2026-05-27T01:29:43.186Z"
+  },
+  {
+    "id": "2ef2d61adeb4",
+    "title": "Arvind KC appointed Chief People Officer",
+    "titleZh": "Arvind KC被任命为首席人事官",
+    "link": "https://openai.com/index/arvind-kc-chief-people-officer",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-24T13:40:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI appoints Arvind KC as Chief People Officer to help scale the company, strengthen its culture, and lead how work evolves in the age of AI.",
+    "summaryZh": "OpenAI任命Arvind KC为首席人力资源官，以帮助扩大公司规模，加强其文化，并领导人工智能时代的工作发展。",
+    "highlights": [
+      "OpenAI appoints Arvind KC as Chief People Officer to help scale the company, strengthen its culture, and lead how work evolves in the age of AI."
+    ],
+    "highlightsZh": [
+      "OpenAI任命Arvind KC为首席人力资源官，以帮助扩大公司规模，加强其文化，并领导人工智能时代的工作发展。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b958e58176b7",
+    "title": "Why we no longer evaluate SWE-bench Verified",
+    "titleZh": "为什么我们不再评估SWE-bench Verified",
+    "link": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-23T11:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "SWE-bench Verified is increasingly contaminated and mismeasures frontier coding progress. Our analysis shows flawed tests and training leakage. We recommend SWE-bench Pro.",
+    "summaryZh": "SWE-bench Verified日益受到污染，并错误地衡量了前沿编码的进展。我们的分析显示了有缺陷的测试和训练泄漏。我们推荐SWE-bench Pro。",
+    "highlights": [
+      "SWE-bench Verified is increasingly contaminated and mismeasures frontier coding progress.",
+      "Our analysis shows flawed tests and training leakage."
+    ],
+    "highlightsZh": [
+      "SWE-bench Verified日益受到污染，并错误地衡量了前沿编码的进展。我们的分析显示了有缺陷的测试和训练泄漏。我们推荐SWE-bench Pro。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4526d33ef1a2",
+    "title": "OpenAI announces Frontier Alliance Partners",
+    "titleZh": "OpenAI宣布前沿联盟合作伙伴",
+    "link": "https://openai.com/index/frontier-alliance-partners",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-23T05:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI announces Frontier Alliance Partners to help enterprises move from AI pilots to production with secure, scalable agent deployments.",
+    "summaryZh": "OpenAI宣布前沿联盟合作伙伴，通过安全、可扩展的代理部署，帮助企业从人工智能试点转向生产。",
+    "highlights": [
+      "OpenAI announces Frontier Alliance Partners to help enterprises move from AI pilots to production with secure, scalable agent deployments."
+    ],
+    "highlightsZh": [
+      "OpenAI宣布前沿联盟合作伙伴，通过安全、可扩展的代理部署，帮助企业从人工智能试点转向生产。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 90,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "198248560f4d",
+    "title": "Our First Proof submissions",
+    "titleZh": "我们首次提交的证明文件",
+    "link": "https://openai.com/index/first-proof-submissions",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-20T14:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We share our AI model’s proof attempts for the First Proof math challenge, testing research-grade reasoning on expert-level problems.",
+    "summaryZh": "我们分享了我们的人工智能模型对First Proof数学挑战的证明尝试，测试对专家级问题的研究级推理。",
+    "highlights": [
+      "We share our AI model’s proof attempts for the First Proof math challenge, testing research-grade reasoning on expert-level problems."
+    ],
+    "highlightsZh": [
+      "我们分享了我们的人工智能模型对First Proof数学挑战的证明尝试，测试对专家级问题的研究级推理。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "926481ff33d5",
+    "title": "Gemini 3.1 Pro: A smarter model for your most complex tasks",
+    "titleZh": "Gemini 3.1 Pro ：针对最复杂任务的更智能模型",
+    "link": "https://deepmind.google/blog/gemini-3-1-pro-a-smarter-model-for-your-most-complex-tasks/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2026-02-19T16:06:14.000Z",
+    "publishedAtEstimated": false,
+    "summary": "3.1 Pro is designed for tasks where a simple answer isn’t enough.",
+    "summaryZh": "3.1专业版专为单个答案不够的任务而设计。",
+    "highlights": [
+      "3.1 Pro is designed for tasks where a simple answer isn’t enough."
+    ],
+    "highlightsZh": [
+      "3.1专业版专为单个答案不够的任务而设计。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a3ef4d9d087b",
+    "title": "Advancing independent research on AI alignment",
+    "titleZh": "推进人工智能对齐的独立研究",
+    "link": "https://openai.com/index/advancing-independent-research-ai-alignment",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-19T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI commits $7.5M to The Alignment Project to fund independent AI alignment research, strengthening global efforts to address AGI safety and security risks.",
+    "summaryZh": "OpenAI承诺向The Alignment Project提供750万$ ，以资助独立的人工智能对齐研究，加强全球应对AGI安全风险的努力。",
+    "highlights": [
+      "OpenAI commits $7.5M to The Alignment Project to fund independent AI alignment research, strengthening global efforts to address AGI safety and security risks."
+    ],
+    "highlightsZh": [
+      "OpenAI承诺向The Alignment Project提供750万$ ，以资助独立的人工智能对齐研究，加强全球应对AGI安全风险的努力。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "14da3f664925",
+    "title": "Introducing OpenAI for India",
+    "titleZh": "为印度推出OpenAI",
+    "link": "https://openai.com/index/openai-for-india",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-18T21:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI for India expands AI access across the country—building local infrastructure, powering enterprises, and advancing workforce skills.",
+    "summaryZh": "OpenAI for India在全国范围内扩展了人工智能接入，建立了当地基础设施，为企业提供动力并提高了劳动力技能。",
+    "highlights": [
+      "OpenAI for India expands AI access across the country—building local infrastructure, powering enterprises, and advancing workforce skills."
+    ],
+    "highlightsZh": [
+      "OpenAI for India在全国范围内扩展了人工智能接入，建立了当地基础设施，为企业提供动力并提高了劳动力技能。"
+    ],
+    "tags": [
+      "发布",
+      "算力"
+    ],
+    "score": 76,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "fd50a220fdc4",
+    "title": "A new way to express yourself: Gemini can now create music",
+    "titleZh": "一种表达自己的新方式：双子座现在可以创作音乐",
+    "link": "https://deepmind.google/blog/a-new-way-to-express-yourself-gemini-can-now-create-music/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2026-02-18T16:01:38.000Z",
+    "publishedAtEstimated": false,
+    "summary": "The Gemini app now features our most advanced music generation model Lyria 3, empowering anyone to make 30-second tracks using text or images.",
+    "summaryZh": "Gemini应用程序现在具有我们最先进的音乐生成模型Lyria 3 ，使任何人都可以使用文本或图像制作30秒的曲目。",
+    "highlights": [
+      "The Gemini app now features our most advanced music generation model Lyria 3, empowering anyone to make 30-second tracks using text or images."
+    ],
+    "highlightsZh": [
+      "Gemini应用程序现在具有我们最先进的音乐生成模型Lyria 3 ，使任何人都可以使用文本或图像制作30秒的曲目。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "71e1d3f50bfa",
+    "title": "Introducing EVMbench",
+    "titleZh": "EVMbench简介",
+    "link": "https://openai.com/index/introducing-evmbench",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-18T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Paradigm introduce EVMbench, a benchmark evaluating AI agents’ ability to detect, patch, and exploit high-severity smart contract vulnerabilities.",
+    "summaryZh": "OpenAI和Paradigm引入了EVMbench ，这是一个基准，用于评估AI代理检测、修补和利用高严重性智能合约漏洞的能力。",
+    "highlights": [
+      "OpenAI and Paradigm introduce EVMbench, a benchmark evaluating AI agents’ ability to detect, patch, and exploit high-severity smart contract vulnerabilities."
+    ],
+    "highlightsZh": [
+      "OpenAI和Paradigm引入了EVMbench ，这是一个基准，用于评估AI代理检测、修补和利用高严重性智能合约漏洞的能力。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 80,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c1bd3327d906",
+    "title": "Accelerating discovery in India through AI-powered science and education",
+    "titleZh": "通过人工智能驱动的科学和教育加速印度的发现",
+    "link": "https://deepmind.google/blog/accelerating-discovery-in-india-through-ai-powered-science-and-education/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2026-02-17T13:42:20.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Google DeepMind brings National Partnerships for AI initiative to India, scaling AI for science and education",
+    "summaryZh": "Google DeepMind将国家人工智能合作伙伴计划带到印度，将人工智能扩展到科学和教育领域",
+    "highlights": [
+      "Google DeepMind brings National Partnerships for AI initiative to India, scaling AI for science and education"
+    ],
+    "highlightsZh": [
+      "Google DeepMind将国家人工智能合作伙伴计划带到印度，将人工智能扩展到科学和教育领域"
+    ],
+    "tags": [],
+    "score": 54,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "71e8d02564c5",
+    "title": "GPT-5.2 derives a new result in theoretical physics",
+    "titleZh": "GPT-5.2在理论物理学中得出了一个新的结果",
+    "link": "https://openai.com/index/new-result-theoretical-physics",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-13T11:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "A new preprint shows GPT-5.2 proposing a new formula for a gluon amplitude, later formally proved and verified by OpenAI and academic collaborators.",
+    "summaryZh": "新的预印本显示GPT-5.2提出了胶子振幅的新公式，后来由OpenAI和学术合作者正式证明和验证。",
+    "highlights": [
+      "A new preprint shows GPT-5.2 proposing a new formula for a gluon amplitude, later formally proved and verified by OpenAI and academic collaborators."
+    ],
+    "highlightsZh": [
+      "新的预印本显示GPT-5.2提出了胶子振幅的新公式，后来由OpenAI和学术合作者正式证明和验证。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8e5f6dedd597",
+    "title": "Introducing Lockdown Mode and Elevated Risk labels in ChatGPT",
+    "titleZh": "在ChatGPT中引入锁定模式和高风险标签",
+    "link": "https://openai.com/index/introducing-lockdown-mode-and-elevated-risk-labels-in-chatgpt",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-13T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Introducing Lockdown Mode and Elevated Risk labels in ChatGPT to help organizations defend against prompt injection and AI-driven data exfiltration.",
+    "summaryZh": "在ChatGPT中引入锁定模式和高风险标签，以帮助组织抵御及时注入和人工智能驱动的数据泄露。",
+    "highlights": [
+      "Introducing Lockdown Mode and Elevated Risk labels in ChatGPT to help organizations defend against prompt injection and AI-driven data exfiltration."
+    ],
+    "highlightsZh": [
+      "在ChatGPT中引入锁定模式和高风险标签，以帮助组织抵御及时注入和人工智能驱动的数据泄露。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "d480f86c234c",
+    "title": "Scaling social science research",
+    "titleZh": "扩展社会科学研究",
+    "link": "https://openai.com/index/scaling-social-science-research",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-13T09:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "GABRIEL is a new open-source toolkit from OpenAI that uses GPT to turn qualitative text and images into quantitative data, helping social scientists analyze research at scale.",
+    "summaryZh": "GABRIEL是OpenAI的一个新的开源工具包，它使用GPT将定性文本和图像转化为定量数据，帮助社会科学家大规模分析研究。",
+    "highlights": [
+      "GABRIEL is a new open-source toolkit from OpenAI that uses GPT to turn qualitative text and images into quantitative data, helping social scientists analyze research at scale."
+    ],
+    "highlightsZh": [
+      "GABRIEL是OpenAI的一个新的开源工具包，它使用GPT将定性文本和图像转化为定量数据，帮助社会科学家大规模分析研究。"
+    ],
+    "tags": [
+      "开源"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "956f105c951f",
+    "title": "Beyond rate limits: scaling access to Codex and Sora",
+    "titleZh": "超越速率限制：扩大对Codex和Sora的访问",
+    "link": "https://openai.com/index/beyond-rate-limits",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-13T09:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "How OpenAI built a real-time access system combining rate limits, usage tracking, and credits to power continuous access to Sora and Codex.",
+    "summaryZh": "OpenAI如何构建一个结合速率限制、使用跟踪和信用额度的实时访问系统，以推动对Sora和Codex的持续访问。",
+    "highlights": [
+      "How OpenAI built a real-time access system combining rate limits, usage tracking, and credits to power continuous access to Sora and Codex."
+    ],
+    "highlightsZh": [
+      "OpenAI如何构建一个结合速率限制、使用跟踪和信用额度的实时访问系统，以推动对Sora和Codex的持续访问。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "09fc1b54fabb",
+    "title": "Gemini 3 Deep Think: Advancing science, research and engineering",
+    "titleZh": "Gemini 3 Deep Think ：推进科学、研究和工程",
+    "link": "https://deepmind.google/blog/gemini-3-deep-think-advancing-science-research-and-engineering/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2026-02-12T16:15:09.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our most specialized reasoning mode is now updated to solve modern science, research and engineering challenges.",
+    "summaryZh": "我们最专业的推理模式现已更新，以解决现代科学、研究和工程挑战。",
+    "highlights": [
+      "Our most specialized reasoning mode is now updated to solve modern science, research and engineering challenges."
+    ],
+    "highlightsZh": [
+      "我们最专业的推理模式现已更新，以解决现代科学、研究和工程挑战。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8c59d007b8cb",
+    "title": "Introducing GPT-5.3-Codex-Spark",
+    "titleZh": "GPT-5.3-Codex-Spark简介",
+    "link": "https://openai.com/index/introducing-gpt-5-3-codex-spark",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-12T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Introducing GPT-5.3-Codex-Spark—our first real-time coding model. 15x faster generation, 128k context, now in research preview for ChatGPT Pro users.",
+    "summaryZh": "推出GPT-5.3-Codex-Spark--我们的第一个实时编码模型。生成速度提高15倍，上下文为128k ，现已进入ChatGPT Pro用户的研究预览。",
+    "highlights": [
+      "Introducing GPT-5.3-Codex-Spark—our first real-time coding model.",
+      "15x faster generation, 128k context, now in research preview for ChatGPT Pro users."
+    ],
+    "highlightsZh": [
+      "推出GPT-5.3-Codex-Spark--我们的第一个实时编码模型。生成速度提高15倍，上下文为128k ，现已进入ChatGPT Pro用户的研究预览。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具"
+    ],
+    "score": 84,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "989e332f832c",
+    "title": "Harness engineering: leveraging Codex in an agent-first world",
+    "titleZh": "线束工程：在代理优先的世界中充分利用Codex",
+    "link": "https://openai.com/index/harness-engineering",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-11T09:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "By Ryan Lopopolo, Member of the Technical Staff",
+    "summaryZh": "作者： Ryan Lopopolo ，技术人员",
+    "highlights": [
+      "By Ryan Lopopolo, Member of the Technical Staff"
+    ],
+    "highlightsZh": [
+      "作者： Ryan Lopopolo ，技术人员"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "e3c5811ce40d",
+    "title": "Accelerating Mathematical and Scientific Discovery with Gemini Deep Think",
+    "titleZh": "使用Gemini Deep Think加速数学和科学发现",
+    "link": "https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2026-02-09T16:12:06.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Research papers point to the growing impact of Deep Think across fields",
+    "summaryZh": "研究论文指出深度思考对各个领域的影响越来越大",
+    "highlights": [
+      "Research papers point to the growing impact of Deep Think across fields"
+    ],
+    "highlightsZh": [
+      "研究论文指出深度思考对各个领域的影响越来越大"
+    ],
+    "tags": [],
+    "score": 46,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3d72134cdaba",
+    "title": "Bringing ChatGPT to GenAI.mil",
+    "titleZh": "将ChatGPT引入GenAI.mil",
+    "link": "https://openai.com/index/bringing-chatgpt-to-genaimil",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-09T11:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI for Government announces the deployment of a custom ChatGPT on GenAI.mil, bringing secure, safety-forward AI to U.S. defense teams.",
+    "summaryZh": "OpenAI for Government宣布在GenAI.mil上部署自定义ChatGPT ，为美国防务团队带来安全可靠的人工智能。",
+    "highlights": [
+      "OpenAI for Government announces the deployment of a custom ChatGPT on GenAI.mil, bringing secure, safety-forward AI to U.S. defense teams."
+    ],
+    "highlightsZh": [
+      "OpenAI for Government宣布在GenAI.mil上部署自定义ChatGPT ，为美国防务团队带来安全可靠的人工智能。"
+    ],
+    "tags": [
+      "发布",
+      "监管"
+    ],
+    "score": 78,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8f4bb7dd8ed5",
+    "title": "Making AI work for everyone, everywhere: our approach to localization",
+    "titleZh": "让人工智能为世界各地的每个人服务：我们的本地化方法",
+    "link": "https://openai.com/index/our-approach-to-localization",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-06T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI shares its approach to AI localization, showing how globally shared frontier models can be adapted to local languages, laws, and cultures without compromising safety.",
+    "summaryZh": "OpenAI分享了其人工智能本地化的方法，展示了全球共享的前沿模型如何在不影响安全的情况下适应当地语言、法律和文化。",
+    "highlights": [
+      "OpenAI shares its approach to AI localization, showing how globally shared frontier models can be adapted to local languages, laws, and cultures without compromising safety."
+    ],
+    "highlightsZh": [
+      "OpenAI分享了其人工智能本地化的方法，展示了全球共享的前沿模型如何在不影响安全的情况下适应当地语言、法律和文化。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "df0b4d474a02",
+    "title": "GPT-5 lowers the cost of cell-free protein synthesis",
+    "titleZh": "GPT-5降低了无细胞蛋白质合成的成本",
+    "link": "https://openai.com/index/gpt-5-lowers-protein-synthesis-cost",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-05T11:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "An autonomous lab combining OpenAI’s GPT-5 with Ginkgo Bioworks’ cloud automation cut cell-free protein synthesis costs by 40% through closed-loop experimentation.",
+    "summaryZh": "一个将OpenAI的GPT-5与Ginkgo Bioworks的云自动化相结合的自主实验室通过闭环实验将无细胞蛋白质合成成本降低了40%。",
+    "highlights": [
+      "An autonomous lab combining OpenAI’s GPT-5 with Ginkgo Bioworks’ cloud automation cut cell-free protein synthesis costs by 40% through closed-loop experimentation."
+    ],
+    "highlightsZh": [
+      "一个将OpenAI的GPT-5与Ginkgo Bioworks的云自动化相结合的自主实验室通过闭环实验将无细胞蛋白质合成成本降低了40%。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4a49a2171bab",
+    "title": "Introducing Trusted Access for Cyber",
+    "titleZh": "推出可信网络访问权限",
+    "link": "https://openai.com/index/trusted-access-for-cyber",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-05T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI introduces Trusted Access for Cyber, a trust-based framework that expands access to frontier cyber capabilities while strengthening safeguards against misuse.",
+    "summaryZh": "OpenAI引入了Trusted Access for Cyber ，这是一个基于信任的框架，可扩展对前沿网络功能的访问，同时加强防止滥用的保护措施。",
+    "highlights": [
+      "OpenAI introduces Trusted Access for Cyber, a trust-based framework that expands access to frontier cyber capabilities while strengthening safeguards against misuse."
+    ],
+    "highlightsZh": [
+      "OpenAI引入了Trusted Access for Cyber ，这是一个基于信任的框架，可扩展对前沿网络功能的访问，同时加强防止滥用的保护措施。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "537f97d9df02",
+    "title": "Introducing OpenAI Frontier",
+    "titleZh": "OpenAI Frontier简介",
+    "link": "https://openai.com/index/introducing-openai-frontier",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-05T06:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI Frontier is an enterprise platform for building, deploying, and managing AI agents with shared context, onboarding, permissions, and governance.",
+    "summaryZh": "OpenAI Frontier是一个企业平台，用于构建、部署和管理具有共享上下文、入职、权限和治理的AI代理。",
+    "highlights": [
+      "OpenAI Frontier is an enterprise platform for building, deploying, and managing AI agents with shared context, onboarding, permissions, and governance."
+    ],
+    "highlightsZh": [
+      "OpenAI Frontier是一个企业平台，用于构建、部署和管理具有共享上下文、入职、权限和治理的AI代理。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "监管"
+    ],
+    "score": 88,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "1f7427a9e036",
+    "title": "Introducing GPT-5.3-Codex",
+    "titleZh": "GPT-5.3-Codex简介",
+    "link": "https://openai.com/index/introducing-gpt-5-3-codex",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-05T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "GPT-5.3-Codex is a Codex-native agent that pairs frontier coding performance with general reasoning to support long-horizon, real-world technical work.",
+    "summaryZh": "GPT-5.3-Codex是一个Codex原生代理，它将前沿编码性能与一般推理相结合，以支持长期、真实的技术工作。",
+    "highlights": [
+      "GPT-5.3-Codex is a Codex-native agent that pairs frontier coding performance with general reasoning to support long-horizon, real-world technical work."
+    ],
+    "highlightsZh": [
+      "GPT-5.3-Codex是一个Codex原生代理，它将前沿编码性能与一般推理相结合，以支持长期、真实的技术工作。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具"
+    ],
+    "score": 94,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8a0c8c7ac88d",
+    "title": "GPT-5.3-Codex System Card",
+    "titleZh": "GPT-5.3-Codex系统卡",
+    "link": "https://openai.com/index/gpt-5-3-codex-system-card",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-05T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "GPT‑5.3-Codex is the most capable agentic coding model to date, combining the frontier coding performance of GPT‑5.2-Codex with the reasoning and professional knowledge capabilities of GPT‑5.2.",
+    "summaryZh": "GPT ‑ 5.3-Codex是迄今为止最强大的代理编码模型，将GPT ‑ 5.2-Codex的前沿编码性能与GPT ‑ 5.2的推理和专业知识能力相结合。",
+    "highlights": [
+      "GPT‑5.3-Codex is the most capable agentic coding model to date, combining the frontier coding performance of GPT‑5.2-Codex with the reasoning and professional knowledge capabilitie"
+    ],
+    "highlightsZh": [
+      "GPT ‑ 5.3-Codex是迄今为止最强大的代理编码模型，将GPT ‑ 5.2-Codex的前沿编码性能与GPT ‑ 5.2的推理和专业知识能力相结合。"
+    ],
+    "tags": [
+      "模型",
+      "开发工具"
+    ],
+    "score": 80,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4ffb21a2a15a",
+    "title": "独家解读｜Anthropic 估值再翻倍逼近万亿，登顶全球 AI 第一的“秘密”是什么？ | 雷峰网",
+    "titleZh": "独家解读｜Anthropic 估值再翻倍逼近万亿，登顶全球 AI 第一的“秘密”是什么？",
+    "link": "https://www.leiphone.com/category/ai/3bJjZs6OI76QGKNw.html",
+    "source": "雷锋网 AI",
+    "sourceType": "media",
+    "sourceRegion": "cn",
+    "sourceLanguage": "zh",
+    "feedName": "雷锋网 AI",
+    "sourceHomepage": "https://www.leiphone.com/category/ai",
+    "publishedAt": "2026-02-05T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "为什么有投资人敢赌Anthropic估值十万亿？",
+    "summaryZh": "为什么有投资人敢赌Anthropic估值十万亿？",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "独家解读｜Anthropic 估值再翻倍逼近万亿，登顶全球 AI 第一的“秘密”是什么？ | 雷峰网",
+    "highlights": [
+      "为什么有投资人敢赌Anthropic估值十万亿？"
+    ],
+    "highlightsZh": [
+      "为什么有投资人敢赌Anthropic估值十万亿？"
+    ],
+    "tags": [
+      "资本"
+    ],
+    "score": 42,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-05-29T08:53:34.216Z",
+    "lastSeenAt": "2026-06-05T01:32:18.995Z",
+    "originalContentText": "独家解读｜Anthropic 估值再翻倍逼近万亿，登顶全球 AI 第一的“秘密”是什么？\n\n650亿最新一轮融资，9650亿估值，今天凌晨，Anthropic 正式登顶全球估值第一AI公司。\n\n“就算Anthropic估值冲到十万亿美金我也不会吃惊。”长期跟踪AI领域的分析师唐辉告诉雷峰网。\n\n“9650亿美元远未到Anthropic的天花板，现在全球资本都是FOMO心态，市场共识是错过是比买贵更大的风险。只要Anthropic能持续证明自己的营收能力，资本会排着队给它送钱。”\n\n据相关数据，Anthropic 估值在最近短短3个月内，翻了将近3倍，ARR也直线拉升到 450 亿美元，而OpenAI的ARR还在330亿美元。\n\n整整35%的营收差额，除非OpenAI 的增速能出现戏剧性的旱地拔葱，否则这种局面在短期内很难扭转。\n\n2025年底，Anthropic 的ARR还只有90亿美元，连OpenAI 的一半都不到。短短五个月，Anthropic就已经挂上 5 倍火箭档，将OpenAI挑落马下。\n\n这条近乎垂直的增长曲线，早已不是技术优势抢占市场的常规发展逻辑所能解释通的。\n\n到底是什么力量，硬生生打破了常规增长节奏，将Anthropic 的营收推向了指数级爆发？\n\nClaude Code，提前埋下的ARR“飙升引擎”\n\n“很多人将ARR的炸裂增速完全归功于Claude Code，这个说法没毛病，但不完全正确。今年2月之后，Claude Code的生产力价值才在行业里形成共识。”\n\nAI领域投资人赵磊表示，从真实数据和来自众多一线开发者的反馈来看，Claude Code更像是一个早已埋好，但需要特定条件才能引爆的ARR加速器。\n\n而那个点燃它的“引信”，就是Claude Sonnet 4.6，更多见地，欢迎添加作者微信 IHAVEAPLANB- 沟通交流。\n\n根据时间线，Claude Code发布于2025年5月，但在2025年下半年，Anthropic的ARR只是从40亿平稳爬升至90亿，真正的“非常规攀升”要始于2026年2月。\n\n2026年2月5日，Anthropic发布了Claude Opus 4.6 ，不仅支持100万Token上下文窗口，还带来了一个重磅技术：Agent Teams ，让 AI 能自主拆分任务、多Agent 并行协作推演，大幅打通了长链路复杂业务的全自动处理能力。\n\n深圳某科技公司产品负责人冯毅告诉雷峰网，这次底层的架构升级，解决了以往Claude Code 在处理大型工程时无法全局协同的硬伤，AI 编程真正具备了端到端的全栈重构能力，这让整个开发圈彻底炸锅了。\n\n“但那时很多朋友都跟我反映过，Claude Opus 4.6 的价格太贵了（输入5美元/百万Token，输出25美元/百万Token），大部分普通开发者和初创团队根本烧不起，但Claude Sonnet4.6 出来后这个问题就被解决了。”\n\n2月17日发布的Claude Sonnet 4.6，同样支持100万Token上下文窗口，且被设为所有免费和Pro用户的默认模型。在真实办公场景中，Sonnet 4.6的编程和推理能力逼近旗舰级的Opus 4.6，但API成本只有其六成。\n\n高智商、大吞吐、高性价比的核心属性，直接让 Claude Code 从一个只能写写Hello World的编程玩具，变成了真正的生产力工具。\n\n从团队协作到独立成军，开发者们在体验过Claude Code带来的产品精细度和完整度后直呼上瘾。\n\n在最新发布的Claude Opus4.7中，模型采用了新的tokenizer（分词器）技术，在产品公告中Anthropic明确说明Token消耗量将会提升30%。\n\n“这种发布节奏的杀伤力被严重低估了，厂商不是generosity（慷慨），先让免费用户尝到甜头，他们转化为企业付费用户的概率就会大幅提升，等嵌入工作流再涨价，让很多企业不得不含泪买单。”\n\n冯毅告诉雷峰网，Anthropic这一招高明就高明在，它几乎没花什么成本，就让很多开发团队在无形中变成了Claude Code的“自来水”。\n\n“可以说，Claude Code 是Anthropic迄今为止最便宜的增长引擎。”\n\nSonnet 4.6 强有力的杠杆作用，为Claude Code打开了庞大市场体量，一款小众工具变成了人人皆可Vibe Coding的优质生产力。\n\n至2月底，Claude Code就已为Anthropic 单独贡献25亿美元ARR ，且该数值仍在持续上涨中。\n\n拒绝五角大楼，2亿美元换了一张信任牌\n\n“硅谷每天都有人在卖情怀、立人设，但是如果一家公司真敢言行一致地去得罪军方得罪政府，它在客户的眼里就不再只是个讲故事的了。”投资人赵磊表示。\n\n代码场景的强势爆发，夯实了Anthropic的市场口碑，随即它的一个关键抉择，顺势撬动了全局格局。\n\n2026年2月26日，Anthropic拒绝了五角大楼一份价值2亿美元的合同，只因在这份合同条款中，五角大楼要求Anthropic开放Claude模型用于美国国内大规模监控和自主武器系统。\n\n就在Anthropic拒绝这份合同后的几个小时，OpenAI火速向五角大楼递上了橄榄枝，完成极限补位。\n\n由于不满OpenAI全力拥抱五角大楼的激进商业姿态，在随后的3、4 月份，全美爆发了声势浩大的QuitGPT（逃离 ChatGPT）运动，数百万专业极客和企业团队在短短两个月内发起了全球性的OpenAI退订潮。\n\n在QuitGPT 运动甚嚣尘上时，Anthropic 几乎是“神同步”地推出了一个极具杀伤力的功能：\n\n允许用户将 ChatGPT 历史对话记录和代码库导入到 Claude 中，击碎了高昂的迁移成本，将这股庞大的精英流量精准引流到Claude Code。\n\n“表面上看这是一场‘价值观叙事’的胜利，当然我也不否认这一点，但如果你站在CIO（首席信息官）的角度去想，这件事的逻辑就不一样了。”\n\n赵磊告诉雷峰网(公众号：雷峰网)，那些金融、保险巨头在选AI供应商时，他们关心的不是模型在benchmark上那零点几分的差距，他们最担心的是：这个公司会不会有一天把我的数据拿去给政府？更多见地，欢迎添加作者微信IHAVEAPLANB- 沟通交流。\n\n“一家被军方拉黑的AI公司，反而是隐私敏感型企业最想合作的AI公司。Anthropic 拒绝五角大楼这份2亿美元合同，等于用真金白银向所有存量客户和潜在客户递了个投名状：我们的安全承诺不只是合同条款。”\n\n据美国最大的企业信用卡与费用管理平台之一 Ramp最新发布的AI指数报告，今年4月，Anthropic 在企业端的付费采用率飙升了3.8个百分点，达到34.4%；而 OpenAI 则下跌了2.9个百分点，滑落至32.3%。\n\n对此赵磊补充，这个结果背后还有一个很反常的前情条件：Anthropic是在顶着更高的价格、甚至主动限速的情况下，赢下OpenAI的。在大多数企业软件品类里，更便宜的产品会吞下更多市场份额，但这回显然不是。\n\n“拒绝五角大楼之后，Claude在国外的科技精英圈子里获得了一种政治正确的品牌光环，大型企业的CISO（首席信息安全官）和合规委员会最吃这一套。”\n\n连签三个算力大单，锁死对手生存空间\n\n“很多用了Claude的企业今年一算账，都被天价Token账单吓到，比如Uber、ServiceNow等，但综合来看，这些企业在Token上是‘越烧越停不下来’的。所以，只要解决了算力供给问题，Anthropic的ARR还有很大的想象空间。”\n\n唐辉认为，算力紧张是 Anthropic 眼下最迫切的问题，这也是业内普遍的共识，更多见地，欢迎添加作者微信IHAVEAPLANB- 沟通交流。\n\nClaude Code 在终端市场的病毒式裂变，叠加QuitGPT运动导致的生态大迁徙，数千万专业极客和企业在短短两三个月内将高频、高吞吐的编码需求投向Claude 。\n\n可这份突如其来的 “泼天富贵”，也让 Anthropic 陷入了史无前例的 “算力饥荒”。\n\n在 4 月 20 日的官方公告中，其直言：业务增速过快，已给基础设施带来巨大压力。\n\n为快速补足算力缺口，Anthropic 4月份起手起刀落连签三份大额算力合同：\n\n先是与谷歌官宣未来五年5GW TPU 算力合作，紧接着与亚马逊达成了未来十年总计 1000 亿规模的算力供应合作，5月份更是一口气包圆了马斯克 Colossus 1 项目的 22 万张 GPU 算力资源。\n\n值得一提的是，按照近期的流水来看，微软每年也要花近 5 亿美元来购买 Anthropic 的 AI 能力，用以驱动自家的产品线，更进一步做大了Anthropic的营收盘。\n\n“现在厂商签算力合同都倾向于签长协，一是可以锁定价格，二是签长协可以给对手造成巨大压力。现在全球算力是卖方市场，算力扩产很慢，算力资源签一家少一家，锁定的越多竞争对手可用就越少。”\n\n唐辉认为，Token本身就是一种战略资源，Anthropic这三份算力合同的本质不是\"买GPU\"，而是在一个供给极度紧张的市场里，用资本的密度抢出一个供给侧的时间窗口。\n\n截至 2026年4月底，Anthropic 年消费超过 100 万美元的重量级企业客户总数已经正式突破1000家，而在2月时，这个数字还是500家。\n\n高盛、辉瑞、宝洁等这些最优质、最不差钱的行业巨头，正纷纷把 Claude API 深度嵌入业务工作流，用24小时不停工的Token 账单，烧出Anthropic 财报中恐怖的 ARR 增速。\n\n唐辉告诉雷峰网，Anthropic在4月这个特殊的时间节点签下这么多算力中心，还有一个很高明的战略意义。\n\n“这个时间正好是全球巨头的Q1 财报季与新财年预算释放节点，在B端主战场，它急需“秀一波肌肉”来安抚好这些公司：我们的算力储备非常充足，你们可以放心把最核心、吞吐量最大的工作流切到 Claude 上。”\n\n同样的弹药，更密的火力\n\n“如果每赚1块钱要烧掉七成的推理成本，这种增长显然与自杀无异。”\n\nAI领域投资人赵磊告诉雷峰网，去年吵得沸沸扬扬的AI泡沫论，说白了就是大家普遍对AI投资的ROI存疑，大多数叫得上名字的公司的AI业务都还没真正实现盈利，但接下来Anthropic要成为“第一个吃螃蟹”的公司了。\n\n根据《华尔街日报》5 月21 日发布的内部财务预测文件显示：\n\nAnthropic今年一季度单季营收达到了48 亿美元，预计二季度营收将再翻一番向109 亿美元冲刺，并将在今年第二季度产生5.59亿美元的营业利润，成为全球首个实现盈利的AI独角兽。\n\n与此同时，Anthropic 正在迎来真正的效率拐点。\n\n其单位收入的算力成本已经从第一季度的每 1 美元营收消耗 71 美分，大幅下降到了本季度的 56 美分，毛利率从29%提升到44%。\n\n赵磊认为，Anthropic的毛利率飞跃显然不是通过涨价实现的，原因主要来自两个方面：\n\n第一是多芯片架构的灵活调度。Anthropic在接连拿下云厂合作后，能够同时在AWS Trainium、谷歌TPU和英伟达GPU上运行Claude，不再被英伟达一家独大卡毛利率。\n\n第二是B端市场的天然优势。它不用像OpenAI那样每天自掏腰包，为数亿免费用户倒贴恐怖的算力推理成本。\n\n分析师唐辉算了一笔账，毛利率每提升一个百分点，企业可投入的资金就会相应增加。\n\n“保守按440亿美元ARR的算，15个百分点的毛利率改善，就意味着每年多出近60亿美元用来继续砸算力、扩模型、拉客户，飞轮就这样跑起来了。”\n\n飞轮什么时候会停？\n\n估值冲顶与ARR五倍狂飙，让 Anthropic 在2026 年夏天抢到了一张珍贵的 AGI 船票。\n\n它用一套深嵌进工作流的Claude Code、一份拒绝五角大楼的投名状，和三份天价算力合同，把大模型拼参数的上半场，硬生生拽进了拼单位经济效益的下半场。\n\n在跨过自我造血这道坎后，Anthropic已经向华尔街证明，AI 不只是讲故事的资金黑洞。\n\n眼前的狂热，只是为 Anthropic 续上了一大笔足以进入下一场战役的弹药。\n\n飞轮已经转起来了，在这条通往 AGI 的生死单行道上，所有人都不再拥有踩下刹车的权力。\n\n本文作者长期追踪海外AI行业动态，更多深度信息，欢迎添加作者微信IHAVEAPLANB-沟通交流。\n\n雷峰网原创文章，未经授权禁止转载。详情见转载须知。\n\n为什么说 Anthropic 像一家「宗教」？\n\n硅谷大佬发出Anthropic垄断预警：4个月ARR翻了4倍， ...\n\n从价格战到巷战：Sam Altman 让你随时随地，想 Codi ...\n\n独家解读丨Anthropic每赚100块，为何会被马斯克顺走 ...\n\n独家解读｜AI编程“三巨头”，为何走了三家车企的路？\n\n硅谷大佬发出Anthropic垄断预警：4个月ARR翻了4倍，18个月后或将营收破万亿独霸全球\n\n全球首个！材科源图发布有机高分子应用智能体\n\n慕尼黑工大Johannes Betz 教授：时速300公里的自动驾驶超车 ｜ ICRA 2026\n\nUT Austin朱玉可：人形机器人的数据困局怎么破？答案藏在「数据海绵」里 ｜ICRA 2026\n\nCCIG 2026 在广州圆满落幕：4200 余位专家学者共绘图像图形发展新图景\n\n港中深王方鑫团队：3D 重建的「玻璃杯难题」，终于被摆上台面丨CVPR 2026\n\nNUS 余浩泳教授：外骨骼的轻量化与任务感知丨ICRA 2026",
+    "originalContentAvailable": true,
+    "originalContentWarning": "",
+    "snapshotFetchedAt": "2026-06-05T01:32:51.888Z"
+  },
+  {
+    "id": "01db201107e3",
+    "title": "Navigating health questions with ChatGPT",
+    "titleZh": "使用ChatGPT导航健康问题",
+    "link": "https://openai.com/index/navigating-health-questions",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-05T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "A family shares how ChatGPT helped them prepare for critical cancer treatment decisions for their son alongside expert guidance from his doctors.",
+    "summaryZh": "一个家庭分享了ChatGPT如何帮助他们为儿子的关键癌症治疗决策做好准备，以及他的医生的专家指导。",
+    "highlights": [
+      "A family shares how ChatGPT helped them prepare for critical cancer treatment decisions for their son alongside expert guidance from his doctors."
+    ],
+    "highlightsZh": [
+      "一个家庭分享了ChatGPT如何帮助他们为儿子的关键癌症治疗决策做好准备，以及他的医生的专家指导。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "使用ChatGPT导航健康问题"
+  },
+  {
+    "id": "a45c7ee6fc08",
+    "title": "Unlocking the Codex harness: how we built the App Server",
+    "titleZh": "解锁Codex线束：我们如何构建应用服务器",
+    "link": "https://openai.com/index/unlocking-the-codex-harness",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-04T13:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Learn how to embed the Codex agent using the Codex App Server, a bidirectional JSON-RPC API powering streaming progress, tool use, approvals, and diffs.",
+    "summaryZh": "了解如何使用Codex App Server嵌入Codex代理，这是一个双向JSON-RPC API ，支持流式处理进度、工具使用、审批和差异。",
+    "highlights": [
+      "Learn how to embed the Codex agent using the Codex App Server, a bidirectional JSON-RPC API powering streaming progress, tool use, approvals, and diffs."
+    ],
+    "highlightsZh": [
+      "了解如何使用Codex App Server嵌入Codex代理，这是一个双向JSON-RPC API ，支持流式处理进度、工具使用、审批和差异。"
+    ],
+    "tags": [
+      "模型",
+      "开发工具"
+    ],
+    "score": 78,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "1d2f67546cfd",
+    "title": "The Sora feed philosophy",
+    "titleZh": "Sora饲料理念",
+    "link": "https://openai.com/index/sora-feed-philosophy",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-03T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Discover the Sora feed philosophy—built to spark creativity, foster connections, and keep experiences safe with personalized recommendations, parental controls, and strong guardrails.",
+    "summaryZh": "探索Sora饲料理念，通过个性化推荐、家长控制和强大的护栏，激发创造力、培养人际关系，并保障体验安全。",
+    "highlights": [
+      "Discover the Sora feed philosophy—built to spark creativity, foster connections, and keep experiences safe with personalized recommendations, parental controls, and strong guardrai"
+    ],
+    "highlightsZh": [
+      "探索Sora饲料理念，通过个性化推荐、家长控制和强大的护栏，激发创造力、培养人际关系，并保障体验安全。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "bfccb1436466",
+    "title": "第一视角效率超过真机，深度机智发布全球首个以人类学习范式构建的具身基座模型 | 雷峰网",
+    "titleZh": "第一视角效率超过真机，深度机智发布全球首个以人类学习范式构建的具身基座模型",
+    "link": "https://www.leiphone.com/category/ai/BLS2oRfBOj5bwGyP.html",
+    "source": "雷锋网 AI",
+    "sourceType": "media",
+    "sourceRegion": "cn",
+    "sourceLanguage": "zh",
+    "feedName": "雷锋网 AI",
+    "sourceHomepage": "https://www.leiphone.com/category/ai",
+    "publishedAt": "2026-02-03T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "喧嚣之下，一个尴尬的共识正在形成：没有人知道正确的技术路线究竟是什么。遥操作、仿真合成、互联网视频、人类第一视角……",
+    "summaryZh": "喧嚣之下，一个尴尬的共识正在形成：没有人知道正确的技术路线究竟是什么。遥操作、仿真合成、互联网视频、人类第一视角……",
+    "highlights": [
+      "喧嚣之下，一个尴尬的共识正在形成：没有人知道正确的技术路线究竟是什么。遥操作、仿真合成、互联网视频、人类第一视角……"
+    ],
+    "highlightsZh": [
+      "喧嚣之下，一个尴尬的共识正在形成：没有人知道正确的技术路线究竟是什么。遥操作、仿真合成、互联网视频、人类第一视角……"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 54,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-05-07T00:07:53.570Z",
+    "originalContentText": "第一视角效率超过真机，深度机智发布全球首个以人类学习范式构建的具身基座模型\n\n2026年，具身智能的泡沫与烈火同时燃烧。\n\n宇树科技递交招股书，估值冲击百亿；Figure AI、Physical Intelligence等美国公司融资额屡创新高，将行业热度推向顶点。国内创业公司紧急跟进——堆数据、抢场景、拼本体，十万小时真机数据成为新的军备竞赛标的。\n\n但喧嚣之下，一个尴尬的共识正在形成：没有人知道正确的技术路线究竟是什么。遥操作、仿真合成、互联网视频、人类第一视角……数据类型的选择尚未收敛；行星减速、谐波力控、电驱液压……本体结构的争论也还没落地。行业在\"大力出奇迹\"的信仰下狂奔，却鲜有人追问：这些海量数据，究竟在教机器人什么？\n\n最近，AI科技评论观察到，越来越多具身智能公司开始探索一条新的数据路径：\"人类第一视角数据\"。\n\n2026年以来，小米、蚂蚁、章鱼动力等公司在纷纷组建新团队跟进这一路线。其中，以微软亚洲研究院前首席研究员陈凯的观点，引发了行业的热烈讨论。\n\n3月27号，作为深度机智的创始人，陈凯在中关村论坛上代表深度机智，发布了首个具身智能基座模型PhysBrain 1.0，并公布了他们的研究成果。\n\n这个模型仅使用1000小时人类第一视角数据、零真机数据，在多个国际权威榜单上超越了用数万小时真机数据的竞争对手，在多个国际 Benchmark 上取得 SOTA，比 Physical Intelligence 和英伟达等头部巨头表现更好。\n\n某种程度上，一场具身智能领域关于\"物理常识\"的革命，正在悄然开启。\n\n模型缺乏物理常识，是具身领域的巨大痛点\n\n\"目前不管是VLM（视觉语言模型）还是世界模型，始终会卡在一个点上：它们缺乏物理常识。\"深度机智创始人陈凯在中关村论坛上直接指出了这一行业痛点。\n\n这个判断直指当前具身智能的核心困境。和很多学者遇到的情况一样，陈凯提到 VLM 模型不理解空间、时序，\"桌子上面放了几个杯子，它数不清有几个\"；视频生成模型\"视觉上足以乱真，但运动的真实性和物理真实性比较差\"。这些看似基础的能力缺失，让机器人在面对真实世界的复杂性时屡屡碰壁。\n\n问题的根源在于数据与学习的错位。当前行业主流的做法——遥操作采集真机数据、仿真合成虚拟数据、或是模仿人类手部轨迹，本质上都是在教机器人\"模仿动作\"，而非\"理解世界\"。\n\n\"现在非常多的做法——背动作、背轨迹——其实是手把手地教猴子干活。\"陈凯用了一个形象的比喻，\"而我们正在尝试的是：请菩提祖师把猴子变成孙悟空，让它先理解世界，再去学习技能。\"\n\n这种\"理解优先\"的方法论，正在获得越来越多证据的支持。深度机智近期发布的PhysBrain 1.0模型正式针对这样的思路，做出的阶段性成果。\n\n这一结果挑战了一个行业默认假设：更多的数据，是否必然带来更好的智能？\n\n人类第一视角：被重新发现的数据富矿\n\n\"人类第一视角数据，因为它是人看过去的第一视角的世界，收集的是真实物理世界的数据，天然就蕴含着各种各样的物理常识。\"陈凯解释道自己为什么要押注这一路线。\n\n无独有偶，这种数据类型的价值，在2024-2025年间逐渐被重新发现。2025年5月，特斯拉宣布放弃遥操作，转向人类第一视角；6月，Figure AI发布\"扔积木\"的拟人行为Demo；10月，Generalist AI验证Scaling Law；12月，Physical Intelligence确认人类数据价值；2026年2-3月，英伟达发表论文交叉验证。\n\n行业共识迅速形成：人类第一视角数据不是遥操作的替代品，而是通往\"物理常识\"的关键路径。\n\n但分歧依然存在。英伟达的论文仍专注手部轨迹预训练，而深度机智选择\"直接上来就要增强VLM本身——让它依据人看到的这个世界去理解世界\"。陈凯认为，这种差异让深度机智\"在整个流程上应该比英伟达略有领先\"。\n\n更深层的差异在于数据的\"多样性\"。遥操作数据记录机器人视角，任务和场景由人工设计；UMI（通用操作接口）数据需要人手持夹爪，\"很难想象工厂主要求员工不能用手干活\"。\n\n而人类第一视角数据捕捉的是真实生活，\"哪怕你是静静地发呆，你看到外面车水马龙，这些数据对我们都有价值\"。\n\n这种多样性带来的不仅是数据量的节省，更是学习质量的跃迁。\n\n从\"轨迹拟合\"到\"物理常识\"：方法论的范式转移\n\n\"智能涌现\"现象为这场革命提供了最直观的证据。\n\n深度机智的测试中，训练数据全是\"夹起胡萝卜放盘子里\"，但机械臂碰到胡萝卜没夹到时，竟\"自发选择推\"——推一次没推进去，换角度加大力度再推，最后才转变策略夹起来。另一个案例中，机械爪夹方块太靠后掉落，它主动回来捡，第一次没捡起，第二次\"做了一个非常轻微的旋转\"成功夹起。\n\n\"这种灵活性，甚至你都没有办法预编程把它搞出来。\"陈凯描述这一现象时强调，\"千小时人类数据增强物理常识，自发地把人类灵活变通的能力迁移到了机器人身上。\"\n\n这种\"涌现\"能力揭示了一个深层规律：当模型具备足够的物理常识，它不再依赖精确的轨迹模仿，而是能够像人类一样\"理解情境、灵活应对\"。这正是\"物理常识\"革命的核心，从\"教动作\"到\"教理解\"的范式转移。\n\nPhysical Intelligence创始人将这种能力称为\"智能的暗物质\"（Physical common sense is the dark matter of intelligence）。DeepMind的哈萨比斯则认为，原生多模态模型对物理世界的更好理解，可成为机器人的大脑。（雷峰网(公众号：雷峰网)）\n\n\"所有的这些点都归结到一个：要先去理解这个世界，然后再到这个世界里面去行动。\"陈凯总结道。\n\n跨本体能力：物理常识的迁移效应\n\n\"物理常识\"革命的另一个重要成果，是\"跨本体能力\"的涌现。\n\n传统方法需要\"把不同形态的机器人的数据做联合训练\"才能实现技能迁移。但深度机智观察到：\"有了一个理解物理常识的大脑，自然而然知道适配什么样的身体。\"\n\n这一发现颠覆了\"一个机器人一套数据\"的行业惯例。用LoRA预训练action expert，再用Franka机械臂微调，数据需求大幅下降——\"不同形态机器人背后的物理规律一模一样\"。\n\n\"跨本体是物理智能增强自然而然会出现的结果，并不是刻意地把多种机器人数据放在一起训练出来的结果。\"陈凯解释道。\n\n这意味着，物理常识具有跨平台、跨形态的通用性。一旦模型掌握了\"物体受力会移动\"\"抓取需要摩擦力\"等基础规律，它就能将这些知识迁移到新的硬件平台上，而无需从头学习。\n\n这种通用性，正是通往\"具身通用智能\"的关键阶梯。\n\n\"人类学习路线\"正在国内悄然崛起\n\n在全球具身智能竞赛中，中国与美国呈现出不同的侧重。\n\n过去，中国和美国在具身智能领域内，其实是各有侧重，中国聚焦本体，美国是聚焦在大脑上。比较典型的是宇树科技等公司在硬件迭代上取得显著成绩，但\"具身大脑上的团队其实并没有那么多\"。\n\n这一格局正在改变。2025-2026年间，国内开始涌现专注\"大脑\"的团队。深度机智的崛起，以及小米、蚂蚁、章鱼动力等公司在2026年初纷纷组建新团队跟进\"人类学习路线\"，标志着行业重心的转移。\n\n从某种角度上，国内目前的路径和认知上和世界一流科学家区别不大，但需要更多的投入。其中，数据成本优势尤为明显，美国标注第一视角27万小时花上亿美刀，中国千万小时人力历史数据今年整个行业就会达到。\n\n2026年，\"物理常识\"革命仍处于早期，尽管深度机智的1000小时数据\"涌现\"了纠错、变通、跨本体等能力，但陈凯承认这仍是\"偶然的智能涌现\"。2026年底是否会出现\"效果出人意料好的具身智能大模型\"？两三年能否重现ChatGPT时刻？\n\n更深层的挑战在于行业生态。\n\n\"物理常识\"的提取、标注、利用，需要全新的模型架构和训练方法，与当前主流的VLA、π0架构并不兼容。这意味着，拥抱\"物理常识\"革命，可能需要放弃既有的技术积累和基础设施。\n\n但回报同样诱人。一旦机器人具备真正的\"物理常识\"，它将不再是\"教什么会什么\"的专用工具，而是\"理解情境、灵活应对\"的通用助手。这将彻底改变制造业、服务业、危险作业等无数领域的生产力图景。\n\n在这方面的认知上，陈凯提到\"这可能是人工智能的最后一个机会，也是最大的一次。\"，这或许是对这场革命押注的决心。（雷峰网）\n\n当行业仍在\"大力出奇迹\"的信仰下堆砌数据时，一条\"理解优先\"的新路径已经显现。它不是对数据量的否定，而是对学习质的重构——从\"模仿动作\"到\"理解世界\"，从\"教猴子\"到\"变孙悟空\"。\n\n这场\"物理常识\"革命能否成功，将决定具身智能的下一个十年。而2026年，正是关键的转折之年。\n\n雷峰网原创文章，未经授权禁止转载。详情见转载须知。\n\n驶入物理AI元年：头部玩家集体跃迁，易航智能交出双 ...\n\n2026北京车展观察（下）：汽车被AI重新定义，人车交 ...\n\n自动驾驶只是起点：易航智能陈禹行谈物理AI时代的“ ...\n\n直击北京车展 | 元戎 CEO 周光：目标成为物理世界的 ...\n\n达闼科技陨落一周年：具身独角兽的消亡史\n\n独家丨雷军马云罕见握手，千寻智能30天完成30亿元融资\n\n松应科技发布ORCA Lab 1.0：一场关于\"物理AI操作系统\"的国产替代暗战\n\n解决机器人散热困境，华科冷芯高速悬浮泵液冷方案助力荣耀人形机器人“闪电”夺冠\n\nCVPR 2026 动态视觉智能观察梳理：Benchmark 之外的新考题已经出现\n\n担心被Skill替代的打工人发现：“根本不是那么回事”\n\n马斯克“认怂”：HW3硬件被判死刑，FSD无监督版还要再等几年？\n\nSpaceX 招股书首次深度曝光，华尔街多空激烈对线\n\nIPO前夕砸600亿美金收购Cursor，马斯克的“阳谋”与“阴谋”\n\n专访Meta前技术总监，小扎为何又要裁掉8000人？",
+    "originalContentAvailable": true,
+    "originalContentWarning": "",
+    "snapshotFetchedAt": "2026-05-07T00:08:13.677Z",
+    "coverImage": "",
+    "coverImageOriginal": "https://www.leiphone.com/category/ai/BLS2oRfBOj5bwGyP.html",
+    "coverImageAlt": "第一视角效率超过真机，深度机智发布全球首个以人类学习范式构建的具身基座模型 | 雷峰网"
+  },
+  {
+    "id": "bea71e9121e9",
+    "title": "Snowflake and OpenAI partner to bring frontier intelligence to enterprise data",
+    "titleZh": "Snowflake与OpenAI合作，为企业数据带来前沿智能",
+    "link": "https://openai.com/index/snowflake-partnership",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-02T06:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Snowflake partner in a $200M agreement to bring frontier intelligence into enterprise data, enabling AI agents and insights directly in Snowflake.",
+    "summaryZh": "OpenAI和Snowflake达成了一项价值2亿美元的协议，将前沿智能引入企业数据，直接在Snowflake中实现人工智能代理和见解。",
+    "highlights": [
+      "OpenAI and Snowflake partner in a $200M agreement to bring frontier intelligence into enterprise data, enabling AI agents and insights directly in Snowflake."
+    ],
+    "highlightsZh": [
+      "OpenAI和Snowflake达成了一项价值2亿美元的协议，将前沿智能引入企业数据，直接在Snowflake中实现人工智能代理和见解。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "15315cc38e86",
+    "title": "Introducing the Codex app",
+    "titleZh": "Codex应用简介",
+    "link": "https://openai.com/index/introducing-the-codex-app",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-02-02T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Introducing the Codex app for macOS—a command center for AI coding and software development with multiple agents, parallel workflows, and long-running tasks.",
+    "summaryZh": "推出适用于macOS的Codex应用程序，这是一个用于AI编码和软件开发的指挥中心，具有多个代理、并行工作流和长期运行的任务。",
+    "highlights": [
+      "Introducing the Codex app for macOS—a command center for AI coding and software development with multiple agents, parallel workflows, and long-running tasks."
+    ],
+    "highlightsZh": [
+      "推出适用于macOS的Codex应用程序，这是一个用于AI编码和软件开发的指挥中心，具有多个代理、并行工作流和长期运行的任务。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具"
+    ],
+    "score": 84,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

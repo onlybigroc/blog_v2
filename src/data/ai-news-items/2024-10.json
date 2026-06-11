@@ -1,0 +1,812 @@
+[
+  {
+    "id": "97c38258aaf1",
+    "title": "Introducing ChatGPT search",
+    "titleZh": "ChatGPT搜索简介",
+    "link": "https://openai.com/index/introducing-chatgpt-search",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-31T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Get fast, timely answers with links to relevant web sources",
+    "summaryZh": "通过相关网络资源的链接获得快速、及时的答案",
+    "highlights": [
+      "Get fast, timely answers with links to relevant web sources"
+    ],
+    "highlightsZh": [
+      "通过相关网络资源的链接获得快速、及时的答案"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ac069c8d3ad4",
+    "title": "Promega’s top-down adoption of ChatGPT accelerates manufacturing, sales, and marketing",
+    "titleZh": "Promega自上而下采用ChatGPT加速了制造、销售和营销",
+    "link": "https://openai.com/index/promega",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-31T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Promega's top-down adoption of ChatGPT accelerates manufacturing, sales, and marketing",
+    "summaryZh": "Promega自上而下采用ChatGPT加速了制造、销售和营销",
+    "highlights": [
+      "Promega's top-down adoption of ChatGPT accelerates manufacturing, sales, and marketing"
+    ],
+    "highlightsZh": [
+      "Promega自上而下采用ChatGPT加速了制造、销售和营销"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "11385929cf5b",
+    "title": "Put AI to work for marketing teams",
+    "titleZh": "让人工智能为营销团队服务",
+    "link": "https://openai.com/business/put-ai-to-work-for-marketing-teams",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-31T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Put AI to Work for Marketing Teams",
+    "summaryZh": "让人工智能为营销团队服务",
+    "highlights": [
+      "Put AI to Work for Marketing Teams"
+    ],
+    "highlightsZh": [
+      "让人工智能为营销团队服务"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "让人工智能为营销团队服务"
+  },
+  {
+    "id": "080a790521a9",
+    "title": "Introducing SimpleQA",
+    "titleZh": "SimpleQA简介",
+    "link": "https://openai.com/index/introducing-simpleqa",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-30T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "A factuality benchmark called SimpleQA that measures the ability for language models to answer short, fact-seeking questions.",
+    "summaryZh": "一个名为SimpleQA的事实性基准，用于衡量语言模型回答简短的事实追溯问题的能力。",
+    "highlights": [
+      "A factuality benchmark called SimpleQA that measures the ability for language models to answer short, fact-seeking questions."
+    ],
+    "highlightsZh": [
+      "一个名为SimpleQA的事实性基准，用于衡量语言模型回答简短的事实追溯问题的能力。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "0d847de42ceb",
+    "title": "Delivering high-performance customer support",
+    "titleZh": "提供高性能客户支持",
+    "link": "https://openai.com/index/decagon",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-29T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Decagon and OpenAI deliver high-performance, fully automated customer support at scale",
+    "summaryZh": "Decagon和OpenAI提供高性能、全自动化的大规模客户支持",
+    "highlights": [
+      "Decagon and OpenAI deliver high-performance, fully automated customer support at scale"
+    ],
+    "highlightsZh": [
+      "Decagon和OpenAI提供高性能、全自动化的大规模客户支持"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "7971ad950f44",
+    "title": "OpenAI’s approach to AI and national security",
+    "titleZh": "OpenAI的人工智能和国家安全方法",
+    "link": "https://openai.com/global-affairs/openais-approach-to-ai-and-national-security",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-24T14:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI’s approach to AI and national security",
+    "summaryZh": "OpenAI的人工智能和国家安全方法",
+    "highlights": [
+      "OpenAI’s approach to AI and national security"
+    ],
+    "highlightsZh": [
+      "OpenAI的人工智能和国家安全方法"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "OpenAI的人工智能和国家安全方法"
+  },
+  {
+    "id": "757eb5c942d1",
+    "title": "Simplifying, stabilizing, and scaling continuous-time consistency models",
+    "titleZh": "简化、稳定和扩展连续时间一致性模型",
+    "link": "https://openai.com/index/simplifying-stabilizing-and-scaling-continuous-time-consistency-models",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-23T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve simplified, stabilized, and scaled continuous-time consistency models, achieving comparable sample quality to leading diffusion models, while using only two sampling steps.",
+    "summaryZh": "我们简化、稳定和缩放了连续时间一致性模型，实现了与领先扩散模型相当的样本质量，同时仅使用两个采样步骤。",
+    "highlights": [
+      "We’ve simplified, stabilized, and scaled continuous-time consistency models, achieving comparable sample quality to leading diffusion models, while using only two sampling steps."
+    ],
+    "highlightsZh": [
+      "我们简化、稳定和缩放了连续时间一致性模型，实现了与领先扩散模型相当的样本质量，同时仅使用两个采样步骤。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4400df300a65",
+    "title": "OpenAI appoints Scott Schools as Chief Compliance Officer",
+    "titleZh": "OpenAI任命Scott Schools为首席合规官",
+    "link": "https://openai.com/global-affairs/openai-chief-compliance-officer-announcement",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-22T10:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI appoints Scott Schools as Chief Compliance Officer",
+    "summaryZh": "OpenAI任命Scott Schools为首席合规官",
+    "highlights": [
+      "OpenAI appoints Scott Schools as Chief Compliance Officer"
+    ],
+    "highlightsZh": [
+      "OpenAI任命Scott Schools为首席合规官"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "OpenAI任命Scott Schools为首席合规官"
+  },
+  {
+    "id": "2e24fdb498d4",
+    "title": "Dr. Ronnie Chatterji named OpenAI’s first Chief Economist",
+    "titleZh": "Ronnie Chatterji博士被任命为OpenAI首位首席经济学家",
+    "link": "https://openai.com/global-affairs/openai-chief-economist-announcement",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-22T10:05:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Dr. Ronnie Chatterji named OpenAI’s first Chief Economist",
+    "summaryZh": "Ronnie Chatterji博士被任命为OpenAI首位首席经济学家",
+    "highlights": [
+      "Ronnie Chatterji named OpenAI’s first Chief Economist"
+    ],
+    "highlightsZh": [
+      "Ronnie Chatterji博士被任命为OpenAI首位首席经济学家"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "Ronnie Chatterji博士被任命为OpenAI首位首席经济学家"
+  },
+  {
+    "id": "384d1a9d2035",
+    "title": "OpenAI and the Lenfest Institute AI Collaborative and Fellowship program",
+    "titleZh": "OpenAI和Lenfest研究所人工智能合作和奖学金计划",
+    "link": "https://openai.com/index/lenfest-institute",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-22T06:05:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and the Lenfest Institute AI Collaborative and Fellowship program",
+    "summaryZh": "OpenAI和Lenfest研究所人工智能合作和奖学金计划",
+    "highlights": [
+      "OpenAI and the Lenfest Institute AI Collaborative and Fellowship program"
+    ],
+    "highlightsZh": [
+      "OpenAI和Lenfest研究所人工智能合作和奖学金计划"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b3ad379499a5",
+    "title": "Solving complex problems with OpenAI o1 models",
+    "titleZh": "使用OpenAI o1模型解决复杂问题",
+    "link": "https://openai.com/business/solving-complex-problems-with-openai-o1-models",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-17T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "In this video, we share how the o1 reasoning models can help in domains like coding, strategy, and research.",
+    "summaryZh": "在本视频中，我们将分享o1推理模型如何在编码、策略和研究等领域提供帮助。",
+    "highlights": [
+      "In this video, we share how the o1 reasoning models can help in domains like coding, strategy, and research."
+    ],
+    "highlightsZh": [
+      "在本视频中，我们将分享o1推理模型如何在编码、策略和研究等领域提供帮助。"
+    ],
+    "tags": [
+      "模型",
+      "开发工具"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "使用OpenAI o1模型解决复杂问题"
+  },
+  {
+    "id": "3d70566d39d9",
+    "title": "Evaluating fairness in ChatGPT",
+    "titleZh": "评估ChatGPT中的公平性",
+    "link": "https://openai.com/index/evaluating-fairness-in-chatgpt",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-15T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We've analyzed how ChatGPT responds to users based on their name, using AI research assistants to protect privacy.",
+    "summaryZh": "我们分析了ChatGPT如何使用人工智能研究助手保护隐私，根据用户的姓名对其做出响应。",
+    "highlights": [
+      "We've analyzed how ChatGPT responds to users based on their name, using AI research assistants to protect privacy."
+    ],
+    "highlightsZh": [
+      "我们分析了ChatGPT如何使用人工智能研究助手保护隐私，根据用户的姓名对其做出响应。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "55ef171ae2b4",
+    "title": "MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering",
+    "titleZh": "MLE-bench ：评估机器学习工程中的机器学习代理",
+    "link": "https://openai.com/index/mle-bench",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-10T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We introduce MLE-bench, a benchmark for measuring how well AI agents perform at machine learning engineering.",
+    "summaryZh": "我们引入了MLE-bench ，这是衡量人工智能代理在机器学习工程中的表现的基准。",
+    "highlights": [
+      "We introduce MLE-bench, a benchmark for measuring how well AI agents perform at machine learning engineering."
+    ],
+    "highlightsZh": [
+      "我们引入了MLE-bench ，这是衡量人工智能代理在机器学习工程中的表现的基准。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 72,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "cf76dc70ebf6",
+    "title": "An update on disrupting deceptive uses of AI",
+    "titleZh": "关于颠覆人工智能欺骗性使用的最新消息",
+    "link": "https://openai.com/global-affairs/an-update-on-disrupting-deceptive-uses-of-ai",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-09T03:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI’s mission is to ensure that artificial general intelligence benefits all of humanity. We are dedicated to identifying, preventing, and disrupting attempts to abuse our models for harmful ends.",
+    "summaryZh": "OpenAI的使命是确保通用人工智能造福全人类。我们致力于识别、预防和破坏滥用我们的模型以达到有害目的的企图。",
+    "highlights": [
+      "OpenAI’s mission is to ensure that artificial general intelligence benefits all of humanity.",
+      "We are dedicated to identifying, preventing, and disrupting attempts to abuse our models for harmful ends."
+    ],
+    "highlightsZh": [
+      "OpenAI的使命是确保通用人工智能造福全人类。我们致力于识别、预防和破坏滥用我们的模型以达到有害目的的企图。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "关于颠覆人工智能欺骗性使用的最新消息"
+  },
+  {
+    "id": "fe03688a52ee",
+    "title": "OpenAI and Hearst Content Partnership",
+    "titleZh": "OpenAI和赫斯特内容合作伙伴关系",
+    "link": "https://openai.com/index/hearst",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-08T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Hearst’s iconic brands bring curated lifestyle and local news content to OpenAI’s products.",
+    "summaryZh": "赫斯特的标志性品牌为OpenAI的产品带来精心策划的生活方式和本地新闻内容。",
+    "highlights": [
+      "Hearst’s iconic brands bring curated lifestyle and local news content to OpenAI’s products."
+    ],
+    "highlightsZh": [
+      "赫斯特的标志性品牌为OpenAI的产品带来精心策划的生活方式和本地新闻内容。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4437308427a1",
+    "title": "Introducing canvas, a new way to write and code with ChatGPT.",
+    "titleZh": "推出Canvas ，这是一种使用ChatGPT编写和编码的新方法。",
+    "link": "https://openai.com/index/introducing-canvas",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-03T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "5ee5a182017e",
+    "title": "New Credit Facility Enhances Financial Flexibility",
+    "titleZh": "新的信贷融通增强了财务灵活性",
+    "link": "https://openai.com/index/new-credit-facility-enhances-financial-flexibility",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-03T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "In addition to securing $6.6 billion in new funding from leading investors, we have established a new $4 billion credit facility with leading banks, including JPMorgan Chase, Citi, Goldman Sachs, Morgan Stanley, Santander, Wells Fargo, SMBC, UBS, and HSBC.",
+    "summaryZh": "除了从领先投资者那里获得66亿美元的新资金外，我们还与摩根大通、花旗、高盛、摩根士丹利、桑坦德、富国银行、SMBC、瑞银和汇丰等领先银行建立了40亿美元的新信贷额度。",
+    "highlights": [
+      "In addition to securing $6.6 billion in new funding from leading investors, we have established a new $4 billion credit facility with leading banks, including JPMorgan Chase, Citi,"
+    ],
+    "highlightsZh": [
+      "除了从领先投资者那里获得66亿美元的新资金外，我们还与摩根大通、花旗、高盛、摩根士丹利、桑坦德、富国银行、SMBC、瑞银和汇丰等领先银行建立了40亿美元的新信贷额度。"
+    ],
+    "tags": [
+      "资本"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "38ff4e3667fc",
+    "title": "New funding to scale the benefits of AI",
+    "titleZh": "新的资金来扩大人工智能的好处",
+    "link": "https://openai.com/index/scale-the-benefits-of-ai",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-02T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We are making progress on our mission to ensure that artificial general intelligence benefits all of humanity.",
+    "summaryZh": "我们的使命正在取得进展，以确保人工智能造福全人类。",
+    "highlights": [
+      "We are making progress on our mission to ensure that artificial general intelligence benefits all of humanity."
+    ],
+    "highlightsZh": [
+      "我们的使命正在取得进展，以确保人工智能造福全人类。"
+    ],
+    "tags": [
+      "资本"
+    ],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b59270abc8b4",
+    "title": "Introducing the Realtime API",
+    "titleZh": "Realtime API简介",
+    "link": "https://openai.com/index/introducing-the-realtime-api",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-01T10:05:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Developers can now build fast speech-to-speech experiences into their applications",
+    "summaryZh": "开发人员现在可以在其应用程序中构建快速的语音转语音体验",
+    "highlights": [
+      "Developers can now build fast speech-to-speech experiences into their applications"
+    ],
+    "highlightsZh": [
+      "开发人员现在可以在其应用程序中构建快速的语音转语音体验"
+    ],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 78,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "15d65d26e3e0",
+    "title": "Introducing vision to the fine-tuning API",
+    "titleZh": "将VISION引入微调API",
+    "link": "https://openai.com/index/introducing-vision-to-the-fine-tuning-api",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-01T10:04:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Developers can now fine-tune GPT-4o with images and text to improve vision capabilities",
+    "summaryZh": "开发人员现在可以使用图像和文本微调GPT-4o ，以提高视觉功能",
+    "highlights": [
+      "Developers can now fine-tune GPT-4o with images and text to improve vision capabilities"
+    ],
+    "highlightsZh": [
+      "开发人员现在可以使用图像和文本微调GPT-4o ，以提高视觉功能"
+    ],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 78,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a53e96d74158",
+    "title": "Prompt Caching in the API",
+    "titleZh": "API中的提示缓存",
+    "link": "https://openai.com/index/api-prompt-caching",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-01T10:03:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Offering automatic discounts on inputs that the model has recently seen",
+    "summaryZh": "为模型最近看到的投入提供自动折扣",
+    "highlights": [
+      "Offering automatic discounts on inputs that the model has recently seen"
+    ],
+    "highlightsZh": [
+      "为模型最近看到的投入提供自动折扣"
+    ],
+    "tags": [
+      "模型",
+      "开发工具"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "65aa1d0a9a24",
+    "title": "Model Distillation in the API",
+    "titleZh": "API中的模型蒸馏",
+    "link": "https://openai.com/index/api-model-distillation",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-01T10:02:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Fine-tune a cost-efficient model with the outputs of a large frontier model–all on the OpenAI platform",
+    "summaryZh": "利用大型前沿模型的输出微调具有成本效益的模型-所有这些都在OpenAI平台上",
+    "highlights": [
+      "Fine-tune a cost-efficient model with the outputs of a large frontier model–all on the OpenAI platform"
+    ],
+    "highlightsZh": [
+      "利用大型前沿模型的输出微调具有成本效益的模型-所有这些都在OpenAI平台上"
+    ],
+    "tags": [
+      "模型",
+      "开发工具"
+    ],
+    "score": 78,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3656dc555a04",
+    "title": "Creating agent and human collaboration with GPT 4o",
+    "titleZh": "使用GPT 4o创建代理和人员协作",
+    "link": "https://openai.com/index/altera",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-10-01T09:59:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Altera uses GPT-4o to build a new area of human collaboration",
+    "summaryZh": "Altera使用GPT-4o构建人类协作的新领域",
+    "highlights": [
+      "Altera uses GPT-4o to build a new area of human collaboration"
+    ],
+    "highlightsZh": [
+      "Altera使用GPT-4o构建人类协作的新领域"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

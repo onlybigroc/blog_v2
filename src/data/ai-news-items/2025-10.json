@@ -1,0 +1,2289 @@
+[
+  {
+    "id": "4dc8c1bc29aa",
+    "title": "Expanding Stargate to Michigan",
+    "titleZh": "将星际之门扩展到密歇根州",
+    "link": "https://openai.com/index/expanding-stargate-to-michigan",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-30T13:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI is expanding Stargate to Michigan with a new one-gigawatt campus that strengthens America’s AI infrastructure. The project will create jobs, drive investment, and support economic growth across the Midwest.",
+    "summaryZh": "OpenAI正在将星际之门扩展到密歇根州，建立一个新的1吉瓦校园，加强美国的人工智能基础设施。该项目将创造就业机会，推动投资，并支持整个中西部的经济增长。",
+    "highlights": [
+      "OpenAI is expanding Stargate to Michigan with a new one-gigawatt campus that strengthens America’s AI infrastructure.",
+      "The project will create jobs, drive investment, and support economic growth across the Midwest."
+    ],
+    "highlightsZh": [
+      "OpenAI正在将星际之门扩展到密歇根州，建立一个新的1吉瓦校园，加强美国的人工智能基础设施。该项目将创造就业机会，推动投资，并支持整个中西部的经济增长。"
+    ],
+    "tags": [
+      "资本",
+      "算力"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "aa20070d4f3c",
+    "title": "Introducing Aardvark: OpenAI’s agentic security researcher",
+    "titleZh": "介绍Aardvark ： OpenAI的代理安全研究员",
+    "link": "https://openai.com/index/introducing-aardvark",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-30T11:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI introduces Aardvark, an AI-powered security researcher that autonomously finds, validates, and helps fix software vulnerabilities at scale. The system is in private beta—sign up to join early testing.",
+    "summaryZh": "OpenAI推出了Aardvark ，这是一个人工智能驱动的安全研究人员，可以自动发现、验证并帮助大规模修复软件漏洞。该系统正在进行私有测试版注册，以加入早期测试。",
+    "highlights": [
+      "OpenAI introduces Aardvark, an AI-powered security researcher that autonomously finds, validates, and helps fix software vulnerabilities at scale.",
+      "The system is in private beta—sign up to join early testing."
+    ],
+    "highlightsZh": [
+      "OpenAI推出了Aardvark ，这是一个人工智能驱动的安全研究人员，可以自动发现、验证并帮助大规模修复软件漏洞。该系统正在进行私有测试版注册，以加入早期测试。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 80,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b5d0db5c03e7",
+    "title": "How we built OWL, the new architecture behind our ChatGPT-based browser, Atlas",
+    "titleZh": "我们如何构建OWL ，这是我们基于ChatGPT的浏览器Atlas背后的新架构",
+    "link": "https://openai.com/index/building-chatgpt-atlas",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-30T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "A deep dive into OWL, the new architecture powering ChatGPT Atlas—decoupling Chromium, enabling fast startup, rich UI, and agentic browsing with ChatGPT.",
+    "summaryZh": "深入了解OWL ， ChatGPT Atlas解耦Chromium的新架构，使用ChatGPT实现快速启动、丰富的用户界面和代理浏览。",
+    "highlights": [
+      "A deep dive into OWL, the new architecture powering ChatGPT Atlas—decoupling Chromium, enabling fast startup, rich UI, and agentic browsing with ChatGPT."
+    ],
+    "highlightsZh": [
+      "深入了解OWL ， ChatGPT Atlas解耦Chromium的新架构，使用ChatGPT实现快速启动、丰富的用户界面和代理浏览。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "aad5e0f3616d",
+    "title": "Accelerating discovery with the AI for Math Initiative",
+    "titleZh": "通过AI for Math Initiative加速发现",
+    "link": "https://deepmind.google/blog/accelerating-discovery-with-the-ai-for-math-initiative/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-29T14:31:13.000Z",
+    "publishedAtEstimated": false,
+    "summary": "The initiative brings together some of the world's most prestigious research institutions to pioneer the use of AI in mathematical research.",
+    "summaryZh": "该计划汇集了世界上一些最负盛名的研究机构，开创了人工智能在数学研究中的应用。",
+    "highlights": [
+      "The initiative brings together some of the world's most prestigious research institutions to pioneer the use of AI in mathematical research."
+    ],
+    "highlightsZh": [
+      "该计划汇集了世界上一些最负盛名的研究机构，开创了人工智能在数学研究中的应用。"
+    ],
+    "tags": [],
+    "score": 50,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "18a7c3ac9181",
+    "title": "Introducing gpt-oss-safeguard",
+    "titleZh": "Gpt-oss-safeguard简介",
+    "link": "https://openai.com/index/introducing-gpt-oss-safeguard",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-29T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI introduces gpt-oss-safeguard—open-weight reasoning models for safety classification that let developers apply and iterate on custom policies.",
+    "summaryZh": "OpenAI为安全分类引入了gpt-oss-safeguard-open-weight推理模型，允许开发人员应用和迭代自定义策略。",
+    "highlights": [
+      "OpenAI introduces gpt-oss-safeguard—open-weight reasoning models for safety classification that let developers apply and iterate on custom policies."
+    ],
+    "highlightsZh": [
+      "OpenAI为安全分类引入了gpt-oss-safeguard-open-weight推理模型，允许开发人员应用和迭代自定义策略。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "监管"
+    ],
+    "score": 88,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "990af187793c",
+    "title": "gpt-oss-safeguard technical report",
+    "titleZh": "gpt-oss-safeguard技术报告",
+    "link": "https://openai.com/index/gpt-oss-safeguard-technical-report",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-29T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "gpt-oss-safeguard-120b and gpt-oss-safeguard-20b are two open-weight reasoning models post-trained from the gpt-oss models and trained to reason from a provided policy in order to label content under that policy. In this report, we describe gpt-oss-safeguard’s capabilities and provide our baseline safety evaluations on",
+    "summaryZh": "gpt-oss-safeguard-120b和gpt-oss-safeguard-20b是从gpt-oss模型后训练的两个开放权重推理模型，并根据提供的策略进行推理，以便根据该策略标记内容。在本报告中，我们介绍了gpt-oss-safeguard的能力，并提供了我们对",
+    "highlights": [
+      "gpt-oss-safeguard-120b and gpt-oss-safeguard-20b are two open-weight reasoning models post-trained from the gpt-oss models and trained to reason from a provided policy in order to ",
+      "In this report, we describe gpt-oss-safeguard’s capabilities and provide our baseline safety evaluations on"
+    ],
+    "highlightsZh": [
+      "gpt-oss-safeguard-120b和gpt-oss-safeguard-20b是从gpt-oss模型后训练的两个开放权重推理模型，并根据提供的策略进行推理，以便根据该策略标记内容。在本报告中，我们介绍了gpt-oss-safeguard的能力，并提供了我们对"
+    ],
+    "tags": [
+      "模型",
+      "监管"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "6b53b6f6f17e",
+    "title": "Advancing organizational transformation for business innovation",
+    "titleZh": "推进组织转型，实现业务创新",
+    "link": "https://openai.com/index/dai-nippon-printing",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-28T17:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "DNP rolled out ChatGPT Enterprise across ten core departments, achieving 95% faster patent research, 10x processing volume, 87% automation, and 70% knowledge reuse in three months.",
+    "summaryZh": "DNP在十个核心部门推出了ChatGPT Enterprise ，在三个月内实现了95%的专利研究速度、10倍的处理量、87%的自动化和70%的知识重用。",
+    "highlights": [
+      "DNP rolled out ChatGPT Enterprise across ten core departments, achieving 95% faster patent research, 10x processing volume, 87% automation, and 70% knowledge reuse in three months."
+    ],
+    "highlightsZh": [
+      "DNP在十个核心部门推出了ChatGPT Enterprise ，在三个月内实现了95%的专利研究速度、10倍的处理量、87%的自动化和70%的知识重用。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "15a10a3d45a3",
+    "title": "Doppel’s AI defense system stops attacks before they spread",
+    "titleZh": "Doppel的人工智能防御系统在攻击扩散之前阻止攻击",
+    "link": "https://openai.com/index/doppel",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-28T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Doppel uses GPT-5 and reinforcement fine-tuning to stop deepfake and impersonation attacks, cutting analyst workloads by 80% and reducing response times from hours to minutes.",
+    "summaryZh": "Doppel使用GPT-5和强化微调来阻止深度伪造和模拟攻击，将分析师的工作量减少了80 ％ ，并将响应时间从几小时缩短到几分钟。",
+    "highlights": [
+      "Doppel uses GPT-5 and reinforcement fine-tuning to stop deepfake and impersonation attacks, cutting analyst workloads by 80% and reducing response times from hours to minutes."
+    ],
+    "highlightsZh": [
+      "Doppel使用GPT-5和强化微调来阻止深度伪造和模拟攻击，将分析师的工作量减少了80 ％ ，并将响应时间从几小时缩短到几分钟。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4c569bc2a162",
+    "title": "Built to benefit everyone",
+    "titleZh": "专为造福所有人而打造",
+    "link": "https://openai.com/index/built-to-benefit-everyone",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-28T06:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI’s recapitalization strengthens mission-focused governance, expanding resources to ensure AI benefits everyone while advancing innovation responsibly.",
+    "summaryZh": "OpenAI的资本重组加强了以任务为中心的治理，扩大了资源，以确保人工智能使每个人都受益，同时负责任地推进创新。",
+    "highlights": [
+      "OpenAI’s recapitalization strengthens mission-focused governance, expanding resources to ensure AI benefits everyone while advancing innovation responsibly."
+    ],
+    "highlightsZh": [
+      "OpenAI的资本重组加强了以任务为中心的治理，扩大了资源，以确保人工智能使每个人都受益，同时负责任地推进创新。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "574e7f80ba9c",
+    "title": "The next chapter of the Microsoft–OpenAI partnership",
+    "titleZh": "Microsoft-OpenAI合作伙伴关系的下一章",
+    "link": "https://openai.com/index/next-chapter-of-microsoft-openai-partnership",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-28T06:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Microsoft and OpenAI sign a new agreement that strengthens its long-term partnership, expands innovation, and ensures responsible AI progress.",
+    "summaryZh": "微软和OpenAI签署了一项新协议，以加强其长期合作伙伴关系，扩大创新并确保负责任的人工智能进步。",
+    "highlights": [
+      "Microsoft and OpenAI sign a new agreement that strengthens its long-term partnership, expands innovation, and ensures responsible AI progress."
+    ],
+    "highlightsZh": [
+      "微软和OpenAI签署了一项新协议，以加强其长期合作伙伴关系，扩大创新并确保负责任的人工智能进步。"
+    ],
+    "tags": [],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "e3c64905aace",
+    "title": "Seizing the AI opportunity",
+    "titleZh": "抓住机遇",
+    "link": "https://openai.com/global-affairs/seizing-the-ai-opportunity",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-27T12:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Meeting the demands of the Intelligence Age will require strategic investment in energy and infrastructure. OpenAI’s submission to the White House details how expanding capacity and workforce readiness can sustain U.S. leadership in AI and economic growth.",
+    "summaryZh": "满足智能时代的需求将需要对能源和基础设施进行战略投资。OpenAI向白宫提交的文件详细介绍了扩大产能和劳动力准备如何保持美国在人工智能和经济增长方面的领导地位。",
+    "highlights": [
+      "Meeting the demands of the Intelligence Age will require strategic investment in energy and infrastructure.",
+      "OpenAI’s submission to the White House details how expanding capacity and workforce readiness can sustain U.S. leadership in AI and economic growth."
+    ],
+    "highlightsZh": [
+      "满足智能时代的需求将需要对能源和基础设施进行战略投资。OpenAI向白宫提交的文件详细介绍了扩大产能和劳动力准备如何保持美国在人工智能和经济增长方面的领导地位。"
+    ],
+    "tags": [
+      "资本",
+      "算力"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "04c08ebc91c9",
+    "title": "Addendum to GPT-5 System Card: Sensitive conversations",
+    "titleZh": "GPT-5系统卡附录：敏感对话",
+    "link": "https://openai.com/index/gpt-5-system-card-sensitive-conversations",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-27T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "This system card details GPT-5’s improvements in handling sensitive conversations, including new benchmarks for emotional reliance, mental health, and jailbreak resistance.",
+    "summaryZh": "这张系统卡详细介绍了GPT-5在处理敏感对话方面的改进，包括情感依赖、心理健康和越狱抵抗力的新基准。",
+    "highlights": [
+      "This system card details GPT-5’s improvements in handling sensitive conversations, including new benchmarks for emotional reliance, mental health, and jailbreak resistance."
+    ],
+    "highlightsZh": [
+      "这张系统卡详细介绍了GPT-5在处理敏感对话方面的改进，包括情感依赖、心理健康和越狱抵抗力的新基准。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "20e407c370e6",
+    "title": "Strengthening ChatGPT’s responses in sensitive conversations",
+    "titleZh": "加强ChatGPT在敏感对话中的响应",
+    "link": "https://openai.com/index/strengthening-chatgpt-responses-in-sensitive-conversations",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-27T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI collaborated with 170+ mental health experts to improve ChatGPT’s ability to recognize distress, respond empathetically, and guide users toward real-world support—reducing unsafe responses by up to 80%. Learn how we’re making ChatGPT safer and more supportive in sensitive moments.",
+    "summaryZh": "OpenAI与170多名心理健康专家合作，提高了ChatGPT识别痛苦、富有同情心地做出反应的能力，并引导用户获得真实世界的支持，将不安全的响应减少了80%。了解我们如何在敏感时刻让ChatGPT更安全、更具支持性。",
+    "highlights": [
+      "OpenAI collaborated with 170+ mental health experts to improve ChatGPT’s ability to recognize distress, respond empathetically, and guide users toward real-world support—reducing u",
+      "Learn how we’re making ChatGPT safer and more supportive in sensitive moments."
+    ],
+    "highlightsZh": [
+      "OpenAI与170多名心理健康专家合作，提高了ChatGPT识别痛苦、富有同情心地做出反应的能力，并引导用户获得真实世界的支持，将不安全的响应减少了80%。了解我们如何在敏感时刻让ChatGPT更安全、更具支持性。"
+    ],
+    "tags": [],
+    "score": 46,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3330bf30a082",
+    "title": "Steuerrecht.com delivers client-ready legal analysis with ChatGPT",
+    "titleZh": "Steuerrecht.com通过ChatGPT提供客户就绪的法律分析",
+    "link": "https://openai.com/index/steuerrecht",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-27T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Steuerrecht.com uses ChatGPT Business to streamline legal workflows, automate tax research, and deliver faster, client-ready analysis for law firms.",
+    "summaryZh": "Steuerrecht.com使用ChatGPT Business简化法律工作流程，自动化税务研究，并为律师事务所提供更快的客户就绪分析。",
+    "highlights": [
+      "Steuerrecht.com uses ChatGPT Business to streamline legal workflows, automate tax research, and deliver faster, client-ready analysis for law firms."
+    ],
+    "highlightsZh": [
+      "Steuerrecht.com使用ChatGPT Business简化法律工作流程，自动化税务研究，并为律师事务所提供更快的客户就绪分析。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8a153174b2c2",
+    "title": "T5Gemma: A new collection of encoder-decoder Gemma models",
+    "titleZh": "T5Gemma ：编解码器Gemma模型的新集合",
+    "link": "https://deepmind.google/blog/t5gemma-a-new-collection-of-encoder-decoder-gemma-models/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-25T18:14:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Introducing T5Gemma, a new collection of encoder-decoder LLMs.",
+    "summaryZh": "隆重推出编解码器LLM的新系列T5Gemma。",
+    "highlights": [
+      "Introducing T5Gemma, a new collection of encoder-decoder LLMs."
+    ],
+    "highlightsZh": [
+      "隆重推出编解码器LLM的新系列T5Gemma。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c1c1b9aa4359",
+    "title": "MedGemma: Our most capable open models for health AI development",
+    "titleZh": "MedGemma ：我们最强大的健康AI开发开放模型",
+    "link": "https://deepmind.google/blog/medgemma-our-most-capable-open-models-for-health-ai-development/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-25T18:02:50.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re announcing new multimodal models in the MedGemma collection, our most capable open models for health AI development.",
+    "summaryZh": "我们宣布在MedGemma系列中推出新的多模态模型，这是我们最强大的健康AI开发开放模型。",
+    "highlights": [
+      "We’re announcing new multimodal models in the MedGemma collection, our most capable open models for health AI development."
+    ],
+    "highlightsZh": [
+      "我们宣布在MedGemma系列中推出新的多模态模型，这是我们最强大的健康AI开发开放模型。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b6cb59de2226",
+    "title": "Introducing Gemma 3n: The developer guide",
+    "titleZh": "Gemma 3n简介：开发人员指南",
+    "link": "https://deepmind.google/blog/introducing-gemma-3n-the-developer-guide/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-25T17:54:47.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Gemma 3n is designed for the developer community that helped shape Gemma.",
+    "summaryZh": "Gemma 3n专为帮助塑造Gemma的开发者社区而设计。",
+    "highlights": [
+      "Gemma 3n is designed for the developer community that helped shape Gemma."
+    ],
+    "highlightsZh": [
+      "Gemma 3n专为帮助塑造Gemma的开发者社区而设计。"
+    ],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 58,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "0555cc7e065d",
+    "title": "Gemini 2.5 Flash-Lite is now ready for scaled production use",
+    "titleZh": "Gemini 2.5 Flash-Lite现已准备好大规模生产使用",
+    "link": "https://deepmind.google/blog/gemini-25-flash-lite-is-now-ready-for-scaled-production-use/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-25T17:34:32.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Gemini 2.5 Flash-Lite, previously in preview, is now stable and generally available. This cost-efficient model provides high quality in a small size, and includes 2.5 family features like a 1 million-token context window and multimodality.",
+    "summaryZh": "之前处于预览阶段的Gemini 2.5 Flash-Lite现已稳定并普遍可用。这种经济高效的模型以小尺寸提供高质量，并包括2.5个系列功能，如100万令牌的上下文窗口和多模态。",
+    "highlights": [
+      "Gemini 2.5 Flash-Lite, previously in preview, is now stable and generally available.",
+      "This cost-efficient model provides high quality in a small size, and includes 2.5 family features like a 1 million-token context window and multimodality."
+    ],
+    "highlightsZh": [
+      "之前处于预览阶段的Gemini 2.5 Flash-Lite现已稳定并普遍可用。这种经济高效的模型以小尺寸提供高质量，并包括2.5个系列功能，如100万令牌的上下文窗口和多模态。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "f43532133a51",
+    "title": "Behind “ANCESTRA”: combining Veo with live-action filmmaking",
+    "titleZh": "“ANCESTRA”背后：将VEO与真人电影制作相结合",
+    "link": "https://deepmind.google/blog/behind-ancestra-combining-veo-with-live-action-filmmaking/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-25T17:27:10.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We partnered with Darren Aronofsky, Eliza McNitt and a team of more than 200 people to make a film using Veo and live-action filmmaking.",
+    "summaryZh": "我们与Darren Aronofsky、Eliza McNitt和200多人的团队合作，使用Veo和真人电影制作了一部电影。",
+    "highlights": [
+      "We partnered with Darren Aronofsky, Eliza McNitt and a team of more than 200 people to make a film using Veo and live-action filmmaking."
+    ],
+    "highlightsZh": [
+      "我们与Darren Aronofsky、Eliza McNitt和200多人的团队合作，使用Veo和真人电影制作了一部电影。"
+    ],
+    "tags": [],
+    "score": 50,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "eca2d8a3067f",
+    "title": "AlphaEarth Foundations helps map our planet in unprecedented detail",
+    "titleZh": "AlphaEarth基金会帮助以前所未有的细节绘制我们的星球地图",
+    "link": "https://deepmind.google/blog/alphaearth-foundations-helps-map-our-planet-in-unprecedented-detail/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-24T19:06:32.000Z",
+    "publishedAtEstimated": false,
+    "summary": "New AI model integrates petabytes of Earth observation data to generate a unified data representation that revolutionizes global mapping and monitoring",
+    "summaryZh": "新的人工智能模型集成了数PB的地球观测数据，以生成统一的数据表示，彻底改变全球测绘和监测",
+    "highlights": [
+      "New AI model integrates petabytes of Earth observation data to generate a unified data representation that revolutionizes global mapping and monitoring"
+    ],
+    "highlightsZh": [
+      "新的人工智能模型集成了数PB的地球观测数据，以生成统一的数据表示，彻底改变全球测绘和监测"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3ec4835861b5",
+    "title": "Exploring the context of online images with Backstory",
+    "titleZh": "使用背景故事探索在线图像的背景",
+    "link": "https://deepmind.google/blog/exploring-the-context-of-online-images-with-backstory/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-24T03:17:11.000Z",
+    "publishedAtEstimated": false,
+    "summary": "New experimental AI tool helps people explore the context and origin of images seen online.",
+    "summaryZh": "全新的实验性人工智能工具可帮助人们探索在线观看图像的背景和来源。",
+    "highlights": [
+      "New experimental AI tool helps people explore the context and origin of images seen online."
+    ],
+    "highlightsZh": [
+      "全新的实验性人工智能工具可帮助人们探索在线观看图像的背景和来源。"
+    ],
+    "tags": [],
+    "score": 46,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "bc67183b831c",
+    "title": "Advanced version of Gemini with Deep Think officially achieves gold-medal standard at the International Mathematical Olympiad",
+    "titleZh": "深度思考双子座高级版本在国际数学奥林匹克竞赛中正式达到金牌标准",
+    "link": "https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-24T03:12:29.000Z",
+    "publishedAtEstimated": false,
+    "summary": "The International Mathematical Olympiad (“IMO”) is the world’s most prestigious competition for young mathematicians, and has been held annually since 1959. Each country taking part is represented by six elite, pre-university mathematicians who compete to solve six exceptionally difficult problems in algebra, combinato",
+    "summaryZh": "国际数学奥林匹克竞赛（ “IMO” ）是世界上最负盛名的年轻数学家竞赛，自1959年以来每年举办一次。每个参加的国家都有六位大学预科精英数学家，他们竞相解决六个极其困难的代数问题，",
+    "highlights": [
+      "The International Mathematical Olympiad (“IMO”) is the world’s most prestigious competition for young mathematicians, and has been held annually since 1959.",
+      "Each country taking part is represented by six elite, pre-university mathematicians who compete to solve six exceptionally difficult problems in algebra, combinato"
+    ],
+    "highlightsZh": [
+      "国际数学奥林匹克竞赛（ “IMO” ）是世界上最负盛名的年轻数学家竞赛，自1959年以来每年举办一次。每个参加的国家都有六位大学预科精英数学家，他们竞相解决六个极其困难的代数问题，"
+    ],
+    "tags": [],
+    "score": 50,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ab417f4565de",
+    "title": "Aeneas transforms how historians connect the past",
+    "titleZh": "埃涅阿斯改变了历史学家连接过去的方式",
+    "link": "https://deepmind.google/blog/aeneas-transforms-how-historians-connect-the-past/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-24T02:58:37.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Introducing the first model for contextualizing ancient inscriptions, designed to help historians better interpret, attribute and restore fragmentary texts.",
+    "summaryZh": "介绍第一个将古代铭文语境化的模型，旨在帮助历史学家更好地解释、归属和恢复零碎的文本。",
+    "highlights": [
+      "Introducing the first model for contextualizing ancient inscriptions, designed to help historians better interpret, attribute and restore fragmentary texts."
+    ],
+    "highlightsZh": [
+      "介绍第一个将古代铭文语境化的模型，旨在帮助历史学家更好地解释、归属和恢复零碎的文本。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "f020e8dd5471",
+    "title": "Genie 3: A new frontier for world models",
+    "titleZh": "精灵3 ：世界模特的新前沿",
+    "link": "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-24T02:54:30.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Genie 3 can generate dynamic worlds that you can navigate in real time at 24 frames per second, retaining consistency for a few minutes at a resolution of 720p.",
+    "summaryZh": "Genie 3可以生成动态世界，您可以以每秒24帧的速度实时导航，以720p的分辨率保持几分钟的一致性。",
+    "highlights": [
+      "Genie 3 can generate dynamic worlds that you can navigate in real time at 24 frames per second, retaining consistency for a few minutes at a resolution of 720p."
+    ],
+    "highlightsZh": [
+      "Genie 3可以生成动态世界，您可以以每秒24帧的速度实时导航，以720p的分辨率保持几分钟的一致性。"
+    ],
+    "tags": [],
+    "score": 50,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "0c2bdebc30b6",
+    "title": "How AI is helping advance the science of bioacoustics to save endangered species",
+    "titleZh": "人工智能如何帮助推进生物声学科学以拯救濒危物种",
+    "link": "https://deepmind.google/blog/how-ai-is-helping-advance-the-science-of-bioacoustics-to-save-endangered-species/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-24T02:30:54.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our new Perch model helps conservationists analyze audio faster to protect endangered species, from Hawaiian honeycreepers to coral reefs.",
+    "summaryZh": "我们的新鲈鱼模型可帮助保护主义者更快地分析音频，以保护濒危物种，从夏威夷蜜蜂到珊瑚礁。",
+    "highlights": [
+      "Our new Perch model helps conservationists analyze audio faster to protect endangered species, from Hawaiian honeycreepers to coral reefs."
+    ],
+    "highlightsZh": [
+      "我们的新鲈鱼模型可帮助保护主义者更快地分析音频，以保护濒危物种，从夏威夷蜜蜂到珊瑚礁。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a907fe4cf918",
+    "title": "Using AI to perceive the universe in greater depth",
+    "titleZh": "使用人工智能更深入地感知宇宙",
+    "link": "https://deepmind.google/blog/using-ai-to-perceive-the-universe-in-greater-depth/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-24T02:21:07.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Using AI to perceive the universe in greater depth",
+    "summaryZh": "使用人工智能更深入地感知宇宙",
+    "highlights": [
+      "Using AI to perceive the universe in greater depth"
+    ],
+    "highlightsZh": [
+      "使用人工智能更深入地感知宇宙"
+    ],
+    "tags": [],
+    "score": 46,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "f5b4675db6bd",
+    "title": "Gemini achieves gold-medal level at the International Collegiate Programming Contest World Finals",
+    "titleZh": "双子座在国际大学编程大赛世界总决赛中获得金牌",
+    "link": "https://deepmind.google/blog/gemini-achieves-gold-medal-level-at-the-international-collegiate-programming-contest-world-finals/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-24T00:22:10.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Gemini 2.5 Deep Think achieves breakthrough performance at the world’s most prestigious computer programming competition, demonstrating a profound leap in abstract problem solving.",
+    "summaryZh": "Gemini 2.5 Deep Think在世界上最负盛名的计算机编程竞赛中取得了突破性的表现，展示了抽象问题解决的巨大飞跃。",
+    "highlights": [
+      "Gemini 2.5 Deep Think achieves breakthrough performance at the world’s most prestigious computer programming competition, demonstrating a profound leap in abstract problem solving."
+    ],
+    "highlightsZh": [
+      "Gemini 2.5 Deep Think在世界上最负盛名的计算机编程竞赛中取得了突破性的表现，展示了抽象问题解决的巨大飞跃。"
+    ],
+    "tags": [],
+    "score": 50,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "719c6cc91d13",
+    "title": "Discovering new solutions to century-old problems in fluid dynamics",
+    "titleZh": "探索流体动力学百年难题的新解决方案",
+    "link": "https://deepmind.google/blog/discovering-new-solutions-to-century-old-problems-in-fluid-dynamics/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-24T00:02:06.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our new method could help mathematicians leverage AI techniques to tackle long-standing challenges in mathematics, physics and engineering.",
+    "summaryZh": "我们的新方法可以帮助数学家利用人工智能技术来解决数学、物理和工程方面的长期挑战。",
+    "highlights": [
+      "Our new method could help mathematicians leverage AI techniques to tackle long-standing challenges in mathematics, physics and engineering."
+    ],
+    "highlightsZh": [
+      "我们的新方法可以帮助数学家利用人工智能技术来解决数学、物理和工程方面的长期挑战。"
+    ],
+    "tags": [],
+    "score": 50,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "dd84243c6c15",
+    "title": "Strengthening our Frontier Safety Framework",
+    "titleZh": "加强我们的边境安全框架",
+    "link": "https://deepmind.google/blog/strengthening-our-frontier-safety-framework/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-23T23:44:10.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re strengthening the Frontier Safety Framework (FSF) to help identify and mitigate severe risks from advanced AI models.",
+    "summaryZh": "我们正在加强前沿安全框架(FSF) ，以帮助识别和减轻高级人工智能模型的严重风险。",
+    "highlights": [
+      "We’re strengthening the Frontier Safety Framework (FSF) to help identify and mitigate severe risks from advanced AI models."
+    ],
+    "highlightsZh": [
+      "我们正在加强前沿安全框架(FSF) ，以帮助识别和减轻高级人工智能模型的严重风险。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 58,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "489d417f76ec",
+    "title": "Gemini Robotics 1.5 brings AI agents into the physical world",
+    "titleZh": "Gemini Robotics 1.5将AI智能体带入物理世界",
+    "link": "https://deepmind.google/blog/gemini-robotics-15-brings-ai-agents-into-the-physical-world/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-23T23:33:58.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re powering an era of physical agents — enabling robots to perceive, plan, think, use tools and act to better solve complex, multi-step tasks.",
+    "summaryZh": "我们正在推动物理代理的时代--使机器人能够感知、规划、思考、使用工具并采取行动，以更好地解决复杂的多步骤任务。",
+    "highlights": [
+      "We’re powering an era of physical agents — enabling robots to perceive, plan, think, use tools and act to better solve complex, multi-step tasks."
+    ],
+    "highlightsZh": [
+      "我们正在推动物理代理的时代--使机器人能够感知、规划、思考、使用工具并采取行动，以更好地解决复杂的多步骤任务。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "dedc9ace55f9",
+    "title": "Introducing CodeMender: an AI agent for code security",
+    "titleZh": "推出CodeMender ：用于代码安全的人工智能代理",
+    "link": "https://deepmind.google/blog/introducing-codemender-an-ai-agent-for-code-security/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-23T23:05:51.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Using advanced AI to fix critical software vulnerabilities",
+    "summaryZh": "使用高级人工智能修复关键软件漏洞",
+    "highlights": [
+      "Using advanced AI to fix critical software vulnerabilities"
+    ],
+    "highlightsZh": [
+      "使用高级人工智能修复关键软件漏洞"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具"
+    ],
+    "score": 88,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "308921c186d6",
+    "title": "Bringing AI to the next generation of fusion energy",
+    "titleZh": "将人工智能引入下一代聚变能源",
+    "link": "https://deepmind.google/blog/bringing-ai-to-the-next-generation-of-fusion-energy/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-23T22:04:14.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re partnering with Commonwealth Fusion Systems (CFS) to bring clean, safe, limitless fusion energy closer to reality.",
+    "summaryZh": "我们与Commonwealth Fusion Systems (CFS)合作，使清洁、安全、无限的聚变能源更接近现实。",
+    "highlights": [
+      "We’re partnering with Commonwealth Fusion Systems (CFS) to bring clean, safe, limitless fusion energy closer to reality."
+    ],
+    "highlightsZh": [
+      "我们与Commonwealth Fusion Systems (CFS)合作，使清洁、安全、无限的聚变能源更接近现实。"
+    ],
+    "tags": [],
+    "score": 50,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "feba5c6c4df7",
+    "title": "Try Deep Think in the Gemini app",
+    "titleZh": "在Gemini应用程序中尝试Deep Think",
+    "link": "https://deepmind.google/blog/try-deep-think-in-the-gemini-app/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-23T18:54:19.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We're rolling out Deep Think in the Gemini app for Google AI Ultra subscribers, and we're giving select mathematicians access to the full version of the Gemini 2.5 Deep Think model entered into the IMO competition.",
+    "summaryZh": "我们将在Gemini应用程序中为Google AI Ultra订阅者推出Deep Think ，并让选定的数学家可以访问参加IMO比赛的Gemini 2.5 Deep Think模型的完整版本。",
+    "highlights": [
+      "We're rolling out Deep Think in the Gemini app for Google AI Ultra subscribers, and we're giving select mathematicians access to the full version of the Gemini 2.5 Deep Think model"
+    ],
+    "highlightsZh": [
+      "我们将在Gemini应用程序中为Google AI Ultra订阅者推出Deep Think ，并让选定的数学家可以访问参加IMO比赛的Gemini 2.5 Deep Think模型的完整版本。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "dfe0d5017d76",
+    "title": "Rethinking how we measure AI intelligence",
+    "titleZh": "重新思考我们如何衡量人工智能",
+    "link": "https://deepmind.google/blog/rethinking-how-we-measure-ai-intelligence/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-23T18:52:06.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Game Arena is a new, open-source platform for rigorous evaluation of AI models. It allows for head-to-head comparison of frontier systems in environments with clear winning conditions.",
+    "summaryZh": "Game Arena是一个全新的开源平台，用于严格评估AI模型。它允许在具有明确制胜条件的环境中对前沿系统进行直接比较。",
+    "highlights": [
+      "Game Arena is a new, open-source platform for rigorous evaluation of AI models.",
+      "It allows for head-to-head comparison of frontier systems in environments with clear winning conditions."
+    ],
+    "highlightsZh": [
+      "Game Arena是一个全新的开源平台，用于严格评估AI模型。它允许在具有明确制胜条件的环境中对前沿系统进行直接比较。"
+    ],
+    "tags": [
+      "开源"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "eda59905b58c",
+    "title": "Introducing Gemma 3 270M: The compact model for hyper-efficient AI",
+    "titleZh": "推出Gemma 3 270M ：超高效AI的紧凑型模型",
+    "link": "https://deepmind.google/blog/introducing-gemma-3-270m-the-compact-model-for-hyper-efficient-ai/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-23T18:50:11.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Today, we're adding a new, highly specialized tool to the Gemma 3 toolkit: Gemma 3 270M, a compact, 270-million parameter model.",
+    "summaryZh": "今天，我们在Gemma 3工具包中添加了一个新的高度专业化的工具： Gemma 3 270M ，这是一个紧凑的2.7亿参数模型。",
+    "highlights": [
+      "Today, we're adding a new, highly specialized tool to the Gemma 3 toolkit: Gemma 3 270M, a compact, 270-million parameter model."
+    ],
+    "highlightsZh": [
+      "今天，我们在Gemma 3工具包中添加了一个新的高度专业化的工具： Gemma 3 270M ，这是一个紧凑的2.7亿参数模型。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8e18a013e81d",
+    "title": "Image editing in Gemini just got a major upgrade",
+    "titleZh": "Gemini中的图像编辑刚刚进行了重大升级",
+    "link": "https://deepmind.google/blog/image-editing-in-gemini-just-got-a-major-upgrade/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-23T18:48:30.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Transform images in amazing new ways with updated native image editing in the Gemini app.",
+    "summaryZh": "通过Gemini应用程序中更新的原生图像编辑，以惊人的新方式转换图像。",
+    "highlights": [
+      "Transform images in amazing new ways with updated native image editing in the Gemini app."
+    ],
+    "highlightsZh": [
+      "通过Gemini应用程序中更新的原生图像编辑，以惊人的新方式转换图像。"
+    ],
+    "tags": [],
+    "score": 46,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "18d8d0df04e4",
+    "title": "VaultGemma: The world's most capable differentially private LLM",
+    "titleZh": "VaultGemma ：世界上能力最强的差异化私立法学硕士",
+    "link": "https://deepmind.google/blog/vaultgemma-the-worlds-most-capable-differentially-private-llm/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-23T18:42:54.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We introduce VaultGemma, the most capable model trained from scratch with differential privacy.",
+    "summaryZh": "我们介绍VaultGemma ，这是从头开始训练的具有差分隐私的最强大模型。",
+    "highlights": [
+      "We introduce VaultGemma, the most capable model trained from scratch with differential privacy."
+    ],
+    "highlightsZh": [
+      "我们介绍VaultGemma ，这是从头开始训练的具有差分隐私的最强大模型。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4e5789f9d9ce",
+    "title": "Introducing the Gemini 2.5 Computer Use model",
+    "titleZh": "隆重推出Gemini 2.5电脑使用模式",
+    "link": "https://deepmind.google/blog/introducing-the-gemini-25-computer-use-model/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-23T18:40:34.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Available in preview via the API, our Computer Use model is a specialized model built on Gemini 2.5 Pro’s capabilities to power agents that can interact with user interfaces.",
+    "summaryZh": "我们的计算机使用模型可通过API进行预览，是一种基于Gemini 2.5 Pro功能的专业模型，可为可与用户界面交互的代理提供支持。",
+    "highlights": [
+      "Available in preview via the API, our Computer Use model is a specialized model built on Gemini 2.5 Pro’s capabilities to power agents that can interact with user interfaces."
+    ],
+    "highlightsZh": [
+      "我们的计算机使用模型可通过API进行预览，是一种基于Gemini 2.5 Pro功能的专业模型，可为可与用户界面交互的代理提供支持。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具"
+    ],
+    "score": 100,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "9672e486a89f",
+    "title": "Introducing Veo 3.1 and advanced creative capabilities",
+    "titleZh": "介绍Veo 3.1和高级创意功能",
+    "link": "https://deepmind.google/blog/introducing-veo-31-and-advanced-creative-capabilities/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-23T18:38:55.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re rolling out significant updates to Veo that give people even more creative control.",
+    "summaryZh": "我们正在推出Veo的重大更新，让人们拥有更多的创意控制权。",
+    "highlights": [
+      "We’re rolling out significant updates to Veo that give people even more creative control."
+    ],
+    "highlightsZh": [
+      "我们正在推出Veo的重大更新，让人们拥有更多的创意控制权。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "5143405b2913",
+    "title": "How a Gemma model helped discover a new potential cancer therapy pathway",
+    "titleZh": "Gemma模型如何帮助发现新的潜在癌症治疗途径",
+    "link": "https://deepmind.google/blog/how-a-gemma-model-helped-discover-a-new-potential-cancer-therapy-pathway/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2025-10-23T18:22:55.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re launching a new 27 billion parameter foundation model for single-cell analysis built on the Gemma family of open models.",
+    "summaryZh": "我们正在推出一个新的270亿个参数基础模型，用于基于Gemma系列开放模型的单细胞分析。",
+    "highlights": [
+      "We’re launching a new 27 billion parameter foundation model for single-cell analysis built on the Gemma family of open models."
+    ],
+    "highlightsZh": [
+      "我们正在推出一个新的270亿个参数基础模型，用于基于Gemma系列开放模型的单细胞分析。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "1968096b3fc1",
+    "title": "OpenAI acquires Software Applications Incorporated, maker of Sky",
+    "titleZh": "OpenAI收购Sky制造商Software Applications Incorporated",
+    "link": "https://openai.com/index/openai-acquires-software-applications-incorporated",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-23T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI has acquired Software Applications Incorporated, maker of Sky—a natural language interface for Mac that brings AI directly into your desktop experience. Together, we’re integrating Sky’s deep macOS capabilities into ChatGPT to make AI more intuitive, contextual, and action-oriented.",
+    "summaryZh": "OpenAI收购了软件应用公司（ Software Applications Incorporated ） ，该公司是Sky的制造商， Sky是Mac的自然语言界面，可将AI直接带入您的桌面体验。我们共同将Sky的深度macOS功能集成到ChatGPT中，使人工智能更加直观、上下文化和面向行动。",
+    "highlights": [
+      "OpenAI has acquired Software Applications Incorporated, maker of Sky—a natural language interface for Mac that brings AI directly into your desktop experience.",
+      "Together, we’re integrating Sky’s deep macOS capabilities into ChatGPT to make AI more intuitive, contextual, and action-oriented."
+    ],
+    "highlightsZh": [
+      "OpenAI收购了软件应用公司（ Software Applications Incorporated ） ，该公司是Sky的制造商， Sky是Mac的自然语言界面，可将AI直接带入您的桌面体验。我们共同将Sky的深度macOS功能集成到ChatGPT中，使人工智能更加直观、上下文化和面向行动。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a55a242b4910",
+    "title": "Consensus accelerates research with GPT-5 and Responses API",
+    "titleZh": "共识使用GPT-5和Responses API加速研究",
+    "link": "https://openai.com/index/consensus",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-23T09:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Consensus uses GPT-5 and OpenAI’s Responses API to power a multi-agent research assistant that reads, analyzes, and synthesizes evidence in minutes—helping over 8 million researchers accelerate scientific discovery.",
+    "summaryZh": "Consensus使用GPT-5和OpenAI的Responses API为多代理研究助手提供支持，该助手可在几分钟内读取、分析和合成证据，帮助800多万研究人员加速科学发现。",
+    "highlights": [
+      "Consensus uses GPT-5 and OpenAI’s Responses API to power a multi-agent research assistant that reads, analyzes, and synthesizes evidence in minutes—helping over 8 million researche"
+    ],
+    "highlightsZh": [
+      "Consensus使用GPT-5和OpenAI的Responses API为多代理研究助手提供支持，该助手可在几分钟内读取、分析和合成证据，帮助800多万研究人员加速科学发现。"
+    ],
+    "tags": [
+      "模型",
+      "开发工具"
+    ],
+    "score": 92,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "f6641cd7f3f8",
+    "title": "AI in South Korea—OpenAI’s Economic Blueprint",
+    "titleZh": "韩国人工智能- OpenAI的经济蓝图",
+    "link": "https://openai.com/index/south-korea-economic-blueprint",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-23T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI's Korea Economic Blueprint outlines how South Korea can scale trusted AI through sovereign capabilities and strategic partnerships to drive growth.",
+    "summaryZh": "OpenAI的韩国经济蓝图概述了韩国如何通过主权能力和战略伙伴关系来扩展可信赖的人工智能，以推动增长。",
+    "highlights": [
+      "OpenAI's Korea Economic Blueprint outlines how South Korea can scale trusted AI through sovereign capabilities and strategic partnerships to drive growth."
+    ],
+    "highlightsZh": [
+      "OpenAI的韩国经济蓝图概述了韩国如何通过主权能力和战略伙伴关系来扩展可信赖的人工智能，以推动增长。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "79fd6da8df02",
+    "title": "Work smarter with your company knowledge in ChatGPT",
+    "titleZh": "在ChatGPT中利用贵公司的知识更智能地工作",
+    "link": "https://openai.com/index/introducing-company-knowledge",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-23T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Company knowledge brings context from your apps into ChatGPT for answers specific to your business, with clear citations, security, privacy, and admin controls. Available now for Business, Enterprise, and Edu users.",
+    "summaryZh": "公司知识将您的应用程序上下文带入ChatGPT ，以获得特定于您的业务的答案，并具有清晰的引用、安全、隐私和管理控制。现在可供Business、Enterprise和Edu用户使用。",
+    "highlights": [
+      "Company knowledge brings context from your apps into ChatGPT for answers specific to your business, with clear citations, security, privacy, and admin controls.",
+      "Available now for Business, Enterprise, and Edu users."
+    ],
+    "highlightsZh": [
+      "公司知识将您的应用程序上下文带入ChatGPT ，以获得特定于您的业务的答案，并具有清晰的引用、安全、隐私和管理控制。现在可供Business、Enterprise和Edu用户使用。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b70266b48644",
+    "title": "The next chapter for UK sovereign AI",
+    "titleZh": "英国主权人工智能的新篇章",
+    "link": "https://openai.com/index/the-next-chapter-for-uk-sovereign-ai",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-22T16:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI expands its UK partnership with a new Ministry of Justice agreement, bringing ChatGPT to civil servants. It also introduces UK data residency for ChatGPT Enterprise, ChatGPT Edu, and the API Platform to support trusted and secure AI adoption.",
+    "summaryZh": "OpenAI通过一项新的司法部协议扩大其在英国的合作伙伴关系，将ChatGPT带给公务员。它还为ChatGPT Enterprise、ChatGPT Edu和API平台引入了英国数据驻留，以支持可信和安全的人工智能采用。",
+    "highlights": [
+      "OpenAI expands its UK partnership with a new Ministry of Justice agreement, bringing ChatGPT to civil servants.",
+      "It also introduces UK data residency for ChatGPT Enterprise, ChatGPT Edu, and the API Platform to support trusted and secure AI adoption."
+    ],
+    "highlightsZh": [
+      "OpenAI通过一项新的司法部协议扩大其在英国的合作伙伴关系，将ChatGPT带给公务员。它还为ChatGPT Enterprise、ChatGPT Edu和API平台引入了英国数据驻留，以支持可信和安全的人工智能采用。"
+    ],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 86,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "15f73ff5e1b5",
+    "title": "AI in Japan—OpenAI’s Japan Economic Blueprint",
+    "titleZh": "AI在日本- OpenAI的日本经济蓝图",
+    "link": "https://openai.com/index/japan-economic-blueprint",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-22T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI’s Japan Economic Blueprint outlines how Japan can harness AI to boost innovation, strengthen competitiveness, and enable sustainable, inclusive growth.",
+    "summaryZh": "OpenAI的日本经济蓝图概述了日本如何利用人工智能来促进创新，增强竞争力，并实现可持续的包容性增长。",
+    "highlights": [
+      "OpenAI’s Japan Economic Blueprint outlines how Japan can harness AI to boost innovation, strengthen competitiveness, and enable sustainable, inclusive growth."
+    ],
+    "highlightsZh": [
+      "OpenAI的日本经济蓝图概述了日本如何利用人工智能来促进创新，增强竞争力，并实现可持续的包容性增长。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b2399c0f7e15",
+    "title": "Continue your ChatGPT experience beyond WhatsApp",
+    "titleZh": "在WhatsApp之外继续您的ChatGPT体验",
+    "link": "https://openai.com/index/chatgpt-whatsapp-transition",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-21T17:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "ChatGPT will no longer be available on WhatsApp after January 15, 2026. Learn how to link your ChatGPT account and continue your conversations across devices.",
+    "summaryZh": "在2026年1月15日之后， WhatsApp将不再提供ChatGPT。了解如何关联您的ChatGPT帐户并继续跨设备对话。",
+    "highlights": [
+      "ChatGPT will no longer be available on WhatsApp after January 15, 2026.",
+      "Learn how to link your ChatGPT account and continue your conversations across devices."
+    ],
+    "highlightsZh": [
+      "在2026年1月15日之后， WhatsApp将不再提供ChatGPT。了解如何关联您的ChatGPT帐户并继续跨设备对话。"
+    ],
+    "tags": [],
+    "score": 42,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "af40dc60f3bc",
+    "title": "Introducing ChatGPT Atlas, the browser with ChatGPT built in",
+    "titleZh": "推出内置ChatGPT的浏览器ChatGPT Atlas",
+    "link": "https://openai.com/index/introducing-chatgpt-atlas",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-21T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "ChatGPT Atlas, the browser with ChatGPT built it. Get instant answers, summaries, and smart web help—right from any page. With privacy settings you can control. Available now for MacOS.",
+    "summaryZh": "ChatGPT Atlas是使用ChatGPT构建的浏览器。从任何页面即时获取答案、摘要和智能网络帮助。您可以通过隐私设置进行控制。现已推出MacOS版。",
+    "highlights": [
+      "ChatGPT Atlas, the browser with ChatGPT built it.",
+      "Get instant answers, summaries, and smart web help—right from any page."
+    ],
+    "highlightsZh": [
+      "ChatGPT Atlas是使用ChatGPT构建的浏览器。从任何页面即时获取答案、摘要和智能网络帮助。您可以通过隐私设置进行控制。现已推出MacOS版。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ad3a57dd3e76",
+    "title": "Plex Coffee delivers fast, personal service with ChatGPT",
+    "titleZh": "Plex Coffee通过ChatGPT提供快速的个性化服务",
+    "link": "https://openai.com/index/plex-coffee",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-15T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Learn how Plex Coffee uses ChatGPT Business to centralize knowledge, train staff faster, and preserve personal connections while expanding.",
+    "summaryZh": "了解Plex Coffee如何使用ChatGPT Business来集中知识，更快地培训员工，并在扩张的同时保持个人联系。",
+    "highlights": [
+      "Learn how Plex Coffee uses ChatGPT Business to centralize knowledge, train staff faster, and preserve personal connections while expanding."
+    ],
+    "highlightsZh": [
+      "了解Plex Coffee如何使用ChatGPT Business来集中知识，更快地培训员工，并在扩张的同时保持个人联系。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "5b9bbae6d729",
+    "title": "Expert Council on Well-Being and AI",
+    "titleZh": "幸福感和人工智能专家委员会",
+    "link": "https://openai.com/index/expert-council-on-well-being-and-ai",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-14T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI’s new Expert Council on Well-Being and AI brings together leading psychologists, clinicians, and researchers to guide how ChatGPT supports emotional health, especially for teens. Learn how their insights are shaping safer, more caring AI experiences.",
+    "summaryZh": "OpenAI新的幸福感和人工智能专家委员会汇集了领先的心理学家、临床医生和研究人员，指导ChatGPT如何支持情绪健康，特别是青少年的情绪健康。了解他们的见解如何塑造更安全、更贴心的人工智能体验。",
+    "highlights": [
+      "OpenAI’s new Expert Council on Well-Being and AI brings together leading psychologists, clinicians, and researchers to guide how ChatGPT supports emotional health, especially for t",
+      "Learn how their insights are shaping safer, more caring AI experiences."
+    ],
+    "highlightsZh": [
+      "OpenAI新的幸福感和人工智能专家委员会汇集了领先的心理学家、临床医生和研究人员，指导ChatGPT如何支持情绪健康，特别是青少年的情绪健康。了解他们的见解如何塑造更安全、更贴心的人工智能体验。"
+    ],
+    "tags": [],
+    "score": 46,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "0b71e1c57cdb",
+    "title": "Argentina’s AI opportunity",
+    "titleZh": "阿根廷的人工智能机遇",
+    "link": "https://openai.com/global-affairs/argentinas-ai-opportunity",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-14T06:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Sur Energy are exploring Argentina’s first Stargate project—an AI and clean energy collaboration that could make Argentina a Latin American leader in artificial intelligence, sustainable infrastructure, and digital innovation.",
+    "summaryZh": "OpenAI和Sur Energy正在探索阿根廷的第一个星际之门项目--一个人工智能和清洁能源合作项目，可以使阿根廷在人工智能、可持续基础设施和数字创新方面成为拉丁美洲的领导者。",
+    "highlights": [
+      "OpenAI and Sur Energy are exploring Argentina’s first Stargate project—an AI and clean energy collaboration that could make Argentina a Latin American leader in artificial intellig"
+    ],
+    "highlightsZh": [
+      "OpenAI和Sur Energy正在探索阿根廷的第一个星际之门项目--一个人工智能和清洁能源合作项目，可以使阿根廷在人工智能、可持续基础设施和数字创新方面成为拉丁美洲的领导者。"
+    ],
+    "tags": [
+      "算力"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "96f43ed00389",
+    "title": "OpenAI and Broadcom announce strategic collaboration to deploy 10 gigawatts of OpenAI-designed AI accelerators",
+    "titleZh": "OpenAI和Broadcom宣布战略合作，部署10千兆瓦OpenAI设计的人工智能加速器",
+    "link": "https://openai.com/index/openai-and-broadcom-announce-strategic-collaboration",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-13T06:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Broadcom announce a multi-year partnership to deploy 10 gigawatts of OpenAI-designed AI accelerators, co-developing next-generation systems and Ethernet solutions to power scalable, energy-efficient AI infrastructure by 2029.",
+    "summaryZh": "OpenAI和Broadcom宣布建立多年合作伙伴关系，部署10千兆瓦OpenAI设计的人工智能加速器，共同开发下一代系统和以太网解决方案，到2029年为可扩展、节能的人工智能基础设施供电。",
+    "highlights": [
+      "OpenAI and Broadcom announce a multi-year partnership to deploy 10 gigawatts of OpenAI-designed AI accelerators, co-developing next-generation systems and Ethernet solutions to pow"
+    ],
+    "highlightsZh": [
+      "OpenAI和Broadcom宣布建立多年合作伙伴关系，部署10千兆瓦OpenAI设计的人工智能加速器，共同开发下一代系统和以太网解决方案，到2029年为可扩展、节能的人工智能基础设施供电。"
+    ],
+    "tags": [
+      "发布",
+      "算力"
+    ],
+    "score": 76,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "04dfaa97a0c1",
+    "title": "HYGH speeds development and campaigns with ChatGPT Business",
+    "titleZh": "HYGH通过ChatGPT Business加速开发和推广",
+    "link": "https://openai.com/index/hygh",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-10T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "HYGH speeds up software development and campaign delivery with ChatGPT Business, cutting turnaround times, scaling output, and driving revenue growth.",
+    "summaryZh": "HYGH通过ChatGPT Business加快软件开发和活动交付，缩短周转时间，扩大产出并推动收入增长。",
+    "highlights": [
+      "HYGH speeds up software development and campaign delivery with ChatGPT Business, cutting turnaround times, scaling output, and driving revenue growth."
+    ],
+    "highlightsZh": [
+      "HYGH通过ChatGPT Business加快软件开发和活动交付，缩短周转时间，扩大产出并推动收入增长。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "2ca40ea42de9",
+    "title": "Defining and evaluating political bias in LLMs",
+    "titleZh": "定义和评估LLM中的政治偏见",
+    "link": "https://openai.com/index/defining-and-evaluating-political-bias-in-llms",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-09T13:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Learn how OpenAI evaluates political bias in ChatGPT through new real-world testing methods that improve objectivity and reduce bias.",
+    "summaryZh": "了解OpenAI如何通过新的真实世界测试方法评估ChatGPT中的政治偏见，从而提高客观性并减少偏见。",
+    "highlights": [
+      "Learn how OpenAI evaluates political bias in ChatGPT through new real-world testing methods that improve objectivity and reduce bias."
+    ],
+    "highlightsZh": [
+      "了解OpenAI如何通过新的真实世界测试方法评估ChatGPT中的政治偏见，从而提高客观性并减少偏见。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "236988a26963",
+    "title": "HiBob turns 2,500 GPTs into product and team growth",
+    "titleZh": "HiBob将2,500个GPT转化为产品和团队成长",
+    "link": "https://openai.com/index/hibob",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-08T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Discover how HiBob uses ChatGPT Enterprise and custom GPTs to scale AI adoption, boost revenue, streamline HR workflows, and deliver AI-powered features in the Bob platform.",
+    "summaryZh": "了解HiBob如何使用ChatGPT Enterprise和自定义GPT来扩展AI采用率、增加收入、简化人力资源工作流程，并在Bob平台中提供基于AI的功能。",
+    "highlights": [
+      "Discover how HiBob uses ChatGPT Enterprise and custom GPTs to scale AI adoption, boost revenue, streamline HR workflows, and deliver AI-powered features in the Bob platform."
+    ],
+    "highlightsZh": [
+      "了解HiBob如何使用ChatGPT Enterprise和自定义GPT来扩展AI采用率、增加收入、简化人力资源工作流程，并在Bob平台中提供基于AI的功能。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "934fa4b08814",
+    "title": "Disrupting malicious uses of AI: October 2025",
+    "titleZh": "颠覆人工智能的恶意使用： 2025年10月",
+    "link": "https://openai.com/global-affairs/disrupting-malicious-uses-of-ai-october-2025",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-07T03:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Discover how OpenAI is detecting and disrupting malicious uses of AI in our October 2025 report. Learn how we’re countering misuse, enforcing policies, and protecting users from real-world harms.",
+    "summaryZh": "在我们2025年10月的报告中，了解OpenAI如何检测和破坏人工智能的恶意使用。了解我们如何打击滥用行为、执行政策并保护用户免受现实世界的危害。",
+    "highlights": [
+      "Discover how OpenAI is detecting and disrupting malicious uses of AI in our October 2025 report.",
+      "Learn how we’re countering misuse, enforcing policies, and protecting users from real-world harms."
+    ],
+    "highlightsZh": [
+      "在我们2025年10月的报告中，了解OpenAI如何检测和破坏人工智能的恶意使用。了解我们如何打击滥用行为、执行政策并保护用户免受现实世界的危害。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "fdc7cb0be231",
+    "title": "Codex is now generally available",
+    "titleZh": "Codex现已全面上市",
+    "link": "https://openai.com/index/codex-now-generally-available",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-06T10:50:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI Codex is now generally available with powerful new features for developers: a Slack integration, Codex SDK, and admin tools like usage dashboards and workspace management—making Codex easier to use and manage at scale.",
+    "summaryZh": "OpenAI Codex现已全面推出，为开发人员提供了强大的新功能： Slack集成、Codex SDK以及使用情况仪表板和工作区管理等管理工具，使Codex更易于大规模使用和管理。",
+    "highlights": [
+      "OpenAI Codex is now generally available with powerful new features for developers: a Slack integration, Codex SDK, and admin tools like usage dashboards and workspace management—ma"
+    ],
+    "highlightsZh": [
+      "OpenAI Codex现已全面推出，为开发人员提供了强大的新功能： Slack集成、Codex SDK以及使用情况仪表板和工作区管理等管理工具，使Codex更易于大规模使用和管理。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 72,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "d42ac4b39a55",
+    "title": "Introducing apps in ChatGPT and the new Apps SDK",
+    "titleZh": "推出ChatGPT中的应用程序和新的应用程序SDK",
+    "link": "https://openai.com/index/introducing-apps-in-chatgpt",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-06T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re introducing a new generation of apps you can chat with, right inside ChatGPT. Developers can start building them today with the new Apps SDK, available in preview.",
+    "summaryZh": "我们正在推出新一代的应用程序，您可以在ChatGPT中与之聊天。开发人员可以使用可预览的新Apps SDK立即开始构建它们。",
+    "highlights": [
+      "We’re introducing a new generation of apps you can chat with, right inside ChatGPT.",
+      "Developers can start building them today with the new Apps SDK, available in preview."
+    ],
+    "highlightsZh": [
+      "我们正在推出新一代的应用程序，您可以在ChatGPT中与之聊天。开发人员可以使用可预览的新Apps SDK立即开始构建它们。"
+    ],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 82,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a90f41cc88c1",
+    "title": "AMD and OpenAI announce strategic partnership to deploy 6 gigawatts of AMD GPUs",
+    "titleZh": "AMD和OpenAI宣布战略合作伙伴关系，部署6千兆瓦的AMD GPU",
+    "link": "https://openai.com/index/openai-amd-strategic-partnership",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-06T06:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "AMD and OpenAI have announced a multi-year partnership to deploy 6 gigawatts of AMD Instinct GPUs, beginning with 1 gigawatt in 2026, to power OpenAI’s next-generation AI infrastructure and accelerate global AI innovation.",
+    "summaryZh": "AMD和OpenAI宣布建立多年合作伙伴关系，部署6千兆瓦的AMD Instinct GPU ，从2026年的1千兆瓦开始，为OpenAI的下一代人工智能基础设施提供支持，并加速全球人工智能创新。",
+    "highlights": [
+      "AMD and OpenAI have announced a multi-year partnership to deploy 6 gigawatts of AMD Instinct GPUs, beginning with 1 gigawatt in 2026, to power OpenAI’s next-generation AI infrastru"
+    ],
+    "highlightsZh": [
+      "AMD和OpenAI宣布建立多年合作伙伴关系，部署6千兆瓦的AMD Instinct GPU ，从2026年的1千兆瓦开始，为OpenAI的下一代人工智能基础设施提供支持，并加速全球人工智能创新。"
+    ],
+    "tags": [
+      "发布",
+      "算力"
+    ],
+    "score": 82,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "6510370f7f00",
+    "title": "Accelerating AI adoption in Europe",
+    "titleZh": "加速人工智能在欧洲的采用",
+    "link": "https://openai.com/global-affairs/accelerating-ai-uptake-in-europe",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-06T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Allied for Startups release the Hacktivate AI report with 20 actionable policy ideas to accelerate AI adoption in Europe, boost competitiveness, and empower innovators.",
+    "summaryZh": "OpenAI和Allied for Startups发布了Hacktivate AI报告，其中包含20个可操作的政策建议，以加速AI在欧洲的采用，提高竞争力并赋予创新者权力。",
+    "highlights": [
+      "OpenAI and Allied for Startups release the Hacktivate AI report with 20 actionable policy ideas to accelerate AI adoption in Europe, boost competitiveness, and empower innovators."
+    ],
+    "highlightsZh": [
+      "OpenAI和Allied for Startups发布了Hacktivate AI报告，其中包含20个可操作的政策建议，以加速AI在欧洲的采用，提高竞争力并赋予创新者权力。"
+    ],
+    "tags": [
+      "发布",
+      "监管"
+    ],
+    "score": 78,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3f4d97580c7b",
+    "title": "Introducing AgentKit, new Evals, and RFT for agents",
+    "titleZh": "为客服代表推出AgentKit、新Evals和RFT",
+    "link": "https://openai.com/index/introducing-agentkit",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-06T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Today, we’re releasing new tools to help developers go from prototype to production faster: AgentKit, expanded evals capabilities, and reinforcement fine-tuning for agents.",
+    "summaryZh": "今天，我们发布了新工具，以帮助开发人员更快地从原型转向生产： AgentKit、扩展的evals功能以及Agent的强化微调。",
+    "highlights": [
+      "Today, we’re releasing new tools to help developers go from prototype to production faster: AgentKit, expanded evals capabilities, and reinforcement fine-tuning for agents."
+    ],
+    "highlightsZh": [
+      "今天，我们发布了新工具，以帮助开发人员更快地从原型转向生产： AgentKit、扩展的evals功能以及Agent的强化微调。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 76,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a3e067188999",
+    "title": "With GPT-5, Wrtn builds lifestyle AI for millions in Korea",
+    "titleZh": "借助GPT-5 ， Wrtn为韩国数百万人打造生活方式人工智能",
+    "link": "https://openai.com/index/wrtn",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-02T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Wrtn scaled AI apps to 6.5M users in Korea with GPT-5, creating ‘Lifestyle AI’ that blends productivity, creativity, and learning—now expanding across East Asia.",
+    "summaryZh": "Wrtn通过GPT-5将人工智能应用程序扩展到韩国的650万用户，创造了融合生产力、创造力和学习的“生活方式人工智能” ，现在扩展到整个东亚。",
+    "highlights": [
+      "Wrtn scaled AI apps to 6.5M users in Korea with GPT-5, creating ‘Lifestyle AI’ that blends productivity, creativity, and learning—now expanding across East Asia."
+    ],
+    "highlightsZh": [
+      "Wrtn通过GPT-5将人工智能应用程序扩展到韩国的650万用户，创造了融合生产力、创造力和学习的“生活方式人工智能” ，现在扩展到整个东亚。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "e93a3b209d30",
+    "title": "OpenAI announces strategic collaboration with Japan’s Digital Agency",
+    "titleZh": "OpenAI宣布与日本数字机构开展战略合作",
+    "link": "https://openai.com/global-affairs/strategic-collaboration-with-japan-digital-agency",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-02T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Japan’s Digital Agency partner to advance generative AI in public services, support international AI governance, and promote safe, trustworthy AI adoption worldwide.",
+    "summaryZh": "OpenAI与日本数字机构合作，推动公共服务中的生成式人工智能，支持国际人工智能治理，并在全球范围内促进安全、值得信赖的人工智能采用。",
+    "highlights": [
+      "OpenAI and Japan’s Digital Agency partner to advance generative AI in public services, support international AI governance, and promote safe, trustworthy AI adoption worldwide."
+    ],
+    "highlightsZh": [
+      "OpenAI与日本数字机构合作，推动公共服务中的生成式人工智能，支持国际人工智能治理，并在全球范围内促进安全、值得信赖的人工智能采用。"
+    ],
+    "tags": [
+      "发布",
+      "监管"
+    ],
+    "score": 78,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "f2bc43a6d7e7",
+    "title": "Samsung and SK join OpenAI’s Stargate initiative to advance global AI infrastructure",
+    "titleZh": "三星和SK加入OpenAI的Stargate计划，以推进全球人工智能基础设施",
+    "link": "https://openai.com/index/samsung-and-sk-join-stargate",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-10-01T03:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Samsung and SK join OpenAI’s Stargate initiative to expand global AI infrastructure, scaling advanced memory chip production and building next-gen data centers in Korea.",
+    "summaryZh": "三星和SK加入OpenAI的Stargate计划，以扩大全球人工智能基础设施，扩展先进的内存芯片生产，并在韩国建立下一代数据中心。",
+    "highlights": [
+      "Samsung and SK join OpenAI’s Stargate initiative to expand global AI infrastructure, scaling advanced memory chip production and building next-gen data centers in Korea."
+    ],
+    "highlightsZh": [
+      "三星和SK加入OpenAI的Stargate计划，以扩大全球人工智能基础设施，扩展先进的内存芯片生产，并在韩国建立下一代数据中心。"
+    ],
+    "tags": [
+      "算力"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

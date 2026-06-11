@@ -1,0 +1,70 @@
+[
+  {
+    "id": "b32e109c065f",
+    "title": "Block-sparse GPU kernels",
+    "titleZh": "块稀疏GPU内核",
+    "link": "https://openai.com/index/block-sparse-gpu-kernels",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-12-06T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing highly-optimized GPU kernels for an underexplored class of neural network architectures: networks with block-sparse weights. Depending on the chosen sparsity, these kernels can run orders of magnitude faster than cuBLAS or cuSPARSE. We’ve used them to attain state-of-the-art results in text sentiment an",
+    "summaryZh": "我们正在为一类未被充分开发的神经网络架构发布高度优化的GPU内核：具有块稀疏权重的网络。根据所选的稀疏性，这些内核的运行速度可以比cuBLAS或cuSPARSE快几个数量级。我们使用它们来获得最先进的文字情感结果",
+    "highlights": [
+      "We’re releasing highly-optimized GPU kernels for an underexplored class of neural network architectures: networks with block-sparse weights.",
+      "Depending on the chosen sparsity, these kernels can run orders of magnitude faster than cuBLAS or cuSPARSE."
+    ],
+    "highlightsZh": [
+      "我们正在为一类未被充分开发的神经网络架构发布高度优化的GPU内核：具有块稀疏权重的网络。根据所选的稀疏性，这些内核的运行速度可以比cuBLAS或cuSPARSE快几个数量级。我们使用它们来获得最先进的文字情感结果"
+    ],
+    "tags": [
+      "开源",
+      "算力"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "637fff78fa3b",
+    "title": "Learning sparse neural networks through L₀ regularization",
+    "titleZh": "通过正则化学习稀疏神经网络",
+    "link": "https://openai.com/index/learning-sparse-neural-networks-through-l0-regularization",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-12-04T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

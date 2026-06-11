@@ -1,0 +1,36 @@
+[
+  {
+    "id": "ffb2d527f036",
+    "title": "Special projects",
+    "titleZh": "用于特别项目",
+    "link": "https://openai.com/index/special-projects",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2016-07-28T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Impactful scientific work requires working on the right problems—problems which are not just interesting, but whose solutions matter.",
+    "summaryZh": "有影响力的科学工作需要解决正确的问题，这些问题不仅有趣，而且其解决方案也很重要。",
+    "highlights": [
+      "Impactful scientific work requires working on the right problems—problems which are not just interesting, but whose solutions matter."
+    ],
+    "highlightsZh": [
+      "有影响力的科学工作需要解决正确的问题，这些问题不仅有趣，而且其解决方案也很重要。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

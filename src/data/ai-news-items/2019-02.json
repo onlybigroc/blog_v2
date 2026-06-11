@@ -1,0 +1,139 @@
+[
+  {
+    "id": "d9653493518a",
+    "title": "Spinning Up in Deep RL: Workshop review",
+    "titleZh": "深度强化学习中的Spinning Up ：研讨会回顾",
+    "link": "https://openai.com/index/spinning-up-in-deep-rl-workshop-review",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-02-26T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "On February 2, we held our first Spinning Up Workshop as part of our new education initiative at OpenAI.",
+    "summaryZh": "2月2日，作为OpenAI新教育计划的一部分，我们举办了第一次Spinning Up研讨会。",
+    "highlights": [
+      "On February 2, we held our first Spinning Up Workshop as part of our new education initiative at OpenAI."
+    ],
+    "highlightsZh": [
+      "2月2日，作为OpenAI新教育计划的一部分，我们举办了第一次Spinning Up研讨会。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "cd1d4ea20342",
+    "title": "AI safety needs social scientists",
+    "titleZh": "人工智能安全需要社会科学家",
+    "link": "https://openai.com/index/ai-safety-needs-social-scientists",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-02-19T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve written a paper arguing that long-term AI safety research needs social scientists to ensure AI alignment algorithms succeed when actual humans are involved. Properly aligning advanced AI systems with human values requires resolving many uncertainties related to the psychology of human rationality, emotion, and bi",
+    "summaryZh": "我们写了一篇论文，认为长期的人工智能安全研究需要社会科学家来确保人工智能对齐算法在涉及实际人类时取得成功。要使先进的人工智能系统与人类价值观正确对齐，需要解决与人类理性、情感和心理学相关的许多不确定性。",
+    "highlights": [
+      "We’ve written a paper arguing that long-term AI safety research needs social scientists to ensure AI alignment algorithms succeed when actual humans are involved.",
+      "Properly aligning advanced AI systems with human values requires resolving many uncertainties related to the psychology of human rationality, emotion, and bi"
+    ],
+    "highlightsZh": [
+      "我们写了一篇论文，认为长期的人工智能安全研究需要社会科学家来确保人工智能对齐算法在涉及实际人类时取得成功。要使先进的人工智能系统与人类价值观正确对齐，需要解决与人类理性、情感和心理学相关的许多不确定性。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "7564240155ef",
+    "title": "Better language models and their implications",
+    "titleZh": "更好的语言模型及其含义",
+    "link": "https://openai.com/index/better-language-models",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-02-14T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve trained a large-scale unsupervised language model which generates coherent paragraphs of text, achieves state-of-the-art performance on many language modeling benchmarks, and performs rudimentary reading comprehension, machine translation, question answering, and summarization—all without task-specific training.",
+    "summaryZh": "我们训练了一个大规模的无监督语言模型，该模型生成了连贯的文本段落，在许多语言建模基准上实现了最先进的性能，并执行了基本的阅读理解、机器翻译、问答和总结--所有这些都无需特定任务的培训。",
+    "highlights": [
+      "We’ve trained a large-scale unsupervised language model which generates coherent paragraphs of text, achieves state-of-the-art performance on many language modeling benchmarks, and"
+    ],
+    "highlightsZh": [
+      "我们训练了一个大规模的无监督语言模型，该模型生成了连贯的文本段落，在许多语言建模基准上实现了最先进的性能，并执行了基本的阅读理解、机器翻译、问答和总结--所有这些都无需特定任务的培训。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "13f113b08d4a",
+    "title": "Computational limitations in robust classification and win-win results",
+    "titleZh": "稳健分类和双赢结果的计算局限性",
+    "link": "https://openai.com/index/computational-limitations-in-robust-classification-and-win-win-results",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-02-04T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

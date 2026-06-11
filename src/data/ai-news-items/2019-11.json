@@ -1,0 +1,109 @@
+[
+  {
+    "id": "97ef118a2a78",
+    "title": "Safety Gym",
+    "titleZh": "安全健身房",
+    "link": "https://openai.com/index/safety-gym",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-11-21T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing Safety Gym, a suite of environments and tools for measuring progress towards reinforcement learning agents that respect safety constraints while training.",
+    "summaryZh": "我们将推出Safety Gym ，这是一套环境和工具，用于衡量在培训过程中遵守安全限制的强化学习代理的进展情况。",
+    "highlights": [
+      "We’re releasing Safety Gym, a suite of environments and tools for measuring progress towards reinforcement learning agents that respect safety constraints while training."
+    ],
+    "highlightsZh": [
+      "我们将推出Safety Gym ，这是一套环境和工具，用于衡量在培训过程中遵守安全限制的强化学习代理的进展情况。"
+    ],
+    "tags": [
+      "模型",
+      "监管"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "31e61935013e",
+    "title": "Benchmarking safe exploration in deep reinforcement learning",
+    "titleZh": "对标深度强化学习中的安全探索",
+    "link": "https://openai.com/index/benchmarking-safe-exploration-in-deep-reinforcement-learning",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-11-21T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "d1842539e60d",
+    "title": "GPT-2: 1.5B release",
+    "titleZh": "GPT-2 ： 1.5B版本",
+    "link": "https://openai.com/index/gpt-2-1-5b-release",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-11-05T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "As the final model release of GPT-2’s staged release, we’re releasing the largest version (1.5B parameters) of GPT-2 along with code and model weights to facilitate detection of outputs of GPT-2 models. While there have been larger language models released since August, we’ve continued with our original staged release",
+    "summaryZh": "作为GPT-2分阶段发布的最终模型版本，我们发布了GPT-2的最大版本（ 1.5B参数）以及代码和模型权重，以方便检测GPT-2模型的输出。虽然自8月以来已经发布了更大的语言模型，但我们继续推出原始的分阶段版本",
+    "highlights": [
+      "As the final model release of GPT-2’s staged release, we’re releasing the largest version (1.5B parameters) of GPT-2 along with code and model weights to facilitate detection of ou",
+      "While there have been larger language models released since August, we’ve continued with our original staged release"
+    ],
+    "highlightsZh": [
+      "作为GPT-2分阶段发布的最终模型版本，我们发布了GPT-2的最大版本（ 1.5B参数）以及代码和模型权重，以方便检测GPT-2模型的输出。虽然自8月以来已经发布了更大的语言模型，但我们继续推出原始的分阶段版本"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具",
+      "开源"
+    ],
+    "score": 94,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

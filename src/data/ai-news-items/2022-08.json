@@ -1,0 +1,111 @@
+[
+  {
+    "id": "1a150a392471",
+    "title": "DALL·E: Introducing outpainting",
+    "titleZh": "达尔· E ：外画介绍",
+    "link": "https://openai.com/index/dall-e-introducing-outpainting",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-08-31T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Extend creativity and tell a bigger story with DALL·E images of any size.",
+    "summaryZh": "使用任何尺寸的DALL · E图像，扩展创造力并讲述更大的故事。",
+    "highlights": [
+      "Extend creativity and tell a bigger story with DALL·E images of any size."
+    ],
+    "highlightsZh": [
+      "使用任何尺寸的DALL · E图像，扩展创造力并讲述更大的故事。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b20a26c1cd62",
+    "title": "Our approach to alignment research",
+    "titleZh": "我们的调整研究方法",
+    "link": "https://openai.com/index/our-approach-to-alignment-research",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-08-24T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We are improving our AI systems’ ability to learn from human feedback and to assist humans at evaluating AI. Our goal is to build a sufficiently aligned AI system that can help us solve all other alignment problems.",
+    "summaryZh": "我们正在提高人工智能系统从人类反馈中学习的能力，并协助人类评估人工智能。我们的目标是构建一个充分对齐的人工智能系统，帮助我们解决所有其他对齐问题。",
+    "highlights": [
+      "We are improving our AI systems’ ability to learn from human feedback and to assist humans at evaluating AI.",
+      "Our goal is to build a sufficiently aligned AI system that can help us solve all other alignment problems."
+    ],
+    "highlightsZh": [
+      "我们正在提高人工智能系统从人类反馈中学习的能力，并协助人类评估人工智能。我们的目标是构建一个充分对齐的人工智能系统，帮助我们解决所有其他对齐问题。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "d85f8a8d9e33",
+    "title": "New and improved content moderation tooling",
+    "titleZh": "全新和改进的内容审核工具",
+    "link": "https://openai.com/index/new-and-improved-content-moderation-tooling",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-08-10T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We are introducing a new and improved content moderation tool. The Moderation endpoint improves upon our previous content filter, and is available for free today to OpenAI API developers.",
+    "summaryZh": "我们正在推出全新改进的内容审核工具。审核端点改进了我们之前的内容过滤器，今天向OpenAI API开发人员免费提供。",
+    "highlights": [
+      "We are introducing a new and improved content moderation tool.",
+      "The Moderation endpoint improves upon our previous content filter, and is available for free today to OpenAI API developers."
+    ],
+    "highlightsZh": [
+      "我们正在推出全新改进的内容审核工具。审核端点改进了我们之前的内容过滤器，今天向OpenAI API开发人员免费提供。"
+    ],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 86,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

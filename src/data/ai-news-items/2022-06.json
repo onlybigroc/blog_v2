@@ -1,0 +1,213 @@
+[
+  {
+    "id": "568bb4f30f79",
+    "title": "DALL·E 2 pre-training mitigations",
+    "titleZh": "DALL · E 2培训前缓解措施",
+    "link": "https://openai.com/index/dall-e-2-pre-training-mitigations",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-06-28T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "In order to share the magic of DALL·E 2 with a broad audience, we needed to reduce the risks associated with powerful image generation models. To this end, we put various guardrails in place to prevent generated images from violating our content policy.",
+    "summaryZh": "为了与广大受众分享DALL · E 2的魔力，我们需要降低与强大的图像生成模型相关的风险。为此，我们设置了各种护栏，以防止生成的图片违反我们的内容政策。",
+    "highlights": [
+      "In order to share the magic of DALL·E 2 with a broad audience, we needed to reduce the risks associated with powerful image generation models.",
+      "To this end, we put various guardrails in place to prevent generated images from violating our content policy."
+    ],
+    "highlightsZh": [
+      "为了与广大受众分享DALL · E 2的魔力，我们需要降低与强大的图像生成模型相关的风险。为此，我们设置了各种护栏，以防止生成的图片违反我们的内容政策。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "740cb41edfca",
+    "title": "Learning to play Minecraft with Video PreTraining",
+    "titleZh": "通过视频预训练学习玩Minecraft",
+    "link": "https://openai.com/index/vpt",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-06-23T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We trained a neural network to play Minecraft by Video PreTraining (VPT) on a massive unlabeled video dataset of human Minecraft play, while using only a small amount of labeled contractor data. With fine-tuning, our model can learn to craft diamond tools, a task that usually takes proficient humans over 20 minutes (24",
+    "summaryZh": "我们训练了一个神经网络，通过视频预训练（ VPT ）在人类Minecraft游戏的大量未标记视频数据集上玩Minecraft ，同时仅使用少量标记的承包商数据。通过微调，我们的模型可以学会制作钻石工具，这项任务通常需要熟练的人在20分钟内完成（ 24",
+    "highlights": [
+      "We trained a neural network to play Minecraft by Video PreTraining (VPT) on a massive unlabeled video dataset of human Minecraft play, while using only a small amount of labeled co",
+      "With fine-tuning, our model can learn to craft diamond tools, a task that usually takes proficient humans over 20 minutes (24"
+    ],
+    "highlightsZh": [
+      "我们训练了一个神经网络，通过视频预训练（ VPT ）在人类Minecraft游戏的大量未标记视频数据集上玩Minecraft ，同时仅使用少量标记的承包商数据。通过微调，我们的模型可以学会制作钻石工具，这项任务通常需要熟练的人在20分钟内完成（ 24"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4ad3e8ea736e",
+    "title": "Evolution through large models",
+    "titleZh": "通过大型车型演进",
+    "link": "https://openai.com/index/evolution-through-large-models",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-06-17T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "6e6766805950",
+    "title": "AI-written critiques help humans notice flaws",
+    "titleZh": "人工智能撰写的评论帮助人类发现缺陷",
+    "link": "https://openai.com/index/critiques",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-06-13T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We trained “critique-writing” models to describe flaws in summaries. Human evaluators find flaws in summaries much more often when shown our model’s critiques. Larger models are better at self-critiquing, with scale improving critique-writing more than summary-writing. This shows promise for using AI systems to assist",
+    "summaryZh": "我们训练了“批评写作”模型来描述总结中的缺陷。当向我们展示模型的批评时，人类评估人员在总结中发现缺陷的频率要高得多。较大的模型更擅长自我批评，规模改善批评写作而不是总结写作。这表明了使用人工智能系统协助",
+    "highlights": [
+      "We trained “critique-writing” models to describe flaws in summaries.",
+      "Human evaluators find flaws in summaries much more often when shown our model’s critiques."
+    ],
+    "highlightsZh": [
+      "我们训练了“批评写作”模型来描述总结中的缺陷。当向我们展示模型的批评时，人类评估人员在总结中发现缺陷的频率要高得多。较大的模型更擅长自我批评，规模改善批评写作而不是总结写作。这表明了使用人工智能系统协助"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "80fd5e94bd7e",
+    "title": "Techniques for training large neural networks",
+    "titleZh": "训练大型神经网络的技术",
+    "link": "https://openai.com/index/techniques-for-training-large-neural-networks",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-06-09T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Large neural networks are at the core of many recent advances in AI, but training them is a difficult engineering and research challenge which requires orchestrating a cluster of GPUs to perform a single synchronized calculation.",
+    "summaryZh": "大型神经网络是人工智能许多最新进展的核心，但训练它们是一项艰巨的工程和研究挑战，需要编排一组GPU来执行单个同步计算。",
+    "highlights": [
+      "Large neural networks are at the core of many recent advances in AI, but training them is a difficult engineering and research challenge which requires orchestrating a cluster of G"
+    ],
+    "highlightsZh": [
+      "大型神经网络是人工智能许多最新进展的核心，但训练它们是一项艰巨的工程和研究挑战，需要编排一组GPU来执行单个同步计算。"
+    ],
+    "tags": [
+      "算力"
+    ],
+    "score": 58,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3fa4953758e1",
+    "title": "Best practices for deploying language models",
+    "titleZh": "部署语言模型的最佳实践",
+    "link": "https://openai.com/index/best-practices-for-deploying-language-models",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-06-02T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Cohere, OpenAI, and AI21 Labs have developed a preliminary set of best practices applicable to any organization developing or deploying large language models.",
+    "summaryZh": "Cohere、OpenAI和AI21实验室已经开发了一套初步的最佳实践，适用于任何开发或部署大型语言模型的组织。",
+    "highlights": [
+      "Cohere, OpenAI, and AI21 Labs have developed a preliminary set of best practices applicable to any organization developing or deploying large language models."
+    ],
+    "highlightsZh": [
+      "Cohere、OpenAI和AI21实验室已经开发了一套初步的最佳实践，适用于任何开发或部署大型语言模型的组织。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

@@ -1,0 +1,109 @@
+[
+  {
+    "id": "02e45e04ff9c",
+    "title": "Scaling Kubernetes to 7,500 nodes",
+    "titleZh": "将Kubernetes扩展到7,500个节点",
+    "link": "https://openai.com/index/scaling-kubernetes-to-7500-nodes",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-01-25T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve scaled Kubernetes clusters to 7,500 nodes, producing a scalable infrastructure for large models like GPT-3, CLIP, and DALL·E, but also for rapid small-scale iterative research such as Scaling Laws for Neural Language Models.",
+    "summaryZh": "我们已将Kubernetes集群扩展到7,500个节点，为GPT-3、CLIP和DALL · E等大型模型创建了可扩展的基础设施，同时也为神经语言模型的缩放定律等快速小规模迭代研究创建了可扩展的基础设施。",
+    "highlights": [
+      "We’ve scaled Kubernetes clusters to 7,500 nodes, producing a scalable infrastructure for large models like GPT-3, CLIP, and DALL·E, but also for rapid small-scale iterative researc"
+    ],
+    "highlightsZh": [
+      "我们已将Kubernetes集群扩展到7,500个节点，为GPT-3、CLIP和DALL · E等大型模型创建了可扩展的基础设施，同时也为神经语言模型的缩放定律等快速小规模迭代研究创建了可扩展的基础设施。"
+    ],
+    "tags": [
+      "算力"
+    ],
+    "score": 58,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "06d2679acb23",
+    "title": "CLIP: Connecting text and images",
+    "titleZh": "剪辑：连接文本和图像",
+    "link": "https://openai.com/index/clip",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-01-05T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re introducing a neural network called CLIP which efficiently learns visual concepts from natural language supervision. CLIP can be applied to any visual classification benchmark by simply providing the names of the visual categories to be recognized, similar to the “zero-shot” capabilities of GPT-2 and GPT-3.",
+    "summaryZh": "我们引入了一个名为CLIP的神经网络，它可以有效地从自然语言监督中学习视觉概念。剪辑可以应用于任何视觉分类基准，只需提供要识别的视觉类别的名称，类似于GPT-2和GPT-3的“零拍”功能。",
+    "highlights": [
+      "We’re introducing a neural network called CLIP which efficiently learns visual concepts from natural language supervision.",
+      "CLIP can be applied to any visual classification benchmark by simply providing the names of the visual categories to be recognized, similar to the “zero-shot” capabilities of GPT-2"
+    ],
+    "highlightsZh": [
+      "我们引入了一个名为CLIP的神经网络，它可以有效地从自然语言监督中学习视觉概念。剪辑可以应用于任何视觉分类基准，只需提供要识别的视觉类别的名称，类似于GPT-2和GPT-3的“零拍”功能。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ecb93d049674",
+    "title": "DALL·E: Creating images from text",
+    "titleZh": "DALL · E ：从文本创建图像",
+    "link": "https://openai.com/index/dall-e",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-01-05T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve trained a neural network called DALL·E that creates images from text captions for a wide range of concepts expressible in natural language.",
+    "summaryZh": "我们训练了一个名为DALL · E的神经网络，它从文本标题中创建图像，用于自然语言中可表达的各种概念。",
+    "highlights": [
+      "We’ve trained a neural network called DALL·E that creates images from text captions for a wide range of concepts expressible in natural language."
+    ],
+    "highlightsZh": [
+      "我们训练了一个名为DALL · E的神经网络，它从文本标题中创建图像，用于自然语言中可表达的各种概念。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

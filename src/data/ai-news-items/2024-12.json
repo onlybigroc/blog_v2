@@ -1,0 +1,744 @@
+[
+  {
+    "id": "6410aa33c8c8",
+    "title": "Why OpenAI’s structure must evolve to advance our mission",
+    "titleZh": "为什么OpenAI的结构必须不断发展以推进我们的使命",
+    "link": "https://openai.com/index/why-our-structure-must-evolve-to-advance-our-mission",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-27T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "A stronger non-profit supported by the for-profit’s success.",
+    "summaryZh": "由营利性组织成功支持的更强大的非营利组织。",
+    "highlights": [
+      "A stronger non-profit supported by the for-profit’s success."
+    ],
+    "highlightsZh": [
+      "由营利性组织成功支持的更强大的非营利组织。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ae7c3b838807",
+    "title": "Deliberative alignment: reasoning enables safer language models",
+    "titleZh": "深思熟虑的一致性：推理可实现更安全的语言模型",
+    "link": "https://openai.com/index/deliberative-alignment",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-20T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Deliberative alignment: reasoning enables safer language models Introducing our new alignment strategy for o1 models, which are directly taught safety specifications and how to reason over them.",
+    "summaryZh": "深思熟虑的对齐：推理可以实现更安全的语言模型介绍我们针对o1模型的新对齐策略，该策略直接讲授安全规范以及如何对其进行推理。",
+    "highlights": [
+      "Deliberative alignment: reasoning enables safer language models Introducing our new alignment strategy for o1 models, which are directly taught safety specifications and how to rea"
+    ],
+    "highlightsZh": [
+      "深思熟虑的对齐：推理可以实现更安全的语言模型介绍我们针对o1模型的新对齐策略，该策略直接讲授安全规范以及如何对其进行推理。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "监管"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ff4b9ce2fd7a",
+    "title": "FACTS Grounding: A new benchmark for evaluating the factuality of large language models",
+    "titleZh": "事实基础：评估大型语言模型事实性的新基准",
+    "link": "https://deepmind.google/blog/facts-grounding-a-new-benchmark-for-evaluating-the-factuality-of-large-language-models/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2024-12-17T15:29:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our comprehensive benchmark and online leaderboard offer a much-needed measure of how accurately LLMs ground their responses in provided source material and avoid hallucinations",
+    "summaryZh": "我们提供全面的基准和在线排行榜，以衡量LLM在提供的源材料和避免幻觉方面的准确程度",
+    "highlights": [
+      "Our comprehensive benchmark and online leaderboard offer a much-needed measure of how accurately LLMs ground their responses in provided source material and avoid hallucinations"
+    ],
+    "highlightsZh": [
+      "我们提供全面的基准和在线排行榜，以衡量LLM在提供的源材料和避免幻觉方面的准确程度"
+    ],
+    "tags": [],
+    "score": 50,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-30T12:57:57.740Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "事实基础：评估大型语言模型事实性的新基准"
+  },
+  {
+    "id": "96be204cd0c3",
+    "title": "OpenAI o1 and new tools for developers",
+    "titleZh": "OpenAI o1和面向开发人员的新工具",
+    "link": "https://openai.com/index/o1-and-new-tools-for-developers",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-17T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Introducing OpenAI o1, Realtime API improvements, a new fine-tuning method and more for developers.",
+    "summaryZh": "为开发人员推出OpenAI o1、实时API改进、全新微调方法等。",
+    "highlights": [
+      "Introducing OpenAI o1, Realtime API improvements, a new fine-tuning method and more for developers."
+    ],
+    "highlightsZh": [
+      "为开发人员推出OpenAI o1、实时API改进、全新微调方法等。"
+    ],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 82,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "e99e556d1a99",
+    "title": "State-of-the-art video and image generation with Veo 2 and Imagen 3",
+    "titleZh": "使用VEO 2和Imagen 3生成最先进的视频和图像",
+    "link": "https://deepmind.google/blog/state-of-the-art-video-and-image-generation-with-veo-2-and-imagen-3/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2024-12-16T17:01:16.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re rolling out a new, state-of-the-art video model, Veo 2, and updates to Imagen 3. Plus, check out our new experiment, Whisk.",
+    "summaryZh": "我们正在推出全新的最先进视频型号VEO 2 ，并对Imagen 3进行更新。另外，看看我们的新实验， Whisk。",
+    "highlights": [
+      "We’re rolling out a new, state-of-the-art video model, Veo 2, and updates to Imagen 3.",
+      "Plus, check out our new experiment, Whisk."
+    ],
+    "highlightsZh": [
+      "我们正在推出全新的最先进视频型号VEO 2 ，并对Imagen 3进行更新。另外，看看我们的新实验， Whisk。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-26T23:58:35.636Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "使用VEO 2和Imagen 3生成最先进的视频和图像"
+  },
+  {
+    "id": "c29128dea28e",
+    "title": "Elon Musk wanted an OpenAI for-profit",
+    "titleZh": "埃隆·马斯克（ Elon Musk ）想要一个OpenAI营利组织",
+    "link": "https://openai.com/index/elon-musk-wanted-an-openai-for-profit",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-13T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Elon Musk’s latest legal filing against OpenAI marks his fourth attempt in less than a year to reframe his claims. However, his own words and actions speak for themselves—in 2017, Elon not only wanted, but actually created, a for-profit as OpenAI’s proposed new structure.",
+    "summaryZh": "埃隆·马斯克（ Elon Musk ）针对OpenAI的最新法律文件标志着他在不到一年的时间里第四次尝试重新构建他的索赔。然而，他自己的言行不言自明--在2017年， Elon不仅想要，而且实际上创造了一个营利性组织，就像OpenAI提出的新结构一样。",
+    "highlights": [
+      "Elon Musk’s latest legal filing against OpenAI marks his fourth attempt in less than a year to reframe his claims.",
+      "However, his own words and actions speak for themselves—in 2017, Elon not only wanted, but actually created, a for-profit as OpenAI’s proposed new structure."
+    ],
+    "highlightsZh": [
+      "埃隆·马斯克（ Elon Musk ）针对OpenAI的最新法律文件标志着他在不到一年的时间里第四次尝试重新构建他的索赔。然而，他自己的言行不言自明--在2017年， Elon不仅想要，而且实际上创造了一个营利性组织，就像OpenAI提出的新结构一样。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8624cd6870fa",
+    "title": "Introducing Gemini 2.0: our new AI model for the agentic era",
+    "titleZh": "推出Gemini 2.0 ：我们面向代理时代的新人工智能模型",
+    "link": "https://deepmind.google/blog/introducing-gemini-20-our-new-ai-model-for-the-agentic-era/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2024-12-11T15:30:40.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Today, we’re announcing Gemini 2.0, our most capable multimodal AI model yet.",
+    "summaryZh": "今天，我们宣布推出Gemini 2.0 ，这是我们迄今为止功能最强大的多模态人工智能模型。",
+    "highlights": [
+      "Today, we’re announcing Gemini 2.0, our most capable multimodal AI model yet."
+    ],
+    "highlightsZh": [
+      "今天，我们宣布推出Gemini 2.0 ，这是我们迄今为止功能最强大的多模态人工智能模型。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 80,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-23T12:11:09.451Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "推出Gemini 2.0 ：我们面向代理时代的新人工智能模型"
+  },
+  {
+    "id": "e7e96ecf3b69",
+    "title": "Boosting the customer retail experience with GPT-4o mini",
+    "titleZh": "使用GPT-4o mini提升客户零售体验",
+    "link": "https://openai.com/index/zalando",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-11T06:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Zalando boosts the customer experience with its Assistant, powered by GPT-4o mini",
+    "summaryZh": "Zalando通过GPT-4o mini助手提升客户体验",
+    "highlights": [
+      "Zalando boosts the customer experience with its Assistant, powered by GPT-4o mini"
+    ],
+    "highlightsZh": [
+      "Zalando通过GPT-4o mini助手提升客户体验"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "使用GPT-4o mini提升客户零售体验"
+  },
+  {
+    "id": "026cbc5035b6",
+    "title": "Sora is here",
+    "titleZh": "Sora来了",
+    "link": "https://openai.com/index/sora-is-here",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-09T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our video generation model, Sora, is now available to use at sora.com. Users can generate videos up to 1080p resolution, up to 20 sec long, and in widescreen, vertical or square aspect ratios. You can bring your own assets to extend, remix, and blend, or generate entirely new content from text.",
+    "summaryZh": "我们的视频生成模型Sora现可在sora.com上使用。用户可以生成高达1080p分辨率、长达20秒、宽屏、垂直或方形宽高比的视频。您可以使用自己的资源进行扩展、混音和混合，或从文本中生成全新的内容。",
+    "highlights": [
+      "Our video generation model, Sora, is now available to use at sora.com.",
+      "Users can generate videos up to 1080p resolution, up to 20 sec long, and in widescreen, vertical or square aspect ratios."
+    ],
+    "highlightsZh": [
+      "我们的视频生成模型Sora现可在sora.com上使用。用户可以生成高达1080p分辨率、长达20秒、宽屏、垂直或方形宽高比的视频。您可以使用自己的资源进行扩展、混音和混合，或从文本中生成全新的内容。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "599d8f36d372",
+    "title": "Sora System Card",
+    "titleZh": "Sora系统卡",
+    "link": "https://openai.com/index/sora-system-card",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-09T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Sora is OpenAI’s video generation model, designed to take text, image, and video inputs and generate a new video as an output. Sora builds on learnings from DALL-E and GPT models, and is designed to give people expanded tools for storytelling and creative expression.",
+    "summaryZh": "Sora是OpenAI的视频生成模型，旨在获取文本、图像和视频输入，并生成新视频作为输出。Sora建立在从DALL-E和GPT模型中学习的基础上，旨在为人们提供讲故事和创造性表达的扩展工具。",
+    "highlights": [
+      "Sora is OpenAI’s video generation model, designed to take text, image, and video inputs and generate a new video as an output.",
+      "Sora builds on learnings from DALL-E and GPT models, and is designed to give people expanded tools for storytelling and creative expression."
+    ],
+    "highlightsZh": [
+      "Sora是OpenAI的视频生成模型，旨在获取文本、图像和视频输入，并生成新视频作为输出。Sora建立在从DALL-E和GPT模型中学习的基础上，旨在为人们提供讲故事和创造性表达的扩展工具。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4d8be5b9e108",
+    "title": "Vallée Duhamel & Sora",
+    "titleZh": "Vallée Duhamel和Sora",
+    "link": "https://openai.com/index/sora-vallee-duhamel",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-09T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Filmmaking duo Vallée Duhamel explains how Sora helps build new worlds.",
+    "summaryZh": "电影制作二人组Vallée Duhamel解释了Sora如何帮助建立新世界。",
+    "highlights": [
+      "Filmmaking duo Vallée Duhamel explains how Sora helps build new worlds."
+    ],
+    "highlightsZh": [
+      "电影制作二人组Vallée Duhamel解释了Sora如何帮助建立新世界。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "104dd14a4206",
+    "title": "Minne Atairu & Sora",
+    "titleZh": "Minne Atairu和Sora",
+    "link": "https://openai.com/index/sora-minne-atairu",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-09T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Interdisciplinary artist Minne Atairu discusses how Sora helps realize her vision.",
+    "summaryZh": "跨学科艺术家Minne Atairu讨论了Sora如何帮助实现她的愿景。",
+    "highlights": [
+      "Interdisciplinary artist Minne Atairu discusses how Sora helps realize her vision."
+    ],
+    "highlightsZh": [
+      "跨学科艺术家Minne Atairu讨论了Sora如何帮助实现她的愿景。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "09da17e16c57",
+    "title": "Put AI to work for your product team",
+    "titleZh": "让人工智能为您的产品团队服务",
+    "link": "https://openai.com/index/put-ai-to-work-for-your-product-team",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-09T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Put AI to work for your product team",
+    "summaryZh": "让人工智能为您的产品团队服务",
+    "highlights": [
+      "Put AI to work for your product team"
+    ],
+    "highlightsZh": [
+      "让人工智能为您的产品团队服务"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "5d33a0fa502d",
+    "title": "Animator Lyndon Barrois creates new worlds with Sora",
+    "titleZh": "动画师Lyndon Barrois与Sora一起创造新世界",
+    "link": "https://openai.com/index/sora-lyndon-barrois",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-09T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Filmmaker Lyndon Barrois describes how to use Sora as a storytelling tool.",
+    "summaryZh": "电影制作人Lyndon Barrois介绍了如何使用Sora作为讲故事的工具。",
+    "highlights": [
+      "Filmmaker Lyndon Barrois describes how to use Sora as a storytelling tool."
+    ],
+    "highlightsZh": [
+      "电影制作人Lyndon Barrois介绍了如何使用Sora作为讲故事的工具。"
+    ],
+    "tags": [],
+    "score": 38,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "d85d75b4237a",
+    "title": "Google DeepMind at NeurIPS 2024",
+    "titleZh": "Google DeepMind亮相NeurIPS 2024",
+    "link": "https://deepmind.google/blog/google-deepmind-at-neurips-2024/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2024-12-05T17:45:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Advancing adaptive AI agents, empowering 3D scene creation, and innovating LLM training for a smarter, safer future",
+    "summaryZh": "推进自适应人工智能代理，增强3D场景创建能力，并创新LLM培训，打造更智能、更安全的未来",
+    "highlights": [
+      "Advancing adaptive AI agents, empowering 3D scene creation, and innovating LLM training for a smarter, safer future"
+    ],
+    "highlightsZh": [
+      "推进自适应人工智能代理，增强3D场景创建能力，并创新LLM培训，打造更智能、更安全的未来"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-22T07:08:42.157Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "Google DeepMind亮相NeurIPS 2024"
+  },
+  {
+    "id": "6f2f11e9bd55",
+    "title": "Introducing ChatGPT Pro",
+    "titleZh": "ChatGPT Pro简介",
+    "link": "https://openai.com/index/introducing-chatgpt-pro",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-05T10:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Broadening usage of frontier AI",
+    "summaryZh": "拓宽前沿人工智能的使用",
+    "highlights": [
+      "Broadening usage of frontier AI"
+    ],
+    "highlightsZh": [
+      "拓宽前沿人工智能的使用"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "29d81312abef",
+    "title": "OpenAI o1 System Card",
+    "titleZh": "OpenAI o1系统卡",
+    "link": "https://openai.com/index/openai-o1-system-card",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-05T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "This report outlines the safety work carried out prior to releasing OpenAI o1 and o1-mini, including external red teaming and frontier risk evaluations according to our Preparedness Framework.",
+    "summaryZh": "本报告概述了发布OpenAI o1和o1-mini之前进行的安全工作，包括根据我们的准备框架进行的外部红色分组和前沿风险评估。",
+    "highlights": [
+      "This report outlines the safety work carried out prior to releasing OpenAI o1 and o1-mini, including external red teaming and frontier risk evaluations according to our Preparednes"
+    ],
+    "highlightsZh": [
+      "本报告概述了发布OpenAI o1和o1-mini之前进行的安全工作，包括根据我们的准备框架进行的外部红色分组和前沿风险评估。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "64c03056d5d5",
+    "title": "OpenAI and Future partner on specialist content",
+    "titleZh": "OpenAI和Future在专业内容方面的合作伙伴",
+    "link": "https://openai.com/index/openai-and-future-partner-on-specialist-content",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-04T23:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Future, the global platform for specialist media, have today announced a strategic partnership to bring content from Future’s 200 plus media brands to OpenAI’s users.",
+    "summaryZh": "OpenAI和全球专业媒体平台Future今天宣布建立战略合作伙伴关系，将未来200多个媒体品牌的内容带给OpenAI的用户。",
+    "highlights": [
+      "OpenAI and Future, the global platform for specialist media, have today announced a strategic partnership to bring content from Future’s 200 plus media brands to OpenAI’s users."
+    ],
+    "highlightsZh": [
+      "OpenAI和全球专业媒体平台Future今天宣布建立战略合作伙伴关系，将未来200多个媒体品牌的内容带给OpenAI的用户。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "1d73e15fe4d2",
+    "title": "GenCast predicts weather and the risks of extreme conditions with state-of-the-art accuracy",
+    "titleZh": "",
+    "link": "https://deepmind.google/blog/gencast-predicts-weather-and-the-risks-of-extreme-conditions-with-sota-accuracy/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2024-12-04T15:59:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "New AI model advances the prediction of weather uncertainties and risks, delivering faster, more accurate forecasts up to 15 days ahead",
+    "summaryZh": "",
+    "highlights": [
+      "New AI model advances the prediction of weather uncertainties and risks, delivering faster, more accurate forecasts up to 15 days ahead"
+    ],
+    "highlightsZh": [],
+    "tags": [
+      "模型"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-15T04:16:39.816Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "GenCast predicts weather and the risks of extreme conditions with state-of-the-art accuracy"
+  },
+  {
+    "id": "39914de6d3c9",
+    "title": "Genie 2: A large-scale foundation world model",
+    "titleZh": "",
+    "link": "https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2024-12-04T14:23:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Generating unlimited diverse training environments for future general agents",
+    "summaryZh": "",
+    "highlights": [
+      "Generating unlimited diverse training environments for future general agents"
+    ],
+    "highlightsZh": [],
+    "tags": [
+      "模型"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-13T07:23:32.816Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "Genie 2: A large-scale foundation world model"
+  },
+  {
+    "id": "0cf5fccdfe1c",
+    "title": "Shaping the future of financial services",
+    "titleZh": "塑造金融服务的未来",
+    "link": "https://openai.com/index/morgan-stanley",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-12-04T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Morgan Stanley uses AI evals to shape the future of financial services",
+    "summaryZh": "摩根士丹利利用人工智能来塑造金融服务的未来",
+    "highlights": [
+      "Morgan Stanley uses AI evals to shape the future of financial services"
+    ],
+    "highlightsZh": [
+      "摩根士丹利利用人工智能来塑造金融服务的未来"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

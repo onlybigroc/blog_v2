@@ -1,0 +1,213 @@
+[
+  {
+    "id": "80f5e91fa576",
+    "title": "OpenAI Five Finals",
+    "titleZh": "OpenAI五强决赛",
+    "link": "https://openai.com/index/openai-five-finals",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-03-26T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ll be holding our final live event for OpenAI Five at 11:30am PT on April 13.",
+    "summaryZh": "我们将于太平洋时间4月13日上午11:30举行OpenAI Five的最后一场现场活动。",
+    "highlights": [
+      "We’ll be holding our final live event for OpenAI Five at 11:30am PT on April 13."
+    ],
+    "highlightsZh": [
+      "我们将于太平洋时间4月13日上午11:30举行OpenAI Five的最后一场现场活动。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "f659b88e8d1a",
+    "title": "Implicit generation and generalization methods for energy-based models",
+    "titleZh": "基于能量的模型的隐式生成和泛化方法",
+    "link": "https://openai.com/index/energy-based-models",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-03-21T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve made progress towards stable and scalable training of energy-based models (EBMs) resulting in better sample quality and generalization ability than existing models. Generation in EBMs spends more compute to continually refine its answers and doing so can generate samples competitive with GANs at low temperatures,",
+    "summaryZh": "我们在基于能量的模型（ EBM ）的稳定和可扩展训练方面取得了进展，从而比现有模型具有更好的样本质量和泛化能力。EBM中的生成花费更多的计算来不断完善其答案，这样做可以生成在低温下与GAN竞争的样本，",
+    "highlights": [
+      "We’ve made progress towards stable and scalable training of energy-based models (EBMs) resulting in better sample quality and generalization ability than existing models.",
+      "Generation in EBMs spends more compute to continually refine its answers and doing so can generate samples competitive with GANs at low temperatures,"
+    ],
+    "highlightsZh": [
+      "我们在基于能量的模型（ EBM ）的稳定和可扩展训练方面取得了进展，从而比现有模型具有更好的样本质量和泛化能力。EBM中的生成花费更多的计算来不断完善其答案，这样做可以生成在低温下与GAN竞争的样本，"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "5de14b9b6956",
+    "title": "OpenAI Scholars 2019: Meet our Scholars",
+    "titleZh": "2019年OpenAI学者：认识我们的学者",
+    "link": "https://openai.com/index/openai-scholars-2019-meet-our-scholars",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-03-13T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our class of eight scholars (out of 550 applicants) brings together collective expertise in literature, philosophy, cell biology, statistics, economics, quantum physics, and business innovation.",
+    "summaryZh": "我们的八名学者（共550名申请人）汇集了文学、哲学、细胞生物学、统计学、经济学、量子物理和商业创新方面的集体专业知识。",
+    "highlights": [
+      "Our class of eight scholars (out of 550 applicants) brings together collective expertise in literature, philosophy, cell biology, statistics, economics, quantum physics, and busine"
+    ],
+    "highlightsZh": [
+      "我们的八名学者（共550名申请人）汇集了文学、哲学、细胞生物学、统计学、经济学、量子物理和商业创新方面的集体专业知识。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "93f3ddd9d28d",
+    "title": "OpenAI LP",
+    "titleZh": "",
+    "link": "https://openai.com/index/openai-lp",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-03-11T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve created OpenAI LP, a new “capped-profit” company that allows us to rapidly increase our investments in compute and talent while including checks and balances to actualize our mission.",
+    "summaryZh": "我们创建了OpenAI LP ，这是一家新的“上限盈利”公司，使我们能够快速增加对计算和人才的投资，同时包括制衡以实现我们的使命。",
+    "highlights": [
+      "We’ve created OpenAI LP, a new “capped-profit” company that allows us to rapidly increase our investments in compute and talent while including checks and balances to actualize our"
+    ],
+    "highlightsZh": [
+      "我们创建了OpenAI LP ，这是一家新的“上限盈利”公司，使我们能够快速增加对计算和人才的投资，同时包括制衡以实现我们的使命。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ab6df3c6e57c",
+    "title": "Introducing Activation Atlases",
+    "titleZh": "激活图集简介",
+    "link": "https://openai.com/index/introducing-activation-atlases",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-03-06T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve created activation atlases (in collaboration with Google researchers), a new technique for visualizing what interactions between neurons can represent. As AI systems are deployed in increasingly sensitive contexts, having a better understanding of their internal decision-making processes will let us identify weak",
+    "summaryZh": "我们创建了激活图谱（与谷歌研究人员合作） ，这是一种用于可视化神经元之间的相互作用的新技术。随着人工智能系统部署在日益敏感的环境中，更好地了解其内部决策过程将使我们能够识别",
+    "highlights": [
+      "We’ve created activation atlases (in collaboration with Google researchers), a new technique for visualizing what interactions between neurons can represent.",
+      "As AI systems are deployed in increasingly sensitive contexts, having a better understanding of their internal decision-making processes will let us identify weak"
+    ],
+    "highlightsZh": [
+      "我们创建了激活图谱（与谷歌研究人员合作） ，这是一种用于可视化神经元之间的相互作用的新技术。随着人工智能系统部署在日益敏感的环境中，更好地了解其内部决策过程将使我们能够识别"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "7938474d2494",
+    "title": "Neural MMO: A massively multiagent game environment",
+    "titleZh": "Neural MMO ：大规模多智能体游戏环境",
+    "link": "https://openai.com/index/neural-mmo",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-03-04T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing a Neural MMO, a massively multiagent game environment for reinforcement learning agents. Our platform supports a large, variable number of agents within a persistent and open-ended task. The inclusion of many agents and species leads to better exploration, divergent niche formation, and greater overall",
+    "summaryZh": "我们正在发布一个神经MMO ，这是一个用于强化学习智能的大规模多智能体游戏环境。我们的平台支持持续开放式任务中的大量、可变数量的客服代表。许多药剂和物种的加入导致更好的探索，不同的利基形成，以及更大的整体",
+    "highlights": [
+      "We’re releasing a Neural MMO, a massively multiagent game environment for reinforcement learning agents.",
+      "Our platform supports a large, variable number of agents within a persistent and open-ended task."
+    ],
+    "highlightsZh": [
+      "我们正在发布一个神经MMO ，这是一个用于强化学习智能的大规模多智能体游戏环境。我们的平台支持持续开放式任务中的大量、可变数量的客服代表。许多药剂和物种的加入导致更好的探索，不同的利基形成，以及更大的整体"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

@@ -1,0 +1,71 @@
+[
+  {
+    "id": "0714bf126c01",
+    "title": "Faulty reward functions in the wild",
+    "titleZh": "野外奖励功能有缺陷",
+    "link": "https://openai.com/index/faulty-reward-functions",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2016-12-21T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Reinforcement learning algorithms can break in surprising, counterintuitive ways. In this post we’ll explore one failure mode, which is where you misspecify your reward function.",
+    "summaryZh": "强化学习算法可能会以令人惊讶、违反直觉的方式破解。在这篇文章中，我们将探讨一种失败模式，即您错误地指定了奖励功能。",
+    "highlights": [
+      "Reinforcement learning algorithms can break in surprising, counterintuitive ways.",
+      "In this post we’ll explore one failure mode, which is where you misspecify your reward function."
+    ],
+    "highlightsZh": [
+      "强化学习算法可能会以令人惊讶、违反直觉的方式破解。在这篇文章中，我们将探讨一种失败模式，即您错误地指定了奖励功能。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "460805f956cf",
+    "title": "Universe",
+    "titleZh": "宇宙",
+    "link": "https://openai.com/index/universe",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2016-12-05T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing Universe, a software platform for measuring and training an AI’s general intelligence across the world’s supply of games, websites and other applications.",
+    "summaryZh": "我们正在发布Universe ，这是一个软件平台，用于在全球游戏、网站和其他应用程序的供应中测量和训练人工智能的一般智能。",
+    "highlights": [
+      "We’re releasing Universe, a software platform for measuring and training an AI’s general intelligence across the world’s supply of games, websites and other applications."
+    ],
+    "highlightsZh": [
+      "我们正在发布Universe ，这是一个软件平台，用于在全球游戏、网站和其他应用程序的供应中测量和训练人工智能的一般智能。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

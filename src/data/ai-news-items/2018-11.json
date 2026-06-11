@@ -1,0 +1,108 @@
+[
+  {
+    "id": "8d8a0f5755b6",
+    "title": "Spinning Up in Deep RL",
+    "titleZh": "在Deep RL中旋转",
+    "link": "https://openai.com/index/spinning-up-in-deep-rl",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-11-08T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing Spinning Up in Deep RL, an educational resource designed to let anyone learn to become a skilled practitioner in deep reinforcement learning. Spinning Up consists of crystal-clear examples of RL code, educational exercises, documentation, and tutorials.",
+    "summaryZh": "我们即将发布《Spinning Up in Deep RL》，这是一款教育资源，旨在让任何人都能学习成为深度强化学习的熟练从业者。Spinning Up包括清晰的RL代码示例、教育练习、文档和教程。",
+    "highlights": [
+      "We’re releasing Spinning Up in Deep RL, an educational resource designed to let anyone learn to become a skilled practitioner in deep reinforcement learning.",
+      "Spinning Up consists of crystal-clear examples of RL code, educational exercises, documentation, and tutorials."
+    ],
+    "highlightsZh": [
+      "我们即将发布《Spinning Up in Deep RL》，这是一款教育资源，旨在让任何人都能学习成为深度强化学习的熟练从业者。Spinning Up包括清晰的RL代码示例、教育练习、文档和教程。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ee1e04d73d1f",
+    "title": "Learning concepts with energy functions",
+    "titleZh": "具有能量函数的学习概念",
+    "link": "https://openai.com/index/learning-concepts-with-energy-functions",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-11-07T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve developed an energy-based model that can quickly learn to identify and generate instances of concepts, such as near, above, between, closest, and furthest, expressed as sets of 2d points. Our model learns these concepts after only five demonstrations. We also show cross-domain transfer: we use concepts learned in",
+    "summaryZh": "我们开发了一种基于能量的模型，可以快速学习识别和生成概念的实例，例如近、上、之间、最近和最远，以2d点的集合表示。我们的模型仅在五次演示后就学会了这些概念。我们还展示了跨域转移：我们使用在",
+    "highlights": [
+      "We’ve developed an energy-based model that can quickly learn to identify and generate instances of concepts, such as near, above, between, closest, and furthest, expressed as sets ",
+      "Our model learns these concepts after only five demonstrations."
+    ],
+    "highlightsZh": [
+      "我们开发了一种基于能量的模型，可以快速学习识别和生成概念的实例，例如近、上、之间、最近和最远，以2d点的集合表示。我们的模型仅在五次演示后就学会了这些概念。我们还展示了跨域转移：我们使用在"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "19aa657b0c1a",
+    "title": "Plan online, learn offline: Efficient learning and exploration via model-based control",
+    "titleZh": "在线规划，离线学习：通过基于模型的控制进行有效的学习和探索",
+    "link": "https://openai.com/index/plan-online-learn-offline",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-11-05T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [
+      "模型"
+    ],
+    "score": 58,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

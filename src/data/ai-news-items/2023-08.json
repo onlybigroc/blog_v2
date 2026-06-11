@@ -1,0 +1,242 @@
+[
+  {
+    "id": "94cb4f93c6e5",
+    "title": "Teaching with AI",
+    "titleZh": "人工智能教学",
+    "link": "https://openai.com/index/teaching-with-ai",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-08-31T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing a guide for teachers using ChatGPT in their classroom—including suggested prompts, an explanation of how ChatGPT works and its limitations, the efficacy of AI detectors, and bias.",
+    "summaryZh": "我们正在为在课堂上使用ChatGPT的教师发布指南，其中包括建议提示、ChatGPT工作原理及其局限性的解释、人工智能检测器的功效以及偏见。",
+    "highlights": [
+      "We’re releasing a guide for teachers using ChatGPT in their classroom—including suggested prompts, an explanation of how ChatGPT works and its limitations, the efficacy of AI detec"
+    ],
+    "highlightsZh": [
+      "我们正在为在课堂上使用ChatGPT的教师发布指南，其中包括建议提示、ChatGPT工作原理及其局限性的解释、人工智能检测器的功效以及偏见。"
+    ],
+    "tags": [],
+    "score": 42,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "cbe5ba39988b",
+    "title": "Introducing ChatGPT Enterprise",
+    "titleZh": "ChatGPT Enterprise简介",
+    "link": "https://openai.com/index/introducing-chatgpt-enterprise",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-08-28T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Get enterprise-grade security & privacy and the most powerful version of ChatGPT yet.",
+    "summaryZh": "获取企业级安全和隐私以及迄今为止功能最强大的ChatGPT版本。",
+    "highlights": [
+      "Get enterprise-grade security & privacy and the most powerful version of ChatGPT yet."
+    ],
+    "highlightsZh": [
+      "获取企业级安全和隐私以及迄今为止功能最强大的ChatGPT版本。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "fe3df80d073e",
+    "title": "OpenAI partners with Scale to provide support for enterprises fine-tuning models",
+    "titleZh": "OpenAI与Scale合作，为企业微调模型提供支持",
+    "link": "https://openai.com/index/openai-partners-with-scale-to-provide-support-for-enterprises-fine-tuning-models",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-08-24T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI’s customers can leverage Scale’s AI expertise to customize our most advanced models.",
+    "summaryZh": "OpenAI的客户可以利用Scale的人工智能专业知识来定制我们最先进的模型。",
+    "highlights": [
+      "OpenAI’s customers can leverage Scale’s AI expertise to customize our most advanced models."
+    ],
+    "highlightsZh": [
+      "OpenAI的客户可以利用Scale的人工智能专业知识来定制我们最先进的模型。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c4aac14feaec",
+    "title": "GPT-3.5 Turbo fine-tuning and API updates",
+    "titleZh": "GPT-3.5 Turbo微调和API更新",
+    "link": "https://openai.com/index/gpt-3-5-turbo-fine-tuning-and-api-updates",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-08-22T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Developers can now bring their own data to customize GPT-3.5 Turbo for their use cases.",
+    "summaryZh": "开发人员现在可以携带自己的数据为其用例自定义GPT-3.5 Turbo。",
+    "highlights": [
+      "Developers can now bring their own data to customize GPT-3.5 Turbo for their use cases."
+    ],
+    "highlightsZh": [
+      "开发人员现在可以携带自己的数据为其用例自定义GPT-3.5 Turbo。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "82efa62a1190",
+    "title": "OpenAI acquires Global Illumination",
+    "titleZh": "OpenAI收购Global Illumination",
+    "link": "https://openai.com/index/openai-acquires-global-illumination",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-08-16T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "The entire team has joined OpenAI.",
+    "summaryZh": "整个团队都加入了OpenAI。",
+    "highlights": [
+      "The entire team has joined OpenAI."
+    ],
+    "highlightsZh": [
+      "整个团队都加入了OpenAI。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "69e1859540fc",
+    "title": "Using GPT-4 for content moderation",
+    "titleZh": "使用GPT-4进行内容审核",
+    "link": "https://openai.com/index/using-gpt-4-for-content-moderation",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-08-15T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We use GPT-4 for content policy development and content moderation decisions, enabling more consistent labeling, a faster feedback loop for policy refinement, and less involvement from human moderators.",
+    "summaryZh": "我们使用GPT-4进行内容政策制定和内容审核决策，从而实现更一致的标签、更快的政策改进反馈循环以及更少的人工审核员参与。",
+    "highlights": [
+      "We use GPT-4 for content policy development and content moderation decisions, enabling more consistent labeling, a faster feedback loop for policy refinement, and less involvement "
+    ],
+    "highlightsZh": [
+      "我们使用GPT-4进行内容政策制定和内容审核决策，从而实现更一致的标签、更快的政策改进反馈循环以及更少的人工审核员参与。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "1dc10b1074bb",
+    "title": "Confidence-Building Measures for Artificial Intelligence: Workshop proceedings",
+    "titleZh": "人工智能建立信任措施：研讨会议事录",
+    "link": "https://openai.com/index/confidence-building-measures-for-artificial-intelligence",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-08-01T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

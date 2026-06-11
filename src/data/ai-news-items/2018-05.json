@@ -1,0 +1,145 @@
+[
+  {
+    "id": "5d8606e2ce55",
+    "title": "OpenAI Fellows Fall 2018",
+    "titleZh": "2018年秋季OpenAI研究员",
+    "link": "https://openai.com/index/openai-fellows",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-05-30T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re now accepting applications for the next cohort of OpenAI Fellows, a program which offers a compensated 6-month apprenticeship in AI research at OpenAI.",
+    "summaryZh": "我们现在正在接受下一批OpenAI研究员的申请，该计划为OpenAI的人工智能研究提供为期6个月的补偿学徒。",
+    "highlights": [
+      "We’re now accepting applications for the next cohort of OpenAI Fellows, a program which offers a compensated 6-month apprenticeship in AI research at OpenAI."
+    ],
+    "highlightsZh": [
+      "我们现在正在接受下一批OpenAI研究员的申请，该计划为OpenAI的人工智能研究提供为期6个月的补偿学徒。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "991716e030ec",
+    "title": "Gym Retro",
+    "titleZh": "健身房复古",
+    "link": "https://openai.com/index/gym-retro",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-05-25T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing the full version of Gym Retro, a platform for reinforcement learning research on games. This brings our publicly-released game count from around 70 Atari games and 30 Sega games to over 1,000 games across a variety of backing emulators. We’re also releasing the tool we use to add new games to the platfo",
+    "summaryZh": "我们正在发布Gym Retro的完整版本，这是一个用于游戏强化学习研究的平台。这使我们公开发布的游戏数量从大约70款雅达利游戏和30款世嘉游戏增加到超过1,000款游戏，涵盖各种支持模拟器。我们还发布了用于向平台添加新游戏的工具",
+    "highlights": [
+      "We’re releasing the full version of Gym Retro, a platform for reinforcement learning research on games.",
+      "This brings our publicly-released game count from around 70 Atari games and 30 Sega games to over 1,000 games across a variety of backing emulators."
+    ],
+    "highlightsZh": [
+      "我们正在发布Gym Retro的完整版本，这是一个用于游戏强化学习研究的平台。这使我们公开发布的游戏数量从大约70款雅达利游戏和30款世嘉游戏增加到超过1,000款游戏，涵盖各种支持模拟器。我们还发布了用于向平台添加新游戏的工具"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ebdaaac7f0ae",
+    "title": "AI and compute",
+    "titleZh": "人工智能和计算",
+    "link": "https://openai.com/index/ai-and-compute",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-05-16T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing an analysis showing that since 2012, the amount of compute used in the largest AI training runs has been increasing exponentially with a 3.4-month doubling time (by comparison, Moore’s Law had a 2-year doubling period)[^footnote-correction]. Since 2012, this metric has grown by more than 300,000x (a 2-y",
+    "summaryZh": "我们发布的一项分析显示，自2012年以来，最大的人工智能培训运行中使用的计算量呈指数级增长，翻倍时间为3.4个月（相比之下，摩尔定律有2年的翻倍期） [^ footnote-correction]。自2012年以来，该指标增长了30多万倍（ 2年",
+    "highlights": [
+      "We’re releasing an analysis showing that since 2012, the amount of compute used in the largest AI training runs has been increasing exponentially with a 3.4-month doubling time (by",
+      "Since 2012, this metric has grown by more than 300,000x (a 2-y"
+    ],
+    "highlightsZh": [
+      "我们发布的一项分析显示，自2012年以来，最大的人工智能培训运行中使用的计算量呈指数级增长，翻倍时间为3.4个月（相比之下，摩尔定律有2年的翻倍期） [^ footnote-correction]。自2012年以来，该指标增长了30多万倍（ 2年"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c05c73d62a61",
+    "title": "AI safety via debate",
+    "titleZh": "通过辩论实现人工智能安全",
+    "link": "https://openai.com/index/debate",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-05-03T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re proposing an AI safety technique which trains agents to debate topics with one another, using a human to judge who wins.",
+    "summaryZh": "我们提出了一种人工智能安全技术，该技术培训代理商相互讨论话题，使用人来判断谁是赢家。",
+    "highlights": [
+      "We’re proposing an AI safety technique which trains agents to debate topics with one another, using a human to judge who wins."
+    ],
+    "highlightsZh": [
+      "我们提出了一种人工智能安全技术，该技术培训代理商相互讨论话题，使用人来判断谁是赢家。"
+    ],
+    "tags": [
+      "模型",
+      "监管"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

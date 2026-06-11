@@ -1,0 +1,108 @@
+[
+  {
+    "id": "ad5199ee2401",
+    "title": "OpenAI Fellows Summer 2018: Final projects",
+    "titleZh": "2018年夏季OpenAI研究员：最终项目",
+    "link": "https://openai.com/index/openai-summer-fellows-2018",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-12-19T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our first cohort of OpenAI Fellows has concluded, with each Fellow going from a machine learning beginner to core OpenAI contributor in the course of a 6-month apprenticeship.",
+    "summaryZh": "我们的第一批OpenAI研究员已经结束，每个研究员在6个月的学徒期内从机器学习初学者到核心OpenAI贡献者。",
+    "highlights": [
+      "Our first cohort of OpenAI Fellows has concluded, with each Fellow going from a machine learning beginner to core OpenAI contributor in the course of a 6-month apprenticeship."
+    ],
+    "highlightsZh": [
+      "我们的第一批OpenAI研究员已经结束，每个研究员在6个月的学徒期内从机器学习初学者到核心OpenAI贡献者。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8bc7dfa9ed49",
+    "title": "How AI training scales",
+    "titleZh": "人工智能培训如何扩展",
+    "link": "https://openai.com/index/how-ai-training-scales",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-12-14T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve discovered that the gradient noise scale, a simple statistical metric, predicts the parallelizability of neural network training on a wide range of tasks. Since complex tasks tend to have noisier gradients, increasingly large batch sizes are likely to become useful in the future, removing one potential limit to f",
+    "summaryZh": "我们已经发现，梯度噪声量表（一种简单的统计指标）可以预测神经网络训练在各种任务上的并行性。由于复杂的任务往往具有更嘈杂的梯度，因此越来越大的批量在未来可能会变得有用，从而消除了",
+    "highlights": [
+      "We’ve discovered that the gradient noise scale, a simple statistical metric, predicts the parallelizability of neural network training on a wide range of tasks.",
+      "Since complex tasks tend to have noisier gradients, increasingly large batch sizes are likely to become useful in the future, removing one potential limit to f"
+    ],
+    "highlightsZh": [
+      "我们已经发现，梯度噪声量表（一种简单的统计指标）可以预测神经网络训练在各种任务上的并行性。由于复杂的任务往往具有更嘈杂的梯度，因此越来越大的批量在未来可能会变得有用，从而消除了"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "e71d227e6b6b",
+    "title": "Quantifying generalization in reinforcement learning",
+    "titleZh": "量化强化学习中的泛化",
+    "link": "https://openai.com/index/quantifying-generalization-in-reinforcement-learning",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-12-06T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing CoinRun, a training environment which provides a metric for an agent’s ability to transfer its experience to novel situations and has already helped clarify a longstanding puzzle in reinforcement learning. CoinRun strikes a desirable balance in complexity: the environment is simpler than traditional pla",
+    "summaryZh": "我们正在发布CoinRun ，这是一个培训环境，它提供了一个衡量代理将其体验转移到新情况的能力的指标，并且已经帮助澄清了强化学习中的一个长期难题。CoinRun在复杂性方面达到了理想的平衡：环境比传统的PLA更简单",
+    "highlights": [
+      "We’re releasing CoinRun, a training environment which provides a metric for an agent’s ability to transfer its experience to novel situations and has already helped clarify a longs",
+      "CoinRun strikes a desirable balance in complexity: the environment is simpler than traditional pla"
+    ],
+    "highlightsZh": [
+      "我们正在发布CoinRun ，这是一个培训环境，它提供了一个衡量代理将其体验转移到新情况的能力的指标，并且已经帮助澄清了强化学习中的一个长期难题。CoinRun在复杂性方面达到了理想的平衡：环境比传统的PLA更简单"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 72,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

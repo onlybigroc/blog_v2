@@ -1,0 +1,140 @@
+[
+  {
+    "id": "3851ad3a0381",
+    "title": "Faster physics in Python",
+    "titleZh": "Python中更快的物理",
+    "link": "https://openai.com/index/faster-physics-in-python",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-06-28T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re open-sourcing a high-performance Python library for robotic simulation using the MuJoCo engine, developed over our past year of robotics research.",
+    "summaryZh": "我们正在开源一个高性能的Python库，用于使用MuJoCo引擎进行机器人模拟，该引擎是在我们过去一年的机器人研究过程中开发的。",
+    "highlights": [
+      "We’re open-sourcing a high-performance Python library for robotic simulation using the MuJoCo engine, developed over our past year of robotics research."
+    ],
+    "highlightsZh": [
+      "我们正在开源一个高性能的Python库，用于使用MuJoCo引擎进行机器人模拟，该引擎是在我们过去一年的机器人研究过程中开发的。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ef3d36cbc083",
+    "title": "Learning from human preferences",
+    "titleZh": "从人类偏好中学习",
+    "link": "https://openai.com/index/learning-from-human-preferences",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-06-13T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "One step towards building safe AI systems is to remove the need for humans to write goal functions, since using a simple proxy for a complex goal, or getting the complex goal a bit wrong, can lead to undesirable and even dangerous behavior. In collaboration with DeepMind’s safety team, we’ve developed an algorithm whic",
+    "summaryZh": "构建安全的人工智能系统的一个步骤是消除人类编写目标函数的需要，因为为复杂目标使用简单的代理，或将复杂目标弄错，可能会导致不良甚至危险的行为。我们与DeepMind的安全团队合作，开发了一种算法，",
+    "highlights": [
+      "One step towards building safe AI systems is to remove the need for humans to write goal functions, since using a simple proxy for a complex goal, or getting the complex goal a bit",
+      "In collaboration with DeepMind’s safety team, we’ve developed an algorithm whic"
+    ],
+    "highlightsZh": [
+      "构建安全的人工智能系统的一个步骤是消除人类编写目标函数的需要，因为为复杂目标使用简单的代理，或将复杂目标弄错，可能会导致不良甚至危险的行为。我们与DeepMind的安全团队合作，开发了一种算法，"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "6955e7f91026",
+    "title": "Learning to cooperate, compete, and communicate",
+    "titleZh": "学习合作、竞争和沟通",
+    "link": "https://openai.com/index/learning-to-cooperate-compete-and-communicate",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-06-08T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Multiagent environments where agents compete for resources are stepping stones on the path to AGI. Multiagent environments have two useful properties: first, there is a natural curriculum—the difficulty of the environment is determined by the skill of your competitors (and if you’re competing against clones of yourself",
+    "summaryZh": "代理争夺资源的多代理环境是通往AGI之路的垫脚石。Multiagent环境有两个有用的特性：首先，有一个自然的课程-环境的难度由竞争对手的技能决定（如果您与自己的克隆竞争",
+    "highlights": [
+      "Multiagent environments where agents compete for resources are stepping stones on the path to AGI.",
+      "Multiagent environments have two useful properties: first, there is a natural curriculum—the difficulty of the environment is determined by the skill of your competitors (and if yo"
+    ],
+    "highlightsZh": [
+      "代理争夺资源的多代理环境是通往AGI之路的垫脚石。Multiagent环境有两个有用的特性：首先，有一个自然的课程-环境的难度由竞争对手的技能决定（如果您与自己的克隆竞争"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "fbde402894e1",
+    "title": "UCB exploration via Q-ensembles",
+    "titleZh": "通过Q-ensembles进行UCB探索",
+    "link": "https://openai.com/index/ucb-exploration-via-q-ensembles",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-06-05T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "4c95e0a12a66",
+    "title": "Summarizing books with human feedback",
+    "titleZh": "总结具有人工反馈的书籍",
+    "link": "https://openai.com/index/summarizing-books",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-09-23T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Scaling human oversight of AI systems for tasks that are difficult to evaluate.",
+    "summaryZh": "针对难以评估的任务，扩大人工智能系统的人工监督。",
+    "highlights": [
+      "Scaling human oversight of AI systems for tasks that are difficult to evaluate."
+    ],
+    "highlightsZh": [
+      "针对难以评估的任务，扩大人工智能系统的人工监督。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3c2e6e582167",
+    "title": "Helen Toner joins OpenAI’s board of directors",
+    "titleZh": "Helen Toner加入OpenAI董事会",
+    "link": "https://openai.com/index/helen-toner-joins",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-09-08T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Today, we’re excited to announce the appointment of Helen Toner to our board of directors.",
+    "summaryZh": "今天，我们很高兴地宣布任命Helen Toner为董事会成员。",
+    "highlights": [
+      "Today, we’re excited to announce the appointment of Helen Toner to our board of directors."
+    ],
+    "highlightsZh": [
+      "今天，我们很高兴地宣布任命Helen Toner为董事会成员。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c6ddcfa6857f",
+    "title": "TruthfulQA: Measuring how models mimic human falsehoods",
+    "titleZh": "TruthfulQA ：衡量模型如何模仿人类的谎言",
+    "link": "https://openai.com/index/truthfulqa",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-09-08T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

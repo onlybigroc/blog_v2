@@ -1,0 +1,108 @@
+[
+  {
+    "id": "ff30bafbb943",
+    "title": "Infrastructure for deep learning",
+    "titleZh": "深度学习的基础设施",
+    "link": "https://openai.com/index/infrastructure-for-deep-learning",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2016-08-29T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Deep learning is an empirical science, and the quality of a group’s infrastructure is a multiplier on progress. Fortunately, today’s open-source ecosystem makes it possible for anyone to build great deep learning infrastructure.",
+    "summaryZh": "深度学习是一门实证科学，团队基础设施的质量是进步的乘数。幸运的是，当今的开源生态系统使任何人都可以构建出色的深度学习基础设施。",
+    "highlights": [
+      "Deep learning is an empirical science, and the quality of a group’s infrastructure is a multiplier on progress.",
+      "Fortunately, today’s open-source ecosystem makes it possible for anyone to build great deep learning infrastructure."
+    ],
+    "highlightsZh": [
+      "深度学习是一门实证科学，团队基础设施的质量是进步的乘数。幸运的是，当今的开源生态系统使任何人都可以构建出色的深度学习基础设施。"
+    ],
+    "tags": [
+      "开源",
+      "算力"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "13cff6857928",
+    "title": "Machine Learning Unconference",
+    "titleZh": "机器学习非会议",
+    "link": "https://openai.com/index/machine-learning-unconference",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2016-08-18T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "The latest information about the Unconference is now available at the Unconference wiki, which will be periodically updated with more information for attendees.",
+    "summaryZh": "有关Unconference的最新信息现已在Unconference维基上提供，该维基将定期更新，为与会者提供更多信息。",
+    "highlights": [
+      "The latest information about the Unconference is now available at the Unconference wiki, which will be periodically updated with more information for attendees."
+    ],
+    "highlightsZh": [
+      "有关Unconference的最新信息现已在Unconference维基上提供，该维基将定期更新，为与会者提供更多信息。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "5f38a7076e8e",
+    "title": "Team update",
+    "titleZh": "团队更新",
+    "link": "https://openai.com/index/team-update-august",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2016-08-16T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve hired more great people to help us achieve our goals. Welcome, everyone!",
+    "summaryZh": "我们聘请了更多优秀的人才来帮助我们实现目标。欢迎大家！",
+    "highlights": [
+      "We’ve hired more great people to help us achieve our goals."
+    ],
+    "highlightsZh": [
+      "我们聘请了更多优秀的人才来帮助我们实现目标。欢迎大家！"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

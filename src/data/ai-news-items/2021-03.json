@@ -1,0 +1,75 @@
+[
+  {
+    "id": "49aed675a0db",
+    "title": "GPT-3 powers the next generation of apps",
+    "titleZh": "GPT-3为下一代应用提供支持",
+    "link": "https://openai.com/index/gpt-3-apps",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-03-25T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Over 300 applications are delivering GPT-3–powered search, conversation, text completion, and other advanced AI features through our API.",
+    "summaryZh": "超过300个应用程序通过我们的API提供GPT-3支持的搜索、对话、文本完成和其他高级AI功能。",
+    "highlights": [
+      "Over 300 applications are delivering GPT-3–powered search, conversation, text completion, and other advanced AI features through our API."
+    ],
+    "highlightsZh": [
+      "超过300个应用程序通过我们的API提供GPT-3支持的搜索、对话、文本完成和其他高级AI功能。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a9266ae4127f",
+    "title": "Multimodal neurons in artificial neural networks",
+    "titleZh": "人工神经网络中的多模态神经元",
+    "link": "https://openai.com/index/multimodal-neurons",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-03-04T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve discovered neurons in CLIP that respond to the same concept whether presented literally, symbolically, or conceptually. This may explain CLIP’s accuracy in classifying surprising visual renditions of concepts, and is also an important step toward understanding the associations and biases that CLIP and similar mod",
+    "summaryZh": "我们在剪辑中发现了响应相同概念的神经元，无论是从字面上、象征上还是概念上呈现。这可以解释CLIP对概念的令人惊讶的视觉再现进行分类的准确性，也是理解CLIP和类似MOD的关联和偏见的重要一步",
+    "highlights": [
+      "We’ve discovered neurons in CLIP that respond to the same concept whether presented literally, symbolically, or conceptually.",
+      "This may explain CLIP’s accuracy in classifying surprising visual renditions of concepts, and is also an important step toward understanding the associations and biases that CLIP a"
+    ],
+    "highlightsZh": [
+      "我们在剪辑中发现了响应相同概念的神经元，无论是从字面上、象征上还是概念上呈现。这可以解释CLIP对概念的令人惊讶的视觉再现进行分类的准确性，也是理解CLIP和类似MOD的关联和偏见的重要一步"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

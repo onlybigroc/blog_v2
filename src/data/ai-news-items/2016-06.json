@@ -1,0 +1,108 @@
+[
+  {
+    "id": "33560eec3a69",
+    "title": "Concrete AI safety problems",
+    "titleZh": "具体的人工智能安全问题",
+    "link": "https://openai.com/index/concrete-ai-safety-problems",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2016-06-21T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We (along with researchers from Berkeley and Stanford) are co-authors on today’s paper led by Google Brain researchers, Concrete Problems in AI Safety. The paper explores many research problems around ensuring that modern machine learning systems operate as intended.",
+    "summaryZh": "我们（以及来自伯克利和斯坦福大学的研究人员）是今天由谷歌大脑研究人员领导的论文《人工智能安全的具体问题》的共同作者。本文探讨了围绕确保现代机器学习系统按预期运行的许多研究问题。",
+    "highlights": [
+      "We (along with researchers from Berkeley and Stanford) are co-authors on today’s paper led by Google Brain researchers, Concrete Problems in AI Safety.",
+      "The paper explores many research problems around ensuring that modern machine learning systems operate as intended."
+    ],
+    "highlightsZh": [
+      "我们（以及来自伯克利和斯坦福大学的研究人员）是今天由谷歌大脑研究人员领导的论文《人工智能安全的具体问题》的共同作者。本文探讨了围绕确保现代机器学习系统按预期运行的许多研究问题。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "e6dc80ac24df",
+    "title": "OpenAI technical goals",
+    "titleZh": "OpenAI技术目标",
+    "link": "https://openai.com/index/openai-technical-goals",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2016-06-20T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI’s mission is to build safe AI, and ensure AI’s benefits are as widely and evenly distributed as possible.",
+    "summaryZh": "OpenAI的使命是构建安全的人工智能，并确保人工智能的好处尽可能广泛和均匀地分配。",
+    "highlights": [
+      "OpenAI’s mission is to build safe AI, and ensure AI’s benefits are as widely and evenly distributed as possible."
+    ],
+    "highlightsZh": [
+      "OpenAI的使命是构建安全的人工智能，并确保人工智能的好处尽可能广泛和均匀地分配。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "e7d0e3077387",
+    "title": "Generative models",
+    "titleZh": "生成式 AI",
+    "link": "https://openai.com/index/generative-models",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2016-06-16T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "This post describes four projects that share a common theme of enhancing or using generative models, a branch of unsupervised learning techniques in machine learning. In addition to describing our work, this post will tell you a bit more about generative models: what they are, why they are important, and where they mig",
+    "summaryZh": "这篇文章描述了四个项目，它们共享一个共同的主题，即增强或使用生成模型，这是机器学习中无监督学习技术的一个分支。除了描述我们的工作外，这篇文章还会告诉您更多关于生成模型的信息：它们是什么，为什么它们很重要，以及它们在哪里迁移",
+    "highlights": [
+      "This post describes four projects that share a common theme of enhancing or using generative models, a branch of unsupervised learning techniques in machine learning.",
+      "In addition to describing our work, this post will tell you a bit more about generative models: what they are, why they are important, and where they mig"
+    ],
+    "highlightsZh": [
+      "这篇文章描述了四个项目，它们共享一个共同的主题，即增强或使用生成模型，这是机器学习中无监督学习技术的一个分支。除了描述我们的工作外，这篇文章还会告诉您更多关于生成模型的信息：它们是什么，为什么它们很重要，以及它们在哪里迁移"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

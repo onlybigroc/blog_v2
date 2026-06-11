@@ -1,0 +1,144 @@
+[
+  {
+    "id": "91241a44d1d8",
+    "title": "OpenAI Baselines: ACKTR & A2C",
+    "titleZh": "OpenAI基线： ACKTR和A2C",
+    "link": "https://openai.com/index/openai-baselines-acktr-a2c",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-08-18T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing two new OpenAI Baselines implementations: ACKTR and A2C. A2C is a synchronous, deterministic variant of Asynchronous Advantage Actor Critic (A3C) which we’ve found gives equal performance. ACKTR is a more sample-efficient reinforcement learning algorithm than TRPO and A2C, and requires only slightly mor",
+    "summaryZh": "我们发布了两个新的OpenAI基线实现： ACKTR和A2C。A2C是Asynchronous Advantage Actor Critic （ A3C ）的同步确定性变体，我们发现它具有相同的性能。ACKTR是一种比TRPO和A2C更具样本效率的强化学习算法，并且只需要",
+    "highlights": [
+      "We’re releasing two new OpenAI Baselines implementations: ACKTR and A2C.",
+      "A2C is a synchronous, deterministic variant of Asynchronous Advantage Actor Critic (A3C) which we’ve found gives equal performance."
+    ],
+    "highlightsZh": [
+      "我们发布了两个新的OpenAI基线实现： ACKTR和A2C。A2C是Asynchronous Advantage Actor Critic （ A3C ）的同步确定性变体，我们发现它具有相同的性能。ACKTR是一种比TRPO和A2C更具样本效率的强化学习算法，并且只需要"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "66c9e39addc6",
+    "title": "More on Dota 2",
+    "titleZh": "有关Dota 2的更多信息",
+    "link": "https://openai.com/index/more-on-dota-2",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-08-16T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our Dota 2 result shows that self-play can catapult the performance of machine learning systems from far below human level to superhuman, given sufficient compute. In the span of a month, our system went from barely matching a high-ranked player to beating the top pros and has continued to improve since then. Supervise",
+    "summaryZh": "我们的Dota 2结果表明，如果有足够的计算能力，自我游戏可以将机器学习系统的性能从远低于人类的水平弹射到超人类。在一个月的时间里，我们的系统从勉强匹敌高级别球员变成了击败顶级职业球员，并从那时起不断改进。监督",
+    "highlights": [
+      "Our Dota 2 result shows that self-play can catapult the performance of machine learning systems from far below human level to superhuman, given sufficient compute.",
+      "In the span of a month, our system went from barely matching a high-ranked player to beating the top pros and has continued to improve since then."
+    ],
+    "highlightsZh": [
+      "我们的Dota 2结果表明，如果有足够的计算能力，自我游戏可以将机器学习系统的性能从远低于人类的水平弹射到超人类。在一个月的时间里，我们的系统从勉强匹敌高级别球员变成了击败顶级职业球员，并从那时起不断改进。监督"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "53a608a093dd",
+    "title": "Dota 2",
+    "titleZh": "",
+    "link": "https://openai.com/index/dota-2",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-08-11T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve created a bot which beats the world’s top professionals at 1v1 matches of Dota 2 under standard tournament rules. The bot learned the game from scratch by self-play, and does not use imitation learning or tree search. This is a step towards building AI systems which accomplish well-defined goals in messy, complic",
+    "summaryZh": "我们创建了一个机器人，根据标准锦标赛规则，在Dota 2的1对1比赛中击败世界顶级专业人士。机器人通过自我游戏从头开始学习游戏，不使用模仿学习或树搜索。这是朝着构建人工智能系统迈出的一步，该系统可以在混乱、复杂的",
+    "highlights": [
+      "We’ve created a bot which beats the world’s top professionals at 1v1 matches of Dota 2 under standard tournament rules.",
+      "The bot learned the game from scratch by self-play, and does not use imitation learning or tree search."
+    ],
+    "highlightsZh": [
+      "我们创建了一个机器人，根据标准锦标赛规则，在Dota 2的1对1比赛中击败世界顶级专业人士。机器人通过自我游戏从头开始学习游戏，不使用模仿学习或树搜索。这是朝着构建人工智能系统迈出的一步，该系统可以在混乱、复杂的"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "49923c5d248d",
+    "title": "Gathering human feedback",
+    "titleZh": "收集人工反馈",
+    "link": "https://openai.com/index/gathering-human-feedback",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-08-03T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "RL-Teacher is an open-source implementation of our interface to train AIs via occasional human feedback rather than hand-crafted reward functions. The underlying technique was developed as a step towards safe AI systems, but also applies to reinforcement learning problems with rewards that are hard to specify.",
+    "summaryZh": "RL-Teacher是我们界面的开源实现，通过偶尔的人类反馈而不是手工制作的奖励功能来训练人工智能。底层技术是朝着安全的人工智能系统迈出的一步，但也适用于难以指定奖励的强化学习问题。",
+    "highlights": [
+      "RL-Teacher is an open-source implementation of our interface to train AIs via occasional human feedback rather than hand-crafted reward functions.",
+      "The underlying technique was developed as a step towards safe AI systems, but also applies to reinforcement learning problems with rewards that are hard to specify."
+    ],
+    "highlightsZh": [
+      "RL-Teacher是我们界面的开源实现，通过偶尔的人类反馈而不是手工制作的奖励功能来训练人工智能。底层技术是朝着安全的人工智能系统迈出的一步，但也适用于难以指定奖励的强化学习问题。"
+    ],
+    "tags": [
+      "开源"
+    ],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

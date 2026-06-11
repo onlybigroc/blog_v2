@@ -1,0 +1,175 @@
+[
+  {
+    "id": "01d3551fbdf4",
+    "title": "Reinforcement learning with prediction-based rewards",
+    "titleZh": "基于预测的奖励强化学习",
+    "link": "https://openai.com/index/reinforcement-learning-with-prediction-based-rewards",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-10-31T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve developed Random Network Distillation (RND), a prediction-based method for encouraging reinforcement learning agents to explore their environments through curiosity, which for the first time exceeds average human performance on Montezuma’s Revenge.",
+    "summaryZh": "我们开发了随机网络蒸馏（ RND ） ，这是一种基于预测的方法，用于鼓励强化学习代理通过好奇心探索其环境，这首次超过了人类在Montezuma's Revenge上的平均表现。",
+    "highlights": [
+      "We’ve developed Random Network Distillation (RND), a prediction-based method for encouraging reinforcement learning agents to explore their environments through curiosity, which fo"
+    ],
+    "highlightsZh": [
+      "我们开发了随机网络蒸馏（ RND ） ，这是一种基于预测的方法，用于鼓励强化学习代理通过好奇心探索其环境，这首次超过了人类在Montezuma's Revenge上的平均表现。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "e48a017ec51f",
+    "title": "Learning complex goals with iterated amplification",
+    "titleZh": "通过迭代扩增学习复杂的目标",
+    "link": "https://openai.com/index/learning-complex-goals-with-iterated-amplification",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-10-22T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re proposing an AI safety technique called iterated amplification that lets us specify complicated behaviors and goals that are beyond human scale, by demonstrating how to decompose a task into simpler sub-tasks, rather than by providing labeled data or a reward function. Although this idea is in its very early stag",
+    "summaryZh": "我们提出了一种称为迭代放大的人工智能安全技术，通过演示如何将任务分解为更简单的子任务，而不是通过提供标记数据或奖励函数，使我们能够指定超出人类规模的复杂行为和目标。虽然这个想法还处于早期阶段",
+    "highlights": [
+      "We’re proposing an AI safety technique called iterated amplification that lets us specify complicated behaviors and goals that are beyond human scale, by demonstrating how to decom",
+      "Although this idea is in its very early stag"
+    ],
+    "highlightsZh": [
+      "我们提出了一种称为迭代放大的人工智能安全技术，通过演示如何将任务分解为更简单的子任务，而不是通过提供标记数据或奖励函数，使我们能够指定超出人类规模的复杂行为和目标。虽然这个想法还处于早期阶段"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 50,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "beb500e83f86",
+    "title": "OpenAI Scholars 2019: Applications open",
+    "titleZh": "OpenAI Scholars 2019 ：开放申请",
+    "link": "https://openai.com/index/openai-scholars-2019",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-10-11T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We are now accepting applications for our second cohort of OpenAI Scholars, a program where we provide 6–10 stipends and mentorship to individuals from underrepresented groups to study deep learning full-time for 3 months and open-source a project.",
+    "summaryZh": "我们现在正在接受第二批OpenAI学者的申请，该计划为来自代表性不足群体的个人提供6–10份津贴和指导，以全日制学习深度学习3个月并开源一个项目。",
+    "highlights": [
+      "We are now accepting applications for our second cohort of OpenAI Scholars, a program where we provide 6–10 stipends and mentorship to individuals from underrepresented groups to s"
+    ],
+    "highlightsZh": [
+      "我们现在正在接受第二批OpenAI学者的申请，该计划为来自代表性不足群体的个人提供6–10份津贴和指导，以全日制学习深度学习3个月并开源一个项目。"
+    ],
+    "tags": [
+      "开源"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8fc104fc644b",
+    "title": "OpenAI Fellows Winter 2019 & Interns Summer 2019",
+    "titleZh": "OpenAI 2019年冬季研究员和实习生2019年夏季",
+    "link": "https://openai.com/index/openai-fellows-interns-2019",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-10-09T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We are now accepting applications for OpenAI Fellows and Interns for 2019.",
+    "summaryZh": "我们现在接受2019年OpenAI研究员和实习生的申请。",
+    "highlights": [
+      "We are now accepting applications for OpenAI Fellows and Interns for 2019."
+    ],
+    "highlightsZh": [
+      "我们现在接受2019年OpenAI研究员和实习生的申请。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "297c1cc211f5",
+    "title": "FFJORD: Free-form continuous dynamics for scalable reversible generative models",
+    "titleZh": "FFJORD ：可扩展可逆生成模型的自由形式连续动力学",
+    "link": "https://openai.com/index/ffjord",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-10-02T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

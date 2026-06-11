@@ -1,0 +1,69 @@
+[
+  {
+    "id": "c970ebf9afd1",
+    "title": "Attacking machine learning with adversarial examples",
+    "titleZh": "使用对抗性示例攻击机器学习",
+    "link": "https://openai.com/index/attacking-machine-learning-with-adversarial-examples",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-02-24T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Adversarial examples are inputs to machine learning models that an attacker has intentionally designed to cause the model to make a mistake; they’re like optical illusions for machines. In this post we’ll show how adversarial examples work across different mediums, and will discuss why securing systems against them can",
+    "summaryZh": "对抗性示例是攻击者故意设计来导致模型出错的机器学习模型的输入；它们就像机器的视错觉。在这篇文章中，我们将展示对抗性示例在不同媒介上的工作原理，并讨论为什么保护系统不受对抗性示例影响",
+    "highlights": [
+      "Adversarial examples are inputs to machine learning models that an attacker has intentionally designed to cause the model to make a mistake;",
+      "they’re like optical illusions for machines."
+    ],
+    "highlightsZh": [
+      "对抗性示例是攻击者故意设计来导致模型出错的机器学习模型的输入；它们就像机器的视错觉。在这篇文章中，我们将展示对抗性示例在不同媒介上的工作原理，并讨论为什么保护系统不受对抗性示例影响"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "e6dc73314792",
+    "title": "Adversarial attacks on neural network policies",
+    "titleZh": "对神经网络策略的对抗性攻击",
+    "link": "https://openai.com/index/adversarial-attacks-on-neural-network-policies",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2017-02-08T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

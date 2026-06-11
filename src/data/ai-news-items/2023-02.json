@@ -1,0 +1,106 @@
+[
+  {
+    "id": "7bd854f81ff0",
+    "title": "Planning for AGI and beyond",
+    "titleZh": "2023学年及以后的规划",
+    "link": "https://openai.com/index/planning-for-agi-and-beyond",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-02-24T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our mission is to ensure that artificial general intelligence—AI systems that are generally smarter than humans—benefits all of humanity.",
+    "summaryZh": "我们的使命是确保通用人工智能-人工智能系统通常比人类更聪明-造福全人类。",
+    "highlights": [
+      "Our mission is to ensure that artificial general intelligence—AI systems that are generally smarter than humans—benefits all of humanity."
+    ],
+    "highlightsZh": [
+      "我们的使命是确保通用人工智能-人工智能系统通常比人类更聪明-造福全人类。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "5abe888fc1d6",
+    "title": "How should AI systems behave, and who should decide?",
+    "titleZh": "人工智能系统应该如何表现，应该由谁来决定？",
+    "link": "https://openai.com/index/how-should-ai-systems-behave",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-02-16T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re clarifying how ChatGPT’s behavior is shaped and our plans for improving that behavior, allowing more user customization, and getting more public input into our decision-making in these areas.",
+    "summaryZh": "我们正在澄清ChatGPT的行为是如何形成的，以及我们改善这种行为的计划，允许更多的用户定制，并为我们在这些领域的决策提供更多的公众意见。",
+    "highlights": [
+      "We’re clarifying how ChatGPT’s behavior is shaped and our plans for improving that behavior, allowing more user customization, and getting more public input into our decision-makin"
+    ],
+    "highlightsZh": [
+      "我们正在澄清ChatGPT的行为是如何形成的，以及我们改善这种行为的计划，允许更多的用户定制，并为我们在这些领域的决策提供更多的公众意见。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "13872e51bde5",
+    "title": "Introducing ChatGPT Plus",
+    "titleZh": "ChatGPT Plus简介",
+    "link": "https://openai.com/index/chatgpt-plus",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-02-01T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re launching a pilot subscription plan for ChatGPT, a conversational AI that can chat with you, answer follow-up questions, and challenge incorrect assumptions.",
+    "summaryZh": "我们正在推出ChatGPT的试点订阅计划，这是一种对话式人工智能，可以与您聊天、回答后续问题并挑战错误的假设。",
+    "highlights": [
+      "We’re launching a pilot subscription plan for ChatGPT, a conversational AI that can chat with you, answer follow-up questions, and challenge incorrect assumptions."
+    ],
+    "highlightsZh": [
+      "我们正在推出ChatGPT的试点订阅计划，这是一种对话式人工智能，可以与您聊天、回答后续问题并挑战错误的假设。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

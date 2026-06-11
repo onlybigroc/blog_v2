@@ -1,0 +1,1077 @@
+[
+  {
+    "id": "dd6e5d1b40b2",
+    "title": "Introducing gpt-realtime and Realtime API updates",
+    "titleZh": "隆重推出gpt-realtime和Realtime API更新",
+    "link": "https://openai.com/index/introducing-gpt-realtime",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-28T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing a more advanced speech-to-speech model and new API capabilities including MCP server support, image input, and SIP phone calling support.",
+    "summaryZh": "我们正在发布更高级的语音转语音模型和新的API功能，包括MCP服务器支持、图像输入和SIP电话呼叫支持。",
+    "highlights": [
+      "We’re releasing a more advanced speech-to-speech model and new API capabilities including MCP server support, image input, and SIP phone calling support."
+    ],
+    "highlightsZh": [
+      "我们正在发布更高级的语音转语音模型和新的API功能，包括MCP服务器支持、图像输入和SIP电话呼叫支持。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具"
+    ],
+    "score": 92,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "876a61a8813f",
+    "title": "Supporting nonprofit and community innovation",
+    "titleZh": "支持非营利组织和社区创新",
+    "link": "https://openai.com/index/supporting-nonprofit-and-community-innovation",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-28T05:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI launches a $50M People-First AI Fund to help U.S. nonprofits scale impact with AI. Applications open Sept 8–Oct 8, 2025 for grants in education, healthcare, research, and more.",
+    "summaryZh": "OpenAI推出了5000万美元的以人为本的人工智能基金，以帮助美国非营利组织利用人工智能扩大影响力。2025年9月8日至10月8日开放申请，申请教育、医疗保健、研究等领域的补助金。",
+    "highlights": [
+      "OpenAI launches a $50M People-First AI Fund to help U.S. nonprofits scale impact with AI.",
+      "Applications open Sept 8–Oct 8, 2025 for grants in education, healthcare, research, and more."
+    ],
+    "highlightsZh": [
+      "OpenAI推出了5000万美元的以人为本的人工智能基金，以帮助美国非营利组织利用人工智能扩大影响力。2025年9月8日至10月8日开放申请，申请教育、医疗保健、研究等领域的补助金。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b62df9776d1d",
+    "title": "Collective alignment: public input on our Model Spec",
+    "titleZh": "集体调整：公众对我们车型规格的意见",
+    "link": "https://openai.com/index/collective-alignment-aug-2025-updates",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-27T13:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI surveyed over 1,000 people worldwide on how AI should behave and compared their views to our Model Spec. Learn how collective alignment is shaping AI defaults to better reflect diverse human values and perspectives.",
+    "summaryZh": "OpenAI对全球1000多人进行了有关人工智能应该如何表现的调查，并将他们的观点与我们的模型规格进行了比较。了解集体一致性如何塑造人工智能默认值，以更好地反映不同的人类价值观和观点。",
+    "highlights": [
+      "OpenAI surveyed over 1,000 people worldwide on how AI should behave and compared their views to our Model Spec.",
+      "Learn how collective alignment is shaping AI defaults to better reflect diverse human values and perspectives."
+    ],
+    "highlightsZh": [
+      "OpenAI对全球1000多人进行了有关人工智能应该如何表现的调查，并将他们的观点与我们的模型规格进行了比较。了解集体一致性如何塑造人工智能默认值，以更好地反映不同的人类价值观和观点。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "811b4103ccad",
+    "title": "OpenAI and Anthropic share findings from a joint safety evaluation",
+    "titleZh": "OpenAI和Anthropic分享联合安全评估的结果",
+    "link": "https://openai.com/index/openai-anthropic-safety-evaluation",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-27T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Anthropic share findings from a first-of-its-kind joint safety evaluation, testing each other’s models for misalignment, instruction following, hallucinations, jailbreaking, and more—highlighting progress, challenges, and the value of cross-lab collaboration.",
+    "summaryZh": "OpenAI和Anthropic分享了首次联合安全评估的结果，测试了彼此的模型是否存在错位、指令跟踪、幻觉、越狱等问题，并强调了跨实验室协作的进展、挑战和价值。",
+    "highlights": [
+      "OpenAI and Anthropic share findings from a first-of-its-kind joint safety evaluation, testing each other’s models for misalignment, instruction following, hallucinations, jailbreak"
+    ],
+    "highlightsZh": [
+      "OpenAI和Anthropic分享了首次联合安全评估的结果，测试了彼此的模型是否存在错位、指令跟踪、幻觉、越狱等问题，并强调了跨实验室协作的进展、挑战和价值。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "df242e3d3177",
+    "title": "Helping people when they need it most",
+    "titleZh": "在最需要的时候提供帮助",
+    "link": "https://openai.com/index/helping-people-when-they-need-it-most",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-26T04:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "How we think about safety for users experiencing mental or emotional distress, the limits of today’s systems, and the work underway to refine them.",
+    "summaryZh": "我们如何看待遭受精神或情绪困扰的用户的安全问题、当今系统的局限性以及正在进行的改进工作。",
+    "highlights": [
+      "How we think about safety for users experiencing mental or emotional distress, the limits of today’s systems, and the work underway to refine them."
+    ],
+    "highlightsZh": [
+      "我们如何看待遭受精神或情绪困扰的用户的安全问题、当今系统的局限性以及正在进行的改进工作。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a08c1851721b",
+    "title": "Announcing the OpenAI Learning Accelerator",
+    "titleZh": "宣布OpenAI学习加速器",
+    "link": "https://openai.com/global-affairs/learning-accelerator",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-25T06:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8e58b8c30174",
+    "title": "Accelerating life sciences research",
+    "titleZh": "加快生命科学研究",
+    "link": "https://openai.com/index/accelerating-life-sciences-research-with-retro-biosciences",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-22T08:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Discover how a specialized AI model, GPT-4b micro, helped OpenAI and Retro Bio engineer more effective proteins for stem cell therapy and longevity research.",
+    "summaryZh": "了解专门的人工智能模型GPT-4b micro如何帮助OpenAI和Retro Bio为干细胞治疗和长寿研究设计更有效的蛋白质。",
+    "highlights": [
+      "Discover how a specialized AI model, GPT-4b micro, helped OpenAI and Retro Bio engineer more effective proteins for stem cell therapy and longevity research."
+    ],
+    "highlightsZh": [
+      "了解专门的人工智能模型GPT-4b micro如何帮助OpenAI和Retro Bio为干细胞治疗和长寿研究设计更有效的蛋白质。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3415711b26c6",
+    "title": "Scaling domain expertise in complex, regulated domains",
+    "titleZh": "扩展复杂、受监管领域的专业知识",
+    "link": "https://openai.com/index/blue-j",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-21T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Discover how Blue J is transforming tax research with AI-powered tools built on GPT-4.1. By combining domain expertise with Retrieval-Augmented Generation, Blue J delivers fast, accurate, and fully-cited tax answers—trusted by professionals across the US, Canada, and the UK.",
+    "summaryZh": "了解Blue J如何利用基于GPT-4.1构建的人工智能工具转变税务研究。Blue J将领域专业知识与Retrieval-Augmented Generation相结合，提供快速、准确且完全引用的税务答案，深受美国、加拿大和英国专业人士的信任。",
+    "highlights": [
+      "Discover how Blue J is transforming tax research with AI-powered tools built on GPT-4.1.",
+      "By combining domain expertise with Retrieval-Augmented Generation, Blue J delivers fast, accurate, and fully-cited tax answers—trusted by professionals across the US, Canada, and t"
+    ],
+    "highlightsZh": [
+      "了解Blue J如何利用基于GPT-4.1构建的人工智能工具转变税务研究。Blue J将领域专业知识与Retrieval-Augmented Generation相结合，提供快速、准确且完全引用的税务答案，深受美国、加拿大和英国专业人士的信任。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "dca5e1de2158",
+    "title": "Mixi reimagines communication with ChatGPT",
+    "titleZh": "Mixi重新构想与ChatGPT的通信",
+    "link": "https://openai.com/index/mixi",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-20T17:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Discover how MIXI, a leader in digital entertainment and lifestyle services in Japan, uses ChatGPT Enterprise to transform productivity, boost AI adoption across teams, and create a secure environment for innovation.",
+    "summaryZh": "了解日本数字娱乐和生活方式服务的领导者MIXI如何利用ChatGPT Enterprise来转变生产力，促进整个团队采用人工智能，并为创新创造一个安全的环境。",
+    "highlights": [
+      "Discover how MIXI, a leader in digital entertainment and lifestyle services in Japan, uses ChatGPT Enterprise to transform productivity, boost AI adoption across teams, and create "
+    ],
+    "highlightsZh": [
+      "了解日本数字娱乐和生活方式服务的领导者MIXI如何利用ChatGPT Enterprise来转变生产力，促进整个团队采用人工智能，并为创新创造一个安全的环境。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "d0a3ac936090",
+    "title": "Q&A with DoorDash’s CPO, Mariana Garavaglia",
+    "titleZh": "DoorDash首席运营官Mariana Garavaglia的问答",
+    "link": "https://openai.com/index/doordash-mariana-garavaglia",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-18T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Learn how DoorDash is scaling AI adoption to empower employees to build, learn, and innovate faster in a conversation with Chief People Officer Mariana Garavaglia.",
+    "summaryZh": "通过与首席人力资源官Mariana Garavaglia的对话，了解DoorDash如何扩大人工智能的采用范围，使员工能够更快地构建、学习和创新。",
+    "highlights": [
+      "Learn how DoorDash is scaling AI adoption to empower employees to build, learn, and innovate faster in a conversation with Chief People Officer Mariana Garavaglia."
+    ],
+    "highlightsZh": [
+      "通过与首席人力资源官Mariana Garavaglia的对话，了解DoorDash如何扩大人工智能的采用范围，使员工能够更快地构建、学习和创新。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "fd78855f062f",
+    "title": "Scaling accounting capacity with OpenAI",
+    "titleZh": "使用OpenAI扩展会计容量",
+    "link": "https://openai.com/index/basis",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-12T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Built with OpenAI o3, o3-Pro, GPT-4.1, and GPT-5, Basis’ AI agents help accounting firms save up to 30% of their time and expand capacity for advisory and growth.",
+    "summaryZh": "Basis的AI代理基于OpenAI o3、o3-Pro、GPT-4.1和GPT-5构建，可帮助会计师事务所节省高达30%的时间，并扩大咨询和增长能力。",
+    "highlights": [
+      "Built with OpenAI o3, o3-Pro, GPT-4.1, and GPT-5, Basis’ AI agents help accounting firms save up to 30% of their time and expand capacity for advisory and growth."
+    ],
+    "highlightsZh": [
+      "Basis的AI代理基于OpenAI o3、o3-Pro、GPT-4.1和GPT-5构建，可帮助会计师事务所节省高达30%的时间，并扩大咨询和增长能力。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "63e32264deb3",
+    "title": "OpenAI’s letter to Governor Newsom on harmonized regulation",
+    "titleZh": "OpenAI致州长纽森关于统一监管的信函",
+    "link": "https://openai.com/global-affairs/letter-to-governor-newsom-on-harmonized-regulation",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-12T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve just sent a letter to Gov. Gavin Newsom calling for California to lead the way in harmonizing state-based AI regulation with national—and, by virtue of US leadership, emerging global—standards.",
+    "summaryZh": "我们刚刚给加州州长加文·纽瑟姆（ Gavin Newsom ）写了一封信，呼吁加州率先将基于州的人工智能监管与国家标准相协调，并借助美国的领导力，将新兴的全球标准相协调。",
+    "highlights": [
+      "We’ve just sent a letter to Gov.",
+      "Gavin Newsom calling for California to lead the way in harmonizing state-based AI regulation with national—and, by virtue of US leadership, emerging global—standards."
+    ],
+    "highlightsZh": [
+      "我们刚刚给加州州长加文·纽瑟姆（ Gavin Newsom ）写了一封信，呼吁加州率先将基于州的人工智能监管与国家标准相协调，并借助美国的领导力，将新兴的全球标准相协调。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "9db0abdca95b",
+    "title": "Introducing GPT-5 for developers",
+    "titleZh": "面向开发人员的GPT-5简介",
+    "link": "https://openai.com/index/introducing-gpt-5-for-developers",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-07T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Introducing GPT-5 in our API platform—offering high reasoning performance, new controls for devs, and best-in-class results on real coding tasks.",
+    "summaryZh": "在我们的API平台中引入GPT-5 ，提供高推理性能、针对开发人员的新控件以及针对真实编码任务的一流结果。",
+    "highlights": [
+      "Introducing GPT-5 in our API platform—offering high reasoning performance, new controls for devs, and best-in-class results on real coding tasks."
+    ],
+    "highlightsZh": [
+      "在我们的API平台中引入GPT-5 ，提供高推理性能、针对开发人员的新控件以及针对真实编码任务的一流结果。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具"
+    ],
+    "score": 92,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "d7893b67b5b0",
+    "title": "GPT-5 and the new era of work",
+    "titleZh": "GPT-5与新工作时代",
+    "link": "https://openai.com/index/gpt-5-new-era-of-work",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-07T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "GPT-5 is OpenAI’s most advanced model—transforming enterprise AI, automation, and workforce productivity in the new era of intelligent work.",
+    "summaryZh": "GPT-5是OpenAI最先进的模型--在智能工作的新时代转变企业AI、自动化和劳动力生产力。",
+    "highlights": [
+      "GPT-5 is OpenAI’s most advanced model—transforming enterprise AI, automation, and workforce productivity in the new era of intelligent work."
+    ],
+    "highlightsZh": [
+      "GPT-5是OpenAI最先进的模型--在智能工作的新时代转变企业AI、自动化和劳动力生产力。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "0c5c0a6f1172",
+    "title": "Coding and design with GPT-5",
+    "titleZh": "使用GPT-5进行编码和设计",
+    "link": "https://openai.com/index/gpt-5-coding-design",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-07T00:03:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Learn how GPT-5 unlocks new possibilities in coding and design.",
+    "summaryZh": "了解GPT-5如何在编码和设计中释放新的可能性。",
+    "highlights": [
+      "Learn how GPT-5 unlocks new possibilities in coding and design."
+    ],
+    "highlightsZh": [
+      "了解GPT-5如何在编码和设计中释放新的可能性。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "5fa81cf74ab3",
+    "title": "Creative writing with GPT-5",
+    "titleZh": "使用GPT-5进行创意写作",
+    "link": "https://openai.com/index/gpt-5-creative-writing",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-07T00:02:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Learn how GPT-5 assists with creative writing.",
+    "summaryZh": "了解GPT-5如何协助创意写作。",
+    "highlights": [
+      "Learn how GPT-5 assists with creative writing."
+    ],
+    "highlightsZh": [
+      "了解GPT-5如何协助创意写作。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3b1b2102d122",
+    "title": "Medical research with GPT-5",
+    "titleZh": "使用GPT-5的医学研究",
+    "link": "https://openai.com/index/gpt-5-medical-research",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-07T00:01:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Learn how GPT-5 is used for medical research.",
+    "summaryZh": "了解GPT-5如何用于医学研究。",
+    "highlights": [
+      "Learn how GPT-5 is used for medical research."
+    ],
+    "highlightsZh": [
+      "了解GPT-5如何用于医学研究。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "190945e74c30",
+    "title": "Introducing GPT-5",
+    "titleZh": "GPT-5简介",
+    "link": "https://openai.com/index/introducing-gpt-5",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-07T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We are introducing GPT‑5, our best AI system yet. GPT‑5 is a significant leap in intelligence over all our previous models, featuring state-of-the-art performance across coding, math, writing, health, visual perception, and more.",
+    "summaryZh": "我们正在引入GPT-5 ，这是我们迄今为止最好的人工智能系统。与我们之前的所有型号相比， GPT-5在智能方面实现了重大飞跃，在编码、数学、写作、健康、视觉感知等方面具有最先进的性能。",
+    "highlights": [
+      "We are introducing GPT‑5, our best AI system yet.",
+      "GPT‑5 is a significant leap in intelligence over all our previous models, featuring state-of-the-art performance across coding, math, writing, health, visual perception, and more."
+    ],
+    "highlightsZh": [
+      "我们正在引入GPT-5 ，这是我们迄今为止最好的人工智能系统。与我们之前的所有型号相比， GPT-5在智能方面实现了重大飞跃，在编码、数学、写作、健康、视觉感知等方面具有最先进的性能。"
+    ],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "e830b7767848",
+    "title": "GPT-5 System Card",
+    "titleZh": "GPT-5系统卡",
+    "link": "https://openai.com/index/gpt-5-system-card",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-07T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "This GPT-5 system card explains how a unified model routing system powers fast and smart responses using gpt-5-main, gpt-5-thinking, and lightweight versions like gpt-5-thinking-nano, optimized for different tasks and developer use.",
+    "summaryZh": "这张GPT-5系统卡解释了统一模型路由系统如何使用gpt-5-main、gpt-5-thinking和轻量级版本（如gpt-5-thinking-nano ）为快速智能响应提供支持，这些版本针对不同的任务和开发人员使用进行了优化。",
+    "highlights": [
+      "This GPT-5 system card explains how a unified model routing system powers fast and smart responses using gpt-5-main, gpt-5-thinking, and lightweight versions like gpt-5-thinking-na"
+    ],
+    "highlightsZh": [
+      "这张GPT-5系统卡解释了统一模型路由系统如何使用gpt-5-main、gpt-5-thinking和轻量级版本（如gpt-5-thinking-nano ）为快速智能响应提供支持，这些版本针对不同的任务和开发人员使用进行了优化。"
+    ],
+    "tags": [
+      "模型",
+      "开发工具"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "55aca24799f4",
+    "title": "From hard refusals to safe-completions: toward output-centric safety training",
+    "titleZh": "从严格拒绝到安全完成：走向以产出为中心的安全培训",
+    "link": "https://openai.com/index/gpt-5-safe-completions",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-07T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Discover how OpenAI's new safe-completions approach in GPT-5 improves both safety and helpfulness in AI responses—moving beyond hard refusals to nuanced, output-centric safety training for handling dual-use prompts.",
+    "summaryZh": "了解OpenAI在GPT-5中的新安全完成方法如何提高人工智能响应的安全性和实用性--从坚决拒绝到处理两用提示的细致入微、以输出为中心的安全培训。",
+    "highlights": [
+      "Discover how OpenAI's new safe-completions approach in GPT-5 improves both safety and helpfulness in AI responses—moving beyond hard refusals to nuanced, output-centric safety trai"
+    ],
+    "highlightsZh": [
+      "了解OpenAI在GPT-5中的新安全完成方法如何提高人工智能响应的安全性和实用性--从坚决拒绝到处理两用提示的细致入微、以输出为中心的安全培训。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "566e629daef7",
+    "title": "How Cursor uses GPT-5",
+    "titleZh": "光标如何使用GPT-5",
+    "link": "https://openai.com/index/gpt-5-cursor",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-07T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Learn how Cursor uses GPT-5.",
+    "summaryZh": "了解Cursor如何使用GPT-5。",
+    "highlights": [
+      "Learn how Cursor uses GPT-5."
+    ],
+    "highlightsZh": [
+      "了解Cursor如何使用GPT-5。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "25b4cdfeb382",
+    "title": "First look at GPT-5",
+    "titleZh": "首先来看看GPT-5",
+    "link": "https://openai.com/index/gpt-5-first-look",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-07T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "See how a group of leading developers use GPT-5 for the first time.",
+    "summaryZh": "了解一组领先的开发人员如何首次使用GPT-5。",
+    "highlights": [
+      "See how a group of leading developers use GPT-5 for the first time."
+    ],
+    "highlightsZh": [
+      "了解一组领先的开发人员如何首次使用GPT-5。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c3e0bb4191c3",
+    "title": "How Amgen uses GPT-5",
+    "titleZh": "Amgen如何使用GPT-5",
+    "link": "https://openai.com/index/gpt-5-amgen",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-07T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Learn how Amgen uses GPT-5.",
+    "summaryZh": "了解Amgen如何使用GPT-5。",
+    "highlights": [
+      "Learn how Amgen uses GPT-5."
+    ],
+    "highlightsZh": [
+      "了解Amgen如何使用GPT-5。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "62a1b8ad0947",
+    "title": "Providing ChatGPT to the Entire U.S. Federal Workforce",
+    "titleZh": "为整个美国联邦工作人员提供ChatGPT",
+    "link": "https://openai.com/index/providing-chatgpt-to-the-entire-us-federal-workforce",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-06T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Today, OpenAI for Government is announcing a new partnership with the U.S. General Services Administration (GSA) to launch a transformative initiative. For the next year, ChatGPT Enterprise will be available to the entire federal executive branch workforce at essentially no cost.",
+    "summaryZh": "今天， OpenAI for Government宣布与美国总务管理局（ GSA ）建立新的合作伙伴关系，以启动一项变革性计划。明年， ChatGPT Enterprise将基本上免费提供给整个联邦行政部门的员工。",
+    "highlights": [
+      "Today, OpenAI for Government is announcing a new partnership with the U.S.",
+      "General Services Administration (GSA) to launch a transformative initiative."
+    ],
+    "highlightsZh": [
+      "今天， OpenAI for Government宣布与美国总务管理局（ GSA ）建立新的合作伙伴关系，以启动一项变革性计划。明年， ChatGPT Enterprise将基本上免费提供给整个联邦行政部门的员工。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "d353aa2cab38",
+    "title": "gpt-oss-120b & gpt-oss-20b Model Card",
+    "titleZh": "gpt-oss-120b & gpt-oss-20b型号卡",
+    "link": "https://openai.com/index/gpt-oss-model-card",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-05T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We introduce gpt-oss-120b and gpt-oss-20b, two open-weight reasoning models available under the Apache 2.0 license and our gpt-oss usage policy.",
+    "summaryZh": "我们介绍了gpt-oss-120b和gpt-oss-20b ，这是Apache 2.0许可证和我们的gpt-oss使用策略下可用的两个开放权重推理模型。",
+    "highlights": [
+      "We introduce gpt-oss-120b and gpt-oss-20b, two open-weight reasoning models available under the Apache 2.0 license and our gpt-oss usage policy."
+    ],
+    "highlightsZh": [
+      "我们介绍了gpt-oss-120b和gpt-oss-20b ，这是Apache 2.0许可证和我们的gpt-oss使用策略下可用的两个开放权重推理模型。"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "监管"
+    ],
+    "score": 84,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "f71aa26a168d",
+    "title": "Introducing gpt-oss",
+    "titleZh": "隆重推出gpt-oss",
+    "link": "https://openai.com/index/introducing-gpt-oss",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-05T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing gpt-oss-120b and gpt-oss-20b—two state-of-the-art open-weight language models that deliver strong real-world performance at low cost. Available under the flexible Apache 2.0 license, these models outperform similarly sized open models on reasoning tasks, demonstrate strong tool use capabilities, and are",
+    "summaryZh": "我们正在发布gpt-oss-120b和gpt-oss-20b两种最先进的开放权重语言模型，以低成本提供强大的真实性能。这些模型在灵活的Apache 2.0许可证下可用，在推理任务上表现出类似大小的开放模型，展示了强大的工具使用能力，并且",
+    "highlights": [
+      "We’re releasing gpt-oss-120b and gpt-oss-20b—two state-of-the-art open-weight language models that deliver strong real-world performance at low cost.",
+      "Available under the flexible Apache 2.0 license, these models outperform similarly sized open models on reasoning tasks, demonstrate strong tool use capabilities, and are"
+    ],
+    "highlightsZh": [
+      "我们正在发布gpt-oss-120b和gpt-oss-20b两种最先进的开放权重语言模型，以低成本提供强大的真实性能。这些模型在灵活的Apache 2.0许可证下可用，在推理任务上表现出类似大小的开放模型，展示了强大的工具使用能力，并且"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 76,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b6151d8b4eef",
+    "title": "Open Weights and AI for All",
+    "titleZh": "开放式权重和面向所有人的人工智能",
+    "link": "https://openai.com/global-affairs/open-weights-and-ai-for-all",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-05T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "AI’s next frontier isn’t just about capability—it’s about who gets to use it. Our mission to put AI in the hands of as many people as possible is what drives us. Today’s release of our most capable open-weights models is a major step forward that makes advanced AI more open, flexible, and accessible worldwide.",
+    "summaryZh": "人工智能的下一个前沿领域不仅仅是能力，而是谁可以使用它。我们的使命是让尽可能多的人掌握人工智能，这是我们的动力。今天，我们发布了功能最强大的开放式重量级模型，这是向前迈出的重要一步，使先进的人工智能在全球范围内更加开放、灵活和可访问。",
+    "highlights": [
+      "AI’s next frontier isn’t just about capability—it’s about who gets to use it.",
+      "Our mission to put AI in the hands of as many people as possible is what drives us."
+    ],
+    "highlightsZh": [
+      "人工智能的下一个前沿领域不仅仅是能力，而是谁可以使用它。我们的使命是让尽可能多的人掌握人工智能，这是我们的动力。今天，我们发布了功能最强大的开放式重量级模型，这是向前迈出的重要一步，使先进的人工智能在全球范围内更加开放、灵活和可访问。"
+    ],
+    "tags": [
+      "发布",
+      "开源"
+    ],
+    "score": 76,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "7021f30af85d",
+    "title": "Estimating worst case frontier risks of open weight LLMs",
+    "titleZh": "估计开放式权重LLM的最坏情况前沿风险",
+    "link": "https://openai.com/index/estimating-worst-case-frontier-risks-of-open-weight-llms",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-05T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "In this paper, we study the worst-case frontier risks of releasing gpt-oss. We introduce malicious fine-tuning (MFT), where we attempt to elicit maximum capabilities by fine-tuning gpt-oss to be as capable as possible in two domains: biology and cybersecurity.",
+    "summaryZh": "在本文中，我们研究了释放gpt-oss的最坏情况前沿风险。我们引入了恶意微调（ MFT ） ，我们试图通过微调gpt-oss来在生物学和网络安全这两个领域尽可能地发挥最大能力。",
+    "highlights": [
+      "In this paper, we study the worst-case frontier risks of releasing gpt-oss.",
+      "We introduce malicious fine-tuning (MFT), where we attempt to elicit maximum capabilities by fine-tuning gpt-oss to be as capable as possible in two domains: biology and cybersecur"
+    ],
+    "highlightsZh": [
+      "在本文中，我们研究了释放gpt-oss的最坏情况前沿风险。我们引入了恶意微调（ MFT ） ，我们试图通过微调gpt-oss来在生物学和网络安全这两个领域尽可能地发挥最大能力。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3d92a323d894",
+    "title": "What we’re optimizing ChatGPT for",
+    "titleZh": "我们优化ChatGPT的目的是",
+    "link": "https://openai.com/index/optimizing-chatgpt",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-04T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We build ChatGPT to help you thrive in all the ways you want. Learn how we're improving support for tough moments, have rolled out reminders to take breaks, and are working on better life advice, all guided by expert input.",
+    "summaryZh": "我们构建ChatGPT ，帮助您以您想要的方式蓬勃发展。了解我们如何改善对艰难时刻的支持，如何推出休息提醒，以及如何在专家意见的指导下制定更好的生活建议。",
+    "highlights": [
+      "We build ChatGPT to help you thrive in all the ways you want.",
+      "Learn how we're improving support for tough moments, have rolled out reminders to take breaks, and are working on better life advice, all guided by expert input."
+    ],
+    "highlightsZh": [
+      "我们构建ChatGPT ，帮助您以您想要的方式蓬勃发展。了解我们如何改善对艰难时刻的支持，如何推出休息提醒，以及如何在专家意见的指导下制定更好的生活建议。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "5150e505fc82",
+    "title": "Figma uses AI to transform digital design",
+    "titleZh": "Figma使用人工智能来转变数字设计",
+    "link": "https://openai.com/index/figma-david-kossnick",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-08-01T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Discover how Figma is transforming digital design with AI. David Kossnick shares how tools like Figma Make empower teams to prototype, collaborate, and build with AI—reshaping workflows for designers, developers, and non-technical creators alike.",
+    "summaryZh": "了解Figma如何利用人工智能改变数字设计。David Kossnick分享了Figma Make等工具如何为设计师、开发人员和非技术创作者提供原型、协作和构建人工智能新工作流程的能力。",
+    "highlights": [
+      "Discover how Figma is transforming digital design with AI.",
+      "David Kossnick shares how tools like Figma Make empower teams to prototype, collaborate, and build with AI—reshaping workflows for designers, developers, and non-technical creators"
+    ],
+    "highlightsZh": [
+      "了解Figma如何利用人工智能改变数字设计。David Kossnick分享了Figma Make等工具如何为设计师、开发人员和非技术创作者提供原型、协作和构建人工智能新工作流程的能力。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

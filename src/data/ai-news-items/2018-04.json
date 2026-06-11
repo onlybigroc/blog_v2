@@ -1,0 +1,106 @@
+[
+  {
+    "id": "e3915f092b33",
+    "title": "Evolved Policy Gradients",
+    "titleZh": "演变的政策梯度",
+    "link": "https://openai.com/index/evolved-policy-gradients",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-04-18T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing an experimental metalearning approach called Evolved Policy Gradients, a method that evolves the loss function of learning agents, which can enable fast training on novel tasks. Agents trained with EPG can succeed at basic tasks at test time that were outside their training regime, like learning to navi",
+    "summaryZh": "我们正在发布一种名为Evolved Policy Gradients的实验性元学习方法，该方法演化了学习代理的损失函数，可以实现对新任务的快速训练。接受EPG培训的客服代表可以在培训制度之外的测试时间成功完成基本任务，例如学习导航",
+    "highlights": [
+      "We’re releasing an experimental metalearning approach called Evolved Policy Gradients, a method that evolves the loss function of learning agents, which can enable fast training on",
+      "Agents trained with EPG can succeed at basic tasks at test time that were outside their training regime, like learning to navi"
+    ],
+    "highlightsZh": [
+      "我们正在发布一种名为Evolved Policy Gradients的实验性元学习方法，该方法演化了学习代理的损失函数，可以实现对新任务的快速训练。接受EPG培训的客服代表可以在培训制度之外的测试时间成功完成基本任务，例如学习导航"
+    ],
+    "tags": [
+      "模型",
+      "监管"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ec62005855d1",
+    "title": "Gotta Learn Fast: A new benchmark for generalization in RL",
+    "titleZh": "快速学习：强化学习中泛化的新基准",
+    "link": "https://openai.com/index/gotta-learn-fast",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-04-10T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a251b1e7ca96",
+    "title": "Retro Contest",
+    "titleZh": "复古比赛",
+    "link": "https://openai.com/index/retro-contest",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2018-04-05T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re launching a transfer learning contest that measures a reinforcement learning algorithm’s ability to generalize from previous experience.",
+    "summaryZh": "我们正在推出一项转移学习竞赛，以衡量强化学习算法根据以往经验进行概括的能力。",
+    "highlights": [
+      "We’re launching a transfer learning contest that measures a reinforcement learning algorithm’s ability to generalize from previous experience."
+    ],
+    "highlightsZh": [
+      "我们正在推出一项转移学习竞赛，以衡量强化学习算法根据以往经验进行概括的能力。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

@@ -1,0 +1,178 @@
+[
+  {
+    "id": "545fd88a3c28",
+    "title": "Sam Altman returns as CEO, OpenAI has a new initial board",
+    "titleZh": "Sam Altman回归担任首席执行官， OpenAI有了新的初始董事会",
+    "link": "https://openai.com/index/sam-altman-returns-as-ceo-openai-has-a-new-initial-board",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-11-29T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Mira Murati as CTO, Greg Brockman returns as President. Read messages from CEO Sam Altman and board chair Bret Taylor.",
+    "summaryZh": "米拉·穆拉蒂（ Mira Murati ）担任首席技术官，格雷格·布罗克曼（ G阅读首席执行官Sam Altman和董事会主席Bret Taylor的消息。",
+    "highlights": [
+      "Mira Murati as CTO, Greg Brockman returns as President.",
+      "Read messages from CEO Sam Altman and board chair Bret Taylor."
+    ],
+    "highlightsZh": [
+      "米拉·穆拉蒂（ Mira Murati ）担任首席技术官，格雷格·布罗克曼（ G阅读首席执行官Sam Altman和董事会主席Bret Taylor的消息。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "1bf92bc4de23",
+    "title": "OpenAI announces leadership transition",
+    "titleZh": "OpenAI宣布领导层过渡",
+    "link": "https://openai.com/index/openai-announces-leadership-transition",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-11-17T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3341887340c5",
+    "title": "OpenAI Data Partnerships",
+    "titleZh": "OpenAI数据合作伙伴关系",
+    "link": "https://openai.com/index/data-partnerships",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-11-09T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Working together to create open-source and private datasets for AI training.",
+    "summaryZh": "携手合作，为人工智能培训创建开源和私有数据集。",
+    "highlights": [
+      "Working together to create open-source and private datasets for AI training."
+    ],
+    "highlightsZh": [
+      "携手合作，为人工智能培训创建开源和私有数据集。"
+    ],
+    "tags": [
+      "开源"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "315ac762616e",
+    "title": "New models and developer products announced at DevDay",
+    "titleZh": "在DevDay上宣布的新型号和开发人员产品",
+    "link": "https://openai.com/index/new-models-and-developer-products-announced-at-devday",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-11-06T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "GPT-4 Turbo with 128K context and lower prices, the new Assistants API, GPT-4 Turbo with Vision, DALL·E 3 API, and more.",
+    "summaryZh": "具有128K上下文和更低价格的GPT-4 Turbo、新的Assistants API、GPT-4 Turbo with Vision、DALL · E 3 API等。",
+    "highlights": [
+      "GPT-4 Turbo with 128K context and lower prices, the new Assistants API, GPT-4 Turbo with Vision, DALL·E 3 API, and more."
+    ],
+    "highlightsZh": [
+      "具有128K上下文和更低价格的GPT-4 Turbo、新的Assistants API、GPT-4 Turbo with Vision、DALL · E 3 API等。"
+    ],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 82,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "fe4a46faff4b",
+    "title": "Introducing GPTs",
+    "titleZh": "隆重推出GPT",
+    "link": "https://openai.com/index/introducing-gpts",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-11-06T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "You can now create custom versions of ChatGPT that combine instructions, extra knowledge, and any combination of skills.",
+    "summaryZh": "您现在可以创建ChatGPT的自定义版本，结合说明、额外知识和任何技能组合。",
+    "highlights": [
+      "You can now create custom versions of ChatGPT that combine instructions, extra knowledge, and any combination of skills."
+    ],
+    "highlightsZh": [
+      "您现在可以创建ChatGPT的自定义版本，结合说明、额外知识和任何技能组合。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

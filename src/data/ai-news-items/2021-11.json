@@ -1,0 +1,75 @@
+[
+  {
+    "id": "fc821022a88b",
+    "title": "OpenAI Residency",
+    "titleZh": "OpenAI驻留",
+    "link": "https://openai.com/index/openai-residency",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-11-30T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "As part of our effort to support and develop AI talent, we’re excited to announce the OpenAI Residency.",
+    "summaryZh": "作为我们支持和培养人工智能人才的努力的一部分，我们很高兴地宣布OpenAI Residency。",
+    "highlights": [
+      "As part of our effort to support and develop AI talent, we’re excited to announce the OpenAI Residency."
+    ],
+    "highlightsZh": [
+      "作为我们支持和培养人工智能人才的努力的一部分，我们很高兴地宣布OpenAI Residency。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "347cee4d6a46",
+    "title": "OpenAI’s API now available with no waitlist",
+    "titleZh": "OpenAI的API现已可用，无等待名单",
+    "link": "https://openai.com/index/api-no-waitlist",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-11-18T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Wider availability made possible by safety progress.",
+    "summaryZh": "安全方面的进步使更广泛的可用性成为可能。",
+    "highlights": [
+      "Wider availability made possible by safety progress."
+    ],
+    "highlightsZh": [
+      "安全方面的进步使更广泛的可用性成为可能。"
+    ],
+    "tags": [
+      "开发工具",
+      "监管"
+    ],
+    "score": 76,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

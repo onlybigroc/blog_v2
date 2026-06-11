@@ -1,0 +1,173 @@
+[
+  {
+    "id": "a149b69d3211",
+    "title": "Superalignment Fast Grants",
+    "titleZh": "超对齐快速授予",
+    "link": "https://openai.com/index/superalignment-fast-grants",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-12-14T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re launching $10M in grants to support technical research towards the alignment and safety of superhuman AI systems, including weak-to-strong generalization, interpretability, scalable oversight, and more.",
+    "summaryZh": "我们正在推出1000万美元的赠款，用于支持技术研究，以实现超人类人工智能系统的一致性和安全性，包括弱到强的泛化、可解释性、可扩展的监督等。",
+    "highlights": [
+      "We’re launching $10M in grants to support technical research towards the alignment and safety of superhuman AI systems, including weak-to-strong generalization, interpretability, s"
+    ],
+    "highlightsZh": [
+      "我们正在推出1000万美元的赠款，用于支持技术研究，以实现超人类人工智能系统的一致性和安全性，包括弱到强的泛化、可解释性、可扩展的监督等。"
+    ],
+    "tags": [
+      "发布",
+      "监管"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "dc7d259a433e",
+    "title": "Practices for Governing Agentic AI Systems",
+    "titleZh": "代理AI系统管理实践",
+    "link": "https://openai.com/index/practices-for-governing-agentic-ai-systems",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-12-14T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [
+      "模型"
+    ],
+    "score": 58,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "82f2e4f6ef0f",
+    "title": "Increasing accuracy of pediatric visit notes",
+    "titleZh": "提高儿科就诊笔记的准确性",
+    "link": "https://openai.com/index/summer-health",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-12-14T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Summer Health reimagines pediatric doctor’s visits with OpenAI.",
+    "summaryZh": "Summer Health通过OpenAI重新构想儿科医生的就诊方式。",
+    "highlights": [
+      "Summer Health reimagines pediatric doctor’s visits with OpenAI."
+    ],
+    "highlightsZh": [
+      "Summer Health通过OpenAI重新构想儿科医生的就诊方式。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b7b2c1ad5799",
+    "title": "Weak-to-strong generalization",
+    "titleZh": "由弱到强的概括。",
+    "link": "https://openai.com/index/weak-to-strong-generalization",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-12-14T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We present a new research direction for superalignment, together with promising initial results: can we leverage the generalization properties of deep learning to control strong models with weak supervisors?",
+    "summaryZh": "我们提出了超对准的新研究方向，以及有希望的初步结果：我们能否利用深度学习的泛化特性来控制具有弱监督者的强模型？",
+    "highlights": [
+      "We present a new research direction for superalignment, together with promising initial results: can we leverage the generalization properties of deep learning to control strong mo"
+    ],
+    "highlightsZh": [
+      "我们提出了超对准的新研究方向，以及有希望的初步结果：我们能否利用深度学习的泛化特性来控制具有弱监督者的强模型？"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8667103d7318",
+    "title": "Partnership with Axel Springer to deepen beneficial use of AI in journalism",
+    "titleZh": "与阿克塞尔·斯普林格（ Axel Springer ）合作，深化人工智能在新闻业中的有益使用",
+    "link": "https://openai.com/index/axel-springer-partnership",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-12-13T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Axel Springer is the first publishing house globally to partner with us on a deeper integration of journalism in AI technologies.",
+    "summaryZh": "Axel Springer是全球第一家与我们合作将新闻业更深入地融入人工智能技术的出版社。",
+    "highlights": [
+      "Axel Springer is the first publishing house globally to partner with us on a deeper integration of journalism in AI technologies."
+    ],
+    "highlightsZh": [
+      "Axel Springer是全球第一家与我们合作将新闻业更深入地融入人工智能技术的出版社。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

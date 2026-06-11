@@ -1,4 +1,8 @@
-import aiNewsDigest from './ai-news.json';
+// AI News 数据加载模块
+// 支持按月拆分的 JSON 文件结构
+
+import fs from 'fs';
+import path from 'path';
 
 export interface AINewsSource {
   name: string;
@@ -64,8 +68,47 @@ export interface AINewsDigest {
   items: AINewsItem[];
 }
 
+// 尝试加载按月拆分的文件，如果不存在则加载原始大文件
+function loadAiNewsData(): AINewsDigest {
+  const metaPath = path.join(process.cwd(), 'src/data/ai-news-meta.json');
+  const legacyPath = path.join(process.cwd(), 'src/data/ai-news.json');
+  const itemsDir = path.join(process.cwd(), 'src/data/ai-news-items');
+
+  // 优先尝试加载拆分后的文件
+  if (fs.existsSync(metaPath) && fs.existsSync(itemsDir)) {
+    try {
+      const meta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+      const items: AINewsItem[] = [];
+
+      // 加载所有月度文件
+      const monthFiles = fs.readdirSync(itemsDir).filter(f => f.endsWith('.json'));
+      for (const file of monthFiles) {
+        const filePath = path.join(itemsDir, file);
+        const monthItems = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+        items.push(...monthItems);
+      }
+
+      return {
+        ...meta,
+        items,
+      };
+    } catch (error) {
+      console.warn('加载拆分文件失败，回退到原始文件:', error);
+    }
+  }
+
+  // 回退到原始大文件
+  return JSON.parse(fs.readFileSync(legacyPath, 'utf-8'));
+}
+
+// 在构建时加载数据
+let cachedDigest: AINewsDigest | null = null;
+
 export function getAiNewsDigest(): AINewsDigest {
-  return aiNewsDigest as AINewsDigest;
+  if (!cachedDigest) {
+    cachedDigest = loadAiNewsData();
+  }
+  return cachedDigest;
 }
 
 const digest = getAiNewsDigest();

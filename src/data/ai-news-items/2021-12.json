@@ -1,0 +1,70 @@
+[
+  {
+    "id": "0304614a25b6",
+    "title": "WebGPT: Improving the factual accuracy of language models through web browsing",
+    "titleZh": "WebGPT ：通过网页浏览提高语言模型的事实准确性",
+    "link": "https://openai.com/index/webgpt",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-12-16T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’ve fine-tuned GPT-3 to more accurately answer open-ended questions using a text-based web browser.",
+    "summaryZh": "我们对GPT-3进行了微调，以使用基于文本的网络浏览器更准确地回答开放式问题。",
+    "highlights": [
+      "We’ve fine-tuned GPT-3 to more accurately answer open-ended questions using a text-based web browser."
+    ],
+    "highlightsZh": [
+      "我们对GPT-3进行了微调，以使用基于文本的网络浏览器更准确地回答开放式问题。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "7a34ba14b5f6",
+    "title": "Customizing GPT-3 for your application",
+    "titleZh": "为您的应用程序自定义GPT-3",
+    "link": "https://openai.com/index/customizing-gpt-3",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2021-12-14T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Fine-tune with a single command.",
+    "summaryZh": "只需单个命令即可进行微调。",
+    "highlights": [
+      "Fine-tune with a single command."
+    ],
+    "highlightsZh": [
+      "只需单个命令即可进行微调。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

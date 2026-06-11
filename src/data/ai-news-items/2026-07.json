@@ -1,0 +1,115 @@
+[
+  {
+    "id": "bc04b36580a9",
+    "title": "DeepSeek V4终于发布！打破最强闭源垄断，明确携手华为芯片 – 量子位",
+    "titleZh": "DeepSeek V4终于发布！打破最强闭源垄断，明确携手华为芯片",
+    "link": "https://www.qbitai.com/2026/04/406359.html",
+    "source": "量子位",
+    "sourceType": "media",
+    "sourceRegion": "cn",
+    "sourceLanguage": "zh",
+    "feedName": "量子位",
+    "sourceHomepage": "https://www.qbitai.com/",
+    "publishedAt": "2026-07-24T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "DeepSeek V4终于发布！打破最强闭源垄断，明确携手华为芯片",
+    "summaryZh": "DeepSeek V4终于发布！打破最强闭源垄断，明确携手华为芯片",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "DeepSeek V4终于发布！打破最强闭源垄断，明确携手华为芯片 – 量子位",
+    "highlights": [
+      "DeepSeek V4终于发布！打破最强闭源垄断，明确携手华为芯片"
+    ],
+    "highlightsZh": [
+      "DeepSeek V4终于发布！打破最强闭源垄断，明确携手华为芯片"
+    ],
+    "tags": [
+      "发布",
+      "算力"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-24T07:14:21.408Z",
+    "lastSeenAt": "2026-04-26T23:58:35.636Z",
+    "originalContentText": "DeepSeek V4终于发布！打破最强闭源垄断，明确携手华为芯片\n\n在Agent能力、世界知识和推理性能上均实现国内与开源领域的领先。\n\nhenry 鱼羊 发自 凹非寺\n\n量子位 | 公众号 QbitAI\n\n刚刚，DeepSeek-V4来了！\n\n预览版正式上线并同步开源。\n\nDeepSeek-V4-Pro：对标顶级闭源模型，1.6T，49B激活，上下文长度1M；\n\nDeepSeek-V4-Flash：更小更快的经济版，284B，13B激活，上下文长度1M。\n\n官方原话是：在Agent能力、世界知识和推理性能上均实现国内与开源领域的领先。\n\n目前DeepSeek-V4已经成为公司内部员工使用的Agentic Coding模型，据评测反馈使用体验优于Sonnet 4.5，交付质量接近Opus 4.6非思考模式。但仍与Opus 4.6思考模型存在一定差距。\n\n目前官网和APP都上了，API服务也已同步更新。\n\n大家都关心的国产算力方面，划重点，下半年批量上华为算力。\n\n顶配和性价比之选，两个版本一起开\n\n这次V4一口气发了两个版本。\n\nV4-Pro，性能比肩顶级闭源模型。\n\n官方给出的判断有三条：\n\nAgent能力大幅提高：在Agentic 能力Coding评测中，V4-Pro已达到当前开源模型最佳水平，并在其他Agent相关评测中同样表现优异。内部测评中，Agent Coding模式下，V4体验优于Sonnet 4.5，交付质量接近 Opus 4.6非思考模式，但仍与 Opus 4.6思考模式存在一定差距。\n\n丰富的世界知识：DeepSeek-V4-Pro在世界知识测评中，大幅领先其他开源模型，仅稍逊于顶尖闭源模型Gemini-Pro-3.1。\n\n世界顶级推理性能：在数学、STEM、竞赛型代码的测评中，DeepSeek-V4-Pro超越当前所有已公开评测的开源模型，取得了比肩世界顶级闭源模型的优异成绩。\n\nV4-Flash，更小更快的经济版。推理能力接近Pro，世界知识储备稍逊一筹，但参数和激活更小，API更便宜。\n\n在Agent任务方面，DeepSeek-V4-Flash在简单任务上与DeepSeek-V4-Pro旗鼓相当，但在高难度任务上仍有差距。\n\n在洗车测试上，V4也是快速通过。\n\n而在“绝望的父亲”这个经典的生物学场景当中，DeepSeek-V4并没有一轮get到红绿色盲这个关键点（根据遗传学规律，如果一名女性是红绿色盲，其生物学父亲必然也是）。\n\n百万上下文实现标配\n\n值得一提的是，从今天开始，1M上下文是DeepSeek所有官方服务的标配。\n\n一年前，1M上下文还是Gemini独家的王牌；其他所有闭源模型要么128K要么200K；开源这边几乎没人玩得起这个量级。\n\nDeepSeek直接把百万上下文从一个「高端功能」挪成了「水电煤」。\n\n而且开源。他们怎么做到的，发布稿里直接给了答案——\n\nV4开创了一种全新的注意力机制，在token维度进行压缩，结合DSA稀疏注意力一起用。相比传统方法，对计算和显存的需求大幅降低。\n\nDSA不是新词。半年前V3.2-Exp那次更新首次引入，当时外界关注度不高，因为跑分和V3.1-Terminus几乎一样，看起来像一次没什么料的中间版本。\n\n现在回头看，那是V4的地基。\n\nAgent能力专项优化\n\nAgent这边，V4针对Claude Code、OpenClaw、OpenCode、CodeBuddy等主流Agent产品做了适配和优化，代码任务、文档生成任务都有提升。\n\n发布稿里还附了一张V4-Pro在某Agent框架下生成的PPT内页示例。\n\nAPI这边，V4-Pro和V4-Flash同步上线,支持OpenAI ChatCompletions接口和Anthropic接口两套。\n\nbase_url 不变,model 参数改成 deepseek-v4-pro 或 deepseek-v4-flash 即可调用。\n\n两个版本最大上下文都是1M,都同时支持非思考模式和思考模式。思考模式下可以通过reasoning_effort 参数调强度,两档high和max。官方建议复杂 Agent 场景直接上max。\n\n这里有个重点——下半年批量上华为算力。\n\n此外，旧模型名要下架。\n\ndeepseek-chat和deepseek-reasoner将在三个月后(2026年7月24日)停用，当前阶段内这两个名字分别指向V4-Flash的非思考和思考模式。\n\n对个人开发者影响不大，改一个model参数。对接了生产环境的公司，这三个月要去做迁移。\n\nOne more thing\n\n发布稿的结尾，DeepSeek 自己引了一句话。\n\n「不诱于誉，不恐于诽，率道而行，端然正己。」\n\n这是荀子《非十二子》里的一句。字面意思是，不被赞誉诱惑，不被诽谤吓到，按自己认定的道往前走，端正自己。\n\n放在今天这个场景里，有点意思。\n\n过去半年，关于V4什么时候发、是不是跳票、是不是已经被别家超越、是不是已经被 Claude 蒸馏数据搞定了之类的传言在中文和英文AI圈来来回回跑了好几轮。年初甚至还有人信誓旦旦说V4会在春节前发，结果等到了四月底。\n\n他们没回应过一次。\n\n然后在某个周五的上午，把V4放出来，同步开源，同步上线官网和App，同步更新API，顺便把内部员工已经弃用Claude的事实写进发布稿。\n\n没有路线图，没有直播，没有访谈。\n\n率道而行这四个字，听着像是一句口号。但如果你把过去半年 V3.2 那次「没什么亮点」的 Exp 版本、DSA那套为V4铺了半年的稀疏注意力、1M 上下文从王牌变成标配的这条路径放在一起看。\n\nDeepSeek已经做到了。\n\nDeepSeek-V4模型开源链接：\n\n[1]https://huggingface.co/collections/deepseek-ai/deepseek-v4[2]https://modelscope.cn/collections/deepseek-ai/DeepSeek-V4\n\nDeepSeek-V4 技术报告：https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf\n\n黄仁勋率先开源量子AI大模型2026-04-15\n\n别养龙虾了，硅谷Agent新潮流是「爱马仕」2026-04-13\n\n奥特曼遭遇死亡威胁：凌晨家中被投燃烧瓶2026-04-11\n\n刘壮陈丹琦新作：开源通用视觉推理RL框架，0思考数据刷新SOTA2026-04-11\n\n开源SOTA大模型能力一键直达",
+    "originalContentAvailable": true,
+    "originalContentWarning": "",
+    "snapshotFetchedAt": "2026-04-26T23:58:53.647Z"
+  },
+  {
+    "id": "3cc9454df2ae",
+    "title": "DeepSeek V4终于发布，打破最强闭源垄断，明确携手华为芯片",
+    "titleZh": "DeepSeek V4终于发布，打破最强闭源垄断，明确携手华为芯片",
+    "link": "https://36kr.com/p/3780290045121801",
+    "source": "36Kr AI",
+    "sourceType": "media",
+    "sourceRegion": "cn",
+    "sourceLanguage": "zh",
+    "feedName": "36Kr AI",
+    "sourceHomepage": "https://36kr.com/information/AI/",
+    "publishedAt": "2026-07-24T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Agent能力比肩Opus 4.6，百万上下文成标配",
+    "summaryZh": "Agent能力比肩Opus 4.6，百万上下文成标配",
+    "coverImage": "/images/ai-news/3cc9454df2ae-31da432146e6.jpg",
+    "coverImageOriginal": "https://img.36krcdn.com/hsossms/20260424/v2_c6f35860b1134bf4aae6a10d10f7958a@5888275@ai_oswg1094087oswg1053oswg495_img_png~tplv-1marlgjv7f-ai-v3:600:400:600:400:q70.jpg",
+    "coverImageAlt": "DeepSeek V4终于发布，打破最强闭源垄断，明确携手华为芯片",
+    "highlights": [
+      "Agent能力比肩Opus 4.6，百万上下文成标配"
+    ],
+    "highlightsZh": [
+      "Agent能力比肩Opus 4.6，百万上下文成标配"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "算力"
+    ],
+    "score": 96,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-24T07:14:21.408Z",
+    "lastSeenAt": "2026-04-24T07:14:21.408Z",
+    "originalContentText": "DeepSeek V4终于发布，打破最强闭源垄断，明确携手华为芯片\n\n刚刚，DeepSeek-V4来了！\n\n预览版正式上线并同步开源。\n\nDeepSeek-V4-Pro：对标顶级闭源模型，1.6T，49B激活，上下文长度1M；\n\nDeepSeek-V4-Flash：更小更快的经济版，284B，13B激活，上下文长度1M。\n\n官方原话是：在Agent能力、世界知识和推理性能上均实现国内与开源领域的领先。\n\n目前DeepSeek-V4已经成为公司内部员工使用的Agentic Coding模型，据评测反馈使用体验优于Sonnet 4.5，交付质量接近Opus 4.6非思考模式。但仍与Opus 4.6思考模型存在一定差距。\n\n目前官网和APP都上了，API服务也已同步更新。\n\n大家都关心的国产算力方面，划重点，下半年支持华为算力。\n\n顶配和性价比之选，两个版本一起开\n\n这次V4一口气发了两个版本。\n\nV4-Pro，性能比肩顶级闭源模型。\n\n官方给出的判断有三条：\n\nAgent能力大幅提高：在Agentic 能力Coding评测中，V4-Pro已达到当前开源模型最佳水平，并在其他Agent相关评测中同样表现优异。内部测评中，Agent Coding模式下，V4体验优于Sonnet 4.5，交付质量接近 Opus 4.6非思考模式，但仍与 Opus 4.6思考模式存在一定差距。\n\n丰富的世界知识：DeepSeek-V4-Pro在世界知识测评中，大幅领先其他开源模型，仅稍逊于顶尖闭源模型Gemini-Pro-3.1。\n\n世界顶级推理性能：在数学、STEM、竞赛型代码的测评中，DeepSeek-V4-Pro超越当前所有已公开评测的开源模型，取得了比肩世界顶级闭源模型的优异成绩。\n\nV4-Flash，更小更快的经济版。推理能力接近Pro，世界知识储备稍逊一筹，但参数和激活更小，API更便宜。\n\n在Agent任务方面，DeepSeek-V4-Flash在简单任务上与DeepSeek-V4-Pro旗鼓相当，但在高难度任务上仍有差距。\n\n在洗车测试上，V4也是快速通过。\n\n而在“绝望的父亲”这个经典的生物学场景当中，DeepSeek-V4并没有一轮get到红绿色盲这个关键点（根据遗传学规律，如果一名女性是红绿色盲，其生物学父亲必然也是）。\n\n百万上下文实现标配\n\n值得一提的是，从今天开始，1M上下文是DeepSeek所有官方服务的标配。\n\n一年前，1M上下文还是Gemini独家的王牌；其他所有闭源模型要么128K要么200K；开源这边几乎没人玩得起这个量级。\n\nDeepSeek直接把百万上下文从一个「高端功能」挪成了「水电煤」。\n\n而且开源。他们怎么做到的，发布稿里直接给了答案——\n\nV4开创了一种全新的注意力机制，在token维度进行压缩，结合DSA稀疏注意力一起用。相比传统方法，对计算和显存的需求大幅降低。\n\nDSA不是新词。半年前V3.2-Exp那次更新首次引入，当时外界关注度不高，因为跑分和V3.1-Terminus几乎一样，看起来像一次没什么料的中间版本。\n\n现在回头看，那是V4的地基。\n\nAgent能力专项优化\n\nAgent这边，V4针对Claude Code、OpenClaw、OpenCode、CodeBuddy等主流Agent产品做了适配和优化，代码任务、文档生成任务都有提升。\n\n发布稿里还附了一张V4-Pro在某Agent框架下生成的PPT内页示例。\n\nAPI这边，V4-Pro和V4-Flash同步上线,支持OpenAI ChatCompletions接口和Anthropic接口两套。\n\nbase_url 不变,model 参数改成 deepseek-v4-pro 或 deepseek-v4-flash 即可调用。\n\n两个版本最大上下文都是1M,都同时支持非思考模式和思考模式。思考模式下可以通过reasoning_effort 参数调强度,两档high和max。官方建议复杂 Agent 场景直接上max。\n\n这里有个重点——下半年支持华为算力。\n\n此外，旧模型名要下架。\n\ndeepseek-chat和deepseek-reasoner将在三个月后(2026年7月24日)停用，当前阶段内这两个名字分别指向V4-Flash的非思考和思考模式。\n\n对个人开发者影响不大，改一个model参数。对接了生产环境的公司，这三个月要去做迁移。\n\nOne more thing\n\n发布稿的结尾，DeepSeek 自己引了一句话。\n\n「不诱于誉，不恐于诽，率道而行，端然正己。」\n\n这是荀子《非十二子》里的一句。字面意思是，不被赞誉诱惑，不被诽谤吓到，按自己认定的道往前走，端正自己。\n\n放在今天这个场景里，有点意思。\n\n过去半年，关于V4什么时候发、是不是跳票、是不是已经被别家超越、是不是已经被 Claude 蒸馏数据搞定了之类的传言在中文和英文AI圈来来回 回跑了好几轮。年初甚至还有人信誓旦旦说V4会在春节前发，结果等到了四月底。\n\n他们没回应过一次。\n\n然后在某个周五的下午，把V4放出来，同步开源，同步上线官网和App，同步更新API，顺便把内部员工已经弃用Claude的事实写进发布稿。\n\n没有路线图，没有直播，没有访谈。\n\n率道而行这四个字，听着像是一句口号。但如果你把过去半年 V3.2 那次「没什么亮点」的 Exp 版本、DSA那套为V4铺了半年的稀疏注意力、1M 上下文从王牌变成标配的这条路径放在一起看。\n\nDeepSeek已经做到了。\n\nDeepSeek-V4模型开源链接：\n\n[1]https://huggingface.co/collections/deepseek-ai/deepseek-v4\n\n[2]https://modelscope.cn/collections/deepseek-ai/DeepSeek-V4\n\nDeepSeek-V4 技术报告：https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf\n\n本文来自微信公众号“量子位”，作者：量子位，36氪经授权发布。\n\n该文观点仅代表作者本人，36氪平台仅提供信息存储空间服务。",
+    "originalContentAvailable": true,
+    "originalContentWarning": "",
+    "snapshotFetchedAt": "2026-04-24T07:14:40.652Z"
+  },
+  {
+    "id": "6b78f82ae725",
+    "title": "🎉 DeepSeek-V4 预览版本发布，具备世界顶级推理性能，Agent 能力大幅提高，已在网页端、APP 和 API 上线，点击查看详情。",
+    "titleZh": "🎉 DeepSeek-V4 预览版本发布，具备世界顶级推理性能，Agent 能力大幅提高，已在网页端、APP 和 API 上线，点击查看详情。",
+    "link": "https://mp.weixin.qq.com/s/8bxXqS2R8Fx5-1TLDBiEDg",
+    "source": "DeepSeek 官方动态",
+    "sourceType": "official",
+    "sourceRegion": "cn",
+    "sourceLanguage": "zh",
+    "feedName": "DeepSeek 官方动态",
+    "sourceHomepage": "https://www.deepseek.com/news",
+    "publishedAt": "2026-07-23T16:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "即刻体验顶级长文本记忆能力，模型配置选择更灵活",
+    "summaryZh": "即刻体验顶级长文本记忆能力，模型配置选择更灵活",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "🎉 DeepSeek-V4 预览版本发布，具备世界顶级推理性能，Agent 能力大幅提高，已在网页端、APP 和 API 上线，点击查看详情。",
+    "highlights": [
+      "即刻体验顶级长文本记忆能力，模型配置选择更灵活"
+    ],
+    "highlightsZh": [
+      "即刻体验顶级长文本记忆能力，模型配置选择更灵活"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具"
+    ],
+    "score": 130,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-06-09T16:17:50.912Z",
+    "lastSeenAt": "2026-06-09T16:17:50.912Z",
+    "originalContentText": "今天，我们全新系列模型 DeepSeek-V4 的预览版本正式上线并同步开源。\n\nDeepSeek-V4 拥有百万字超长上下文，在 Agent 能力、世界知识和推理性能上均实现国内与开源领域的领先。模型按大小分为两个版本：\n\n即日起登录官网 chat.deepseek.com 或官方App，即可与最新的 DeepSeek-V4 对话，探索 1M 超长上下文记忆的全新体验。API 服务已同步更新，通过修改 model_name 为 deepseek-v4-pro 或 deepseek-v4-flash 即可调用。\n\nDeepSeek-V4-Pro：性能比肩顶级闭源模型\n\nAgent 能力大幅提高：相比前代模型，DeepSeek-V4-Pro 的 Agent 能力显著增强。在 Agentic Coding 评测中，V4-Pro 已达到当前开源模型最佳水平，并在其他 Agent 相关评测中同样表现优异。目前 DeepSeek-V4 已成为公司内部员工使用的 Agentic Coding 模型，据评测反馈使用体验优于 Sonnet 4.5，交付质量接近 Opus 4.6 非思考模式，但仍与 Opus 4.6 思考模式存在一定差距。\n\n丰富的世界知识：DeepSeek-V4-Pro 在世界知识测评中，大幅领先其他开源模型，仅稍逊于顶尖闭源模型 Gemini-Pro-3.1。\n\n世界顶级推理性能：在数学、STEM、竞赛型代码的测评中，DeepSeek-V4-Pro 超越当前所有已公开评测的开源模型，取得了比肩世界顶级闭源模型的优异成绩。\n\nDeepSeek-V4-Flash：更快捷高效的经济之选\n\n相比 DeepSeek-V4-Pro，DeepSeek-V4-Flash 在世界知识储备方面稍逊一筹，但展现出了接近的推理能力。而由于模型参数和激活更小，相较之下 V4-Flash 能够提供更加快捷、经济的 API 服务。\n\n在 Agent 测评中，DeepSeek-V4-Flash 在简单任务上与 DeepSeek-V4-Pro 旗鼓相当，但在高难度任务上仍有差距。\n\n结构创新和超高上下文效率\n\nDeepSeek-V4 开创了一种全新的注意力机制，在 token 维度进行压缩，结合 DSA 稀疏注意力（DeepSeek Sparse Attention），实现了全球领先的长上下文能力，并且相比于传统方法大幅降低了对计算和显存的需求。从现在开始，1M（一百万）上下文将是 DeepSeek 所有官方服务的标配。\n\nDeepSeek-V4 和 DeepSeek-V3.2 的计算量和显存容量随上下文长度的变化\n\nAgent 能力专项优化\n\nDeepSeek-V4 针对 Claude Code 、OpenClaw、OpenCode、CodeBuddy 等主流的 Agent 产品进行了适配和优化，在代码任务、文档生成任务等方面表现均有提升。下图为 V4-Pro 在某 Agent 框架下生成的 PPT 内页示例：\n\n上下滑动或点击放大查看\n\n目前，DeepSeek API 已同步上线 V4-Pro 与 V4-Flash，支持 OpenAI ChatCompletions 接口与 Anthropic 接口。访问新模型时，base_url 不变, model 参数需要改为 deepseek-v4-pro 或 deepseek-v4-flash。\n\nV4-Pro 与 V4-Flash 最大上下文长度为 1M，均同时支持非思考模式与思考模式，其中思考模式支持 reasoning_effort 参数设置思考强度（high/max）。对于复杂的 Agent 场景建议使用思考模式，并设置强度为 max。模型调用与参数调整方法请参考 API 文档：\n\nhttps://api-docs.deepseek.com/zh-cn/guides/thinking_mode\n\n请大家注意：旧有的 API 接口的两个模型名 deepseek-chat 与deepseek-reasoner 将于三个月后（2026-07-24）停止使用。当前阶段内，这两个模型名分别指向deepseek-v4-flash 的非思考模式与思考模式。\n\n开源权重和本地部署\n\nDeepSeek-V4 模型开源链接：\n\nhttps://huggingface.co/collections/deepseek-ai/deepseek-v4\n\nhttps://modelscope.cn/collections/deepseek-ai/DeepSeek-V4\n\nDeepSeek-V4 技术报告：\n\nhttps://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf\n\n「不诱于誉，不恐于诽，率道而行，端然正己。」\n\n感谢每一位用户的信任与支持，大家的肯定、建议和期许，是我们不竭探索、持续进步的动力，也让我们始终坚守初心，专注于不懈的创新。\n\n我们将始终秉持长期主义的原则理念，在尝试与思考中踏实前行，努力向实现 AGI 的目标不断靠近。",
+    "originalContentAvailable": true,
+    "originalContentWarning": "",
+    "snapshotFetchedAt": "2026-06-09T16:18:20.988Z"
+  }
+]

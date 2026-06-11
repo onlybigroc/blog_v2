@@ -1,0 +1,826 @@
+[
+  {
+    "id": "7de88997de0e",
+    "title": "Introducing Stargate Norway",
+    "titleZh": "隆重推出Stargate Norway",
+    "link": "https://openai.com/index/introducing-stargate-norway",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-31T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re launching Stargate Norway—OpenAI’s first AI data center initiative in Europe under our OpenAI for Countries program. Stargate is OpenAI’s overarching infrastructure platform and is a critical part of our long-term vision to deliver the benefits of AI to everyone.",
+    "summaryZh": "根据我们的国家/地区OpenAI计划，我们将在欧洲推出Stargate Norway-OpenAI的首个人工智能数据中心计划。Stargate是OpenAI的总体基础设施平台，是我们为每个人提供人工智能优势的长期愿景的重要组成部分。",
+    "highlights": [
+      "We’re launching Stargate Norway—OpenAI’s first AI data center initiative in Europe under our OpenAI for Countries program.",
+      "Stargate is OpenAI’s overarching infrastructure platform and is a critical part of our long-term vision to deliver the benefits of AI to everyone."
+    ],
+    "highlightsZh": [
+      "根据我们的国家/地区OpenAI计划，我们将在欧洲推出Stargate Norway-OpenAI的首个人工智能数据中心计划。Stargate是OpenAI的总体基础设施平台，是我们为每个人提供人工智能优势的长期愿景的重要组成部分。"
+    ],
+    "tags": [
+      "发布",
+      "算力"
+    ],
+    "score": 76,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "37d83405ef1d",
+    "title": "Three lessons for creating a sustainable AI advantage",
+    "titleZh": "创造可持续人工智能优势的三个经验教训",
+    "link": "https://openai.com/index/intercom",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-30T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Discover how Intercom built a scalable AI platform with 3 key lessons—from evaluations to architecture—to lead the future of customer support.",
+    "summaryZh": "了解Intercom如何利用3个关键经验教训（从评估到架构）构建可扩展的人工智能平台，从而引领客户支持的未来。",
+    "highlights": [
+      "Discover how Intercom built a scalable AI platform with 3 key lessons—from evaluations to architecture—to lead the future of customer support."
+    ],
+    "highlightsZh": [
+      "了解Intercom如何利用3个关键经验教训（从评估到架构）构建可扩展的人工智能平台，从而引领客户支持的未来。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "133ed4f2ba22",
+    "title": "Introducing study mode in ChatGPT",
+    "titleZh": "在ChatGPT中引入学习模式",
+    "link": "https://openai.com/index/chatgpt-study-mode",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-29T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Introducing study mode in ChatGPT, a new learning experience that helps you work through problems step by step, guiding students with questions, scaffolding, and feedback for deeper learning.",
+    "summaryZh": "在ChatGPT中引入学习模式，这是一种新的学习体验，可帮助您一步一步地解决问题，引导学生提出问题、搭建脚手架和反馈，以进行更深入的学习。",
+    "highlights": [
+      "Introducing study mode in ChatGPT, a new learning experience that helps you work through problems step by step, guiding students with questions, scaffolding, and feedback for deepe"
+    ],
+    "highlightsZh": [
+      "在ChatGPT中引入学习模式，这是一种新的学习体验，可帮助您一步一步地解决问题，引导学生提出问题、搭建脚手架和反馈，以进行更深入的学习。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b8bbbc5ed338",
+    "title": "Resolving digital threats 100x faster with OpenAI",
+    "titleZh": "使用OpenAI以100倍的速度解决数字威胁",
+    "link": "https://openai.com/index/outtake",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-24T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Discover how Outtake uses GPT-4.1 and OpenAI o3 to power AI agents that detect and resolve digital threats 100x faster than before.",
+    "summaryZh": "了解Outtake如何使用GPT-4.1和OpenAI o3为AI代理提供支持，使它们能够以比以前快100倍的速度检测和解决数字威胁。",
+    "highlights": [
+      "Discover how Outtake uses GPT-4.1 and OpenAI o3 to power AI agents that detect and resolve digital threats 100x faster than before."
+    ],
+    "highlightsZh": [
+      "了解Outtake如何使用GPT-4.1和OpenAI o3为AI代理提供支持，使它们能够以比以前快100倍的速度检测和解决数字威胁。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c3b523229c46",
+    "title": "Model ML is helping financial firms rebuild with AI from the ground up",
+    "titleZh": "Model ML正在帮助金融公司从头开始利用人工智能进行重建",
+    "link": "https://openai.com/index/model-ml-chaz-englander",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-23T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "As part of our Executive Function series, Model ML CEO Chaz Englander discusses how AI-native infrastructure and autonomous agents are transforming financial services workflows.",
+    "summaryZh": "作为我们执行功能系列的一部分， Model ML首席执行官Chaz Englander讨论了人工智能原生基础设施和自主代理如何改变金融服务工作流程。",
+    "highlights": [
+      "As part of our Executive Function series, Model ML CEO Chaz Englander discusses how AI-native infrastructure and autonomous agents are transforming financial services workflows."
+    ],
+    "highlightsZh": [
+      "作为我们执行功能系列的一部分， Model ML首席执行官Chaz Englander讨论了人工智能原生基础设施和自主代理如何改变金融服务工作流程。"
+    ],
+    "tags": [
+      "模型",
+      "算力"
+    ],
+    "score": 78,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "420cfdad49cb",
+    "title": "Announcing OpenAI DevDay 2025",
+    "titleZh": "宣布OpenAI DevDay 2025",
+    "link": "https://openai.com/index/announcing-devday-2025",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-23T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re hosting our third annual OpenAI DevDay on October 6, 2025 at Fort Mason in San Francisco.",
+    "summaryZh": "我们将于2025年10月6日在旧金山的梅森堡举办第三届年度OpenAI DevDay。",
+    "highlights": [
+      "We’re hosting our third annual OpenAI DevDay on October 6, 2025 at Fort Mason in San Francisco."
+    ],
+    "highlightsZh": [
+      "我们将于2025年10月6日在旧金山的梅森堡举办第三届年度OpenAI DevDay。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "aaa1cddeccd8",
+    "title": "Pioneering an AI clinical copilot with Penda Health",
+    "titleZh": "与Penda Health一起开创人工智能临床副驾驶",
+    "link": "https://openai.com/index/ai-clinical-copilot-penda-health",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-22T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Penda Health debut an AI clinical copilot that cuts diagnostic errors by 16% in real-world use—offering a new path for safe, effective AI in healthcare.",
+    "summaryZh": "OpenAI和Penda Health首次推出AI临床副驾驶，可将实际使用中的诊断错误减少16% ，为医疗保健领域的安全、有效AI提供了新的途径。",
+    "highlights": [
+      "OpenAI and Penda Health debut an AI clinical copilot that cuts diagnostic errors by 16% in real-world use—offering a new path for safe, effective AI in healthcare."
+    ],
+    "highlightsZh": [
+      "OpenAI和Penda Health首次推出AI临床副驾驶，可将实际使用中的诊断错误减少16% ，为医疗保健领域的安全、有效AI提供了新的途径。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "1f499c60214a",
+    "title": "Stargate advances with 4.5 GW partnership with Oracle",
+    "titleZh": "星际之门与甲骨文达成4.5吉瓦合作伙伴关系",
+    "link": "https://openai.com/index/stargate-advances-with-partnership-with-oracle",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-22T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Oracle and OpenAI have entered an agreement to develop 4.5 gigawatts of additional Stargate data center capacity in the U.S. This investment will create new jobs, accelerate America’s reindustrialization, and help advance U.S. AI leadership. It also marks a major milestone for Stargate, OpenAI’s AI infrastructure platf",
+    "summaryZh": "甲骨文和OpenAI已达成协议，在美国开发4.5吉瓦的额外星际之门数据中心容量。这项投资将创造新的就业机会，加速美国的再工业化，并有助于提升美国人工智能的领导地位。这也是OpenAI人工智能基础设施平台Stargate的一个重要里程碑",
+    "highlights": [
+      "Oracle and OpenAI have entered an agreement to develop 4.5 gigawatts of additional Stargate data center capacity in the U.S.",
+      "This investment will create new jobs, accelerate America’s reindustrialization, and help advance U.S."
+    ],
+    "highlightsZh": [
+      "甲骨文和OpenAI已达成协议，在美国开发4.5吉瓦的额外星际之门数据中心容量。这项投资将创造新的就业机会，加速美国的再工业化，并有助于提升美国人工智能的领导地位。这也是OpenAI人工智能基础设施平台Stargate的一个重要里程碑"
+    ],
+    "tags": [
+      "资本",
+      "算力"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "9debf0511dd0",
+    "title": "OpenAI’s new economic analysis",
+    "titleZh": "OpenAI的新经济分析",
+    "link": "https://openai.com/global-affairs/new-economic-analysis",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-22T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Analysis provides insights into ChatGPT’s impact on the economy. OpenAI also launches new research collaboration to study AI’s broader effects on the labor market and productivity.",
+    "summaryZh": "分析提供了ChatGPT对经济影响的见解。OpenAI还启动了新的研究合作，以研究人工智能对劳动力市场和生产力的更广泛影响。",
+    "highlights": [
+      "Analysis provides insights into ChatGPT’s impact on the economy.",
+      "OpenAI also launches new research collaboration to study AI’s broader effects on the labor market and productivity."
+    ],
+    "highlightsZh": [
+      "分析提供了ChatGPT对经济影响的见解。OpenAI还启动了新的研究合作，以研究人工智能对劳动力市场和生产力的更广泛影响。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "f9a9f0e1fd72",
+    "title": "OpenAI and UK Government announce strategic partnership to deliver AI-driven growth",
+    "titleZh": "OpenAI和英国政府宣布建立战略合作伙伴关系，以实现人工智能驱动的增长",
+    "link": "https://openai.com/global-affairs/openai-and-uk-government-partnership",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-21T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI partners with the UK Government to boost AI adoption, drive economic growth, and enhance public services for a thriving AI ecosystem in the UK.",
+    "summaryZh": "OpenAI与英国政府合作，促进人工智能的采用，推动经济增长，并加强公共服务，以促进英国蓬勃发展的人工智能生态系统。",
+    "highlights": [
+      "OpenAI partners with the UK Government to boost AI adoption, drive economic growth, and enhance public services for a thriving AI ecosystem in the UK."
+    ],
+    "highlightsZh": [
+      "OpenAI与英国政府合作，促进人工智能的采用，推动经济增长，并加强公共服务，以促进英国蓬勃发展的人工智能生态系统。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3409c3b08dd6",
+    "title": "AI as the greatest source of empowerment for all",
+    "titleZh": "人工智能是所有人赋权的最大源泉",
+    "link": "https://openai.com/index/ai-as-the-greatest-source-of-empowerment-for-all",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-21T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "I’ve always considered myself a pragmatic technologist—someone who loves technology not for its own sake, but for the direct impact it can have on people’s lives. That’s what makes this job so exciting, since I believe AI will unlock more opportunities for more people than any other technology in history. If we get thi",
+    "summaryZh": "我一直认为自己是一个务实的技术专家--一个热爱技术的人，不是为了技术本身，而是为了它对人们生活的直接影响。这就是这项工作如此令人兴奋的原因，因为我相信人工智能将为更多的人解锁比历史上任何其他技术更多的机会。如果我们得到这个",
+    "highlights": [
+      "I’ve always considered myself a pragmatic technologist—someone who loves technology not for its own sake, but for the direct impact it can have on people’s lives.",
+      "That’s what makes this job so exciting, since I believe AI will unlock more opportunities for more people than any other technology in history."
+    ],
+    "highlightsZh": [
+      "我一直认为自己是一个务实的技术专家--一个热爱技术的人，不是为了技术本身，而是为了它对人们生活的直接影响。这就是这项工作如此令人兴奋的原因，因为我相信人工智能将为更多的人解锁比历史上任何其他技术更多的机会。如果我们得到这个"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "bd042ee2aadf",
+    "title": "A $50 million fund to build with communities",
+    "titleZh": "与社区共同打造的$ 5000万美金基金",
+    "link": "https://openai.com/index/50-million-fund-to-build-with-communities",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-18T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI is launching an initial $50 million fund that supports nonprofit and community organizations, informed by the independent OpenAI Nonprofit Commission report.",
+    "summaryZh": "根据OpenAI非营利委员会的独立报告， OpenAI将启动一项初始资金5000万$的基金，为非营利组织和社区组织提供支持。",
+    "highlights": [
+      "OpenAI is launching an initial $50 million fund that supports nonprofit and community organizations, informed by the independent OpenAI Nonprofit Commission report."
+    ],
+    "highlightsZh": [
+      "根据OpenAI非营利委员会的独立报告， OpenAI将启动一项初始资金5000万$的基金，为非营利组织和社区组织提供支持。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "042d49d92b6e",
+    "title": "Introducing ChatGPT agent",
+    "titleZh": "ChatGPT代理简介",
+    "link": "https://openai.com/index/introducing-chatgpt-agent",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-17T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Introducing ChatGPT agent: it thinks and acts, using tools to complete tasks like research, bookings, and slideshows—all with your guidance.",
+    "summaryZh": "推出ChatGPT客服代表：在您的指导下，使用工具完成研究、预订和幻灯片演示等任务，从而进行思考和行动。",
+    "highlights": [
+      "Introducing ChatGPT agent: it thinks and acts, using tools to complete tasks like research, bookings, and slideshows—all with your guidance."
+    ],
+    "highlightsZh": [
+      "推出ChatGPT客服代表：在您的指导下，使用工具完成研究、预订和幻灯片演示等任务，从而进行思考和行动。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 86,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b3fee526474f",
+    "title": "ChatGPT agent System Card",
+    "titleZh": "ChatGPT代理系统卡",
+    "link": "https://openai.com/index/chatgpt-agent-system-card",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-17T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "ChatGPT agent System Card: OpenAI’s agentic model unites research, browser automation, and code tools with safeguards under the Preparedness Framework.",
+    "summaryZh": "ChatGPT代理系统卡： OpenAI的代理模型将研究、浏览器自动化和代码工具与准备框架下的保护措施相结合。",
+    "highlights": [
+      "ChatGPT agent System Card: OpenAI’s agentic model unites research, browser automation, and code tools with safeguards under the Preparedness Framework."
+    ],
+    "highlightsZh": [
+      "ChatGPT代理系统卡： OpenAI的代理模型将研究、浏览器自动化和代码工具与准备框架下的保护措施相结合。"
+    ],
+    "tags": [
+      "模型",
+      "开发工具"
+    ],
+    "score": 84,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a8154f6c9506",
+    "title": "Statement from the OpenAI Board of Directors on the Nonprofit Commission Report",
+    "titleZh": "OpenAI董事会关于非营利委员会报告的声明",
+    "link": "https://openai.com/index/nonprofit-commission-report",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-17T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "The Board of Directors thanks the members of the independent OpenAI Nonprofit Commission for their extensive work and engagement.",
+    "summaryZh": "董事会感谢独立的OpenAI非营利委员会成员的广泛工作和参与。",
+    "highlights": [
+      "The Board of Directors thanks the members of the independent OpenAI Nonprofit Commission for their extensive work and engagement."
+    ],
+    "highlightsZh": [
+      "董事会感谢独立的OpenAI非营利委员会成员的广泛工作和参与。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c5d2f95d076b",
+    "title": "Invideo AI uses OpenAI models to create videos 10x faster",
+    "titleZh": "Invideo AI使用OpenAI模型以10倍的速度创建视频",
+    "link": "https://openai.com/index/invideo-ai",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-17T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Invideo AI uses OpenAI’s GPT-4.1, gpt-image-1, and text-to-speech models to transform creative ideas into professional videos in minutes.",
+    "summaryZh": "Invideo AI使用OpenAI的GPT-4.1、gpt-image-1和文本转语音模型，在几分钟内将创意转化为专业视频。",
+    "highlights": [
+      "Invideo AI uses OpenAI’s GPT-4.1, gpt-image-1, and text-to-speech models to transform creative ideas into professional videos in minutes."
+    ],
+    "highlightsZh": [
+      "Invideo AI使用OpenAI的GPT-4.1、gpt-image-1和文本转语音模型，在几分钟内将创意转化为专业视频。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "520af5b3f18d",
+    "title": "OpenAI nonprofit jam",
+    "titleZh": "OpenAI非营利JAM",
+    "link": "https://openai.com/global-affairs/openai-nonprofit-jam",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-17T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "At OpenAI, we build tools to help people solve hard problems—including nonprofits working on the frontlines of their communities. The OpenAI Academy is teaming up with the Walton Family Foundation, Emerson Collective, and a network of local nonprofit organizations to host the Nonprofit Jam—a one-day, nationwide event b",
+    "summaryZh": "在OpenAI ，我们构建工具来帮助人们解决难题，包括从事社区一线工作的非营利组织。OpenAI学院正在与Walton Family Foundation、Emerson Collective和当地非营利组织网络合作，举办为期一天的全国性活动",
+    "highlights": [
+      "At OpenAI, we build tools to help people solve hard problems—including nonprofits working on the frontlines of their communities.",
+      "The OpenAI Academy is teaming up with the Walton Family Foundation, Emerson Collective, and a network of local nonprofit organizations to host the Nonprofit Jam—a one-day, nationwi"
+    ],
+    "highlightsZh": [
+      "在OpenAI ，我们构建工具来帮助人们解决难题，包括从事社区一线工作的非营利组织。OpenAI学院正在与Walton Family Foundation、Emerson Collective和当地非营利组织网络合作，举办为期一天的全国性活动"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "1710c85e86bb",
+    "title": "Agent bio bug bounty call",
+    "titleZh": "客服代表生物漏洞赏金通话",
+    "link": "https://openai.com/bio-bug-bounty",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-17T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Testing universal jailbreaks for biorisks in ChatGPT Agent",
+    "summaryZh": "在ChatGPT Agent中测试通用越狱是否存在生物风险",
+    "highlights": [
+      "Testing universal jailbreaks for biorisks in ChatGPT Agent"
+    ],
+    "highlightsZh": [
+      "在ChatGPT Agent中测试通用越狱是否存在生物风险"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "客服代表生物漏洞赏金通话"
+  },
+  {
+    "id": "900ebdfcfb39",
+    "title": "Intellectual freedom by design",
+    "titleZh": "通过设计实现智力自由",
+    "link": "https://openai.com/global-affairs/intellectual-freedom-by-design",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-15T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "ChatGPT is designed to be useful, trustworthy, and adaptable—so you can make it your own.",
+    "summaryZh": "ChatGPT专为实用、值得信赖和适应性强而设计，因此您可以打造自己的ChatGPT。",
+    "highlights": [
+      "ChatGPT is designed to be useful, trustworthy, and adaptable—so you can make it your own."
+    ],
+    "highlightsZh": [
+      "ChatGPT专为实用、值得信赖和适应性强而设计，因此您可以打造自己的ChatGPT。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8399d74a6541",
+    "title": "The EU Code of Practice and future of AI in Europe",
+    "titleZh": "《欧盟业务守则》和欧洲人工智能的未来",
+    "link": "https://openai.com/global-affairs/eu-code-of-practice",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-11T09:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI joins the EU Code of Practice, advancing responsible AI while partnering with European governments to drive innovation, infrastructure, and economic growth.",
+    "summaryZh": "OpenAI加入欧盟行为准则，推进负责任的人工智能，同时与欧洲各国政府合作，推动创新、基础设施和经济增长。",
+    "highlights": [
+      "OpenAI joins the EU Code of Practice, advancing responsible AI while partnering with European governments to drive innovation, infrastructure, and economic growth."
+    ],
+    "highlightsZh": [
+      "OpenAI加入欧盟行为准则，推进负责任的人工智能，同时与欧洲各国政府合作，推动创新、基础设施和经济增长。"
+    ],
+    "tags": [
+      "开发工具",
+      "算力"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "533730b55a8b",
+    "title": "Sam & Jony",
+    "titleZh": "",
+    "link": "https://openai.com/sam-and-jony",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-09T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Building a family of AI products for everyone.",
+    "summaryZh": "为每个人打造一个人工智能产品家族。",
+    "highlights": [
+      "Building a family of AI products for everyone."
+    ],
+    "highlightsZh": [
+      "为每个人打造一个人工智能产品家族。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "Sam & Jony"
+  },
+  {
+    "id": "e4d54c0adef7",
+    "title": "Working with 400,000 teachers to shape the future of AI in schools",
+    "titleZh": "与40万名教师合作，塑造学校人工智能的未来",
+    "link": "https://openai.com/global-affairs/aft",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-08T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI partners with the American Federation of Teachers to launch a 5-year initiative equipping 400,000 K-12 educators to lead AI innovation in classrooms.",
+    "summaryZh": "OpenAI与美国教师联合会（ American Federation of Teachers ）合作，推出了一项为期5年的计划，为40万名K-12教育工作者提供装备，以引领课堂上的人工智能创新。",
+    "highlights": [
+      "OpenAI partners with the American Federation of Teachers to launch a 5-year initiative equipping 400,000 K-12 educators to lead AI innovation in classrooms."
+    ],
+    "highlightsZh": [
+      "OpenAI与美国教师联合会（ American Federation of Teachers ）合作，推出了一项为期5年的计划，为40万名K-12教育工作者提供装备，以引领课堂上的人工智能创新。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "bfd4ad490a64",
+    "title": "No-code personal agents, powered by GPT-4.1 and Realtime API",
+    "titleZh": "无代码个人代理，由GPT-4.1和实时API提供支持",
+    "link": "https://openai.com/index/genspark",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2025-07-01T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Learn how Genspark built a $36M ARR AI product in 45 days—with no-code agents powered by GPT-4.1 and OpenAI Realtime API.",
+    "summaryZh": "了解Genspark如何利用基于GPT-4.1和OpenAI Realtime API的无代码代理，在45天内构建$ 3600万ARR的AI产品。",
+    "highlights": [
+      "Learn how Genspark built a $36M ARR AI product in 45 days—with no-code agents powered by GPT-4.1 and OpenAI Realtime API."
+    ],
+    "highlightsZh": [
+      "了解Genspark如何利用基于GPT-4.1和OpenAI Realtime API的无代码代理，在45天内构建$ 3600万ARR的AI产品。"
+    ],
+    "tags": [
+      "模型",
+      "开发工具"
+    ],
+    "score": 82,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

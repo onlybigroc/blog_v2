@@ -1,0 +1,105 @@
+[
+  {
+    "id": "3a3b823fbddc",
+    "title": "Dota 2 with large scale deep reinforcement learning",
+    "titleZh": "具有大规模深度强化学习的DOTA 2",
+    "link": "https://openai.com/index/dota-2-with-large-scale-deep-reinforcement-learning",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-12-13T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "ee5e0d0a2a9c",
+    "title": "Deep double descent",
+    "titleZh": "深度双重下降",
+    "link": "https://openai.com/index/deep-double-descent",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-12-05T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We show that the double descent phenomenon occurs in CNNs, ResNets, and transformers: performance first improves, then gets worse, and then improves again with increasing model size, data size, or training time. This effect is often avoided through careful regularization. While this behavior appears to be fairly univer",
+    "summaryZh": "我们表明，双下降现象发生在CNN、ResNets和变压器中：性能首先提高，然后变得更差，然后随着模型大小、数据大小或训练时间的增加再次提高。这种效应通常通过仔细的正则化来避免。虽然这种行为似乎相当普遍",
+    "highlights": [
+      "We show that the double descent phenomenon occurs in CNNs, ResNets, and transformers: performance first improves, then gets worse, and then improves again with increasing model siz",
+      "This effect is often avoided through careful regularization."
+    ],
+    "highlightsZh": [
+      "我们表明，双下降现象发生在CNN、ResNets和变压器中：性能首先提高，然后变得更差，然后随着模型大小、数据大小或训练时间的增加再次提高。这种效应通常通过仔细的正则化来避免。虽然这种行为似乎相当普遍"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "38a06055dd88",
+    "title": "Procgen Benchmark",
+    "titleZh": "Procgen基准",
+    "link": "https://openai.com/index/procgen-benchmark",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2019-12-03T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing Procgen Benchmark, 16 simple-to-use procedurally-generated environments which provide a direct measure of how quickly a reinforcement learning agent learns generalizable skills.",
+    "summaryZh": "我们发布了Procgen Benchmark ，这是16个易于使用的程序生成环境，可直接衡量强化学习代理学习通用技能的速度。",
+    "highlights": [
+      "We’re releasing Procgen Benchmark, 16 simple-to-use procedurally-generated environments which provide a direct measure of how quickly a reinforcement learning agent learns generali"
+    ],
+    "highlightsZh": [
+      "我们发布了Procgen Benchmark ，这是16个易于使用的程序生成环境，可直接衡量强化学习代理学习通用技能的速度。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 72,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

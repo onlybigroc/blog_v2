@@ -1,0 +1,71 @@
+[
+  {
+    "id": "c530eb95cad9",
+    "title": "OpenAI Gym Beta",
+    "titleZh": "OpenAI健身房测试版",
+    "link": "https://openai.com/index/openai-gym-beta",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2016-04-27T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing the public beta of OpenAI Gym, a toolkit for developing and comparing reinforcement learning (RL) algorithms. It consists of a growing suite of environments (from simulated robots to Atari games), and a site for comparing and reproducing results.",
+    "summaryZh": "我们正在发布OpenAI Gym的公共测试版，这是一个用于开发和比较强化学习（ RL ）算法的工具包。它包括一套不断增长的环境（从模拟机器人到雅达利游戏） ，以及一个用于比较和再现结果的网站。",
+    "highlights": [
+      "We’re releasing the public beta of OpenAI Gym, a toolkit for developing and comparing reinforcement learning (RL) algorithms.",
+      "It consists of a growing suite of environments (from simulated robots to Atari games), and a site for comparing and reproducing results."
+    ],
+    "highlightsZh": [
+      "我们正在发布OpenAI Gym的公共测试版，这是一个用于开发和比较强化学习（ RL ）算法的工具包。它包括一套不断增长的环境（从模拟机器人到雅达利游戏） ，以及一个用于比较和再现结果的网站。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4a780f2a4596",
+    "title": "Welcome, Pieter and Shivon!",
+    "titleZh": "欢迎， Pieter和Shivon ！",
+    "link": "https://openai.com/index/welcome-pieter-and-shivon",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2016-04-26T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We have two more team updates.",
+    "summaryZh": "我们还有两个团队更新。",
+    "highlights": [
+      "We have two more team updates."
+    ],
+    "highlightsZh": [
+      "我们还有两个团队更新。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

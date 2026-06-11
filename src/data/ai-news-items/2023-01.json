@@ -1,0 +1,211 @@
+[
+  {
+    "id": "52f1f6c6f120",
+    "title": "New AI classifier for indicating AI-written text",
+    "titleZh": "用于指示AI编写的文本的新AI分类器",
+    "link": "https://openai.com/index/new-ai-classifier-for-indicating-ai-written-text",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-01-31T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re launching a classifier trained to distinguish between AI-written and human-written text.",
+    "summaryZh": "我们正在推出一款经过培训的分类器，用于区分人工智能和人工编写的文本。",
+    "highlights": [
+      "We’re launching a classifier trained to distinguish between AI-written and human-written text."
+    ],
+    "highlightsZh": [
+      "我们正在推出一款经过培训的分类器，用于区分人工智能和人工编写的文本。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "729ff4fec05f",
+    "title": "OpenAI and Microsoft extend partnership",
+    "titleZh": "OpenAI和微软扩大合作伙伴关系",
+    "link": "https://openai.com/index/openai-and-microsoft-extend-partnership",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-01-23T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re happy to announce that OpenAI and Microsoft are extending our partnership.",
+    "summaryZh": "我们很高兴地宣布， OpenAI和微软正在扩大我们的合作伙伴关系。",
+    "highlights": [
+      "We’re happy to announce that OpenAI and Microsoft are extending our partnership."
+    ],
+    "highlightsZh": [
+      "我们很高兴地宣布， OpenAI和微软正在扩大我们的合作伙伴关系。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b6b9f2e3742e",
+    "title": "Forecasting potential misuses of language models for disinformation campaigns and how to reduce risk",
+    "titleZh": "预测语言模型在虚假信息活动中的潜在滥用，以及如何降低风险",
+    "link": "https://openai.com/index/forecasting-misuse",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-01-11T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI researchers collaborated with Georgetown University’s Center for Security and Emerging Technology and the Stanford Internet Observatory to investigate how large language models might be misused for disinformation purposes. The collaboration included an October 2021 workshop bringing together 30 disinformation re",
+    "summaryZh": "OpenAI研究人员与乔治城大学安全与新兴技术中心和斯坦福互联网观察站合作，调查大型语言模型如何被滥用于虚假信息目的。合作包括2021年10月的研讨会，汇集了30个虚假信息",
+    "highlights": [
+      "OpenAI researchers collaborated with Georgetown University’s Center for Security and Emerging Technology and the Stanford Internet Observatory to investigate how large language mod",
+      "The collaboration included an October 2021 workshop bringing together 30 disinformation re"
+    ],
+    "highlightsZh": [
+      "OpenAI研究人员与乔治城大学安全与新兴技术中心和斯坦福互联网观察站合作，调查大型语言模型如何被滥用于虚假信息目的。合作包括2021年10月的研讨会，汇集了30个虚假信息"
+    ],
+    "tags": [],
+    "score": 46,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "fabbe783570f",
+    "title": "Delivering nuanced insights from customer feedback",
+    "titleZh": "根据顾客反馈提供细致入微的见解",
+    "link": "https://openai.com/index/yabble",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-01-04T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Using GPT-3 to deliver fast, nuanced insights from customer feedback.",
+    "summaryZh": "使用GPT-3从客户反馈中快速提供细致入微的见解。",
+    "highlights": [
+      "Using GPT-3 to deliver fast, nuanced insights from customer feedback."
+    ],
+    "highlightsZh": [
+      "使用GPT-3从客户反馈中快速提供细致入微的见解。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "13c218ebf7db",
+    "title": "Fine-tuning GPT-3 to scale video creation",
+    "titleZh": "微调GPT-3以缩放视频创作",
+    "link": "https://openai.com/index/waymark",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-01-03T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Fine-tuning GPT-3 to power and scale done-for-you video creation.",
+    "summaryZh": "微调GPT-3以增强和扩展为您完成的视频创作。",
+    "highlights": [
+      "Fine-tuning GPT-3 to power and scale done-for-you video creation."
+    ],
+    "highlightsZh": [
+      "微调GPT-3以增强和扩展为您完成的视频创作。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "5764a72a7f7b",
+    "title": "Creating next-gen characters",
+    "titleZh": "创建下一代角色",
+    "link": "https://openai.com/index/inworld-ai-DO-NOT-PUBLISH",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2023-01-01T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Using GPT-3 to create the next generation of AI-powered characters.",
+    "summaryZh": "使用GPT-3创建下一代人工智能角色。",
+    "highlights": [
+      "Using GPT-3 to create the next generation of AI-powered characters."
+    ],
+    "highlightsZh": [
+      "使用GPT-3创建下一代人工智能角色。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

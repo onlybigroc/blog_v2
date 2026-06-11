@@ -1,0 +1,246 @@
+[
+  {
+    "id": "b23b895ddf47",
+    "title": "A Primer on the EU AI Act: What It Means for AI Providers and Deployers",
+    "titleZh": "欧盟人工智能法案入门：它对人工智能提供商和部署者意味着什么",
+    "link": "https://openai.com/global-affairs/a-primer-on-the-eu-ai-act",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-07-30T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re sharing a preliminary overview of the EU AI Act including upcoming deadlines and requirements, with a particular focus on prohibited and high-risk use cases",
+    "summaryZh": "我们将分享《欧盟人工智能法案》的初步概述，包括即将到来的截止日期和要求，特别关注被禁止和高风险的用例",
+    "highlights": [
+      "We’re sharing a preliminary overview of the EU AI Act including upcoming deadlines and requirements, with a particular focus on prohibited and high-risk use cases"
+    ],
+    "highlightsZh": [
+      "我们将分享《欧盟人工智能法案》的初步概述，包括即将到来的截止日期和要求，特别关注被禁止和高风险的用例"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "欧盟人工智能法案入门：它对人工智能提供商和部署者意味着什么"
+  },
+  {
+    "id": "a3f765197bcf",
+    "title": "SearchGPT is a prototype of new AI search features",
+    "titleZh": "SearchGPT是全新AI搜索功能的原型",
+    "link": "https://openai.com/index/searchgpt-prototype",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-07-25T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re testing SearchGPT, a temporary prototype of new search features that give you fast and timely answers with clear and relevant sources.",
+    "summaryZh": "我们正在测试SearchGPT ，这是新搜索功能的临时原型，可为您提供快速及时的答案，并提供清晰相关的来源。",
+    "highlights": [
+      "We’re testing SearchGPT, a temporary prototype of new search features that give you fast and timely answers with clear and relevant sources."
+    ],
+    "highlightsZh": [
+      "我们正在测试SearchGPT ，这是新搜索功能的临时原型，可为您提供快速及时的答案，并提供清晰相关的来源。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "33dcf0f1015c",
+    "title": "Improving Model Safety Behavior with Rule-Based Rewards",
+    "titleZh": "通过基于规则的奖励改善模型安全行为",
+    "link": "https://openai.com/index/improving-model-safety-behavior-with-rule-based-rewards",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-07-24T09:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We've developed and applied a new method leveraging Rule-Based Rewards (RBRs) that aligns models to behave safely without extensive human data collection.",
+    "summaryZh": "我们开发并应用了一种利用基于规则的奖励（ RBR ）的新方法，该方法可以调整模型，使其在无需大量人类数据收集的情况下安全运行。",
+    "highlights": [
+      "We've developed and applied a new method leveraging Rule-Based Rewards (RBRs) that aligns models to behave safely without extensive human data collection."
+    ],
+    "highlightsZh": [
+      "我们开发并应用了一种利用基于规则的奖励（ RBR ）的新方法，该方法可以调整模型，使其在无需大量人类数据收集的情况下安全运行。"
+    ],
+    "tags": [
+      "模型",
+      "监管"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "2987cc143046",
+    "title": "GPT-4o mini: advancing cost-efficient intelligence",
+    "titleZh": "GPT-4o mini ：推进高性价比智能",
+    "link": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-07-18T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "",
+    "summaryZh": "",
+    "highlights": [],
+    "highlightsZh": [],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "1c5891b46b52",
+    "title": "New compliance and administrative tools for ChatGPT Enterprise",
+    "titleZh": "ChatGPT Enterprise的新合规和管理工具",
+    "link": "https://openai.com/index/new-tools-for-chatgpt-enterprise",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-07-18T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Compliance API integrations, SCIM, and GPT controls to support compliance programs, data security, and user access at scale",
+    "summaryZh": "合规API集成、SCIM和GPT控制，以大规模支持合规计划、数据安全和用户访问",
+    "highlights": [
+      "Compliance API integrations, SCIM, and GPT controls to support compliance programs, data security, and user access at scale"
+    ],
+    "highlightsZh": [
+      "合规API集成、SCIM和GPT控制，以大规模支持合规计划、数据安全和用户访问"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "01264bddb065",
+    "title": "Prover-Verifier Games improve legibility of language model outputs",
+    "titleZh": "Prover-Verifier游戏提高了语言模型输出的可读性",
+    "link": "https://openai.com/index/prover-verifier-games-improve-legibility",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-07-17T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Discover how prover-verifier games improve the legibility of language model outputs, making AI solutions clearer, easier to verify, and more trustworthy for both humans and machines.",
+    "summaryZh": "了解Prover-verifier游戏如何提高语言模型输出的易读性，使AI解决方案更清晰、更易于验证，并且更值得人类和机器信赖。",
+    "highlights": [
+      "Discover how prover-verifier games improve the legibility of language model outputs, making AI solutions clearer, easier to verify, and more trustworthy for both humans and machine"
+    ],
+    "highlightsZh": [
+      "了解Prover-verifier游戏如何提高语言模型输出的易读性，使AI解决方案更清晰、更易于验证，并且更值得人类和机器信赖。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "503c865ee127",
+    "title": "OpenAI and Los Alamos National Laboratory announce research partnership",
+    "titleZh": "OpenAI和洛斯阿拉莫斯国家实验室宣布建立研究合作关系",
+    "link": "https://openai.com/index/openai-and-los-alamos-national-laboratory-work-together",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2024-07-10T06:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Los Alamos National Laboratory are working to develop safety evaluations to assess and measure biological capabilities and risks associated with frontier models.",
+    "summaryZh": "OpenAI和洛斯阿拉莫斯国家实验室正在开展安全评估，以评估和衡量与前沿模型相关的生物能力和风险。",
+    "highlights": [
+      "OpenAI and Los Alamos National Laboratory are working to develop safety evaluations to assess and measure biological capabilities and risks associated with frontier models."
+    ],
+    "highlightsZh": [
+      "OpenAI和洛斯阿拉莫斯国家实验室正在开展安全评估，以评估和衡量与前沿模型相关的生物能力和风险。"
+    ],
+    "tags": [
+      "发布",
+      "监管"
+    ],
+    "score": 78,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

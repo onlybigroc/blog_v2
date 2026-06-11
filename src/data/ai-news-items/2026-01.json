@@ -1,0 +1,1748 @@
+[
+  {
+    "id": "1812f15d5f5f",
+    "title": "Project Genie: Experimenting with infinite, interactive worlds",
+    "titleZh": "Project Genie ：实验无限的互动世界",
+    "link": "https://deepmind.google/blog/project-genie-experimenting-with-infinite-interactive-worlds/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2026-01-29T17:01:05.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Google AI Ultra subscribers in the U.S. can try out Project Genie, an experimental research prototype that lets you create and explore worlds.",
+    "summaryZh": "美国的Google AI Ultra订阅者可以尝试Project Genie ，这是一个实验性研究原型，可让您创建和探索世界。",
+    "highlights": [
+      "Google AI Ultra subscribers in the U.S. can try out Project Genie, an experimental research prototype that lets you create and explore worlds."
+    ],
+    "highlightsZh": [
+      "美国的Google AI Ultra订阅者可以尝试Project Genie ，这是一个实验性研究原型，可让您创建和探索世界。"
+    ],
+    "tags": [],
+    "score": 54,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "efcfc2c53199",
+    "title": "Inside OpenAI’s in-house data agent",
+    "titleZh": "内部OpenAI的内部数据代理",
+    "link": "https://openai.com/index/inside-our-in-house-data-agent",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-29T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "How OpenAI built an in-house AI data agent that uses GPT-5, Codex, and memory to reason over massive datasets and deliver reliable insights in minutes.",
+    "summaryZh": "OpenAI如何构建内部人工智能数据代理，该代理使用GPT-5、Codex和内存对大量数据集进行推理，并在几分钟内提供可靠的见解。",
+    "highlights": [
+      "How OpenAI built an in-house AI data agent that uses GPT-5, Codex, and memory to reason over massive datasets and deliver reliable insights in minutes."
+    ],
+    "highlightsZh": [
+      "OpenAI如何构建内部人工智能数据代理，该代理使用GPT-5、Codex和内存对大量数据集进行推理，并在几分钟内提供可靠的见解。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 76,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "f582e053a20e",
+    "title": "Retiring GPT-4o, GPT-4.1, GPT-4.1 mini, and OpenAI o4-mini in ChatGPT",
+    "titleZh": "在ChatGPT中停用GPT-4o、GPT-4.1、GPT-4.1 mini和OpenAI o4-mini",
+    "link": "https://openai.com/index/retiring-gpt-4o-and-older-models",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-29T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "On February 13, 2026, alongside the previously announced retirement⁠ of GPT‑5 (Instant, Thinking, and Pro), we will retire GPT‑4o, GPT‑4.1, GPT‑4.1 mini, and OpenAI o4-mini from ChatGPT. In the API, there are no changes at this time.",
+    "summaryZh": "2026年2月13日，除了先前宣布的GPT-5 （ Instant、Thinking和Pro ）退役外，我们还将从ChatGPT退役GPT-4.0、GPT-4.1、GPT-4.1 mini和OpenAI o4-mini。在API中，目前没有任何更改。",
+    "highlights": [
+      "On February 13, 2026, alongside the previously announced retirement⁠ of GPT‑5 (Instant, Thinking, and Pro), we will retire GPT‑4o, GPT‑4.1, GPT‑4.1 mini, and OpenAI o4-mini from Ch",
+      "In the API, there are no changes at this time."
+    ],
+    "highlightsZh": [
+      "2026年2月13日，除了先前宣布的GPT-5 （ Instant、Thinking和Pro ）退役外，我们还将从ChatGPT退役GPT-4.0、GPT-4.1、GPT-4.1 mini和OpenAI o4-mini。在API中，目前没有任何更改。"
+    ],
+    "tags": [
+      "发布",
+      "开发工具"
+    ],
+    "score": 86,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a856111bf104",
+    "title": "Taisei Corporation shapes the next generation of talent with AI",
+    "titleZh": "大成公司用人工智能塑造下一代人才",
+    "link": "https://openai.com/index/taisei",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-29T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Taisei Corporation’s HR team is leading the rollout of ChatGPT Enterprise to drive AI-powered talent development across the organization.",
+    "summaryZh": "Taisei Corporation的人力资源团队正在领导ChatGPT Enterprise的推出，以推动整个组织的人工智能人才发展。",
+    "highlights": [
+      "Taisei Corporation’s HR team is leading the rollout of ChatGPT Enterprise to drive AI-powered talent development across the organization."
+    ],
+    "highlightsZh": [
+      "Taisei Corporation的人力资源团队正在领导ChatGPT Enterprise的推出，以推动整个组织的人工智能人才发展。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "075fc545e694",
+    "title": "The next chapter for AI in the EU",
+    "titleZh": "欧盟人工智能的新篇章",
+    "link": "https://openai.com/index/the-next-chapter-for-ai-in-the-eu",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-28T01:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI launches the EU Economic Blueprint 2.0 with new data, partnerships, and initiatives to accelerate AI adoption, skills, and growth across Europe.",
+    "summaryZh": "OpenAI推出了欧盟经济蓝图2.0 ，其中包含新的数据、合作伙伴关系和举措，以加速整个欧洲的人工智能采用、技能和增长。",
+    "highlights": [
+      "OpenAI launches the EU Economic Blueprint 2.0 with new data, partnerships, and initiatives to accelerate AI adoption, skills, and growth across Europe."
+    ],
+    "highlightsZh": [
+      "OpenAI推出了欧盟经济蓝图2.0 ，其中包含新的数据、合作伙伴关系和举措，以加速整个欧洲的人工智能采用、技能和增长。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "cf58b7400fc9",
+    "title": "EMEA Youth & Wellbeing Grant",
+    "titleZh": "欧洲、中东和非洲青年和福祉补助金",
+    "link": "https://openai.com/index/emea-youth-and-wellbeing-grant",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-28T01:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Apply for the EMEA Youth & Wellbeing Grant, a €500,000 program funding NGOs and researchers advancing youth safety and wellbeing in the age of AI.",
+    "summaryZh": "申请EMEA Youth & Wellbeing Grant （欧洲、中东和非洲青年与福祉补助金） ，这是一项€ 500,000的项目，资助非政府组织和研究人员在人工智能时代促进青年安全和福祉。",
+    "highlights": [
+      "Apply for the EMEA Youth & Wellbeing Grant, a €500,000 program funding NGOs and researchers advancing youth safety and wellbeing in the age of AI."
+    ],
+    "highlightsZh": [
+      "申请EMEA Youth & Wellbeing Grant （欧洲、中东和非洲青年与福祉补助金） ，这是一项€ 500,000的项目，资助非政府组织和研究人员在人工智能时代促进青年安全和福祉。"
+    ],
+    "tags": [
+      "资本",
+      "监管"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "63508e9ab188",
+    "title": "Keeping your data safe when an AI agent clicks a link",
+    "titleZh": "当人工智能代理点击链接时，确保您的数据安全",
+    "link": "https://openai.com/index/ai-agent-link-safety",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-28T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Learn how OpenAI protects user data when AI agents open links, preventing URL-based data exfiltration and prompt injection with built-in safeguards.",
+    "summaryZh": "了解OpenAI如何在人工智能代理打开链接时保护用户数据，防止基于URL的数据泄露，并通过内置的安全措施提示注入。",
+    "highlights": [
+      "Learn how OpenAI protects user data when AI agents open links, preventing URL-based data exfiltration and prompt injection with built-in safeguards."
+    ],
+    "highlightsZh": [
+      "了解OpenAI如何在人工智能代理打开链接时保护用户数据，防止基于URL的数据泄露，并通过内置的安全措施提示注入。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 76,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "53560453084e",
+    "title": "PVH reimagines the future of fashion with OpenAI",
+    "titleZh": "PVH借助OpenAI重新构想时尚的未来",
+    "link": "https://openai.com/index/pvh-future-of-fashion",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-27T06:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "PVH Corp., parent company of Calvin Klein and Tommy Hilfiger, is adopting ChatGPT Enterprise to bring AI into fashion design, supply chain, and consumer engagement.",
+    "summaryZh": "Calvin Klein和Tommy Hilfiger的母公司PVH Corp.正在采用ChatGPT Enterprise ，将人工智能引入时装设计、供应链和消费者参与。",
+    "highlights": [
+      "PVH Corp., parent company of Calvin Klein and Tommy Hilfiger, is adopting ChatGPT Enterprise to bring AI into fashion design, supply chain, and consumer engagement."
+    ],
+    "highlightsZh": [
+      "Calvin Klein和Tommy Hilfiger的母公司PVH Corp.正在采用ChatGPT Enterprise ，将人工智能引入时装设计、供应链和消费者参与。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "42533aa4f8b5",
+    "title": "TRUSTBANK uses AI agents to personalize Furusato Nozei gifts",
+    "titleZh": "TRUSTBANK使用AI代理个性化Furusato Nozei礼品",
+    "link": "https://openai.com/index/trustbank",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-27T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "TRUSTBANK partnered with Recursive to build Choice AI using OpenAI models, enabling personalized conversational recommendations that simplify Furusato Nozei gift discovery.",
+    "summaryZh": "TRUSTBANK与Recursive合作，使用OpenAI模型构建Choice AI ，实现个性化的会话推荐，简化Furusato Nozei礼品发现。",
+    "highlights": [
+      "TRUSTBANK partnered with Recursive to build Choice AI using OpenAI models, enabling personalized conversational recommendations that simplify Furusato Nozei gift discovery."
+    ],
+    "highlightsZh": [
+      "TRUSTBANK与Recursive合作，使用OpenAI模型构建Choice AI ，实现个性化的会话推荐，简化Furusato Nozei礼品发现。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "2c97344d1f84",
+    "title": "Introducing Prism",
+    "titleZh": "Prism简介",
+    "link": "https://openai.com/index/introducing-prism",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-27T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Prism is a free LaTeX-native workspace with GPT-5.2 built in, helping researchers write, collaborate, and reason in one place.",
+    "summaryZh": "Prism是一个内置GPT-5.2的免费LaTeX原生工作区，可帮助研究人员在一个地方进行写作、协作和推理。",
+    "highlights": [
+      "Prism is a free LaTeX-native workspace with GPT-5.2 built in, helping researchers write, collaborate, and reason in one place."
+    ],
+    "highlightsZh": [
+      "Prism是一个内置GPT-5.2的免费LaTeX原生工作区，可帮助研究人员在一个地方进行写作、协作和推理。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "67722d7f2046",
+    "title": "How Indeed uses AI to help evolve the job search",
+    "titleZh": "Indeed如何使用人工智能来帮助发展求职",
+    "link": "https://openai.com/index/indeed-maggie-hulce",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-26T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Indeed’s CRO Maggie Hulce shares how AI is transforming job search, recruiting, and talent acquisition for employers and job seekers.",
+    "summaryZh": "Indeed的首席风险官Maggie Hulce分享了人工智能如何改变雇主和求职者的求职、招聘和人才招聘。",
+    "highlights": [
+      "Indeed’s CRO Maggie Hulce shares how AI is transforming job search, recruiting, and talent acquisition for employers and job seekers."
+    ],
+    "highlightsZh": [
+      "Indeed的首席风险官Maggie Hulce分享了人工智能如何改变雇主和求职者的求职、招聘和人才招聘。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "5d4a0e56b42a",
+    "title": "Unrolling the Codex agent loop",
+    "titleZh": "展开Codex代理循环",
+    "link": "https://openai.com/index/unrolling-the-codex-agent-loop",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-23T12:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "A technical deep dive into the Codex agent loop, explaining how Codex CLI orchestrates models, tools, prompts, and performance using the Responses API.",
+    "summaryZh": "深入了解Codex代理循环的技术，解释Codex CLI如何使用Responses API协调模型、工具、提示和性能。",
+    "highlights": [
+      "A technical deep dive into the Codex agent loop, explaining how Codex CLI orchestrates models, tools, prompts, and performance using the Responses API."
+    ],
+    "highlightsZh": [
+      "深入了解Codex代理循环的技术，解释Codex CLI如何使用Responses API协调模型、工具、提示和性能。"
+    ],
+    "tags": [
+      "模型",
+      "开发工具"
+    ],
+    "score": 88,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "153f3066406b",
+    "title": "Railway secures $100 million to challenge AWS with AI-native cloud infrastructure",
+    "titleZh": "Railway获得1亿美元$ ，通过AI原生云基础设施挑战AWS",
+    "link": "https://venturebeat.com/infrastructure/railway-secures-usd100-million-to-challenge-aws-with-ai-native-cloud",
+    "source": "VentureBeat AI",
+    "sourceType": "media",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "VentureBeat AI",
+    "sourceHomepage": "https://venturebeat.com/ai/",
+    "publishedAt": "2026-01-22T14:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Railway, a San Francisco-based cloud platform that has quietly amassed two million developers without spending a dollar on marketing, announced Thursday that it raised $100 million in a Series B funding round, as surging demand for artificial intelligence applications exposes the limitations of legacy cloud infrastruct",
+    "summaryZh": "总部位于旧金山的云平台Railway周四宣布，它在B轮融资中筹集了1亿美元，因为对人工智能应用程序的需求激增暴露了传统云基础设施的局限性",
+    "highlights": [
+      "Railway, a San Francisco-based cloud platform that has quietly amassed two million developers without spending a dollar on marketing, announced Thursday that it raised $100 million"
+    ],
+    "highlightsZh": [
+      "总部位于旧金山的云平台Railway周四宣布，它在B轮融资中筹集了1亿美元，因为对人工智能应用程序的需求激增暴露了传统云基础设施的局限性"
+    ],
+    "tags": [
+      "发布",
+      "资本",
+      "算力"
+    ],
+    "score": 50,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "Railway获得1亿美元$ ，通过AI原生云基础设施挑战AWS"
+  },
+  {
+    "id": "0e9e0157f373",
+    "title": "Scaling PostgreSQL to power 800 million ChatGPT users",
+    "titleZh": "扩展PostgreSQL ，为8亿ChatGPT用户提供支持",
+    "link": "https://openai.com/index/scaling-postgresql",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-22T12:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "An inside look at how OpenAI scaled PostgreSQL to millions of queries per second using replicas, caching, rate limiting, and workload isolation.",
+    "summaryZh": "深入了解OpenAI如何使用副本、缓存、速率限制和工作负载隔离将PostgreSQL扩展到每秒数百万个查询。",
+    "highlights": [
+      "An inside look at how OpenAI scaled PostgreSQL to millions of queries per second using replicas, caching, rate limiting, and workload isolation."
+    ],
+    "highlightsZh": [
+      "深入了解OpenAI如何使用副本、缓存、速率限制和工作负载隔离将PostgreSQL扩展到每秒数百万个查询。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a3ce7a8e25fd",
+    "title": "Inside GPT-5 for Work: How Businesses Use GPT-5",
+    "titleZh": "Inside GPT-5 for Work ：企业如何使用GPT-5",
+    "link": "https://openai.com/business/guides-and-resources/chatgpt-usage-and-adoption-patterns-at-work",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-22T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "A data-driven report on how workers across industries use ChatGPT—covering adoption trends, top tasks, departmental patterns, and the future of AI at work.",
+    "summaryZh": "一份关于各行各业员工如何使用ChatGPT的数据驱动报告，涵盖了采用趋势、热门任务、部门模式和工作中人工智能的未来。",
+    "highlights": [
+      "A data-driven report on how workers across industries use ChatGPT—covering adoption trends, top tasks, departmental patterns, and the future of AI at work."
+    ],
+    "highlightsZh": [
+      "一份关于各行各业员工如何使用ChatGPT的数据驱动报告，涵盖了采用趋势、热门任务、部门模式和工作中人工智能的未来。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "27ae54dbecf4",
+    "title": "Inside Praktika's conversational approach to language learning",
+    "titleZh": "深入了解Praktika的语言学习对话方法",
+    "link": "https://openai.com/index/praktika",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-22T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "How Praktika uses GPT-4.1 and GPT-5.2 to build adaptive AI tutors that personalize lessons, track progress, and help learners achieve real-world language fluency",
+    "summaryZh": "Praktika如何使用GPT-4.1和GPT-5.2来构建自适应人工智能导师，以个性化课程、跟踪进度并帮助学习者实现真实世界的语言流利度",
+    "highlights": [
+      "How Praktika uses GPT-4.1 and GPT-5.2 to build adaptive AI tutors that personalize lessons, track progress, and help learners achieve real-world language fluency"
+    ],
+    "highlightsZh": [
+      "Praktika如何使用GPT-4.1和GPT-5.2来构建自适应人工智能导师，以个性化课程、跟踪进度并帮助学习者实现真实世界的语言流利度"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "b503f99b3fba",
+    "title": "巨头集体出手涨价，AI涨价潮来了，龙虾员工要用不起了？",
+    "titleZh": "巨头集体出手涨价，AI涨价潮来了，龙虾员工要用不起了？",
+    "link": "https://36kr.com/p/3762217279861510",
+    "source": "36Kr AI",
+    "sourceType": "media",
+    "sourceRegion": "cn",
+    "sourceLanguage": "zh",
+    "feedName": "36Kr AI",
+    "sourceHomepage": "https://36kr.com/information/AI/",
+    "publishedAt": "2026-01-21T16:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "AI大模型集体涨价，算力需求激增致成本上升。",
+    "summaryZh": "AI大模型集体涨价，算力需求激增致成本上升。",
+    "highlights": [
+      "AI大模型集体涨价，算力需求激增致成本上升。"
+    ],
+    "highlightsZh": [
+      "AI大模型集体涨价，算力需求激增致成本上升。"
+    ],
+    "tags": [
+      "模型",
+      "算力"
+    ],
+    "score": 50,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-13T07:23:32.816Z",
+    "originalContentText": "巨头集体出手涨价，AI涨价潮来了，龙虾员工要用不起了？\n\n最近几年，伴随着AI的高速发展，国内各家互联网巨头都在纷纷布局AI大模型，特别是最近一段时间，龙虾的火热让各家的AI可以说是赚的盆满钵满，然而不出意外的是AI的涨价潮也是如期而至，就在亚马逊、谷歌等海外巨头以及BAT等国内巨头集体出手涨价的情况下，智谱等国内大模型企业也跟随涨价了，让人不禁想问这涨价潮来了，龙虾员工都要用不起了吗？\n\n一、巨头集体出手涨价\n\n据海报新闻的报道，近日，光模块、算力硬件概念股逆势大涨。这背后是今年OpenClaw（国内常称“龙虾”）狂潮从国外席卷至国内，Token调用量暴涨，直接拉动算力需求，Token产业链兑现成为新的核心关注点。\n\n阿里云、百度智能云先后官宣上调AI算力相关产品价格。阿里云官网公告称，因全球AI需求爆发、供应链涨价，阿里云AI算力、存储等产品最高涨价34%。据知情人士透露，阿里云旗下MaaS业务平台百炼在今年1月至3月创下历史最高增速。\n\n百度智能云称，受全球人工智能应用快速发展影响，算力需求持续攀升，核心硬件及相关基础设施成本出现显著上涨，因此决定将AI算力相关产品服务价格上调5%至30%，并行文件存储等上调约30%。\n\n年初，亚马逊AWS、谷歌云相继公布部分服务涨价。1月22日，AWS宣布对用于大模型训练的EC2实施15%的价格上调。1月27日，谷歌云对CDN Interconnect、Direct Peering、Carrier Peering等数据传输服务价格进行了大幅调整，北美地区涨幅达到100%。\n\n国内方面，腾讯云3月11日宣布大模型服务涨价，对部分模型的计费策略进行了调整。以Tencent HY2.0 Instruct模型为例，其输入价格由原先的0.0008元/千Tokens大幅上调至0.004505元/千Tokens，涨幅高达463.13%。\n\n而且涨价潮并没有终结，4月8日，智谱公布了今年以来的第三次提价计划，发布新一代旗舰模型GLM-5.1的同时提价10%，而其距离上次调价30%起仅一个月。与2025年降价、免费试用相对，目前明显的信号是，国产AI大模型正在进入集体涨价的时代。\n\n二、AI涨价潮来了，龙虾员工要用不起了？\n\n近期，各大大模型巨头集体宣布旗下部分云服务及相关产品涨价，让原先都在担忧自己被蒸馏的人似乎又看到了希望，相比于昂贵的词元token，我们似乎更便宜一些，那么这波涨价潮背后究竟隐藏着怎样的产业逻辑？\n\n首先，AI智能体爆火引发算力需求井喷。从需求侧的结构性突变来看，以OpenClaw为代表的新一代AI智能体的爆火，彻底重构了算力消费的底层逻辑。在过去的大模型应用初期，用户行为多局限于单轮对话或简单的文本生成，这种交互模式下的Token消耗量相对有限且可预测。然而，随着自主智能体技术的成熟，AI不再是被动的问答机器，而是能够自主规划、调用工具、执行复杂任务的数字员工。\n\n一个成熟的智能体在单日运行中的人均Token消耗量，往往是传统聊天用户的几十倍甚至上百倍。这种指数级的需求激增，并非线性的业务增长，而是维度的跃迁。当海量的智能体同时在线，进行着高频的逻辑推理与数据交互时，原本为人类交互设计的算力基础设施瞬间面临巨大的吞吐压力。\n\n这种需求的爆发式增长，直接打破了旧有的供需平衡，使得算力资源从“相对充裕”迅速转向“极度稀缺”。当边际效用急剧上升而供给弹性不足时，价格的上涨不仅是市场规律的必然体现，更是筛选高价值应用场景、遏制低效算力浪费的必要手段。\n\n其次，核心硬件供不应求致算力紧张。从供给侧的硬约束来看，高性能算力芯片与HBM高带宽内存等核心硬件的供不应求，构成了本轮涨价潮的物理基石。尽管国内云厂商在过去几年中大力投入国产算力生态的建设，但在高端训练与推理芯片领域，全球范围内的产能瓶颈依然严峻。特别是作为大模型“血液”的HBM内存，其技术壁垒高、扩产周期长，成为了制约算力释放的关键短板。\n\n目前，算力已不再是单纯的服务器堆砌，而是由先进制程芯片、高速互联网络与高带宽存储共同构成的精密系统。核心硬件的短缺导致算力供给的边际成本显著上升，云厂商无法再通过简单的规模效应来稀释成本。这种供给侧的刚性约束，迫使行业必须重新审视算力的定价机制。当“算力即权力”成为共识，拥有稳定、高性能算力供给能力的厂商，自然拥有了更强的议价权。此时的涨价，实则是对稀缺硬件资源价值的合理重估，是产业链上游成本压力向下游传导的必然结果。\n\n最近一段时间，笔者的不少关系不错的科技公司的朋友，特别是CTO们普遍都在抱怨，现在的存储芯片和服务器的价格，真的是买不起了，各种算力的争夺战感觉瞬间就成为了成本的争夺战，这才是当前最值得关注的地方。\n\n第三，以价换量的行业定价逻辑已经发生了根本性变革。回顾云计算产业过去十年的发展历程，我们不难发现一个怪圈：恶性价格战。为了争夺市场份额，各大厂商纷纷祭出“价格屠刀”，不仅挤压了竞争对手的生存空间，也极大地压缩了自身的利润边界。在某些时段，云服务的价格甚至低于其运营成本，出现了典型的“内卷”现象。这种“以价换量”的模式在移动互联网时代或许有效，因为当时的边际成本趋近于零，且流量变现路径清晰。\n\n然而，AI时代的到来彻底打破了这一逻辑。现在的算力不再是廉价的通用商品，而是昂贵的专用生产资料。如果继续维持低价策略，云厂商将无法覆盖高昂的GPU采购成本和电力运营成本，更别提持续投入巨额研发资金进行模型迭代了。健康的产业发展必须建立在合理的利润基础之上。只有当价格回归价值，企业才有能力进行再生产和创新。\n\n科技巨头们的集体涨价，实际上是行业的一种“集体理性回归”。这标志着中国云计算市场正在告别“烧钱补贴”的草莽时代，进入以技术实力和服务质量为核心的价值竞争时代。这对于整个行业的良性生态构建是极为有利的，它让竞争的焦点从“谁更便宜”转向了“谁更稳定、谁更智能、谁更能解决问题”，这无疑是产业升级的积极信号。\n\n第四，词元经济学兴起，分层定价将成为常态。曾经，数据中心被视为存储数据的“仓库”，其价值主要体现在空间的租赁与数据的保管上。而在AI时代，数据中心已演变为生产智能的“工厂”，其核心产出是高价值的词元Token。这一角色的转变，直接催生了新的定价逻辑，未来的AI服务将不再沿用传统的包年包月或按量计费模式，而是依据词元Token的吞吐量、响应速度、推理复杂度等维度进行分层定价。\n\n这种精细化的定价策略，能够更精准地匹配不同场景下的算力需求，让高实时性、高复杂度的任务支付更高的溢价，而让离线批处理等任务享受更低的成本。这不仅是商业模式的创新，更是资源配置效率的极大提升。通过价格杠杆，行业将引导算力资源流向那些创造最大社会价值的领域，避免资源的错配与浪费。\n\n也就是在这样的情况下，不少公司甚至直接用token的提供量作为全新的员工福利，当然我们一直在讨论token到底是生产资料还是员工薪酬福利的问题，但毋庸置疑的是现在的时代词元已经成为了一种制约AI公司发展的重要算力瓶颈。更有甚者，有笔者的朋友向笔者吐槽，原先年初朋友所在的科技巨头公司要求全员使用龙虾，用自己的数字孪生，结果最近在海量消耗下提出了限流。\n\n最终，面对着日益昂贵的算力资源，AI龙虾的未来到底该咋办？我们还能用的起吗？\n\n本文来自微信公众号“江瀚视野观察”，作者：江瀚视野观察，36氪经授权发布。\n\n该文观点仅代表作者本人，36氪平台仅提供信息存储空间服务。",
+    "originalContentAvailable": true,
+    "originalContentWarning": "",
+    "snapshotFetchedAt": "2026-04-13T07:26:47.429Z",
+    "coverImage": "/images/ai-news/b503f99b3fba-dda1cd2653c3.jpg",
+    "coverImageOriginal": "https://img.36krcdn.com/hsossms/20260413/v2_c9700abc4d7c4bb0aae7882ea00a8dca@5091053@ai_oswg1054066oswg1053oswg495_img_png~tplv-1marlgjv7f-ai-v3:600:400:600:400:q70.jpg",
+    "coverImageAlt": "巨头集体出手涨价，AI涨价潮来了，龙虾员工要用不起了？"
+  },
+  {
+    "id": "71c27c70d137",
+    "title": "How Higgsfield turns simple ideas into cinematic social videos",
+    "titleZh": "希格斯菲尔德如何将简单的想法转化为电影般的社交视频",
+    "link": "https://openai.com/index/higgsfield",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-21T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Discover how Higgsfield gives creators cinematic, social-first video output from simple inputs using OpenAI GPT-4.1, GPT-5, and Sora 2.",
+    "summaryZh": "了解希格斯菲尔德如何使用OpenAI GPT-4.1、GPT-5和Sora 2 ，通过简单输入为创作者提供电影般的社交优先视频输出。",
+    "highlights": [
+      "Discover how Higgsfield gives creators cinematic, social-first video output from simple inputs using OpenAI GPT-4.1, GPT-5, and Sora 2."
+    ],
+    "highlightsZh": [
+      "了解希格斯菲尔德如何使用OpenAI GPT-4.1、GPT-5和Sora 2 ，通过简单输入为创作者提供电影般的社交优先视频输出。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "03d0ef228762",
+    "title": "Introducing Edu for Countries",
+    "titleZh": "为国家/地区推出Edu",
+    "link": "https://openai.com/index/edu-for-countries",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-21T01:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Edu for Countries is a new OpenAI initiative helping governments use AI to modernize education systems and build future-ready workforces.",
+    "summaryZh": "Edu for Countries是一项新的OpenAI计划，旨在帮助各国政府利用人工智能实现教育系统的现代化，并建立面向未来的劳动力队伍。",
+    "highlights": [
+      "Edu for Countries is a new OpenAI initiative helping governments use AI to modernize education systems and build future-ready workforces."
+    ],
+    "highlightsZh": [
+      "Edu for Countries是一项新的OpenAI计划，旨在帮助各国政府利用人工智能实现教育系统的现代化，并建立面向未来的劳动力队伍。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "aca3ad17ccab",
+    "title": "How countries can end the capability overhang",
+    "titleZh": "各国如何解决能力悬而未决的问题",
+    "link": "https://openai.com/index/how-countries-can-end-the-capability-overhang",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-21T01:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our latest report reveals stark differences in advanced AI adoption across countries and outlines new initiatives to help nations capture productivity gains from AI.",
+    "summaryZh": "我们的最新报告揭示了各国先进人工智能采用的明显差异，并概述了帮助各国从人工智能中获取生产力收益的新举措。",
+    "highlights": [
+      "Our latest report reveals stark differences in advanced AI adoption across countries and outlines new initiatives to help nations capture productivity gains from AI."
+    ],
+    "highlightsZh": [
+      "我们的最新报告揭示了各国先进人工智能采用的明显差异，并概述了帮助各国从人工智能中获取生产力收益的新举措。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "6ed9efa8b174",
+    "title": "Horizon 1000: Advancing AI for primary healthcare",
+    "titleZh": "Horizon 1000 ：推进初级卫生保健的人工智能",
+    "link": "https://openai.com/index/horizon-1000",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-20T21:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and the Gates Foundation launch Horizon 1000, a $50M pilot advancing AI capabilities for healthcare in Africa. The initiative aims to reach 1,000 clinics by 2028.",
+    "summaryZh": "OpenAI和盖茨基金会推出了Horizon 1000 ，这是一项耗资5000万美元的试点项目，旨在推进非洲医疗保健的人工智能能力。该计划的目标是到2028年达到1,000家诊所。",
+    "highlights": [
+      "OpenAI and the Gates Foundation launch Horizon 1000, a $50M pilot advancing AI capabilities for healthcare in Africa.",
+      "The initiative aims to reach 1,000 clinics by 2028."
+    ],
+    "highlightsZh": [
+      "OpenAI和盖茨基金会推出了Horizon 1000 ，这是一项耗资5000万美元的试点项目，旨在推进非洲医疗保健的人工智能能力。该计划的目标是到2028年达到1,000家诊所。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 70,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "90314fb861a5",
+    "title": "Stargate Community",
+    "titleZh": "星际之门社区",
+    "link": "https://openai.com/index/stargate-community",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-20T19:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Stargate Community plans detail a community-first approach to AI infrastructure, using locally tailored plans shaped by community input, energy needs, and workforce priorities.",
+    "summaryZh": "星际之门社区计划详细介绍了社区优先的人工智能基础设施方法，该方法使用由社区投入、能源需求和劳动力优先事项形成的本地定制计划。",
+    "highlights": [
+      "Stargate Community plans detail a community-first approach to AI infrastructure, using locally tailored plans shaped by community input, energy needs, and workforce priorities."
+    ],
+    "highlightsZh": [
+      "星际之门社区计划详细介绍了社区优先的人工智能基础设施方法，该方法使用由社区投入、能源需求和劳动力优先事项形成的本地定制计划。"
+    ],
+    "tags": [
+      "算力"
+    ],
+    "score": 58,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8fe35db9d836",
+    "title": "ServiceNow powers actionable enterprise AI with OpenAI",
+    "titleZh": "ServiceNow通过OpenAI为可操作的企业AI提供支持",
+    "link": "https://openai.com/index/servicenow-powers-actionable-enterprise-ai-with-openai",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-20T05:45:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "ServiceNow expands access to OpenAI frontier models to power AI-driven enterprise workflows, summarization, search, and voice across the ServiceNow Platform.",
+    "summaryZh": "ServiceNow扩展了对OpenAI前沿模型的访问，为整个ServiceNow平台的人工智能驱动的企业工作流程、总结、搜索和语音提供支持。",
+    "highlights": [
+      "ServiceNow expands access to OpenAI frontier models to power AI-driven enterprise workflows, summarization, search, and voice across the ServiceNow Platform."
+    ],
+    "highlightsZh": [
+      "ServiceNow扩展了对OpenAI前沿模型的访问，为整个ServiceNow平台的人工智能驱动的企业工作流程、总结、搜索和语音提供支持。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4628896343fc",
+    "title": "Our approach to age prediction",
+    "titleZh": "我们的年龄预测方法",
+    "link": "https://openai.com/index/our-approach-to-age-prediction",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-20T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "ChatGPT is rolling out age prediction to estimate if accounts are under or over 18, applying safeguards for teens and refining accuracy over time.",
+    "summaryZh": "ChatGPT正在推出年龄预测，以估计账号是否低于或超过18岁，为青少年提供保障措施，并随着时间的推移提高准确性。",
+    "highlights": [
+      "ChatGPT is rolling out age prediction to estimate if accounts are under or over 18, applying safeguards for teens and refining accuracy over time."
+    ],
+    "highlightsZh": [
+      "ChatGPT正在推出年龄预测，以估计账号是否低于或超过18岁，为青少年提供保障措施，并随着时间的推移提高准确性。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "7f96b809b58c",
+    "title": "Claude Code costs up to $200 a month. Goose does the same thing for free.",
+    "titleZh": "Claude Code每月的费用高达$ 200。Goose免费做同样的事情。",
+    "link": "https://venturebeat.com/infrastructure/claude-code-costs-up-to-usd200-a-month-goose-does-the-same-thing-for-free",
+    "source": "VentureBeat AI",
+    "sourceType": "media",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "VentureBeat AI",
+    "sourceHomepage": "https://venturebeat.com/ai/",
+    "publishedAt": "2026-01-19T14:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "The artificial intelligence coding revolution comes with a catch: it's expensive. Claude Code, Anthropic's terminal-based AI agent that can write, debug, and deploy code autonomously, has captured the imagination of software developers worldwide. But its pricing — ranging from $20 to $200 per month depending on usage —",
+    "summaryZh": "人工智能编码革命带来了一个问题：成本高昂。Claude Code是Anthropic基于终端的AI代理，可以自主编写、调试和部署代码，吸引了全球软件开发人员的想象力。但它的定价—每月从$ 20到$ 200不等，具体取决于使用情况—",
+    "highlights": [
+      "The artificial intelligence coding revolution comes with a catch: it's expensive.",
+      "Claude Code, Anthropic's terminal-based AI agent that can write, debug, and deploy code autonomously, has captured the imagination of software developers worldwide."
+    ],
+    "highlightsZh": [
+      "人工智能编码革命带来了一个问题：成本高昂。Claude Code是Anthropic基于终端的AI代理，可以自主编写、调试和部署代码，吸引了全球软件开发人员的想象力。但它的定价—每月从$ 20到$ 200不等，具体取决于使用情况—"
+    ],
+    "tags": [
+      "模型",
+      "开发工具"
+    ],
+    "score": 54,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "Claude Code每月的费用高达$ 200。Goose免费做同样的事情。"
+  },
+  {
+    "id": "6dd702da4da7",
+    "title": "AI for self empowerment",
+    "titleZh": "人工智能促进自我赋权",
+    "link": "https://openai.com/index/ai-for-self-empowerment",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-18T12:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "How AI can expand human agency by closing the capability overhang—helping people, businesses, and countries unlock real productivity, growth, and opportunity.",
+    "summaryZh": "人工智能如何通过关闭悬置的能力来扩展人类代理--帮助人们、企业和国家释放真正的生产力、增长和机会。",
+    "highlights": [
+      "How AI can expand human agency by closing the capability overhang—helping people, businesses, and countries unlock real productivity, growth, and opportunity."
+    ],
+    "highlightsZh": [
+      "人工智能如何通过关闭悬置的能力来扩展人类代理--帮助人们、企业和国家释放真正的生产力、增长和机会。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "人工智能促进自我赋权"
+  },
+  {
+    "id": "68ceabf8f6bf",
+    "title": "A business that scales with the value of intelligence",
+    "titleZh": "随着智能价值的增长而扩展的业务",
+    "link": "https://openai.com/index/a-business-that-scales-with-the-value-of-intelligence",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-18T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI’s business model scales with intelligence—spanning subscriptions, API, ads, commerce, and compute—driven by deepening ChatGPT adoption.",
+    "summaryZh": "通过深化ChatGPT的采用， OpenAI的商业模式可通过智能跨越订阅、API、广告、商务和计算驱动进行扩展。",
+    "highlights": [
+      "OpenAI’s business model scales with intelligence—spanning subscriptions, API, ads, commerce, and compute—driven by deepening ChatGPT adoption."
+    ],
+    "highlightsZh": [
+      "通过深化ChatGPT的采用， OpenAI的商业模式可通过智能跨越订阅、API、广告、商务和计算驱动进行扩展。"
+    ],
+    "tags": [
+      "模型",
+      "开发工具"
+    ],
+    "score": 82,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "26adfe014170",
+    "title": "Listen Labs raises $69M after viral billboard hiring stunt to scale AI customer interviews",
+    "titleZh": "Listen Labs在病毒式广告牌招聘噱头后筹集了6900万$ ，以扩大人工智能客户访谈规模",
+    "link": "https://venturebeat.com/technology/listen-labs-raises-usd69m-after-viral-billboard-hiring-stunt-to-scale-ai",
+    "source": "VentureBeat AI",
+    "sourceType": "media",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "VentureBeat AI",
+    "sourceHomepage": "https://venturebeat.com/ai/",
+    "publishedAt": "2026-01-16T14:01:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Alfred Wahlforss was running out of options. His startup, Listen Labs, needed to hire over 100 engineers, but competing against Mark Zuckerberg's $100 million offers seemed impossible. So he spent $5,000 — a fifth of his marketing budget — on a billboard in San Francisco displaying what looked like gibberish: five stri",
+    "summaryZh": "阿尔弗雷德·瓦尔福斯（ Alfred Wahlforss ）别无选择。他的创业公司Listen Labs需要雇佣100多名工程师，但与马克·扎克伯格的1亿美元报价竞争似乎是不可能的。因此，他在旧金山的一个广告牌上花费了5000美元（占其营销预算的五分之一） ，展示了看起来像是胡言乱语的东西：",
+    "highlights": [
+      "Alfred Wahlforss was running out of options.",
+      "His startup, Listen Labs, needed to hire over 100 engineers, but competing against Mark Zuckerberg's $100 million offers seemed impossible."
+    ],
+    "highlightsZh": [
+      "阿尔弗雷德·瓦尔福斯（ Alfred Wahlforss ）别无选择。他的创业公司Listen Labs需要雇佣100多名工程师，但与马克·扎克伯格的1亿美元报价竞争似乎是不可能的。因此，他在旧金山的一个广告牌上花费了5000美元（占其营销预算的五分之一） ，展示了看起来像是胡言乱语的东西："
+    ],
+    "tags": [],
+    "score": 22,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "Listen Labs在病毒式广告牌招聘噱头后筹集了6900万$ ，以扩大人工智能客户访谈规模"
+  },
+  {
+    "id": "5ada77db5648",
+    "title": "The truth left out from Elon Musk’s recent court filing",
+    "titleZh": "埃隆·马斯克（ Elon Musk ）最近的法庭文件中遗漏的真相",
+    "link": "https://openai.com/index/the-truth-elon-left-out",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-16T12:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "The truth left out from Elon Musk’s recent court filing.",
+    "summaryZh": "埃隆·马斯克（ Elon Musk ）最近的法庭文件中遗漏了真相。",
+    "highlights": [
+      "The truth left out from Elon Musk’s recent court filing."
+    ],
+    "highlightsZh": [
+      "埃隆·马斯克（ Elon Musk ）最近的法庭文件中遗漏了真相。"
+    ],
+    "tags": [],
+    "score": 48,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "埃隆·马斯克（ Elon Musk ）最近的法庭文件中遗漏的真相"
+  },
+  {
+    "id": "d24e0764a21c",
+    "title": "D4RT: Teaching AI to see the world in four dimensions",
+    "titleZh": "D4RT ：教授人工智能从四个维度看世界",
+    "link": "https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2026-01-16T10:39:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "D4RT: Unified, efficient 4D reconstruction and tracking up to 300x faster than prior methods.",
+    "summaryZh": "D4RT ：统一、高效的4D重建和跟踪速度比以前的方法快300倍。",
+    "highlights": [
+      "D4RT: Unified, efficient 4D reconstruction and tracking up to 300x faster than prior methods."
+    ],
+    "highlightsZh": [
+      "D4RT ：统一、高效的4D重建和跟踪速度比以前的方法快300倍。"
+    ],
+    "tags": [],
+    "score": 46,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "0f1e6ca37d64",
+    "title": "Introducing ChatGPT Go, now available worldwide",
+    "titleZh": "推出ChatGPT Go ，现已在全球推出",
+    "link": "https://openai.com/index/introducing-chatgpt-go",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-16T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "ChatGPT Go is now available worldwide, offering expanded access to GPT-5.2 Instant, higher usage limits, and longer memory—making advanced AI more affordable globally.",
+    "summaryZh": "ChatGPT Go现已在全球范围内推出，提供对GPT-5.2即时、更高使用限制和更长内存的扩展访问权限，使全球范围内的高级人工智能更加经济实惠。",
+    "highlights": [
+      "ChatGPT Go is now available worldwide, offering expanded access to GPT-5.2 Instant, higher usage limits, and longer memory—making advanced AI more affordable globally."
+    ],
+    "highlightsZh": [
+      "ChatGPT Go现已在全球范围内推出，提供对GPT-5.2即时、更高使用限制和更长内存的扩展访问权限，使全球范围内的高级人工智能更加经济实惠。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "61959f22e780",
+    "title": "Our approach to advertising and expanding access to ChatGPT",
+    "titleZh": "我们为ChatGPT投放广告并扩大访问范围的方法",
+    "link": "https://openai.com/index/our-approach-to-advertising-and-expanding-access",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-16T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI plans to test advertising in the U.S. for ChatGPT’s free and Go tiers to expand affordable access to AI worldwide, while protecting privacy, trust, and answer quality.",
+    "summaryZh": "OpenAI计划在美国为ChatGPT的免费和围棋等级测试广告，以扩大全球范围内对AI的经济访问，同时保护隐私、信任和答案质量。",
+    "highlights": [
+      "OpenAI plans to test advertising in the U.S. for ChatGPT’s free and Go tiers to expand affordable access to AI worldwide, while protecting privacy, trust, and answer quality."
+    ],
+    "highlightsZh": [
+      "OpenAI计划在美国为ChatGPT的免费和围棋等级测试广告，以扩大全球范围内对AI的经济访问，同时保护隐私、信任和答案质量。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "c37941878031",
+    "title": "Investing in Merge Labs",
+    "titleZh": "投资合并实验室",
+    "link": "https://openai.com/index/investing-in-merge-labs",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-15T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI is investing in Merge Labs to support new brain computer interfaces that bridge biological and artificial intelligence to maximize human ability, agency, and experience.",
+    "summaryZh": "OpenAI正在投资Merge Labs ，以支持新的大脑计算机接口，将生物智能和人工智能结合起来，以最大限度地提高人类的能力、能动性和经验。",
+    "highlights": [
+      "OpenAI is investing in Merge Labs to support new brain computer interfaces that bridge biological and artificial intelligence to maximize human ability, agency, and experience."
+    ],
+    "highlightsZh": [
+      "OpenAI正在投资Merge Labs ，以支持新的大脑计算机接口，将生物智能和人工智能结合起来，以最大限度地提高人类的能力、能动性和经验。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "3cea822d9d3c",
+    "title": "Strengthening the U.S. AI supply chain through domestic manufacturing",
+    "titleZh": "通过国内制造加强美国人工智能供应链",
+    "link": "https://openai.com/index/strengthening-the-us-ai-supply-chain",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-15T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI launches a new RFP to strengthen the U.S. AI supply chain by accelerating domestic manufacturing, creating jobs, and scaling AI infrastructure.",
+    "summaryZh": "OpenAI推出一项新的RFP ，通过加速国内制造业、创造就业机会和扩展人工智能基础设施来加强美国人工智能供应链。",
+    "highlights": [
+      "OpenAI launches a new RFP to strengthen the U.S.",
+      "AI supply chain by accelerating domestic manufacturing, creating jobs, and scaling AI infrastructure."
+    ],
+    "highlightsZh": [
+      "OpenAI推出一项新的RFP ，通过加速国内制造业、创造就业机会和扩展人工智能基础设施来加强美国人工智能供应链。"
+    ],
+    "tags": [
+      "发布",
+      "算力"
+    ],
+    "score": 76,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "8566227622a6",
+    "title": "OpenAI partners with Cerebras",
+    "titleZh": "OpenAI与Cerebras合作",
+    "link": "https://openai.com/index/cerebras-partnership",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-14T14:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI partners with Cerebras to add 750MW of high-speed AI compute, reducing inference latency and making ChatGPT faster for real-time AI workloads.",
+    "summaryZh": "OpenAI与Cerebras合作，增加了750MW的高速AI计算，减少了推理延迟，并使ChatGPT更快地用于实时AI工作负载。",
+    "highlights": [
+      "OpenAI partners with Cerebras to add 750MW of high-speed AI compute, reducing inference latency and making ChatGPT faster for real-time AI workloads."
+    ],
+    "highlightsZh": [
+      "OpenAI与Cerebras合作，增加了750MW的高速AI计算，减少了推理延迟，并使ChatGPT更快地用于实时AI工作负载。"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "11b268cc7554",
+    "title": "Veo 3.1 Ingredients to Video: More consistency, creativity and control",
+    "titleZh": "Veo 3.1成分到视频：更一致、更具创造力和控制力",
+    "link": "https://deepmind.google/blog/veo-3-1-ingredients-to-video-more-consistency-creativity-and-control/",
+    "source": "Google DeepMind",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "Google DeepMind",
+    "sourceHomepage": "https://www.deepmind.com/blog",
+    "publishedAt": "2026-01-13T17:00:18.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Our latest Veo update generates lively, dynamic clips that feel natural and engaging — and supports vertical video generation.",
+    "summaryZh": "我们最新的VEO更新生成生动、动态的视频片段，让人感觉自然和引人入胜，并支持垂直视频生成。",
+    "highlights": [
+      "Our latest Veo update generates lively, dynamic clips that feel natural and engaging — and supports vertical video generation."
+    ],
+    "highlightsZh": [
+      "我们最新的VEO更新生成生动、动态的视频片段，让人感觉自然和引人入胜，并支持垂直视频生成。"
+    ],
+    "tags": [],
+    "score": 50,
+    "importance": "快讯",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "0ab97666c3ce",
+    "title": "Zenken boosts a lean sales team with ChatGPT Enterprise",
+    "titleZh": "Zenken通过ChatGPT Enterprise提升精益销售团队",
+    "link": "https://openai.com/index/zenken",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-13T16:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "By rolling out ChatGPT Enterprise company-wide, Zenken has boosted sales performance, cut preparation time, and increased proposal success rates. AI-supported workflows are helping a lean team deliver more personalized, effective customer engagement.",
+    "summaryZh": "通过在全公司范围内推出ChatGPT Enterprise ， Zenken提高了销售业绩，缩短了准备时间，并提高了提案成功率。人工智能支持的工作流程正在帮助精益团队提供更个性化、更有效的客户互动。",
+    "highlights": [
+      "By rolling out ChatGPT Enterprise company-wide, Zenken has boosted sales performance, cut preparation time, and increased proposal success rates.",
+      "AI-supported workflows are helping a lean team deliver more personalized, effective customer engagement."
+    ],
+    "highlightsZh": [
+      "通过在全公司范围内推出ChatGPT Enterprise ， Zenken提高了销售业绩，缩短了准备时间，并提高了提案成功率。人工智能支持的工作流程正在帮助精益团队提供更个性化、更有效的客户互动。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "4143ec6f5c16",
+    "title": "Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI",
+    "titleZh": "Salesforce推出新的Slackbot AI代理，在工作场所AI中与微软和谷歌作战",
+    "link": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and",
+    "source": "VentureBeat AI",
+    "sourceType": "media",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "VentureBeat AI",
+    "sourceHomepage": "https://venturebeat.com/ai/",
+    "publishedAt": "2026-01-13T13:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Salesforce on Tuesday launched an entirely rebuilt version of Slackbot, the company's workplace assistant, transforming it from a simple notification tool into what executives describe as a fully powered AI agent capable of searching enterprise data, drafting documents, and taking action on behalf of employees. The new",
+    "summaryZh": "Salesforce周二推出了该公司工作场所助理Slackbot的完全重建版本，将其从一个简单的通知工具转变为高管所描述的功能齐全的人工智能代理，能够搜索企业数据、起草文件并代表员工采取行动。",
+    "highlights": [
+      "Salesforce on Tuesday launched an entirely rebuilt version of Slackbot, the company's workplace assistant, transforming it from a simple notification tool into what executives desc"
+    ],
+    "highlightsZh": [
+      "Salesforce周二推出了该公司工作场所助理Slackbot的完全重建版本，将其从一个简单的通知工具转变为高管所描述的功能齐全的人工智能代理，能够搜索企业数据、起草文件并代表员工采取行动。"
+    ],
+    "tags": [
+      "发布",
+      "模型"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "Salesforce推出新的Slackbot AI代理，在工作场所AI中与微软和谷歌作战"
+  },
+  {
+    "id": "8aadbbf9804d",
+    "title": "Anthropic launches Cowork, a Claude Desktop agent that works in your files — no coding required",
+    "titleZh": "Anthropic推出Cowork ，这是Claude Desktop代理，可在您的文件中工作—无需编码",
+    "link": "https://venturebeat.com/technology/anthropic-launches-cowork-a-claude-desktop-agent-that-works-in-your-files-no",
+    "source": "VentureBeat AI",
+    "sourceType": "media",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "VentureBeat AI",
+    "sourceHomepage": "https://venturebeat.com/ai/",
+    "publishedAt": "2026-01-12T11:30:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Anthropic released Cowork on Monday, a new AI agent capability that extends the power of its wildly successful Claude Code tool to non-technical users — and according to company insiders, the team built the entire feature in approximately a week and a half, largely using Claude Code itself. The launch marks a major inf",
+    "summaryZh": "Anthropic周一发布了Cowork ，这是一项新的人工智能代理功能，将其非常成功的Claude Code工具的功能扩展到非技术用户—据公司内部人士称，该团队在大约一周半的时间内构建了整个功能，主要使用Claude Code本身。此次发布标志着一个重要的信息",
+    "highlights": [
+      "Anthropic released Cowork on Monday, a new AI agent capability that extends the power of its wildly successful Claude Code tool to non-technical users — and according to company in",
+      "The launch marks a major inf"
+    ],
+    "highlightsZh": [
+      "Anthropic周一发布了Cowork ，这是一项新的人工智能代理功能，将其非常成功的Claude Code工具的功能扩展到非技术用户—据公司内部人士称，该团队在大约一周半的时间内构建了整个功能，主要使用Claude Code本身。此次发布标志着一个重要的信息"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "Anthropic推出Cowork ，这是Claude Desktop代理，可在您的文件中工作—无需编码"
+  },
+  {
+    "id": "905205e9bf67",
+    "title": "OpenAI’s Raising Concerns Policy",
+    "titleZh": "OpenAI的提出疑虑政策",
+    "link": "https://openai.com/index/openai-raising-concerns-policy",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-12T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re publishing our Raising Concerns Policy, which protects employees’ rights to make protected disclosures.",
+    "summaryZh": "我们发布了《提出疑虑政策》，保护员工进行受保护披露的权利。",
+    "highlights": [
+      "We’re publishing our Raising Concerns Policy, which protects employees’ rights to make protected disclosures."
+    ],
+    "highlightsZh": [
+      "我们发布了《提出疑虑政策》，保护员工进行受保护披露的权利。"
+    ],
+    "tags": [
+      "监管"
+    ],
+    "score": 60,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-04-21T18:15:10.699Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "OpenAI的提出疑虑政策"
+  },
+  {
+    "id": "1d2d99cb07ef",
+    "title": "OpenAI and SoftBank Group partner with SB Energy",
+    "titleZh": "OpenAI和软银集团与SB Energy合作",
+    "link": "https://openai.com/index/stargate-sb-energy-partnership",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-09T11:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and SoftBank Group partner with SB Energy to develop multi-gigawatt AI data center campuses, including a 1.2 GW Texas facility supporting the Stargate initiative.",
+    "summaryZh": "OpenAI和软银集团与SB Energy合作开发数千兆瓦的人工智能数据中心园区，包括一个支持星际之门计划的1.2吉瓦德克萨斯州设施。",
+    "highlights": [
+      "OpenAI and SoftBank Group partner with SB Energy to develop multi-gigawatt AI data center campuses, including a 1.2 GW Texas facility supporting the Stargate initiative."
+    ],
+    "highlightsZh": [
+      "OpenAI和软银集团与SB Energy合作开发数千兆瓦的人工智能数据中心园区，包括一个支持星际之门计划的1.2吉瓦德克萨斯州设施。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "09944dd5bab1",
+    "title": "Datadog uses Codex for system-level code review",
+    "titleZh": "Datadog使用Codex进行系统级代码审查",
+    "link": "https://openai.com/index/datadog",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-09T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI and Datadog brand graphic with the OpenAI wordmark on the left, the Datadog logo on the right, and a central abstract brown fur-like texture panel on a white background.",
+    "summaryZh": "OpenAI和Datadog品牌图形，左侧为OpenAI文字商标，右侧为Datadog徽标，白色背景上有一个中央抽象棕色毛皮状纹理面板。",
+    "highlights": [
+      "OpenAI and Datadog brand graphic with the OpenAI wordmark on the left, the Datadog logo on the right, and a central abstract brown fur-like texture panel on a white background."
+    ],
+    "highlightsZh": [
+      "OpenAI和Datadog品牌图形，左侧为OpenAI文字商标，右侧为Datadog徽标，白色背景上有一个中央抽象棕色毛皮状纹理面板。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 64,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "bb41bbc55720",
+    "title": "OpenAI for Healthcare",
+    "titleZh": "用于医疗保健的OpenAI",
+    "link": "https://openai.com/index/openai-for-healthcare",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-08T12:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "OpenAI for Healthcare enables secure, enterprise-grade AI that supports HIPAA compliance—reducing administrative burden and supporting clinical workflows.",
+    "summaryZh": "OpenAI for Healthcare支持安全的企业级AI ，支持HIPAA合规性，从而减轻管理负担并支持临床工作流程。",
+    "highlights": [
+      "OpenAI for Healthcare enables secure, enterprise-grade AI that supports HIPAA compliance—reducing administrative burden and supporting clinical workflows."
+    ],
+    "highlightsZh": [
+      "OpenAI for Healthcare支持安全的企业级AI ，支持HIPAA合规性，从而减轻管理负担并支持临床工作流程。"
+    ],
+    "tags": [],
+    "score": 56,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "0f7e9213fe84",
+    "title": "Netomi’s lessons for scaling agentic systems into the enterprise",
+    "titleZh": "Netomi将代理系统扩展到企业的经验教训",
+    "link": "https://openai.com/index/netomi",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-08T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "How Netomi scales enterprise AI agents using GPT-4.1 and GPT-5.2—combining concurrency, governance, and multi-step reasoning for reliable production workflows.",
+    "summaryZh": "Netomi如何使用GPT-4.1和GPT-5.2扩展企业AI代理--将并发、治理和多步推理相结合，以实现可靠的生产工作流程。",
+    "highlights": [
+      "How Netomi scales enterprise AI agents using GPT-4.1 and GPT-5.2—combining concurrency, governance, and multi-step reasoning for reliable production workflows."
+    ],
+    "highlightsZh": [
+      "Netomi如何使用GPT-4.1和GPT-5.2扩展企业AI代理--将并发、治理和多步推理相结合，以实现可靠的生产工作流程。"
+    ],
+    "tags": [
+      "模型",
+      "监管"
+    ],
+    "score": 80,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "fed46196ed24",
+    "title": "Nous Research's NousCoder-14B is an open-source coding model landing right in the Claude Code moment",
+    "titleZh": "Nous Research的NousCoder-14B是一个直接登陆Claude Code时刻的开源编码模型",
+    "link": "https://venturebeat.com/technology/nous-researchs-nouscoder-14b-is-an-open-source-coding-model-landing-right-in",
+    "source": "VentureBeat AI",
+    "sourceType": "media",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "VentureBeat AI",
+    "sourceHomepage": "https://venturebeat.com/ai/",
+    "publishedAt": "2026-01-07T20:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Nous Research, the open-source artificial intelligence startup backed by crypto venture firm Paradigm, released a new competitive programming model on Monday that it says matches or exceeds several larger proprietary systems — trained in just four days using 48 of Nvidia's latest B200 graphics processors. The model, ca",
+    "summaryZh": "由加密风险投资公司Paradigm支持的开源人工智能初创公司Nous Research周一发布了一种新的竞争性编程模型，称它与几个更大的专有系统相匹配或超过了几个更大的专有系统—在短短四天内使用Nvidia最新的48个B200图形处理器进行了培训。模型， CA",
+    "highlights": [
+      "Nous Research, the open-source artificial intelligence startup backed by crypto venture firm Paradigm, released a new competitive programming model on Monday that it says matches o"
+    ],
+    "highlightsZh": [
+      "由加密风险投资公司Paradigm支持的开源人工智能初创公司Nous Research周一发布了一种新的竞争性编程模型，称它与几个更大的专有系统相匹配或超过了几个更大的专有系统—在短短四天内使用Nvidia最新的48个B200图形处理器进行了培训。模型， CA"
+    ],
+    "tags": [
+      "发布",
+      "模型",
+      "开发工具",
+      "开源"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "Nous Research的NousCoder-14B是一个直接登陆Claude Code时刻的开源编码模型"
+  },
+  {
+    "id": "9f2f745e33d6",
+    "title": "How Tolan builds voice-first AI with GPT-5.1",
+    "titleZh": "Tolan如何使用GPT-5.1构建语音优先的人工智能",
+    "link": "https://openai.com/index/tolan",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-07T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Tolan built a voice-first AI companion with GPT-5.1, combining low-latency responses, real-time context reconstruction, and memory-driven personalities for natural conversations.",
+    "summaryZh": "Tolan使用GPT-5.1构建了一个语音优先的人工智能伴侣，结合了低延迟响应、实时上下文重构和记忆驱动的个性来进行自然对话。",
+    "highlights": [
+      "Tolan built a voice-first AI companion with GPT-5.1, combining low-latency responses, real-time context reconstruction, and memory-driven personalities for natural conversations."
+    ],
+    "highlightsZh": [
+      "Tolan使用GPT-5.1构建了一个语音优先的人工智能伴侣，结合了低延迟响应、实时上下文重构和记忆驱动的个性来进行自然对话。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "164e984cf638",
+    "title": "Introducing ChatGPT Health",
+    "titleZh": "ChatGPT Health简介",
+    "link": "https://openai.com/index/introducing-chatgpt-health",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-07T00:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "ChatGPT Health is a dedicated experience that securely connects your health data and apps, with privacy protections and a physician-informed design.",
+    "summaryZh": "ChatGPT Health是一种专用体验，可安全地连接您的健康数据和应用程序，并提供隐私保护和医生知情的设计。",
+    "highlights": [
+      "ChatGPT Health is a dedicated experience that securely connects your health data and apps, with privacy protections and a physician-informed design."
+    ],
+    "highlightsZh": [
+      "ChatGPT Health是一种专用体验，可安全地连接您的健康数据和应用程序，并提供隐私保护和医生知情的设计。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 66,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "d03e2f3a734d",
+    "title": "The creator of Claude Code just revealed his workflow, and developers are losing their minds",
+    "titleZh": "Claude Code的创建者刚刚透露了他的工作流程，开发人员正在失去理智",
+    "link": "https://venturebeat.com/technology/the-creator-of-claude-code-just-revealed-his-workflow-and-developers-are",
+    "source": "VentureBeat AI",
+    "sourceType": "media",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "VentureBeat AI",
+    "sourceHomepage": "https://venturebeat.com/ai/",
+    "publishedAt": "2026-01-05T07:45:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "When the creator of the world's most advanced coding agent speaks, Silicon Valley doesn't just listen — it takes notes. For the past week, the engineering community has been dissecting a thread on X from Boris Cherny, the creator and head of Claude Code at Anthropic. What began as a casual sharing of his personal termi",
+    "summaryZh": "当世界上最先进的编码代理的创造者说话时，硅谷不仅仅是倾听—它需要记笔记。在过去的一周里，工程界一直在剖析Anthropic的Claude Code创始人兼负责人Boris Cherny在X上的一段话。最初是随意分享他的个人任期",
+    "highlights": [
+      "When the creator of the world's most advanced coding agent speaks, Silicon Valley doesn't just listen — it takes notes.",
+      "For the past week, the engineering community has been dissecting a thread on X from Boris Cherny, the creator and head of Claude Code at Anthropic."
+    ],
+    "highlightsZh": [
+      "当世界上最先进的编码代理的创造者说话时，硅谷不仅仅是倾听—它需要记笔记。在过去的一周里，工程界一直在剖析Anthropic的Claude Code创始人兼负责人Boris Cherny在X上的一段话。最初是随意分享他的个人任期"
+    ],
+    "tags": [
+      "模型",
+      "开发工具"
+    ],
+    "score": 54,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-05-07T08:01:26.961Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": "Claude Code的创建者刚刚透露了他的工作流程，开发人员正在失去理智"
+  },
+  {
+    "id": "26d74e12ea3d",
+    "title": "Announcing OpenAI Grove Cohort 2",
+    "titleZh": "宣布OpenAI Grove队列2",
+    "link": "https://openai.com/index/openai-grove",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2026-01-02T10:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "Applications are now open for OpenAI Grove Cohort 2, a 5-week founder program designed for individuals at any stage, from pre-idea to product. Participants receive $50K in API credits, early access to AI tools, and hands-on mentorship from the OpenAI team.",
+    "summaryZh": "OpenAI Grove Cohort 2现已开放申请，这是一个为期5周的创始人计划，专为从前期到产品的任何阶段的个人设计。参与者将获得$ 50K的API学分、AI工具的早期访问权限以及OpenAI团队的实践指导。",
+    "highlights": [
+      "Applications are now open for OpenAI Grove Cohort 2, a 5-week founder program designed for individuals at any stage, from pre-idea to product.",
+      "Participants receive $50K in API credits, early access to AI tools, and hands-on mentorship from the OpenAI team."
+    ],
+    "highlightsZh": [
+      "OpenAI Grove Cohort 2现已开放申请，这是一个为期5周的创始人计划，专为从前期到产品的任何阶段的个人设计。参与者将获得$ 50K的API学分、AI工具的早期访问权限以及OpenAI团队的实践指导。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 72,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

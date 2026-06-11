@@ -1,0 +1,111 @@
+[
+  {
+    "id": "b8fc21edc568",
+    "title": "Procgen and MineRL Competitions",
+    "titleZh": "Procgen和MineRL竞赛",
+    "link": "https://openai.com/index/procgen-minerl-competitions",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2020-06-20T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re excited to announce that OpenAI is co-organizing two NeurIPS 2020 competitions with AIcrowd, Carnegie Mellon University, and DeepMind, using Procgen Benchmark and MineRL.",
+    "summaryZh": "我们很高兴地宣布， OpenAI将使用Procgen Benchmark和MineRL与AIcrowd、卡内基梅隆大学和DeepMind共同组织两场NeurIPS 2020比赛。",
+    "highlights": [
+      "We’re excited to announce that OpenAI is co-organizing two NeurIPS 2020 competitions with AIcrowd, Carnegie Mellon University, and DeepMind, using Procgen Benchmark and MineRL."
+    ],
+    "highlightsZh": [
+      "我们很高兴地宣布， OpenAI将使用Procgen Benchmark和MineRL与AIcrowd、卡内基梅隆大学和DeepMind共同组织两场NeurIPS 2020比赛。"
+    ],
+    "tags": [
+      "发布"
+    ],
+    "score": 74,
+    "importance": "重点",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "2b306a79f6e8",
+    "title": "Image GPT",
+    "titleZh": "",
+    "link": "https://openai.com/index/image-gpt",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2020-06-17T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We find that, just as a large transformer model trained on language can generate coherent text, the same exact model trained on pixel sequences can generate coherent image completions and samples. By establishing a correlation between sample quality and image classification accuracy, we show that our best generative mo",
+    "summaryZh": "我们发现，就像在语言上训练的大型变换器模型可以生成连贯的文本一样，在像素序列上训练的相同精确模型可以生成连贯的图像完成和样本。通过建立样本质量与图像分类精度之间的相关性，我们表明我们的最佳生成月份",
+    "highlights": [
+      "We find that, just as a large transformer model trained on language can generate coherent text, the same exact model trained on pixel sequences can generate coherent image completi",
+      "By establishing a correlation between sample quality and image classification accuracy, we show that our best generative mo"
+    ],
+    "highlightsZh": [
+      "我们发现，就像在语言上训练的大型变换器模型可以生成连贯的文本一样，在像素序列上训练的相同精确模型可以生成连贯的图像完成和样本。通过建立样本质量与图像分类精度之间的相关性，我们表明我们的最佳生成月份"
+    ],
+    "tags": [
+      "模型"
+    ],
+    "score": 62,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  },
+  {
+    "id": "a4e97ad49da2",
+    "title": "OpenAI API",
+    "titleZh": "",
+    "link": "https://openai.com/index/openai-api",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2020-06-11T07:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We’re releasing an API for accessing new AI models developed by OpenAI.",
+    "summaryZh": "我们正在发布一个API ，用于访问OpenAI开发的新AI模型。",
+    "highlights": [
+      "We’re releasing an API for accessing new AI models developed by OpenAI."
+    ],
+    "highlightsZh": [
+      "我们正在发布一个API ，用于访问OpenAI开发的新AI模型。"
+    ],
+    "tags": [
+      "开发工具"
+    ],
+    "score": 68,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "id": "b1f62ee416b1",
+    "title": "Solving (some) formal math olympiad problems",
+    "titleZh": "解决（一些）正式的数学奥林匹克问题",
+    "link": "https://openai.com/index/formal-math",
+    "source": "OpenAI News",
+    "sourceType": "official",
+    "sourceRegion": "global",
+    "sourceLanguage": "en",
+    "feedName": "OpenAI News",
+    "sourceHomepage": "https://openai.com/news/",
+    "publishedAt": "2022-02-02T08:00:00.000Z",
+    "publishedAtEstimated": false,
+    "summary": "We built a neural theorem prover for Lean that learned to solve a variety of challenging high-school olympiad problems, including problems from the AMC12 and AIME competitions, as well as two problems adapted from the IMO.",
+    "summaryZh": "我们为Lean构建了一个神经定理证明器，学习解决各种具有挑战性的高中奥运会问题，包括AMC12和AIME比赛的问题，以及改编自IMO的两个问题。",
+    "highlights": [
+      "We built a neural theorem prover for Lean that learned to solve a variety of challenging high-school olympiad problems, including problems from the AMC12 and AIME competitions, as "
+    ],
+    "highlightsZh": [
+      "我们为Lean构建了一个神经定理证明器，学习解决各种具有挑战性的高中奥运会问题，包括AMC12和AIME比赛的问题，以及改编自IMO的两个问题。"
+    ],
+    "tags": [],
+    "score": 52,
+    "importance": "关注",
+    "archiveFirstSeenAt": "2026-04-13T05:42:25.886Z",
+    "lastSeenAt": "2026-06-11T01:42:51.170Z",
+    "originalContentText": "",
+    "originalContentAvailable": false,
+    "originalContentWarning": "该条资讯暂未抓取正文快照，当前保留了标题、摘要和原文链接。",
+    "snapshotFetchedAt": "",
+    "coverImage": "",
+    "coverImageOriginal": "",
+    "coverImageAlt": ""
+  }
+]
