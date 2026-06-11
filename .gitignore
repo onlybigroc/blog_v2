@@ -9,3 +9,7 @@ data/sync-cache.json
 # Cloudflare
 .wrangler/
 wrangler.toml.bak
+
+# AI 工具
+.claude/
+.mimocode/

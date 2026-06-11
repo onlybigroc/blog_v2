@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog V2 代码质量与架构问题报告</title>
+<style>
+  :root {
+    --bg: #ffffff; --card: #f6f8fa; --border: #d0d7de; --text: #1f2328; --text-dim: #656d76;
+    --accent: #0969da; --high: #cf222e; --medium: #9a6700; --low: #1a7f37;
+    --code-bg: #f0f2f5; --tag-dup-bg: #ddf4ff; --tag-dup-text: #0969da;
+    --tag-arch-bg: #fff8c5; --tag-arch-text: #9a6700;
+    --tag-sec-bg: #ffebe9; --tag-sec-text: #cf222e;
+    --tag-qual-bg: #dafbe1; --tag-qual-text: #1a7f37;
+    --tag-bug-bg: #ffebe9; --tag-bug-text: #a40e26;
+    --tag-devops-bg: #fbefff; --tag-devops-text: #8250df;
+  }
+  html.dark {
+    --bg: #0d1117; --card: #161b22; --border: #30363d; --text: #c9d1d9; --text-dim: #8b949e;
+    --accent: #58a6ff; --high: #f85149; --medium: #d29922; --low: #3fb950;
+    --code-bg: #1c2128; --tag-dup-bg: #1f3a5f; --tag-dup-text: #58a6ff;
+    --tag-arch-bg: #3b2e1a; --tag-arch-text: #d29922;
+    --tag-sec-bg: #3d1a1a; --tag-sec-text: #f85149;
+    --tag-qual-bg: #1a3d2a; --tag-qual-text: #3fb950;
+    --tag-bug-bg: #3d1a2e; --tag-bug-text: #f778ba;
+    --tag-devops-bg: #2d1a3d; --tag-devops-text: #bc8cff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; padding: 2rem; transition: background 0.2s, color 0.2s; }
+  .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+  h1 { font-size: 1.8rem; }
+  .subtitle { color: var(--text-dim); font-size: 0.95rem; }
+  .theme-btn { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; color: var(--text); cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
+  .theme-btn:hover { border-color: var(--accent); }
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+  .summary-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; text-align: center; }
+  .summary-card .num { font-size: 2rem; font-weight: 700; }
+  .summary-card .label { color: var(--text-dim); font-size: 0.85rem; }
+  .summary-card.high .num { color: var(--high); }
+  .summary-card.medium .num { color: var(--medium); }
+  .summary-card.low .num { color: var(--low); }
+  .toc { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.5rem; margin-bottom: 2rem; }
+  .toc h2 { font-size: 1.1rem; margin-bottom: 0.8rem; }
+  .toc ul { list-style: none; columns: 2; column-gap: 2rem; }
+  .toc li { font-size: 0.88rem; margin-bottom: 0.3rem; }
+  .toc a { color: var(--accent); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .section-title { font-size: 1.3rem; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  .section-title.high { color: var(--high); }
+  .section-title.medium { color: var(--medium); }
+  .section-title.low { color: var(--low); }
+  .issue { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.5rem; margin-bottom: 1rem; }
+  .issue h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .issue .tag { display: inline-block; font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 12px; margin-right: 0.4rem; }
+  .tag.code-dup { background: var(--tag-dup-bg); color: var(--tag-dup-text); }
+  .tag.architecture { background: var(--tag-arch-bg); color: var(--tag-arch-text); }
+  .tag.security { background: var(--tag-sec-bg); color: var(--tag-sec-text); }
+  .tag.quality { background: var(--tag-qual-bg); color: var(--tag-qual-text); }
+  .tag.bug { background: var(--tag-bug-bg); color: var(--tag-bug-text); }
+  .tag.devops { background: var(--tag-devops-bg); color: var(--tag-devops-text); }
+  .files { font-family: 'SF Mono', 'Fira Code', Consolas, monospace; font-size: 0.82rem; color: var(--accent); margin: 0.4rem 0; word-break: break-all; }
+  .desc { font-size: 0.92rem; margin: 0.4rem 0; }
+  .why { font-size: 0.88rem; color: var(--text-dim); margin-top: 0.3rem; }
+  .why strong { color: var(--text); }
+  code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; font-family: 'SF Mono', 'Fira Code', Consolas, monospace; }
+  pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; margin: 0.5rem 0; overflow-x: auto; font-size: 0.82rem; font-family: 'SF Mono', 'Fira Code', Consolas, monospace; }
+  .meta { display: flex; gap: 0.6rem; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; }
+  @media (max-width: 640px) { body { padding: 1rem; } .toc ul { columns: 1; } h1 { font-size: 1.4rem; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>Blog V2 代码质量与架构问题报告</h1>
+    <p class="subtitle">基于静态代码分析，共发现 30 个问题。生成时间：2026-06-11</p>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()" aria-label="切换主题">
+    <span id="theme-icon-light" style="display:none;">&#9728; 浅色</span>
+    <span id="theme-icon-dark">&#9790; 深色</span>
+  </button>
+</div>
+
+<div class="summary">
+  <div class="summary-card high"><div class="num">5</div><div class="label">HIGH 严重</div></div>
+  <div class="summary-card medium"><div class="num">12</div><div class="label">MEDIUM 严重</div></div>
+  <div class="summary-card low"><div class="num">13</div><div class="label">LOW 严重</div></div>
+</div>
+
+<div class="toc">
+  <h2>目录</h2>
+  <ul>
+    <li><a href="#issue-1">#1 normalizePostSlug 重复定义</a></li>
+    <li><a href="#issue-2">#2 127 个工具组件重复按钮代码</a></li>
+    <li><a href="#issue-3">#3 QR 码生成器功能损坏</a></li>
+    <li><a href="#issue-4">#4 ai-news.json 巨型单文件</a></li>
+    <li><a href="#issue-5">#5 零测试覆盖</a></li>
+    <li><a href="#issue-6">#6 escapeHtml 重复实现</a></li>
+    <li><a href="#issue-7">#7 点赞按钮逻辑重复</a></li>
+    <li><a href="#issue-8">#8 分页逻辑三处独立实现</a></li>
+    <li><a href="#issue-9">#9 工具页意外显示评论和点赞</a></li>
+    <li><a href="#issue-10">#10 254 个工具页面可合并</a></li>
+    <li><a href="#issue-11">#11 文章详情页过于庞大</a></li>
+    <li><a href="#issue-12">#12 sync-ai-news.mjs 单文件 1594 行</a></li>
+    <li><a href="#issue-13">#13 大量 innerHTML 转义不一致</a></li>
+    <li><a href="#issue-14">#14 CI/CD 缺少代码质量检查</a></li>
+    <li><a href="#issue-15">#15 Workers CORS 配置为通配符</a></li>
+    <li><a href="#issue-16">#16 ai-news-sync.yml 使用 require()</a></li>
+    <li><a href="#issue-17">#17 as any 类型断言</a></li>
+    <li><a href="#issue-18">#18 工具按钮缺少 aria-label</a></li>
+    <li><a href="#issue-19">#19 Base64ImageTool img 缺少 alt</a></li>
+    <li><a href="#issue-20">#20 无 CSP 安全头</a></li>
+    <li><a href="#issue-21">#21 normalizePath 两处重复</a></li>
+    <li><a href="#issue-22">#22 Breadcrumb 接口三处重复</a></li>
+    <li><a href="#issue-23">#23 Import 路径风格不统一</a></li>
+    <li><a href="#issue-24">#24 Content Schema 缺少字段</a></li>
+    <li><a href="#issue-25">#25 工具组件代码格式不一致</a></li>
+    <li><a href="#issue-26">#26 MainLayout 菜单可用纯 CSS</a></li>
+    <li><a href="#issue-27">#27 Stats 硬编码域名映射</a></li>
+    <li><a href="#issue-28">#28 tsconfig alias 未统一使用</a></li>
+    <li><a href="#issue-29">#29 sync-cnblogs 缺少超时和中断处理</a></li>
+    <li><a href="#issue-30">#30 外部脚本无 SRI 校验</a></li>
+  </ul>
+</div>
+
+<!-- ==================== HIGH ==================== -->
+<h2 class="section-title high">HIGH — 需要优先处理</h2>
+
+<div class="issue" id="issue-1">
+  <h3>#1 normalizePostSlug 函数重复定义</h3>
+  <div class="meta"><span class="tag code-dup">代码重复</span></div>
+  <div class="files">astro.config.mjs:13-18 &amp; src/utils/slug.ts:8-14</div>
+  <div class="desc">两个文件中的 <code>normalizePostSlug</code> 实现完全一致，执行相同的 trim、正则替换和 slug 规范化逻辑。</div>
+  <div class="why"><strong>风险：</strong>修改 slug 规则时需同步改两处，遗漏将导致 sitemap 中的 URL 与实际路由不一致。</div>
+</div>
+
+<div class="issue" id="issue-2">
+  <h3>#2 127 个工具组件重复相同的"独立打开"按钮代码</h3>
+  <div class="meta"><span class="tag code-dup">代码重复</span><span class="tag architecture">架构</span></div>
+  <div class="files">src/components/tools/*.astro（全部 127 个文件）</div>
+  <div class="desc">每个工具组件都内联了相同的 Props 接口定义和"独立打开"按钮模板（含 SVG 图标和样式类）。</div>
+  <pre>interface Props {
+  cleanPath?: string;
+  showCleanLink?: boolean;
+  showPageMeta?: boolean;
+}
+// + 完全相同的 &lt;a&gt; 按钮模板，127 份拷贝</pre>
+  <div class="why"><strong>风险：</strong>改按钮样式或行为需改 127 个文件。Props 接口也应提取为共享类型。</div>
+</div>
+
+<div class="issue" id="issue-3">
+  <h3>#3 QR 码生成器功能损坏</h3>
+  <div class="meta"><span class="tag bug">功能缺陷</span></div>
+  <div class="files">src/components/tools/QrGenTool.astro:16-111</div>
+  <div class="desc">QR 码生成器未实现真正的 QR 编码算法，而是用随机种子生成类似 QR 码的图案。代码注释明确写着 "This generates a visual QR-like pattern"。</div>
+  <div class="why"><strong>风险：</strong>用户生成的"QR 码"无法被任何扫描器识别，严重影响工具可信度。</div>
+</div>
+
+<div class="issue" id="issue-4">
+  <h3>#4 ai-news.json 巨型单文件（144,000+ 行）</h3>
+  <div class="meta"><span class="tag quality">性能</span></div>
+  <div class="files">src/data/ai-news.json（4,197 条目）</div>
+  <div class="desc">AI 资讯数据以单个 JSON 文件存储，每次构建全量加载解析，且包含每条新闻的完整内容文本。</div>
+  <div class="why"><strong>风险：</strong>构建时间和内存消耗随数据增长线性上升。文件只增不减。</div>
+</div>
+
+<div class="issue" id="issue-5">
+  <h3>#5 零测试覆盖</h3>
+  <div class="meta"><span class="tag quality">质量</span><span class="tag devops">DevOps</span></div>
+  <div class="files">项目全局</div>
+  <div class="desc">项目中没有任何测试文件（<code>*.test.*</code>、<code>*.spec.*</code>、<code>__tests__/</code>），<code>package.json</code> 中也没有 <code>test</code> 脚本。</div>
+  <div class="why"><strong>风险：</strong>所有逻辑变更只能通过构建验证，无法发现运行时行为回归。工具组件的复杂客户端逻辑尤其需要测试。</div>
+</div>
+
+<!-- ==================== MEDIUM ==================== -->
+<h2 class="section-title medium">MEDIUM — 建议尽快处理</h2>
+
+<div class="issue" id="issue-6">
+  <h3>#6 escapeHtml 在 3 个工具组件中重复实现</h3>
+  <div class="meta"><span class="tag code-dup">代码重复</span><span class="tag security">安全</span></div>
+  <div class="files">RegexTool.astro:169 / TextDiffTool.astro:171 / JsonCsvTool.astro:416</div>
+  <div class="desc">标准实现位于 <code>src/utils/safeHtml.ts:3</code>，部分工具（如 RegexVisualizerTool、SplitBillTool）已正确导入，但以上 3 个工具在 script 块中重新实现了本地版本。</div>
+  <div class="why"><strong>风险：</strong>本地版本可能缺少转义规则（如单引号、反引号），存在 XSS 隐患。</div>
+</div>
+
+<div class="issue" id="issue-7">
+  <h3>#7 点赞按钮逻辑重复实现</h3>
+  <div class="meta"><span class="tag code-dup">代码重复</span></div>
+  <div class="files">src/pages/posts/[...slug].astro:320-365 &amp; src/components/PageLikeButton.astro:29-84</div>
+  <div class="desc">文章详情页内联了自己的点赞按钮实现，未复用已有的 <code>PageLikeButton</code> 组件，两者独立维护图标状态和 <code>.liked</code> 样式。</div>
+  <div class="why"><strong>风险：</strong>两套逻辑需同步修改，行为可能产生差异。</div>
+</div>
+
+<div class="issue" id="issue-8">
+  <h3>#8 分页逻辑在 3 个文件中各自实现</h3>
+  <div class="meta"><span class="tag code-dup">代码重复</span></div>
+  <div class="files">src/pages/posts/index.astro / src/pages/posts/page/[page].astro / src/components/AINewsArchivePage.astro</div>
+  <div class="desc">页码生成（含省略号处理、前/后页链接）在三处独立实现，且行为有差异（首页用简化版）。</div>
+  <div class="why"><strong>风险：</strong>分页 UX 不一致，维护成本高。</div>
+</div>
+
+<div class="issue" id="issue-9">
+  <h3>#9 工具页意外显示文章评论和点赞功能</h3>
+  <div class="meta"><span class="tag architecture">架构</span></div>
+  <div class="files">src/layouts/MainLayout.astro:44-46</div>
+  <div class="desc"><code>MainLayout</code> 中 <code>showSubpageFeedback</code> 判断让所有 <code>/tools/X</code> 路径都显示 Giscus 评论和点赞按钮——这些功能本意是给博客文章的。</div>
+  <div class="why"><strong>风险：</strong>工具页出现无关评论区，影响用户体验。</div>
+</div>
+
+<div class="issue" id="issue-10">
+  <h3>#10 254 个工具页面可用动态路由合并</h3>
+  <div class="meta"><span class="tag architecture">架构</span></div>
+  <div class="files">src/pages/tools/（254 个文件）</div>
+  <div class="desc">每个工具有两个静态路由：<code>/tools/X.astro</code>（带站点壳）和 <code>/tools/X/clean.astro</code>（独立版）。127 个工具 × 2 = 254 个页面。</div>
+  <div class="why"><strong>风险：</strong>静态路由数量膨胀，构建产物体积大，新增工具需创建两个文件。</div>
+</div>
+
+<div class="issue" id="issue-11">
+  <h3>#11 文章详情页过于庞大（366 行）</h3>
+  <div class="meta"><span class="tag architecture">架构</span></div>
+  <div class="files">src/pages/posts/[...slug].astro</div>
+  <div class="desc">单文件包含：静态路径生成、文章头部、内容渲染、内联点赞按钮、上下篇导航、相关文章、作者简介、内联样式、完整客户端脚本。</div>
+  <div class="why"><strong>风险：</strong>职责过多，难以定位和修改特定功能。点赞按钮应复用组件。</div>
+</div>
+
+<div class="issue" id="issue-12">
+  <h3>#12 sync-ai-news.mjs 单文件 1594 行</h3>
+  <div class="meta"><span class="tag architecture">架构</span></div>
+  <div class="files">scripts/sync-ai-news.mjs</div>
+  <div class="desc">一个文件混合了 RSS 抓取、内容提取、翻译、图片下载、评分、去重、JSON 输出全部逻辑。</div>
+  <div class="why"><strong>风险：</strong>难以单独测试或修改某个环节，改动容易引发连锁问题。</div>
+</div>
+
+<div class="issue" id="issue-13">
+  <h3>#13 大量 innerHTML 使用，转义不一致</h3>
+  <div class="meta"><span class="tag security">安全</span></div>
+  <div class="files">89 处分布在 src/components/tools/*.astro</div>
+  <div class="desc">多数工具组件通过 <code>innerHTML</code> 渲染动态内容，虽然大部分使用了 <code>escapeHtml()</code>，但存在未转义或转义不完整的案例（如 ColorPickerAdvancedTool:54、MemoryMatchTool:59、FlexboxPlaygroundTool:38）。</div>
+  <div class="why"><strong>风险：</strong>一旦某个工具遗漏转义，即构成 XSS 漏洞。模式本身就很脆弱。</div>
+</div>
+
+<div class="issue" id="issue-14">
+  <h3>#14 CI/CD 缺少代码质量检查</h3>
+  <div class="meta"><span class="tag devops">DevOps</span></div>
+  <div class="files">.github/workflows/deploy.yml</div>
+  <div class="desc">部署工作流只有 <code>npm ci</code> → <code>npm run build</code> → <code>wrangler deploy</code>，没有 lint、typecheck 或 test 步骤。代码质量完全依赖本地检查。</div>
+  <div class="why"><strong>风险：</strong>类型错误、代码风格问题可直接部署到生产环境。</div>
+</div>
+
+<div class="issue" id="issue-15">
+  <h3>#15 Workers CORS 配置为通配符 *</h3>
+  <div class="meta"><span class="tag security">安全</span></div>
+  <div class="files">workers/wrangler.toml:13</div>
+  <div class="desc"><code>ALLOWED_ORIGINS = "*"</code> 允许任何来源的跨域请求访问统计 API。</div>
+  <div class="why"><strong>风险：</strong>任何网站都可以调用统计接口刷阅读量/点赞数。应限制为已知域名。</div>
+</div>
+
+<div class="issue" id="issue-16">
+  <h3>#16 ai-news-sync.yml 使用 require()</h3>
+  <div class="meta"><span class="tag devops">DevOps</span></div>
+  <div class="files">.github/workflows/ai-news-sync.yml:40</div>
+  <div class="desc">项目 <code>package.json</code> 声明 <code>"type": "module"</code>，但 CI 的 inline node 脚本使用 <code>require('./src/data/ai-news.json')</code>。Node.js 在 ESM 模式下不支持 <code>require</code>。</div>
+  <div class="why"><strong>风险：</strong>CI 步骤可能静默失败或抛出错误，导致同步摘要不显示。</div>
+</div>
+
+<div class="issue" id="issue-17">
+  <h3>#17 as any 类型断言</h3>
+  <div class="meta"><span class="tag quality">类型安全</span></div>
+  <div class="files">PageLikeButton.astro:73-74 / PageViewCounter.astro:49-50</div>
+  <div class="desc">两个组件中使用 <code>(window as any)[INIT_FLAG]</code> 来检测初始化状态，绕过了 TypeScript 类型检查。</div>
+  <div class="why"><strong>风险：</strong>虽然功能无碍，但破坏了类型安全，且模式可在 <code>@utils/</code> 中统一封装。</div>
+</div>
+
+<div class="issue" id="issue-18">
+  <h3>#18 工具按钮缺少 aria-label</h3>
+  <div class="meta"><span class="tag quality">可访问性</span></div>
+  <div class="files">src/components/tools/*.astro 大部分文件</div>
+  <div class="desc">127 个工具组件中的功能按钮（如"编码"、"解码"、"复制"、"清空"等）绝大多数没有 <code>aria-label</code>，仅依赖按钮文字。部分按钮只含 SVG 图标无文字（如删除按钮）。</div>
+  <div class="why"><strong>风险：</strong>屏幕阅读器用户无法理解纯图标按钮的功能。</div>
+</div>
+
+<div class="issue" id="issue-19">
+  <h3>#19 Base64ImageTool img 缺少 alt 属性</h3>
+  <div class="meta"><span class="tag quality">可访问性</span></div>
+  <div class="files">src/components/tools/Base64ImageTool.astro:20</div>
+  <div class="desc"><code>&lt;img id="img" class="max-w-full max-h-96 mx-auto rounded" /&gt;</code> 缺少 <code>alt</code> 属性。虽然这是动态工具，但仍应提供空 <code>alt=""</code> 或动态 alt。</div>
+</div>
+
+<div class="issue" id="issue-20">
+  <h3>#20 无 Content Security Policy 安全头</h3>
+  <div class="meta"><span class="tag security">安全</span></div>
+  <div class="files">项目全局（Cloudflare Pages 配置）</div>
+  <div class="desc">站点加载了外部脚本（Giscus 评论、Google AdSense），但没有配置 CSP 头来限制脚本来源、样式来源和内联脚本。</div>
+  <div class="why"><strong>风险：</strong>如果任何注入点被利用，攻击者可加载任意脚本。可在 Cloudflare Pages 的 <code>_headers</code> 或 Workers 中配置 CSP。</div>
+</div>
+
+<!-- ==================== LOW ==================== -->
+<h2 class="section-title low">LOW — 可在空闲时处理</h2>
+
+<div class="issue" id="issue-21">
+  <h3>#21 normalizePath 在两个组件中重复</h3>
+  <div class="meta"><span class="tag code-dup">代码重复</span></div>
+  <div class="files">PageViewCounter.astro:23-29 &amp; PageLikeButton.astro:34-40</div>
+  <div class="desc">相同的路径规范化函数在两个组件中各实现一次，应提取到 <code>@utils/</code>。</div>
+</div>
+
+<div class="issue" id="issue-22">
+  <h3>#22 Breadcrumb 接口在 3 个 Layout 中重复定义</h3>
+  <div class="meta"><span class="tag code-dup">代码重复</span></div>
+  <div class="files">BaseLayout.astro:13 / MainLayout.astro:7 / ToolLayout.astro:4</div>
+  <div class="desc">相同的 TypeScript 接口在三个布局文件中各自定义。</div>
+</div>
+
+<div class="issue" id="issue-23">
+  <h3>#23 Import 路径风格不统一</h3>
+  <div class="meta"><span class="tag quality">代码风格</span></div>
+  <div class="files">多处</div>
+  <div class="desc">混用 <code>@utils/slug</code>、<code>../utils/slug</code>、<code>@/data/tools</code> 三种风格，且 tsconfig 已定义了对应的 path alias。</div>
+</div>
+
+<div class="issue" id="issue-24">
+  <h3>#24 Content Schema 缺少 author/updated 字段</h3>
+  <div class="meta"><span class="tag quality">数据模型</span></div>
+  <div class="files">src/content/config.ts &amp; src/layouts/BaseLayout.astro:45</div>
+  <div class="desc">Schema 无 <code>author</code>（硬编码为 <code>'bigroc'</code>）和 <code>lastModified</code> 字段。文章的 <code>modifiedTime</code> 直接复用 <code>date</code>，信息不准确。</div>
+</div>
+
+<div class="issue" id="issue-25">
+  <h3>#25 工具组件代码格式不一致</h3>
+  <div class="meta"><span class="tag quality">代码风格</span></div>
+  <div class="files">src/components/tools/*.astro</div>
+  <div class="desc">部分工具格式规范（如 PasswordTool），部分被压缩为单行（如 ColorPickerAdvancedTool:9-13、QrGenTool:6），风格差异明显。</div>
+</div>
+
+<div class="issue" id="issue-26">
+  <h3>#26 MainLayout 菜单动画可用纯 CSS 替代</h3>
+  <div class="meta"><span class="tag quality">性能</span></div>
+  <div class="files">src/layouts/MainLayout.astro:196-216</div>
+  <div class="desc">~20 行 JS 用 <code>style.maxHeight</code>、<code>style.opacity</code>、<code>style.transform</code> 操作移动端菜单动画。元素已设置了 CSS transition class，可通过 class 切换实现。</div>
+</div>
+
+<div class="issue" id="issue-27">
+  <h3>#27 Stats 模块硬编码域名映射</h3>
+  <div class="meta"><span class="tag quality">可维护性</span></div>
+  <div class="files">src/utils/stats.ts:27-36</div>
+  <div class="desc"><code>getApiBaseUrl()</code> 内包含 <code>qinrenjihe.com</code>、<code>bigroc.cn</code> 的硬编码映射，新增域名需改代码。</div>
+</div>
+
+<div class="issue" id="issue-28">
+  <h3>#28 tsconfig path alias 未完全统一使用</h3>
+  <div class="meta"><span class="tag quality">代码风格</span></div>
+  <div class="files">tsconfig.json:4-11 &amp; 多处 import</div>
+  <div class="desc">已定义 <code>@components/*</code>、<code>@utils/*</code> 等 alias，但部分文件仍用相对路径或 <code>@/*</code> 根 alias。</div>
+</div>
+
+<div class="issue" id="issue-29">
+  <h3>#29 sync-cnblogs 缺少超时和中断处理</h3>
+  <div class="meta"><span class="tag quality">健壮性</span></div>
+  <div class="files">scripts/sync-cnblogs.mjs</div>
+  <div class="desc">网络请求（RSS 抓取、图片下载）没有设置超时或 AbortController。在 CI 环境中，网络问题可能导致脚本永久挂起，直到 workflow 30 分钟超时。</div>
+</div>
+
+<div class="issue" id="issue-30">
+  <h3>#30 外部脚本无 SRI 校验</h3>
+  <div class="meta"><span class="tag security">安全</span></div>
+  <div class="files">src/layouts/BaseLayout.astro:196 / src/components/GiscusComments.astro:29-30</div>
+  <div class="desc">Google AdSense (<code>pagead2.googlesyndication.com</code>) 和 Giscus (<code>giscus.app/client.js</code>) 的外部脚本均未设置 <code>integrity</code> 和 <code>crossorigin</code> 属性（SRI）。</div>
+  <div class="why"><strong>风险：</strong>如果 CDN 被入侵，可执行任意代码。SRI 可确保脚本内容未被篡改。</div>
+</div>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.classList.toggle('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  updateIcon(isDark);
+}
+function updateIcon(isDark) {
+  document.getElementById('theme-icon-light').style.display = isDark ? 'inline' : 'none';
+  document.getElementById('theme-icon-dark').style.display = isDark ? 'none' : 'inline';
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = saved ? saved === 'dark' : prefersDark;
+  document.documentElement.classList.toggle('dark', isDark);
+  updateIcon(isDark);
+})();
+</script>
+
+</body>
+</html>
