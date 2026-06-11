@@ -10,7 +10,7 @@ const { cleanPath, showCleanLink = false } = Astro.props;
   <div class="flex flex-wrap items-end gap-4">
     <div class="flex-1 min-w-[140px]"><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">数值</label><input id="val" type="number" value="100" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm" /></div>
     <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">从</label><select id="from" class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm"><option>摄氏度 (°C)</option><option>华氏度 (°F)</option><option>开尔文 (K)</option></select></div>
-    <button id="swap" class="px-3 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-sm">⇄</button>
+    <button id="swap" class="px-3 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-sm" aria-label="互换">⇄</button>
     <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">到</label><select id="to" class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm"><option>华氏度 (°F)</option><option>摄氏度 (°C)</option><option>开尔文 (K)</option></select></div>
   </div>
   <div id="result" class="text-2xl font-bold text-center py-4 text-primary-600 dark:text-primary-400"></div>

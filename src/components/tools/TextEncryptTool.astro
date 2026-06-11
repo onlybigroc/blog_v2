@@ -12,7 +12,7 @@ const { cleanPath, showCleanLink = false } = Astro.props;
     <div class="flex gap-3">
       <button id="enc" class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 text-sm font-medium">加密</button>
       <button id="dec" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-sm font-medium">解密</button>
-      <button id="swap" class="px-3 py-1.5 rounded bg-gray-200 dark:bg-gray-700 text-sm">⇄</button>
+      <button id="swap" class="px-3 py-1.5 rounded bg-gray-200 dark:bg-gray-700 text-sm" aria-label="互换">⇄</button>
     </div>
     <div class="grid gap-4 lg:grid-cols-2">
       <div><label class="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">明文</label><textarea id="plain" class="w-full h-40 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm" placeholder="输入要加密的文本"></textarea></div>
