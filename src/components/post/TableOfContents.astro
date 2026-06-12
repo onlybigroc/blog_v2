@@ -1,0 +1,422 @@
+---
+interface Props {
+  containerSelector?: string;
+}
+
+const { containerSelector = 'article.prose' } = Astro.props;
+---
+
+<aside id="toc-aside" class="toc-aside">
+  <div class="toc-wrapper">
+    <button id="toc-toggle" class="toc-toggle" aria-expanded="true" aria-label="收起目录">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <span class="text-sm font-medium">目录</span>
+      <svg class="w-4 h-4 toc-chevron transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    <nav id="toc-nav" class="toc-nav" aria-label="文章目录">
+      <div class="toc-progress-track">
+        <div id="toc-progress-bar" class="toc-progress-bar"></div>
+      </div>
+      <ul id="toc-list" class="toc-list"></ul>
+    </nav>
+  </div>
+</aside>
+
+<div id="toc-mobile" class="toc-mobile" style="display: none;">
+  <button id="toc-mobile-toggle" class="toc-mobile-toggle" aria-expanded="false" aria-label="展开目录">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+    <span class="text-sm font-medium">目录</span>
+    <svg class="w-4 h-4 toc-chevron transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+  <nav id="toc-mobile-nav" class="toc-mobile-nav" aria-label="文章目录">
+    <ul id="toc-mobile-list" class="toc-list"></ul>
+  </nav>
+</div>
+
+<script define:vars={{ containerSelector }}>
+document.addEventListener('astro:page-load', () => {
+  const article = document.querySelector(containerSelector);
+  if (!article) return;
+
+  const headings = article.querySelectorAll('h2[id], h3[id], h4[id]');
+  if (headings.length < 2) {
+    const aside = document.getElementById('toc-aside');
+    const mobile = document.getElementById('toc-mobile');
+    if (aside) aside.style.display = 'none';
+    if (mobile) mobile.style.display = 'none';
+    return;
+  }
+
+  const tocData = [];
+  headings.forEach((h) => {
+    const level = parseInt(h.tagName.charAt(1));
+    const text = h.textContent?.replace(/#$/, '').trim() || '';
+    const id = h.id;
+    if (text && id) {
+      tocData.push({ level, text, id });
+    }
+  });
+
+  function buildTocList(container) {
+    container.innerHTML = '';
+    tocData.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.className = `toc-item toc-level-${item.level}`;
+      const a = document.createElement('a');
+      a.href = `#${item.id}`;
+      a.className = 'toc-link';
+      a.textContent = item.text;
+      a.dataset.index = index;
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.getElementById(item.id);
+        if (target) {
+          const top = target.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top, behavior: 'smooth' });
+          history.replaceState(null, '', `#${item.id}`);
+        }
+      });
+      li.appendChild(a);
+      container.appendChild(li);
+    });
+  }
+
+  const tocList = document.getElementById('toc-list');
+  const tocMobileList = document.getElementById('toc-mobile-list');
+  if (tocList) buildTocList(tocList);
+  if (tocMobileList) buildTocList(tocMobileList);
+
+  // Scroll spy
+  const tocLinks = document.querySelectorAll('.toc-link');
+  let currentActiveId = null;
+
+  function updateActiveLink() {
+    let activeId = null;
+    const offset = 120;
+    for (let i = headings.length - 1; i >= 0; i--) {
+      const rect = headings[i].getBoundingClientRect();
+      if (rect.top <= offset) {
+        activeId = headings[i].id;
+        break;
+      }
+    }
+    if (!activeId && headings.length > 0) {
+      activeId = headings[0].id;
+    }
+
+    if (activeId !== currentActiveId) {
+      currentActiveId = activeId;
+      tocLinks.forEach((link) => {
+        const isActive = link.getAttribute('href') === `#${activeId}`;
+        link.classList.toggle('toc-active', isActive);
+        if (isActive) {
+          link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }
+      });
+    }
+
+    // Update progress bar
+    const progressBar = document.getElementById('toc-progress-bar');
+    if (progressBar && headings.length > 0) {
+      const firstHeading = headings[0].getBoundingClientRect().top;
+      const lastHeading = headings[headings.length - 1].getBoundingClientRect().top;
+      const totalRange = lastHeading - firstHeading;
+      if (totalRange > 0) {
+        const progress = Math.min(1, Math.max(0, (0 - firstHeading + 120) / totalRange));
+        progressBar.style.height = `${progress * 100}%`;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink();
+
+  // Toggle desktop TOC
+  const tocToggle = document.getElementById('toc-toggle');
+  const tocNav = document.getElementById('toc-nav');
+  const tocAside = document.getElementById('toc-aside');
+  const tocMobile = document.getElementById('toc-mobile');
+  if (tocToggle && tocNav) {
+    let tocCollapsed = false;
+    tocToggle.addEventListener('click', () => {
+      tocCollapsed = !tocCollapsed;
+      tocNav.classList.toggle('toc-collapsed', tocCollapsed);
+      tocToggle.setAttribute('aria-expanded', String(!tocCollapsed));
+      tocToggle.querySelector('.toc-chevron')?.classList.toggle('rotate-180', tocCollapsed);
+      if (tocAside) tocAside.classList.toggle('toc-aside-collapsed', tocCollapsed);
+    });
+  }
+
+  // Toggle mobile TOC
+  const tocMobileToggle = document.getElementById('toc-mobile-toggle');
+  const tocMobileNav = document.getElementById('toc-mobile-nav');
+  if (tocMobileToggle && tocMobileNav) {
+    tocMobileToggle.addEventListener('click', () => {
+      const isOpen = tocMobileNav.classList.toggle('open');
+      tocMobileToggle.setAttribute('aria-expanded', String(isOpen));
+      tocMobileToggle.querySelector('.toc-chevron')?.classList.toggle('rotate-180', isOpen);
+    });
+  }
+
+  // Auto-switch desktop/mobile based on overlap detection
+  const tocAsideEl = document.getElementById('toc-aside');
+  const tocMobileEl = document.getElementById('toc-mobile');
+  const articleEl = document.querySelector(containerSelector);
+
+  function checkTocOverlap() {
+    if (!tocAsideEl || !tocMobileEl || !articleEl) return;
+    const articleRect = articleEl.getBoundingClientRect();
+    const tocRect = tocAsideEl.getBoundingClientRect();
+    const overlaps = tocRect.left < articleRect.right + 16;
+    if (overlaps) {
+      tocAsideEl.style.display = 'none';
+      tocMobileEl.style.display = 'block';
+    } else {
+      tocAsideEl.style.display = '';
+      tocMobileEl.style.display = 'none';
+    }
+  }
+
+  checkTocOverlap();
+  window.addEventListener('resize', checkTocOverlap, { passive: true });
+});
+</script>
+
+<style>
+  /* Desktop sidebar - always flush right */
+  .toc-aside {
+    position: fixed;
+    top: 108px;
+    right: 24px;
+    width: max-content;
+    max-width: 300px;
+    min-width: 180px;
+    max-height: calc(100vh - 128px);
+    z-index: 30;
+    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s;
+  }
+
+  .toc-aside-collapsed {
+    width: auto;
+    min-width: 48px;
+  }
+
+  .toc-wrapper {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  :global(.dark) .toc-wrapper {
+    background: rgba(17, 24, 39, 0.8);
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .toc-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    padding: 8px 12px;
+    color: inherit;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    transition: background 0.2s;
+  }
+
+  .toc-toggle:hover {
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  :global(.dark) .toc-toggle:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .toc-nav {
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: calc(100vh - 180px);
+    transition: max-height 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+  }
+
+  .toc-nav::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .toc-nav::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+  }
+
+  :global(.dark) .toc-nav::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .toc-collapsed {
+    max-height: 0 !important;
+    opacity: 0;
+    padding: 0;
+  }
+
+  .toc-progress-track {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 1px;
+  }
+
+  :global(.dark) .toc-progress-track {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .toc-progress-bar {
+    width: 100%;
+    background: #3b82f6;
+    border-radius: 1px;
+    transition: height 0.3s ease;
+    height: 0;
+  }
+
+  :global(.toc-list) {
+    list-style: none;
+    padding: 4px 8px 8px 14px;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  :global(.toc-item) {
+    margin: 0;
+  }
+
+  :global(.toc-level-2) { padding-left: 0; }
+  :global(.toc-level-3) { padding-left: 10px; }
+  :global(.toc-level-4) { padding-left: 20px; }
+
+  :global(.toc-link) {
+    display: block;
+    padding: 3px 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #3b82f6;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: color 0.15s, background 0.15s, text-decoration 0.15s;
+    white-space: nowrap;
+    border-left: 2px solid transparent;
+    margin-left: -2px;
+    padding-left: 10px;
+    cursor: pointer;
+  }
+
+  :global(.toc-link:hover) {
+    color: #2563eb;
+    text-decoration: underline;
+    background: rgba(59, 130, 246, 0.08);
+  }
+
+  :global(.dark .toc-link) {
+    color: #60a5fa;
+  }
+
+  :global(.dark .toc-link:hover) {
+    color: #93bbfd;
+    text-decoration: underline;
+    background: rgba(59, 130, 246, 0.12);
+  }
+
+  :global(.toc-link.toc-active) {
+    color: #1d4ed8;
+    border-left-color: #3b82f6;
+    font-weight: 600;
+    background: rgba(59, 130, 246, 0.1);
+    text-decoration: underline;
+  }
+
+  :global(.dark .toc-link.toc-active) {
+    color: #93c5fd;
+    border-left-color: #60a5fa;
+    background: rgba(59, 130, 246, 0.15);
+  }
+
+  /* Mobile TOC */
+  .toc-mobile {
+    margin-bottom: 1.5rem;
+  }
+
+  .toc-mobile-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    padding: 8px 12px;
+    color: inherit;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    font-size: 13px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  :global(.dark) .toc-mobile-toggle {
+    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(31, 41, 55, 0.6);
+  }
+
+  .toc-mobile-toggle:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .toc-mobile-nav {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s;
+    padding: 0 14px;
+  }
+
+  .toc-mobile-nav.open {
+    max-height: 500px;
+    opacity: 1;
+    padding: 8px 14px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    margin-top: -8px;
+  }
+
+  :global(.dark) .toc-mobile-nav.open {
+    border-color: rgba(255, 255, 255, 0.06);
+    background: rgba(31, 41, 55, 0.6);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .toc-aside, .toc-nav, .toc-toggle, .toc-link,
+    .toc-mobile-toggle, .toc-mobile-nav, .toc-progress-bar {
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>

@@ -4,6 +4,7 @@ import PageLikeButton from '@components/PageLikeButton.astro';
 import AuthorBio from '@components/post/AuthorBio.astro';
 import PostNav from '@components/post/PostNav.astro';
 import RelatedPosts from '@components/post/RelatedPosts.astro';
+import TableOfContents from '@components/post/TableOfContents.astro';
 import MainLayout from '@layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
 import { getExternalOriginUrl, getPostPath, getPostUrl, getTagUrl, normalizePostSlug } from '@utils/slug';
@@ -117,6 +118,8 @@ const wordCount = calculateWordCount(post.body);
     { name: post.data.title, url: canonicalURL }
   ]}
 >
+  <TableOfContents containerSelector="article.prose" />
+
   <article class="prose prose-lg mx-auto max-w-none dark:prose-invert">
     <header class="mb-8 pb-8 border-b border-gray-200 dark:border-gray-800">
       <h1 class="text-4xl font-bold mb-4">{post.data.title}</h1>
