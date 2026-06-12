@@ -231,9 +231,145 @@ const tags = keywords ? keywords.split(',').map(t => t.trim()).filter(Boolean) :
       })();
     </script>
   </head>
-  <body id="top" class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+  <body id="top" class="min-h-screen bg-slate-50 text-gray-900 antialiased transition-colors dark:bg-gray-950 dark:text-gray-100">
     <slot />
-    
+
     <!-- 图片懒加载：所有 <img> 标签已使用原生 loading="lazy"，无需额外 JS -->
   </body>
 </html>
+
+<style is:global>
+  :root {
+    color-scheme: light;
+    --surface: 255 255 255;
+    --surface-muted: 248 250 252;
+    --ring: 37 99 235;
+  }
+
+  :root.dark {
+    color-scheme: dark;
+    --surface: 17 24 39;
+    --surface-muted: 15 23 42;
+    --ring: 96 165 250;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-image:
+      linear-gradient(180deg, rgba(248, 250, 252, 0.96), rgba(255, 255, 255, 0.88) 28rem),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+    background-size: auto, 32px 32px, 32px 32px;
+    background-attachment: fixed;
+  }
+
+  :root.dark body {
+    background-image:
+      linear-gradient(180deg, rgba(3, 7, 18, 0.98), rgba(15, 23, 42, 0.92) 28rem),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+  }
+
+  ::selection {
+    background: rgba(37, 99, 235, 0.18);
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid rgb(var(--ring));
+    outline-offset: 3px;
+  }
+
+  .surface-card {
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    background: rgba(var(--surface), 0.82);
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.07);
+    backdrop-filter: blur(16px);
+  }
+
+  .dark .surface-card {
+    border-color: rgba(148, 163, 184, 0.14);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+  }
+
+  .interactive-card {
+    transform: translateY(0);
+    transition:
+      transform 220ms ease,
+      border-color 220ms ease,
+      box-shadow 220ms ease,
+      background-color 220ms ease;
+  }
+
+  .interactive-card:hover {
+    border-color: rgba(37, 99, 235, 0.34);
+    box-shadow: 0 24px 65px rgba(15, 23, 42, 0.11);
+    transform: translateY(-3px);
+  }
+
+  .dark .interactive-card:hover {
+    border-color: rgba(96, 165, 250, 0.34);
+    box-shadow: 0 24px 65px rgba(0, 0, 0, 0.32);
+  }
+
+  .animated-entry {
+    animation: fade-slide-up 520ms ease both;
+  }
+
+  .animated-entry:nth-child(2) {
+    animation-delay: 70ms;
+  }
+
+  .animated-entry:nth-child(3) {
+    animation-delay: 140ms;
+  }
+
+  .animated-entry:nth-child(4) {
+    animation-delay: 210ms;
+  }
+
+  .link-arrow svg {
+    transition: transform 180ms ease;
+  }
+
+  .link-arrow:hover svg {
+    transform: translateX(3px);
+  }
+
+  @keyframes fade-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 1ms !important;
+    }
+
+    .interactive-card:hover {
+      transform: none;
+    }
+  }
+</style>

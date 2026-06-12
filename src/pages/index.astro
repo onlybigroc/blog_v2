@@ -9,30 +9,76 @@ const title = '首页';
 const description = '大鹏的Log，记录正在发生的技术事。分享技术文章与开发心得，涵盖 Java、JavaScript、Go、数据库、Docker、AI 等领域。';
 const aiNews = getLatestAiNews(3, 'cn');
 
-const posts = (await getCollection('posts'))
+const allPosts = (await getCollection('posts'))
   .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 10);
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const totalPosts = allPosts.length;
+const posts = allPosts.slice(0, 10);
 ---
 
 <MainLayout title={title} description={description}>
-  <section class="text-center mb-16">
-    <h1 class="text-5xl font-bold mb-4">大鹏的Log</h1>
-    <p class="text-xl text-gray-600 mb-4 dark:text-gray-400">记录正在发生的事</p>
-    <p class="text-base text-gray-500 max-w-2xl mx-auto dark:text-gray-500">
-      这里有关于 Java、JavaScript、Go、数据库、Docker、AI 等技术领域的原创文章，
-      记录了我从 2017 年至今的技术学习和实践经验。希望这些内容能帮助到你。
-    </p>
+  <section class="animated-entry mb-14 overflow-hidden rounded-2xl border border-slate-200/75 bg-white/82 shadow-xl shadow-slate-900/5 backdrop-blur dark:border-slate-800/80 dark:bg-slate-950/72 md:mb-16">
+    <div class="grid gap-8 p-6 sm:p-8 md:grid-cols-[minmax(0,1.3fr)_minmax(280px,0.7fr)] md:p-10">
+      <div class="flex flex-col justify-center md:min-h-[320px]">
+        <p class="mb-4 inline-flex w-fit items-center rounded-full border border-primary-200 bg-primary-50 px-3 py-1 text-sm font-medium text-primary-700 dark:border-primary-900/60 dark:bg-primary-950/50 dark:text-primary-300">
+          技术文章 / AI 资讯 / 在线工具
+        </p>
+        <h1 class="max-w-2xl text-4xl font-bold leading-tight text-slate-950 dark:text-white sm:text-5xl md:text-6xl">大鹏的Log</h1>
+        <p class="mt-5 text-xl text-slate-700 dark:text-slate-300">记录正在发生的技术事</p>
+        <p class="mt-4 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-400">
+          这里有关于 Java、JavaScript、Go、数据库、Docker、AI 等技术领域的原创文章，
+          记录了我从 2017 年至今的技术学习和实践经验。希望这些内容能帮助到你。
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            href="/posts"
+            class="link-arrow inline-flex items-center gap-2 rounded-lg bg-primary-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary-600/20 transition hover:-translate-y-0.5 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600"
+          >
+            浏览文章
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+          <a
+            href="/tools"
+            class="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white/70 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:-translate-y-0.5 hover:border-primary-300 hover:text-primary-700 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:border-primary-700 dark:hover:text-primary-300"
+          >
+            打开工具箱
+          </a>
+        </div>
+      </div>
+
+      <div class="grid content-center gap-3">
+        <div class="surface-card rounded-2xl p-4 sm:p-5">
+          <p class="text-sm font-medium text-slate-500 dark:text-slate-400">已归档文章</p>
+          <p class="mt-2 text-4xl font-bold text-slate-950 dark:text-white">{totalPosts}</p>
+          <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">首页展示最新 10 篇，完整列表持续同步。</p>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="surface-card rounded-2xl p-4 sm:p-5">
+            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">AI 速览</p>
+            <p class="mt-2 text-3xl font-bold text-slate-950 dark:text-white">{aiNews.length}</p>
+          </div>
+          <div class="surface-card rounded-2xl p-4 sm:p-5">
+            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">方向</p>
+            <p class="mt-2 text-3xl font-bold text-slate-950 dark:text-white">6+</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="mb-16">
+  <section class="animated-entry mb-16">
     <div class="mb-8 flex items-end justify-between gap-4">
       <div>
-        <h2 class="text-3xl font-bold">AI 资讯速览</h2>
+        <h2 class="text-3xl font-bold text-slate-950 dark:text-white">AI 资讯速览</h2>
         <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">优先展示最近的中文 AI 动态，同时长期保留国际资讯与站内历史存档。</p>
       </div>
-      <a href="/ai-news" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-400">
+      <a href="/ai-news" class="link-arrow inline-flex items-center gap-1 text-sm font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">
         查看全部
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
       </a>
     </div>
 
@@ -43,14 +89,14 @@ const posts = (await getCollection('posts'))
     ) : (
       <div class="grid gap-5 lg:grid-cols-3">
         {aiNews.map((item) => (
-          <AINewsCard item={item} compact />
+          <AINewsCard item={item} compact animate />
         ))}
       </div>
     )}
   </section>
 
-  <section>
-    <h2 class="text-3xl font-bold mb-8">最新文章</h2>
+  <section class="animated-entry">
+    <h2 class="mb-8 text-3xl font-bold text-slate-950 dark:text-white">最新文章</h2>
     {posts.length === 0 ? (
       <div class="space-y-6">
         <p class="text-gray-600 dark:text-gray-400">正在同步文章中...</p>
@@ -60,16 +106,16 @@ const posts = (await getCollection('posts'))
       </div>
     ) : (
       <>
-        <div class="space-y-8">
+        <div class="space-y-5">
           {posts.map((post) => (
-            <PostCard key={post.id} post={post} headingTag="h3" tagLimit={3} />
+            <PostCard key={post.id} post={post} headingTag="h3" tagLimit={3} elevated />
           ))}
         </div>
 
         <div class="mt-12 text-center">
           <a
             href="/posts"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-medium transition-colors hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600"
+            class="link-arrow inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-medium text-white shadow-lg shadow-primary-600/20 transition hover:-translate-y-0.5 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600"
           >
             查看全部文章
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

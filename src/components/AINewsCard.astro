@@ -5,9 +5,10 @@ import { formatChineseDateTime } from '@utils/site';
 interface Props {
   item: AINewsItem;
   compact?: boolean;
+  animate?: boolean;
 }
 
-const { item, compact = false } = Astro.props;
+const { item, compact = false, animate = false } = Astro.props;
 const formattedDate = formatChineseDateTime(item.publishedAt);
 const archiveHref = `/ai-news/${item.id}`;
 const regionLabel = item.sourceRegion === 'cn' ? '中文' : '国际';
@@ -28,7 +29,7 @@ const regionStyles = {
 ---
 
 {compact ? (
-  <article class="rounded-2xl border border-gray-200 bg-white/90 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-gray-800 dark:bg-gray-900/80">
+  <article class:list={['surface-card interactive-card rounded-2xl p-5', animate && 'animated-entry']}>
     {displayImage && (
       <a href={archiveHref} class="mb-4 block overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800">
         <img
@@ -36,7 +37,7 @@ const regionStyles = {
           alt={item.coverImageAlt || item.titleZh || item.title}
           width={coverImageWidth}
           height={coverImageHeight}
-          class="h-44 w-full object-cover transition duration-300 hover:scale-[1.02]"
+          class="h-44 w-full object-cover transition duration-500 hover:scale-[1.04]"
           loading="lazy"
         />
       </a>
@@ -53,7 +54,7 @@ const regionStyles = {
     </div>
 
     <h3 class="text-xl font-bold leading-8">
-      <a href={archiveHref} class="text-primary-600 hover:underline dark:text-primary-400">
+      <a href={archiveHref} class="text-slate-950 transition-colors hover:text-primary-600 dark:text-white dark:hover:text-primary-400">
         {item.titleZh || item.title}
       </a>
     </h3>
@@ -77,8 +78,11 @@ const regionStyles = {
         ))}
       </div>
 
-      <a href={archiveHref} class="text-sm text-primary-600 hover:underline dark:text-primary-400">
-        阅读全文 →
+      <a href={archiveHref} class="link-arrow inline-flex items-center gap-1 text-sm font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">
+        阅读全文
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
       </a>
     </div>
   </article>

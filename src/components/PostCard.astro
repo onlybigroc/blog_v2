@@ -10,6 +10,7 @@ interface Props {
   tagLimit?: number;
   activeTag?: string;
   headingTag?: 'h2' | 'h3';
+  elevated?: boolean;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   tagLimit = post.data.tags.length,
   activeTag,
   headingTag = 'h2',
+  elevated = false,
 } = Astro.props;
 
 const HeadingTag = headingTag;
@@ -32,16 +34,19 @@ const formattedDate = post.data.date.toLocaleDateString('zh-CN', {
 });
 const readingTime = calculateReadingTime(post.body);
 const wordCount = calculateWordCount(post.body);
+const articleClass = elevated
+  ? 'surface-card interactive-card rounded-2xl p-5 sm:p-6 animated-entry'
+  : 'border-b border-gray-200 pb-8 last:border-0 dark:border-gray-800';
 ---
 
-<article class="border-b border-gray-200 pb-8 last:border-0 dark:border-gray-800">
-  <HeadingTag class="text-2xl font-bold mb-2">
-    <a href={postHref} class="text-primary-600 hover:underline dark:text-primary-400">
+<article class={articleClass}>
+  <HeadingTag class="mb-3 text-2xl font-bold leading-tight">
+    <a href={postHref} class="text-slate-950 transition-colors hover:text-primary-600 dark:text-white dark:hover:text-primary-400">
       {post.data.title}
     </a>
   </HeadingTag>
 
-  <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-3 dark:text-gray-400">
+  <div class="mb-4 flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
     <time datetime={post.data.date.toISOString()}>{formattedDate}</time>
 
     <span class="flex items-center gap-1">
@@ -76,7 +81,7 @@ const wordCount = calculateWordCount(post.body);
             <a
               href={getTagUrl(tag)}
               class:list={[
-                'px-2 py-1 rounded text-xs transition-colors',
+                'rounded px-2 py-1 text-xs transition-all duration-200 hover:-translate-y-0.5',
                 activeTag === tag
                   ? 'bg-primary-600 text-white'
                   : 'bg-primary-100 text-primary-700 hover:bg-primary-200 dark:bg-primary-900/30 dark:text-primary-300 dark:hover:bg-primary-900/50',
@@ -91,12 +96,15 @@ const wordCount = calculateWordCount(post.body);
   </div>
 
   {summary && (
-    <p class="text-gray-700 mb-3 line-clamp-2 dark:text-gray-300">{summary}</p>
+    <p class="mb-4 line-clamp-2 leading-7 text-gray-700 dark:text-gray-300">{summary}</p>
   )}
 
   {showReadMore && (
-    <a href={postHref} class="text-primary-600 hover:underline text-sm dark:text-primary-400">
-      阅读全文 →
+    <a href={postHref} class="link-arrow inline-flex items-center gap-1 text-sm font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">
+      阅读全文
+      <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
     </a>
   )}
 </article>
