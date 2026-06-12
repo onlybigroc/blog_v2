@@ -1,32 +1,33 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
-import { getAiNewsDigest } from '@data/aiNews';
+import { getAiNewsDetailItems } from '@data/aiNewsDetails';
 import { calculateReadingTime, calculateWordCount, formatChineseDateTime } from '@utils/site';
 
 export function getStaticPaths() {
-  const digest = getAiNewsDigest();
+  const items = getAiNewsDetailItems();
 
-  return digest.items.map((item) => ({
+  return items.map((item) => ({
     params: { id: item.id },
     props: { item },
   }));
 }
 
 const { item } = Astro.props;
-const contentSource = item.originalContentText || item.summaryZh || item.summary || item.titleZh || item.title;
+const originalContentText = item.originalContentText || '';
+const contentSource = originalContentText || item.summaryZh || item.summary || item.titleZh || item.title;
 const displayImage = item.coverImage || item.coverImageOriginal;
 const coverImageWidth = item.coverImageWidth || 1200;
 const coverImageHeight = item.coverImageHeight || 800;
 const formattedPublishedDate = formatChineseDateTime(item.publishedAt);
 const formattedArchiveDate = formatChineseDateTime(item.archiveFirstSeenAt);
-const rawContentBlocks = item.originalContentText
+const rawContentBlocks = originalContentText
   .split(/\n{2,}/)
   .map((block: string) => block.trim())
   .filter(Boolean);
 const contentBlocks =
   rawContentBlocks.length > 1
     ? rawContentBlocks
-    : item.originalContentText
+    : originalContentText
         .split(/(?<=[。！？!?])\s+/)
         .map((sentence: string) => sentence.trim())
         .filter(Boolean)

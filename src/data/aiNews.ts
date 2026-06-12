@@ -39,7 +39,7 @@ export interface AINewsItem {
   coverImageAlt: string;
   coverImageWidth?: number;
   coverImageHeight?: number;
-  originalContentText: string;
+  originalContentText?: string;
   originalContentAvailable: boolean;
   originalContentWarning: string;
   snapshotFetchedAt: string;

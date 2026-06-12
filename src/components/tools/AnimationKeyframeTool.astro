@@ -51,7 +51,11 @@ function update() {
   const o100 = parseInt((document.getElementById('o100') as HTMLInputElement).value) / 100;
   const dur = parseFloat((document.getElementById('duration') as HTMLInputElement).value);
   const easing = (document.getElementById('easing') as HTMLSelectElement).value;
-  ['r0','s0','o0','r50','s50','o50','r100','s100','o100','dur'].forEach(k => { const el = document.getElementById(k+'-val'); if (el) el.textContent = eval(k.replace('dur','dur')).toString(); });
+  const values: Record<string, number> = { r0, s0, o0, r50, s50, o50, r100, s100, o100, dur };
+  Object.entries(values).forEach(([key, value]) => {
+    const el = document.getElementById(`${key}-val`);
+    if (el) el.textContent = value.toString();
+  });
   document.getElementById('dur-val')!.textContent = String(dur);
   const animName = 'my-animation';
   const style = document.getElementById('preview') as HTMLElement;

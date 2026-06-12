@@ -33,7 +33,10 @@ function update() {
   const color = (document.getElementById('shadow-color') as HTMLInputElement).value;
   const opacity = parseInt((document.getElementById('opacity') as HTMLInputElement).value);
   const inset = (document.getElementById('inset') as HTMLInputElement).checked;
-  ['ox','oy','blur','spread','opacity'].forEach(k => document.getElementById(k+'-val')!.textContent = eval(k).toString());
+  const values: Record<string, number> = { ox, oy, blur, spread, opacity };
+  Object.entries(values).forEach(([key, value]) => {
+    document.getElementById(`${key}-val`)!.textContent = value.toString();
+  });
   const rgba = hexToRgba(color, opacity);
   const value = `${inset?'inset ':''}${ox}px ${oy}px ${blur}px ${spread}px ${rgba}`;
   document.getElementById('preview')!.style.boxShadow = value;

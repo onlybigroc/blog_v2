@@ -1,7 +1,7 @@
 /**
  * 图片压缩脚本 - 按需手动运行
- * 将 public/images/ai-news/ 下的大图压缩，减少 dist 体积
- * PNG→JPG 转换时自动更新 ai-news.json 中的引用
+ * 将 public/images/ai-news/ 和 public/images/posts/ 下的大图压缩，减少 dist 体积
+ * PNG→JPG 转换时自动更新 ai-news.json 和文章 Markdown 中的引用
  *
  * 用法: npm run compress:images
  * 或: node scripts/compress-images.mjs
@@ -11,8 +11,9 @@ import sharp from 'sharp';
 import { readdir, stat, unlink, readFile, writeFile } from 'fs/promises';
 import { join, extname, basename } from 'path';
 
-const IMAGES_DIR = 'public/images/ai-news';
+const IMAGE_DIRS = ['public/images/ai-news', 'public/images/posts'];
 const AI_NEWS_JSON = 'src/data/ai-news.json';
+const CONTENT_POSTS_DIR = 'src/content/posts';
 const MAX_WIDTH = 1200;
 const JPG_QUALITY = 78;
 const PNG_COMPRESSION = 9;
@@ -28,7 +29,7 @@ async function getFiles(dir) {
     if (entry.isFile()) {
       const ext = extname(entry.name).toLowerCase();
       if (['.jpg', '.jpeg', '.png'].includes(ext)) {
-        files.push({ path: fullPath, ext, name: entry.name });
+        files.push({ path: fullPath, ext, name: entry.name, dir });
       }
     }
   }
@@ -112,11 +113,43 @@ async function updateAiNewsJson(conversions) {
   return count;
 }
 
+async function updatePostReferences(conversions) {
+  if (conversions.length === 0) return 0;
+
+  const entries = await readdir(CONTENT_POSTS_DIR, { withFileTypes: true });
+  let updatedFiles = 0;
+
+  for (const entry of entries) {
+    if (!entry.isFile() || !/\.mdx?$/.test(entry.name)) {
+      continue;
+    }
+
+    const filePath = join(CONTENT_POSTS_DIR, entry.name);
+    const raw = await readFile(filePath, 'utf8');
+    let updated = raw;
+
+    for (const { oldName, newName, dir } of conversions) {
+      if (oldName === newName || !dir.endsWith('/posts')) continue;
+      updated = updated.replaceAll(`/images/posts/${oldName}`, `/images/posts/${newName}`);
+      updated = updated.replaceAll(`images/posts/${oldName}`, `images/posts/${newName}`);
+    }
+
+    if (updated !== raw) {
+      updatedFiles++;
+      if (!dryRun) {
+        await writeFile(filePath, updated, 'utf8');
+      }
+    }
+  }
+
+  return updatedFiles;
+}
+
 async function main() {
   console.log(`🖼️  图片压缩${dryRun ? ' (dry-run 模式)' : ''}`);
-  console.log(`📁 目录: ${IMAGES_DIR}\n`);
+  console.log(`📁 目录: ${IMAGE_DIRS.join(', ')}\n`);
 
-  const files = await getFiles(IMAGES_DIR);
+  const files = (await Promise.all(IMAGE_DIRS.map((dir) => getFiles(dir)))).flat();
   console.log(`找到 ${files.length} 张图片\n`);
 
   let totalSaved = 0;
@@ -132,7 +165,7 @@ async function main() {
         totalSaved += result.savedKB;
         processed++;
         if (result.converted) {
-          conversions.push(result);
+          conversions.push({ ...result, dir: file.dir });
         }
       }
     } catch (err) {
@@ -144,6 +177,8 @@ async function main() {
   if (conversions.length > 0) {
     const updated = await updateAiNewsJson(conversions);
     console.log(`\n📝 更新 ai-news.json: ${updated || 0} 条 PNG→JPG 引用`);
+    const updatedPosts = await updatePostReferences(conversions);
+    console.log(`📝 更新文章引用: ${updatedPosts || 0} 个文件`);
   }
 
   results.sort((a, b) => b.savedKB - a.savedKB);

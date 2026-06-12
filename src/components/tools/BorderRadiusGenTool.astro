@@ -29,7 +29,10 @@ function update() {
   const tr = parseInt((document.getElementById('tr') as HTMLInputElement).value);
   const br = parseInt((document.getElementById('br') as HTMLInputElement).value);
   const bl = parseInt((document.getElementById('bl') as HTMLInputElement).value);
-  ['tl','tr','br','bl'].forEach(k => document.getElementById(k+'-val')!.textContent = eval(k).toString());
+  const values: Record<string, number> = { tl, tr, br, bl };
+  Object.entries(values).forEach(([key, value]) => {
+    document.getElementById(`${key}-val`)!.textContent = value.toString();
+  });
   const value = `${tl}% ${tr}% ${br}% ${bl}%`;
   document.getElementById('preview')!.style.borderRadius = value;
   document.getElementById('code')!.textContent = `border-radius: ${value};`;

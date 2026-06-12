@@ -7,6 +7,7 @@ import { JSDOM } from 'jsdom';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUTPUT_PATH = path.join(__dirname, '../src/data/ai-news.json');
+const OUTPUT_DETAILS_PATH = path.join(__dirname, '../src/data/ai-news-details.json');
 const AI_NEWS_IMAGES_DIR = path.join(__dirname, '../public/images/ai-news');
 const AI_NEWS_IMAGES_PUBLIC_PATH = '/images/ai-news';
 const USER_AGENT = 'bigroc-blog-ai-news-bot/2.0 (+https://bigroc.cn)';
@@ -23,6 +24,7 @@ const TRANSLATION_DELAY_MS = 250;
 const ARTICLE_CONTENT_MAX_CHARS = 20000;
 const ARTICLE_BLOCK_MAX_COUNT = 120;
 const REQUEST_TIMEOUT_MS = 8000;
+const REWRITE_STORAGE_ONLY = process.argv.includes('--rewrite-storage');
 
 const parser = new Parser({
   customFields: {
@@ -257,10 +259,14 @@ async function loadArchive() {
   try {
     const content = await fs.readFile(OUTPUT_PATH, 'utf-8');
     const parsed = JSON.parse(content);
+    const details = await loadDetailMap();
+
     return {
       ...defaultDigest(),
       ...parsed,
-      items: Array.isArray(parsed.items) ? parsed.items : [],
+      items: Array.isArray(parsed.items)
+        ? parsed.items.map((item) => mergeStoredItemWithDetails(item, details[item.id]))
+        : [],
       latestIds: Array.isArray(parsed.latestIds) ? parsed.latestIds : [],
       failures: Array.isArray(parsed.failures) ? parsed.failures : [],
       sources: Array.isArray(parsed.sources) ? parsed.sources : [],
@@ -272,6 +278,59 @@ async function loadArchive() {
 
 async function ensureDir(dir) {
   await fs.mkdir(dir, { recursive: true });
+}
+
+async function loadDetailMap() {
+  try {
+    const content = await fs.readFile(OUTPUT_DETAILS_PATH, 'utf-8');
+    const parsed = JSON.parse(content);
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function mergeStoredItemWithDetails(item, detail) {
+  const originalContentText = item.originalContentText || detail?.originalContentText || '';
+
+  return {
+    ...item,
+    originalContentText,
+    originalContentAvailable: item.originalContentAvailable ?? Boolean(originalContentText),
+    originalContentWarning: item.originalContentWarning || '',
+    snapshotFetchedAt: item.snapshotFetchedAt || '',
+  };
+}
+
+function splitDigestForStorage(digest) {
+  const details = {};
+  const items = digest.items.map((item) => {
+    const { originalContentText = '', ...summary } = item;
+
+    if (item.id) {
+      details[item.id] = {
+        originalContentText,
+      };
+    }
+
+    return summary;
+  });
+
+  return [
+    {
+      ...digest,
+      items,
+    },
+    details,
+  ];
+}
+
+async function writeDigestFiles(digest) {
+  const [summaryDigest, details] = splitDigestForStorage(digest);
+
+  await ensureDir(path.dirname(OUTPUT_PATH));
+  await fs.writeFile(OUTPUT_PATH, `${JSON.stringify(summaryDigest, null, 2)}\n`, 'utf-8');
+  await fs.writeFile(OUTPUT_DETAILS_PATH, `${JSON.stringify(details, null, 2)}\n`, 'utf-8');
 }
 
 function normalizeWhitespace(value) {
@@ -1490,7 +1549,53 @@ function buildDigest(allItems, latestItems, failures, now) {
   };
 }
 
+function normalizeStoredArchiveItem(item, now) {
+  return {
+    ...item,
+    titleZh: item.titleZh || (containsChinese(item.title) ? item.title : ''),
+    summaryZh: item.summaryZh || (containsChinese(item.summary) ? item.summary : ''),
+    highlightsZh: item.highlightsZh || [],
+    sourceRegion: item.sourceRegion || 'global',
+    sourceLanguage: item.sourceLanguage || (containsChinese(item.title) ? 'zh' : 'en'),
+    coverImage: item.coverImage || '',
+    coverImageOriginal: item.coverImageOriginal || '',
+    coverImageAlt: item.coverImageAlt || item.titleZh || item.title,
+    originalContentText: item.originalContentText || '',
+    originalContentAvailable: item.originalContentAvailable ?? Boolean(item.originalContentText),
+    originalContentWarning: item.originalContentWarning || '',
+    snapshotFetchedAt: item.snapshotFetchedAt || '',
+    archiveFirstSeenAt: item.archiveFirstSeenAt || item.lastSeenAt || now.toISOString(),
+    lastSeenAt: item.lastSeenAt || now.toISOString(),
+  };
+}
+
+async function rewriteStorageFromArchive() {
+  const now = new Date();
+  const archive = await loadArchive();
+  const normalizedItems = (archive.items || []).map((item) => normalizeStoredArchiveItem(item, now));
+  const digest = {
+    ...defaultDigest(),
+    ...archive,
+    items: normalizedItems,
+    latestIds: Array.isArray(archive.latestIds) ? archive.latestIds : [],
+    failures: Array.isArray(archive.failures) ? archive.failures : [],
+    sources: Array.isArray(archive.sources) ? archive.sources : [],
+  };
+
+  await writeDigestFiles(digest);
+
+  console.log('已重写 AI 资讯存储结构');
+  console.log(`  摘要文件: ${OUTPUT_PATH}`);
+  console.log(`  正文文件: ${OUTPUT_DETAILS_PATH}`);
+  console.log(`  历史存档: ${normalizedItems.length}`);
+}
+
 async function run() {
+  if (REWRITE_STORAGE_ONLY) {
+    await rewriteStorageFromArchive();
+    return;
+  }
+
   const now = new Date();
   const archive = await loadArchive();
   const normalizedItems = [];
@@ -1544,22 +1649,7 @@ async function run() {
     existingMap.delete(item.id);
   }
 
-  const preservedItems = Array.from(existingMap.values()).map((item) => ({
-    ...item,
-    titleZh: item.titleZh || (containsChinese(item.title) ? item.title : ''),
-    summaryZh: item.summaryZh || (containsChinese(item.summary) ? item.summary : ''),
-    highlightsZh: item.highlightsZh || [],
-    sourceRegion: item.sourceRegion || 'global',
-    sourceLanguage: item.sourceLanguage || (containsChinese(item.title) ? 'zh' : 'en'),
-    coverImage: item.coverImage || '',
-    coverImageOriginal: item.coverImageOriginal || '',
-    coverImageAlt: item.coverImageAlt || item.titleZh || item.title,
-    originalContentText: item.originalContentText || '',
-    originalContentAvailable: item.originalContentAvailable ?? Boolean(item.originalContentText),
-    originalContentWarning: item.originalContentWarning || '',
-    archiveFirstSeenAt: item.archiveFirstSeenAt || item.lastSeenAt || now.toISOString(),
-    lastSeenAt: item.lastSeenAt || now.toISOString(),
-  }));
+  const preservedItems = Array.from(existingMap.values()).map((item) => normalizeStoredArchiveItem(item, now));
 
   const allItems = [...refreshedItems, ...preservedItems].sort(
     (left, right) => new Date(right.publishedAt).getTime() - new Date(left.publishedAt).getTime()
@@ -1577,11 +1667,11 @@ async function run() {
 
   const digest = buildDigest(allItems, latestItems, failures, now);
 
-  await ensureDir(path.dirname(OUTPUT_PATH));
-  await fs.writeFile(OUTPUT_PATH, `${JSON.stringify(digest, null, 2)}\n`, 'utf-8');
+  await writeDigestFiles(digest);
 
   console.log('\n同步完成');
-  console.log(`  输出文件: ${OUTPUT_PATH}`);
+  console.log(`  摘要文件: ${OUTPUT_PATH}`);
+  console.log(`  正文文件: ${OUTPUT_DETAILS_PATH}`);
   console.log(`  最新条数: ${latestItems.length}`);
   console.log(`  历史存档: ${allItems.length}`);
   console.log(`  失败源数: ${failures.length}`);
