@@ -173,6 +173,8 @@ const showReadingProgress = isArticlePath(pathname);
 
   <script>
     document.addEventListener('astro:page-load', () => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
       // Theme toggle (desktop + mobile)
       const applyTheme = (dark: boolean) => {
         document.documentElement.classList.toggle('dark', dark);
@@ -224,21 +226,46 @@ const showReadingProgress = isArticlePath(pathname);
         window.addEventListener('load', updateReadingProgress, { once: true });
       }
 
-      // Scroll animation observer
+      // Scroll animation observer (supports data-animate attribute)
       const animateElements = document.querySelectorAll('.animate-on-scroll');
       if (animateElements.length > 0) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-        );
-        animateElements.forEach((el) => observer.observe(el));
+        if (prefersReducedMotion) {
+          animateElements.forEach((el) => el.classList.add('is-visible'));
+        } else {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+          );
+          animateElements.forEach((el) => observer.observe(el));
+        }
+      }
+
+      // Image reveal observer
+      const imageRevealElements = document.querySelectorAll('.animate-image-reveal');
+      if (imageRevealElements.length > 0) {
+        if (prefersReducedMotion) {
+          imageRevealElements.forEach((el) => el.classList.add('is-visible'));
+        } else {
+          const imgObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  imgObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.15, rootMargin: '0px 0px -30px 0px' }
+          );
+          imageRevealElements.forEach((el) => imgObserver.observe(el));
+        }
       }
 
       // Header scroll shadow
@@ -284,6 +311,11 @@ const showReadingProgress = isArticlePath(pathname);
       };
       updateNavIndicator();
 
+      // Add nav underline animation class
+      navLinks.forEach((link) => {
+        link.classList.add('nav-link-animated');
+      });
+
       // 3D magnetic card tilt
       document.querySelectorAll('.glass-card').forEach((card) => {
         const el = card as HTMLElement;
@@ -300,6 +332,38 @@ const showReadingProgress = isArticlePath(pathname);
         });
         el.addEventListener('mouseleave', () => {
           el.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
+        });
+      });
+
+      // Magnetic button effect for nav links and CTA buttons
+      if (!prefersReducedMotion) {
+        document.querySelectorAll('.magnetic-target, header nav a[href]').forEach((btn) => {
+          const el = btn as HTMLElement;
+          el.addEventListener('mousemove', (e: MouseEvent) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            el.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+          });
+          el.addEventListener('mouseleave', () => {
+            el.style.transform = 'translate(0, 0)';
+          });
+        });
+      }
+
+      // Ripple click effect
+      document.querySelectorAll('.ripple-container, .glow-btn, header nav a[href]').forEach((el) => {
+        el.classList.add('ripple-container');
+        el.addEventListener('click', function (this: HTMLElement, e: MouseEvent) {
+          const ripple = document.createElement('span');
+          ripple.className = 'ripple';
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          ripple.style.width = ripple.style.height = `${size}px`;
+          ripple.style.left = `${e.clientX - rect.left}px`;
+          ripple.style.top = `${e.clientY - rect.top}px`;
+          this.appendChild(ripple);
+          ripple.addEventListener('animationend', () => ripple.remove());
         });
       });
 

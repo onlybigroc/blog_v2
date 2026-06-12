@@ -214,4 +214,83 @@ const wordCount = calculateWordCount(post.body);
       }
     });
   </script>
+
+  <script>
+    document.addEventListener('astro:page-load', () => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Image reveal animation
+      const article = document.querySelector('article.prose');
+      if (article) {
+        const images = article.querySelectorAll('img');
+        if (images.length > 0 && !prefersReducedMotion) {
+          const imgObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  imgObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.15 }
+          );
+
+          images.forEach((img) => {
+            if (!img.closest('.no-animate')) {
+              img.classList.add('animate-image-reveal');
+              imgObserver.observe(img);
+            }
+          });
+        }
+
+        // Code block copy buttons
+        article.querySelectorAll('pre').forEach((pre) => {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'relative group';
+          pre.parentNode?.insertBefore(wrapper, pre);
+          wrapper.appendChild(pre);
+
+          const btn = document.createElement('button');
+          btn.className = 'copy-btn absolute top-2 right-2 p-1.5 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity';
+          btn.setAttribute('aria-label', '复制代码');
+          btn.innerHTML = '<svg class="copy-icon-default w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"></path></svg><svg class="copy-icon-check w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>';
+
+          btn.addEventListener('click', async () => {
+            const code = pre.querySelector('code');
+            const text = code?.textContent || pre.textContent || '';
+            try {
+              await navigator.clipboard.writeText(text);
+              btn.classList.add('copied');
+              setTimeout(() => btn.classList.remove('copied'), 2000);
+            } catch {
+              // fallback
+              const textarea = document.createElement('textarea');
+              textarea.value = text;
+              textarea.style.position = 'fixed';
+              textarea.style.opacity = '0';
+              document.body.appendChild(textarea);
+              textarea.select();
+              document.execCommand('copy');
+              document.body.removeChild(textarea);
+              btn.classList.add('copied');
+              setTimeout(() => btn.classList.remove('copied'), 2000);
+            }
+          });
+
+          wrapper.appendChild(btn);
+        });
+
+        // Heading anchor links
+        article.querySelectorAll('h2[id], h3[id], h4[id]').forEach((heading) => {
+          const anchor = document.createElement('a');
+          anchor.className = 'heading-anchor';
+          anchor.href = `#${heading.id}`;
+          anchor.textContent = '#';
+          anchor.setAttribute('aria-label', `链接到 ${heading.textContent}`);
+          heading.appendChild(anchor);
+        });
+      }
+    });
+  </script>
 </MainLayout>

@@ -25,6 +25,111 @@
   100% { background-position: 200% center; }
 }
 
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes blur-reveal {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes ripple-expand {
+  to {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes underline-expand {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.3), 0 0 10px rgba(59, 130, 246, 0.1); }
+  50% { box-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.2); }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes image-reveal {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* ==================== Scroll Animations ==================== */
+
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(24px);
@@ -37,8 +142,70 @@
   transform: translateY(0);
 }
 
+.animate-on-scroll[data-animate="scale"] {
+  transform: scale(0.9);
+}
+.animate-on-scroll[data-animate="scale"].is-visible {
+  transform: scale(1);
+}
+
+.animate-on-scroll[data-animate="slide-left"] {
+  transform: translateX(40px);
+}
+.animate-on-scroll[data-animate="slide-left"].is-visible {
+  transform: translateX(0);
+}
+
+.animate-on-scroll[data-animate="slide-right"] {
+  transform: translateX(-40px);
+}
+.animate-on-scroll[data-animate="slide-right"].is-visible {
+  transform: translateX(0);
+}
+
+.animate-on-scroll[data-animate="blur"] {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(12px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.animate-on-scroll[data-animate="blur"].is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* Stagger delays via data-delay or nth-child */
 .animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
 .animate-on-scroll:nth-child(3) { transition-delay: 0.2s; }
+.animate-on-scroll:nth-child(4) { transition-delay: 0.3s; }
+.animate-on-scroll:nth-child(5) { transition-delay: 0.4s; }
+.animate-on-scroll:nth-child(6) { transition-delay: 0.5s; }
+.animate-on-scroll:nth-child(7) { transition-delay: 0.6s; }
+.animate-on-scroll:nth-child(8) { transition-delay: 0.7s; }
+.animate-on-scroll:nth-child(9) { transition-delay: 0.8s; }
+.animate-on-scroll:nth-child(10) { transition-delay: 0.9s; }
+
+/* ==================== Image Reveal ==================== */
+
+.animate-image-reveal {
+  opacity: 0;
+  transform: scale(1.03);
+  filter: blur(4px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-image-reveal.is-visible {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/* ==================== Glass Effects ==================== */
 
 .glass {
   background: rgba(255, 255, 255, 0.7);
@@ -78,6 +245,8 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
+/* ==================== Hero Effects ==================== */
+
 .hero-glow {
   position: absolute;
   border-radius: 9999px;
@@ -98,4 +267,172 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer 6s linear infinite;
+}
+
+/* ==================== Micro-interactions ==================== */
+
+/* Magnetic button base */
+.magnetic-target {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Nav underline animation */
+.nav-link-animated {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 1px;
+}
+
+.nav-link-animated:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Glow button */
+.glow-btn {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.glow-btn::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  filter: blur(8px);
+}
+
+.glow-btn:hover::before {
+  opacity: 0.6;
+}
+
+.dark .glow-btn:hover::before {
+  opacity: 0.4;
+}
+
+/* Ripple effect container */
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-container .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple-expand 0.6s ease-out;
+  pointer-events: none;
+}
+
+.dark .ripple-container .ripple {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ==================== Page Transitions ==================== */
+
+::view-transition-old(root) {
+  animation: page-exit 0.2s ease-in forwards;
+}
+
+::view-transition-new(root) {
+  animation: page-enter 0.3s ease-out forwards;
+}
+
+/* ==================== Code Block Enhancements ==================== */
+
+.prose pre {
+  position: relative;
+}
+
+.copy-btn {
+  transition: all 0.2s ease;
+}
+
+.copy-btn.copied {
+  color: #22c55e;
+}
+
+.copy-btn .copy-icon-check {
+  display: none;
+}
+
+.copy-btn.copied .copy-icon-check {
+  display: inline;
+}
+
+.copy-btn.copied .copy-icon-default {
+  display: none;
+}
+
+/* ==================== Article Heading Anchor ==================== */
+
+.prose h2[id],
+.prose h3[id],
+.prose h4[id] {
+  position: relative;
+}
+
+.heading-anchor {
+  opacity: 0;
+  margin-left: 0.25em;
+  transition: opacity 0.2s ease;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.prose h2:hover .heading-anchor,
+.prose h3:hover .heading-anchor,
+.prose h4:hover .heading-anchor {
+  opacity: 1;
+}
+
+/* ==================== Reduced Motion ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-on-scroll,
+  .animate-image-reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .hero-glow {
+    animation: none;
+  }
+
+  .text-gradient {
+    animation: none;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
 }

@@ -95,8 +95,11 @@ const wordCount = calculateWordCount(post.body);
   )}
 
   {showReadMore && (
-    <a href={postHref} class="text-primary-600 hover:underline text-sm dark:text-primary-400">
-      阅读全文 →
+    <a href={postHref} class="inline-flex items-center gap-1 text-primary-600 hover:underline text-sm dark:text-primary-400 group/link">
+      阅读全文
+      <svg class="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
     </a>
   )}
 </article>
