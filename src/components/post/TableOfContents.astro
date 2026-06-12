@@ -6,7 +6,7 @@ interface Props {
 const { containerSelector = 'article.prose' } = Astro.props;
 ---
 
-<aside id="toc-aside" class="toc-aside">
+<aside id="toc-aside" class="toc-aside" style="opacity: 0;">
   <div class="toc-wrapper">
     <button id="toc-toggle" class="toc-toggle" aria-expanded="true" aria-label="收起目录">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -94,6 +94,11 @@ document.addEventListener('astro:page-load', () => {
   if (tocList) buildTocList(tocList);
   if (tocMobileList) buildTocList(tocMobileList);
 
+  // DOM references
+  const tocAsideEl = document.getElementById('toc-aside');
+  const tocMobileEl = document.getElementById('toc-mobile');
+  const articleEl = document.querySelector(containerSelector);
+
   // Scroll spy
   const tocLinks = document.querySelectorAll('.toc-link');
   let currentActiveId = null;
@@ -117,7 +122,7 @@ document.addEventListener('astro:page-load', () => {
       tocLinks.forEach((link) => {
         const isActive = link.getAttribute('href') === `#${activeId}`;
         link.classList.toggle('toc-active', isActive);
-        if (isActive) {
+        if (isActive && tocAsideEl && tocAsideEl.style.display !== 'none') {
           link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
         }
       });
@@ -139,11 +144,29 @@ document.addEventListener('astro:page-load', () => {
   window.addEventListener('scroll', updateActiveLink, { passive: true });
   updateActiveLink();
 
-  // Toggle desktop TOC
+  // Auto-switch desktop/mobile based on overlap detection
+  function checkTocOverlap() {
+    if (!tocAsideEl || !tocMobileEl || !articleEl) return;
+    const articleRect = articleEl.getBoundingClientRect();
+    const tocRect = tocAsideEl.getBoundingClientRect();
+    const overlaps = tocRect.left < articleRect.right + 16;
+    if (overlaps) {
+      tocAsideEl.style.display = 'none';
+      tocAsideEl.style.opacity = '0';
+      tocMobileEl.style.display = 'block';
+    } else {
+      tocAsideEl.style.display = '';
+      tocAsideEl.style.opacity = '1';
+      tocMobileEl.style.display = 'none';
+    }
+  }
+
+  checkTocOverlap();
+  window.addEventListener('resize', checkTocOverlap, { passive: true });
+
+  // Toggle desktop TOC collapse
   const tocToggle = document.getElementById('toc-toggle');
   const tocNav = document.getElementById('toc-nav');
-  const tocAside = document.getElementById('toc-aside');
-  const tocMobile = document.getElementById('toc-mobile');
   if (tocToggle && tocNav) {
     let tocCollapsed = false;
     tocToggle.addEventListener('click', () => {
@@ -151,7 +174,7 @@ document.addEventListener('astro:page-load', () => {
       tocNav.classList.toggle('toc-collapsed', tocCollapsed);
       tocToggle.setAttribute('aria-expanded', String(!tocCollapsed));
       tocToggle.querySelector('.toc-chevron')?.classList.toggle('rotate-180', tocCollapsed);
-      if (tocAside) tocAside.classList.toggle('toc-aside-collapsed', tocCollapsed);
+      if (tocAsideEl) tocAsideEl.classList.toggle('toc-aside-collapsed', tocCollapsed);
     });
   }
 
@@ -165,28 +188,6 @@ document.addEventListener('astro:page-load', () => {
       tocMobileToggle.querySelector('.toc-chevron')?.classList.toggle('rotate-180', isOpen);
     });
   }
-
-  // Auto-switch desktop/mobile based on overlap detection
-  const tocAsideEl = document.getElementById('toc-aside');
-  const tocMobileEl = document.getElementById('toc-mobile');
-  const articleEl = document.querySelector(containerSelector);
-
-  function checkTocOverlap() {
-    if (!tocAsideEl || !tocMobileEl || !articleEl) return;
-    const articleRect = articleEl.getBoundingClientRect();
-    const tocRect = tocAsideEl.getBoundingClientRect();
-    const overlaps = tocRect.left < articleRect.right + 16;
-    if (overlaps) {
-      tocAsideEl.style.display = 'none';
-      tocMobileEl.style.display = 'block';
-    } else {
-      tocAsideEl.style.display = '';
-      tocMobileEl.style.display = 'none';
-    }
-  }
-
-  checkTocOverlap();
-  window.addEventListener('resize', checkTocOverlap, { passive: true });
 });
 </script>
 
@@ -201,7 +202,7 @@ document.addEventListener('astro:page-load', () => {
     min-width: 180px;
     max-height: calc(100vh - 128px);
     z-index: 30;
-    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s;
+    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
   }
 
   .toc-aside-collapsed {
