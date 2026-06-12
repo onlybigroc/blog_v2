@@ -28,7 +28,7 @@ const regionStyles = {
 ---
 
 {compact ? (
-  <article class="rounded-2xl border border-gray-200 bg-white/90 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-gray-800 dark:bg-gray-900/80">
+  <article class="animate-on-scroll glass-card rounded-2xl p-5 dark:border-gray-800">
     {displayImage && (
       <a href={archiveHref} class="mb-4 block overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800">
         <img
@@ -83,7 +83,7 @@ const regionStyles = {
     </div>
   </article>
 ) : (
-  <article class="border-b border-gray-200 pb-8 last:border-0 dark:border-gray-800">
+  <article class="animate-on-scroll glass-card rounded-xl p-6 last:mb-0">
     <div class:list={['gap-6', displayImage ? 'grid md:grid-cols-[minmax(0,1fr)_220px] md:items-start' : 'block']}>
       <div>
         <h3 class="text-2xl font-bold mb-2">

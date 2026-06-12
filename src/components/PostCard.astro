@@ -34,7 +34,7 @@ const readingTime = calculateReadingTime(post.body);
 const wordCount = calculateWordCount(post.body);
 ---
 
-<article class="border-b border-gray-200 pb-8 last:border-0 dark:border-gray-800">
+<article class="animate-on-scroll glass-card rounded-xl p-6 last:mb-0">
   <HeadingTag class="text-2xl font-bold mb-2">
     <a href={postHref} class="text-primary-600 hover:underline dark:text-primary-400">
       {post.data.title}

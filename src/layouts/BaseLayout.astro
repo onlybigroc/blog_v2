@@ -10,6 +10,8 @@ import {
   withBrandSuffix,
 } from '@utils/site';
 import type { Breadcrumb } from '../types';
+import { ViewTransitions } from 'astro:transitions';
+import '../styles/animations.css';
 
 interface Props {
   title: string;
@@ -225,9 +227,20 @@ const tags = keywords ? keywords.split(',').map(t => t.trim()).filter(Boolean) :
 
         document.documentElement.classList.toggle('dark', theme === 'dark');
       })();
+
+      document.addEventListener('astro:after-swap', () => {
+        let theme = 'dark';
+        try {
+          theme = localStorage.getItem('theme') || theme;
+        } catch {
+          theme = 'dark';
+        }
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+      });
     </script>
+    <ViewTransitions />
   </head>
-  <body id="top" class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+  <body id="top" class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
     <slot />
     
     <!-- 图片懒加载：所有 <img> 标签已使用原生 loading="lazy"，无需额外 JS -->
