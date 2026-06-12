@@ -1221,14 +1221,14 @@ function cleanTitle(title) {
 
 function parsePublishedAtFromText(text, fallbackDate) {
   const normalized = normalizeWhitespace(text);
+  const nowYear = new Date().getFullYear();
 
   const fullMatch = normalized.match(/(\d{4})\s*[年/-]\s*(\d{1,2})\s*[月/-]\s*(\d{1,2})\s*[日号]?/);
   if (fullMatch) {
-    return new Date(
-      Number.parseInt(fullMatch[1], 10),
-      Number.parseInt(fullMatch[2], 10) - 1,
-      Number.parseInt(fullMatch[3], 10)
-    );
+    const year = Number.parseInt(fullMatch[1], 10);
+    if (year >= 2020 && year <= nowYear) {
+      return new Date(year, Number.parseInt(fullMatch[2], 10) - 1, Number.parseInt(fullMatch[3], 10));
+    }
   }
 
   const monthDayMatch = normalized.match(/(\d{1,2})\s*月\s*(\d{1,2})\s*[日号]/);
@@ -1334,10 +1334,9 @@ async function fetchArticleSnapshot(item) {
       ? await downloadAiNewsImage(image.coverImageOriginal, item.id, item.link)
       : '';
     const fallbackDate = parseDateCandidate(item.publishedAt) || new Date();
-    const publishedAt = parsePublishedAtFromText(
-      [summary, contentText].filter(Boolean).join(' '),
-      parseArticlePublishedAt(doc, fallbackDate)
-    );
+    const metaDate = parseArticlePublishedAt(doc, null);
+    const publishedAt = metaDate
+      || parsePublishedAtFromText([summary, contentText].filter(Boolean).join(' '), fallbackDate);
 
     return {
       publishedAt: publishedAt.toISOString(),
