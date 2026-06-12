@@ -316,24 +316,82 @@ const showReadingProgress = isArticlePath(pathname);
         link.classList.add('nav-link-animated');
       });
 
-      // 3D magnetic card tilt
-      document.querySelectorAll('.glass-card').forEach((card) => {
-        const el = card as HTMLElement;
-        el.style.transformStyle = 'preserve-3d';
-        el.addEventListener('mousemove', (e: MouseEvent) => {
-          const rect = el.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          const rotateX = ((y - centerY) / centerY) * -4;
-          const rotateY = ((x - centerX) / centerX) * 4;
-          el.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+      // 3D magnetic card tilt with smooth glow
+      if (!prefersReducedMotion) {
+        document.querySelectorAll('.glass-card').forEach((card) => {
+          const el = card as HTMLElement;
+          let animFrame: number | null = null;
+          let currentRotateX = 0;
+          let currentRotateY = 0;
+          let targetRotateX = 0;
+          let targetRotateY = 0;
+          let glowX = 50;
+          let glowY = 50;
+          let targetGlowX = 50;
+          let targetGlowY = 50;
+          let isHovering = false;
+
+          el.style.transformStyle = 'preserve-3d';
+          el.style.willChange = 'transform';
+          el.style.transition = 'none';
+
+          const glow = document.createElement('div');
+          glow.className = 'card-glow';
+          glow.style.cssText = 'position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity 0.4s ease;background:radial-gradient(circle at 50% 50%, rgba(59,130,246,0.15), transparent 60%);z-index:0;';
+          el.style.position = 'relative';
+          el.insertBefore(glow, el.firstChild);
+
+          const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
+
+          const animate = () => {
+            currentRotateX = lerp(currentRotateX, targetRotateX, 0.08);
+            currentRotateY = lerp(currentRotateY, targetRotateY, 0.08);
+            glowX = lerp(glowX, targetGlowX, 0.06);
+            glowY = lerp(glowY, targetGlowY, 0.06);
+
+            const translateZ = isHovering ? 10 : 0;
+            el.style.transform = `perspective(800px) rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg) translateZ(${translateZ}px)`;
+            glow.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(59,130,246,0.18), transparent 60%)`;
+
+            if (Math.abs(currentRotateX - targetRotateX) > 0.01 || Math.abs(currentRotateY - targetRotateY) > 0.01 || Math.abs(glowX - targetGlowX) > 0.1 || Math.abs(glowY - targetGlowY) > 0.1) {
+              animFrame = requestAnimationFrame(animate);
+            }
+          };
+
+          el.addEventListener('mousemove', (e: MouseEvent) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            targetRotateX = ((y - centerY) / centerY) * -5;
+            targetRotateY = ((x - centerX) / centerX) * 5;
+            targetGlowX = (x / rect.width) * 100;
+            targetGlowY = (y / rect.height) * 100;
+
+            if (!animFrame) {
+              animFrame = requestAnimationFrame(animate);
+            }
+          });
+
+          el.addEventListener('mouseenter', () => {
+            isHovering = true;
+            glow.style.opacity = '1';
+          });
+
+          el.addEventListener('mouseleave', () => {
+            isHovering = false;
+            targetRotateX = 0;
+            targetRotateY = 0;
+            targetGlowX = 50;
+            targetGlowY = 50;
+            glow.style.opacity = '0';
+            if (!animFrame) {
+              animFrame = requestAnimationFrame(animate);
+            }
+          });
         });
-        el.addEventListener('mouseleave', () => {
-          el.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
-        });
-      });
+      }
 
       // Magnetic button effect for nav links and CTA buttons
       if (!prefersReducedMotion) {
